@@ -8,8 +8,7 @@ import java.sql.SQLException
 
 class conx {
     private val ip="10.0.2.2:1433"
-    //private val ipGerson="10.20.2.63:57430"
-    private val db="MediLife"
+    private val db="VetSoft"
     private val username="userSQL"
     private val password="pasf2"
 
