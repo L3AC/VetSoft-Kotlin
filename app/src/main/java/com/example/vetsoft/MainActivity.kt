@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val conect =conx()
-        conect.hola()
+        conect.dbConn()
     }
 
     override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
