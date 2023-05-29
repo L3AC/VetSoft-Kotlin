@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity() {
         validTxt(txtUsuario1)
         validTxt(txtContra1)
         btnIngresar1.setOnClickListener(){
-
+            val scndAct = Intent(this, BarraNavegar::class.java)
+            startActivity(scndAct)
         }
         xvRecup1.setOnClickListener(){
 

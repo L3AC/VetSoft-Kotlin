@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/houseCliente">
+
+    <fragment
+        android:id="@+id/houseCliente"
+        android:name="com.example.vetsoft.ui.house.houseCliente"
+        android:label="fragment_house_cliente"
+        tools:layout="@layout/fragment_house_cliente" />
+    <fragment
+        android:id="@+id/doctMain"
+        android:name="com.example.vetsoft.ui.doctores.doctMain"
+        android:label="fragment_doct_main"
+        tools:layout="@layout/fragment_doct_main" />
+    <fragment
+        android:id="@+id/perfilMain"
+        android:name="com.example.vetsoft.ui.perfil.perfilMain"
+        android:label="fragment_perfil_main"
+        tools:layout="@layout/fragment_perfil_main" />
+    <fragment
+        android:id="@+id/tiendaMain"
+        android:name="com.example.vetsoft.ui.tienda.tiendaMain"
+        android:label="fragment_tienda_main"
+        tools:layout="@layout/fragment_tienda_main" />
+    <activity
+        android:id="@+id/barraNavegar"
+        android:name="com.example.vetsoft.BarraNavegar"
+        android:label="BarraNavegar" />
+</navigation>

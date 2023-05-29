@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/houseCliente"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/doctMain"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="Doctores" />
+
+    <item
+        android:id="@+id/tiendaMain"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Tienda" />
+    <item
+        android:id="@+id/perfilMain"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Perfil" />
+</menu>
