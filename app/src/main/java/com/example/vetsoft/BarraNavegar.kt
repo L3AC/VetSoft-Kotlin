@@ -9,7 +9,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.vetsoft.databinding.ActivityBarraNavegarBinding
-import android.widget.Toolbar;
 
 @Suppress("UNREACHABLE_CODE")
 class BarraNavegar : AppCompatActivity() {
@@ -27,16 +26,17 @@ class BarraNavegar : AppCompatActivity() {
         setContentView(binding.root)
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_barra_navegar)
-        val appBarConfiguration = AppBarConfiguration(
+
+        /*val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.houseCliente, R.id.doctMain, R.id.tiendaMain, R.id.perfilMain
             )
-        )
+        )*/
 
         /*val bundle = Bundle().apply {
             putInt("idus", idUs)
         }*/
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         navController.navigate(R.id.houseCliente,/* bundle*/)
 
