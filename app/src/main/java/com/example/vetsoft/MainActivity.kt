@@ -55,8 +55,7 @@ class MainActivity : AppCompatActivity() {
 
     fun VerifUs() {
         try {
-            val cadena: String = "select * from tbUsuarios where usuario=? " +
-                    "COLLATE SQL_Latin1_General_CP1_CS_AS and contra=? COLLATE SQL_Latin1_General_CP1_CS_AS"
+            val cadena: String = "EXEC LoginUs ?,?; "
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
@@ -68,14 +67,12 @@ class MainActivity : AppCompatActivity() {
             val found = st.row
             if (found == 1) {
                 idUs = st.getInt("idUsuario")
-
-                //Toast.makeText(applicationContext,"Acceso completado", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(applicationContext, "Datos incorrectos", Toast.LENGTH_SHORT).show()
             }
         } catch (ex: SQLException) {
-            Log.e("Error: ", ex.message!!)
-            Toast.makeText(applicationContext, "Errorsito", Toast.LENGTH_SHORT).show()
+            Log.e("Error L010 ", ex.message!!)
+            Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
         }
         conx.dbConn()!!.close()
     }
@@ -83,9 +80,7 @@ class MainActivity : AppCompatActivity() {
     fun verifCliente() {
         //val scndAct = Intent(this, MainInside::class.java)
         try {
-            val cadena: String = "select idCliente from tbClientes inner join \n" +
-                    "tbUsuarios on tbClientes.idUsuario=tbUsuarios.idUsuario \n" +
-                    "where tbClientes.idUsuario=?;"
+            val cadena: String = "EXEC UsCliente ?;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
