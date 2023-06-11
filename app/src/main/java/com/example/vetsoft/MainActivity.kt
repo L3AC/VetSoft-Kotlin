@@ -1,19 +1,15 @@
 package com.example.vetsoft
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
-import android.util.AttributeSet
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.vetsoft.Conex.conx
-import org.w3c.dom.Text
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -34,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         txtUsuario1 = findViewById(R.id.txtUsuario1)
-        txtContra1 = findViewById(R.id.txtContra1)
+        txtContra1 = findViewById(R.id.txtContraN2)
         xvRecup1= findViewById(R.id.xvRecup1)
         btnIngresar1= findViewById(R.id.btnIngresar1)
         xvCuenta1= findViewById(R.id.xvCuenta1)
