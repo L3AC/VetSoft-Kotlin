@@ -1,9 +1,14 @@
 package com.example.vetsoft
 
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.example.vetsoft.Conex.conx
@@ -17,8 +22,13 @@ lateinit var txtCorreo2:EditText
 lateinit var txtNomb2:EditText
 lateinit var txtApellidos2:EditText
 lateinit var txtTel2:EditText
-lateinit var txtContra2:EditText
 lateinit var txtDui2:EditText
+lateinit var spinSexo2:Spinner
+lateinit var btnNaci2:ImageButton
+lateinit var btnVolver2:ImageButton
+lateinit var txvCont2:TextView
+lateinit var txvUs2:TextView
+lateinit var btnConfirm2:Button
 
 class CrearCuenta : AppCompatActivity() {
     private var conx = conx()
@@ -27,6 +37,23 @@ class CrearCuenta : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_cuenta)
+        txtUsuario2=findViewById(R.id.txtUsuario2)
+        txtContraN2=findViewById(R.id.txtContraN2)
+        txtContraD2=findViewById(R.id.txtContraD2)
+        txtNomb2=findViewById(R.id.txtNomb2)
+        txtApellidos2=findViewById(R.id.txtApellidos2)
+        txtTel2=findViewById(R.id.txtTel2)
+        txtDui2=findViewById(R.id.txtDui2)
+        spinSexo2=findViewById(R.id.spinSexo2)
+        btnNaci2=findViewById(R.id.btnNaci2)
+        btnVolver2=findViewById(R.id.btnVolver2)
+        txvCont2=findViewById(R.id.txvCont2)
+        txvUs2=findViewById(R.id.txvUs2)
+        btnConfirm2=findViewById(R.id.btnConfirm2)
+
+        btnConfirm2.setOnClickListener(){
+
+        }
     }
 //CAMBIAR
     fun createUs() {

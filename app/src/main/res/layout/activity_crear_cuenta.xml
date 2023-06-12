@@ -25,7 +25,7 @@
                 android:layout_height="1069dp">
 
                 <ImageButton
-                    android:id="@+id/btnVolver"
+                    android:id="@+id/btnVolver2"
                     android:layout_width="49dp"
                     android:layout_height="49dp"
                     android:background="@android:color/transparent"
@@ -261,12 +261,13 @@
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.502"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.848" />
+                    app:layout_constraintVertical_bias="0.887" />
 
                 <TextView
-                    android:id="@+id/lbAdver"
+                    android:id="@+id/txvUs2"
                     android:layout_width="122dp"
                     android:layout_height="28dp"
                     android:text="Ya existe usuario"
@@ -280,7 +281,7 @@
                     app:layout_constraintVertical_bias="0.163" />
 
                 <TextView
-                    android:id="@+id/lbAdver2"
+                    android:id="@+id/txvCont2"
                     android:layout_width="210dp"
                     android:layout_height="20dp"
                     android:text="La contraseña debe ser igual"
