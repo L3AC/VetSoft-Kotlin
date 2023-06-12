@@ -207,7 +207,7 @@
                     app:layout_constraintVertical_bias="0.759" />
 
                 <ImageButton
-                    android:id="@+id/btnNaci"
+                    android:id="@+id/btnNaci2"
                     android:layout_width="49dp"
                     android:layout_height="49dp"
                     android:background="@android:color/transparent"
@@ -252,11 +252,11 @@
                     app:layout_constraintVertical_bias="0.615" />
 
                 <Button
-                    android:id="@+id/btnConfirm"
-                    android:layout_width="139dp"
-                    android:layout_height="60dp"
+                    android:id="@+id/btnConfirm2"
+                    android:layout_width="166dp"
+                    android:layout_height="73dp"
                     android:backgroundTint="#66AAD4"
-                    android:text="Registrar"
+                    android:text="Confirmar"
                     android:textColor="#040404"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"

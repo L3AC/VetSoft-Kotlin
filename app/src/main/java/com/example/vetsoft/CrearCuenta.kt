@@ -3,12 +3,22 @@ package com.example.vetsoft
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.example.vetsoft.Conex.conx
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
+lateinit var txtUsuario2:EditText
+lateinit var txtContraN2:EditText
+lateinit var txtContraD2:EditText
+lateinit var txtCorreo2:EditText
+lateinit var txtNomb2:EditText
+lateinit var txtApellidos2:EditText
+lateinit var txtTel2:EditText
+lateinit var txtContra2:EditText
+lateinit var txtDui2:EditText
 
 class CrearCuenta : AppCompatActivity() {
     private var conx = conx()
