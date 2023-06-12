@@ -3,6 +3,8 @@ package com.example.vetsoft
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -11,6 +13,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import com.example.vetsoft.Conex.conx
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -51,9 +54,22 @@ class CrearCuenta : AppCompatActivity() {
         txvUs2=findViewById(R.id.txvUs2)
         btnConfirm2=findViewById(R.id.btnConfirm2)
 
+        txvUs2.isVisible=false
+        txvCont2.isVisible=false//Advertencias
+
         btnConfirm2.setOnClickListener(){
 
         }
+//CADA VEZ QUE ESCRIBA SE MANDA A LLAMAR LA FUNCION
+        txtUsuario2.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                verifUs()
+            }
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
     }
 //CAMBIAR
     fun createUs() {
@@ -137,23 +153,23 @@ class CrearCuenta : AppCompatActivity() {
 
     fun verifUs() {
         try {
-            val cadena: String = "select * from tbUsuarios where usuario=?;"
+            val cadena: String = "EXEC selectUsN ?;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            //ps.setString(1, usu.text.toString())
+            ps.setString(1, txtUsuario2.text.toString())
             st = ps.executeQuery()
             st.next()
 
             val found = st.row
-            /*if (found == 1) {
-                textAdv.isVisible = true
+            if (found == 1) {
+                txvUs2.isVisible = true
                 Toast.makeText(applicationContext, "Ya existe usuario", Toast.LENGTH_SHORT).show()
 
             } else {
-                textAdv.isVisible = false
-                bingresar.isEnabled = false
-            }*/
+                txvUs2.isVisible = false
+                btnConfirm2.isEnabled = false
+            }
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
             Toast.makeText(applicationContext, "Error interno", Toast.LENGTH_SHORT).show()

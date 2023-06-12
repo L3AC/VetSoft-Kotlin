@@ -45,7 +45,8 @@ class MainActivity : AppCompatActivity() {
 
         }
         xvCuenta1.setOnClickListener(){
-
+            val scndAct = Intent(this,CrearCuenta::class.java)
+            startActivity(scndAct)
         }
     }
 
