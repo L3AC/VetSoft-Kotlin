@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.house.AgendarCIta" >
+    tools:context=".ui.house.AgendarCIta">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,75 +22,261 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="734dp">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcViewCD"
-                    android:layout_width="408dp"
-                    android:layout_height="413dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.454"
-
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.707" />
-
-                <TextView
-                    android:id="@+id/txvCitasP"
-                    android:layout_width="184dp"
-                    android:layout_height="41dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Citas pendientes"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.537"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.063" />
+                android:layout_height="834dp">
 
                 <ImageButton
-                    android:id="@+id/btnVolverAC"
-                    android:layout_width="45dp"
-                    android:layout_height="44dp"
+                    android:id="@+id/btnFecha"
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
                     android:background="@android:color/transparent"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.069"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.059"
-                     />
+                    app:layout_constraintVertical_bias="0.482"
+                    app:srcCompat="@drawable/calnd" />
 
-                <EditText
-                    android:id="@+id/txtBusqCD"
-                    android:layout_width="212dp"
+                <ImageButton
+                    android:id="@+id/btnVolver5"
+                    android:layout_width="49dp"
                     android:layout_height="49dp"
-                    android:background="@drawable/editext"
-                    android:elevation="5dp"
-                    android:ems="10"
-                    android:fontFamily="sans-serif"
-                    android:inputType="textPersonName"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.869"
+                    app:layout_constraintHorizontal_bias="0.086"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.195" />
+                    app:layout_constraintVertical_bias="0.046"
+                    app:srcCompat="@drawable/flecha" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Reserva de citas"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.045" />
 
                 <Spinner
-                    android:id="@+id/spBuscCD"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
+                    android:id="@+id/spinDoc"
+                    android:layout_width="321dp"
+                    android:layout_height="53dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.061"
+                    app:layout_constraintHorizontal_bias="0.411"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.194" />
+                    app:layout_constraintVertical_bias="0.321" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="121dp"
+                    android:layout_height="24dp"
+                    android:gravity="center"
+                    android:text="Área de consulta"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.134"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.136" />
+
+                <Spinner
+                    android:id="@+id/spinEsp"
+                    android:layout_width="321dp"
+                    android:layout_height="53dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.433"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.177" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="121dp"
+                    android:layout_height="24dp"
+                    android:gravity="center"
+                    android:text="Escoja al médico"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.134"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.276" />
+
+                <Spinner
+                    android:id="@+id/spinQuin"
+                    android:layout_width="90dp"
+                    android:layout_height="41dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.177"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.676" />
+
+                <Spinner
+                    android:id="@+id/spinEnt"
+                    android:layout_width="90dp"
+                    android:layout_height="41dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.177"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.619" />
+
+                <EditText
+                    android:id="@+id/txtNota"
+                    android:layout_width="339dp"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:gravity="fill_vertical|fill_horizontal"
+                    android:hint="Nota"
+                    android:inputType="text"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.611"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.789" />
+
+                <EditText
+                    android:id="@+id/txtHora"
+                    android:layout_width="93dp"
+                    android:layout_height="46dp"
+                    android:ems="10"
+                    android:hint="00:00"
+                    android:inputType="time"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.566"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.618" />
+
+                <TextView
+                    android:id="@+id/textoLol"
+                    android:layout_width="85dp"
+                    android:layout_height="25dp"
+                    android:gravity="center"
+                    android:text="Hora:"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.377"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.561" />
+
+                <TextView
+                    android:id="@+id/txvDispo"
+                    android:layout_width="149dp"
+                    android:layout_height="58dp"
+                    android:gravity="center"
+                    android:text="Disponible"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.988"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.702" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="95dp"
+                    android:layout_height="76dp"
+                    android:gravity="center"
+                    android:text="Horario de atencion:"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.895"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.409" />
+
+                <EditText
+                    android:id="@+id/txtFecha"
+                    android:layout_width="144dp"
+                    android:layout_height="51dp"
+                    android:ems="10"
+                    android:hint="YYYY/MM/DD"
+                    android:inputType="date"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.142"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.481" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="85dp"
+                    android:layout_height="25dp"
+                    android:gravity="center"
+                    android:text="Fecha:"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.116"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.405" />
+
+                <TextView
+                    android:id="@+id/txvHorario"
+                    android:layout_width="85dp"
+                    android:layout_height="25dp"
+                    android:gravity="center"
+                    android:text="Horario"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.868"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.481" />
+
+                <Button
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="135dp"
+                    android:layout_height="60dp"
+                    android:text="Confirmar"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.449"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.925" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
