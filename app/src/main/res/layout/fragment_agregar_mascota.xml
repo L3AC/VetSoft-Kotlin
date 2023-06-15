@@ -22,6 +22,147 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="734dp">
+
+                <Button
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="165dp"
+                    android:layout_height="75dp"
+                    android:backgroundTint="#4CAF50"
+                    android:text="Confirmar"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.913" />
+
+                <ImageButton
+                    android:id="@+id/btnVolverAC2"
+                    android:layout_width="45dp"
+                    android:layout_height="44dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.069"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.059"
+                    app:srcCompat="@drawable/flecha" />
+
+                <TextView
+                    android:id="@+id/txvCitasP6"
+                    android:layout_width="184dp"
+                    android:layout_height="41dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Agregar mascota"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.537"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.063" />
+
+                <EditText
+                    android:id="@+id/txtContraN"
+                    android:layout_width="343dp"
+                    android:layout_height="59dp"
+                    android:background="@drawable/editext"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Nombre de su mascota"
+                    android:inputType="textPassword"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.539" />
+
+                <TextView
+                    android:id="@+id/txvCitasP2"
+                    android:layout_width="132dp"
+                    android:layout_height="40dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Animal"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.103"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.174" />
+
+                <Spinner
+                    android:id="@+id/spAnimalAM"
+                    android:layout_width="281dp"
+                    android:layout_height="46dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.223"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.235" />
+
+                <TextView
+                    android:id="@+id/txvCitasP3"
+                    android:layout_width="132dp"
+                    android:layout_height="40dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Raza"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.103"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.347" />
+
+                <Spinner
+                    android:id="@+id/spRazaAM"
+                    android:layout_width="281dp"
+                    android:layout_height="46dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.223"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.408" />
+
+                <Spinner
+                    android:id="@+id/spSexoAM"
+                    android:layout_width="281dp"
+                    android:layout_height="46dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.223"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.726" />
+
+                <TextView
+                    android:id="@+id/txvCitasP5"
+                    android:layout_width="132dp"
+                    android:layout_height="40dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Sexo"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.103"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.664" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
