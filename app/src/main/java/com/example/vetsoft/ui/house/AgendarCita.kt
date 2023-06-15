@@ -35,7 +35,7 @@ class AgendarCIta : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_agendar_c_ita, container, false)
+        return inflater.inflate(R.layout.fragment_agendar_cita, container, false)
     }
 
     companion object {
