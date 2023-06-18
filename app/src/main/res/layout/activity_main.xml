@@ -26,20 +26,22 @@
 
                 <ImageView
                     android:id="@+id/imageView4"
-                    android:layout_width="382dp"
-                    android:layout_height="597dp"
+                    android:layout_width="510dp"
+                    android:layout_height="645dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.505"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.628"
+                    app:layout_constraintVertical_bias="0.505"
                     app:srcCompat="@drawable/recblanco" />
 
                 <EditText
                     android:id="@+id/txtUsuario1"
-                    android:layout_width="240dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/editext"
+                    android:layout_width="300dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/edt_background"
+                    android:drawableLeft="@drawable/baseline_person_24"
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Usuario"
@@ -49,52 +51,57 @@
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.304" />
+                    app:layout_constraintVertical_bias="0.454" />
 
                 <EditText
                     android:id="@+id/txtContra1"
-                    android:layout_width="209dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/editext"
+                    android:layout_width="304dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/edt_background"
+                    android:drawableLeft="@drawable/baseline_lock_24"
                     android:elevation="5dp"
                     android:ems="10"
-                    android:hint="Usuario"
+                    android:hint="Contraseña"
                     android:inputType="text|textPassword"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.42"
+                    app:layout_constraintHorizontal_bias="0.514"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.427" />
+                    app:layout_constraintVertical_bias="0.591" />
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="113dp"
-                    android:layout_height="109dp"
+                    android:layout_width="143dp"
+                    android:layout_height="137dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.054"
+                    app:layout_constraintVertical_bias="0.047"
                     app:srcCompat="@drawable/clinic" />
 
                 <Button
                     android:id="@+id/btnIngresar1"
-                    android:layout_width="141dp"
-                    android:layout_height="64dp"
+                    android:layout_width="208dp"
+                    android:layout_height="49dp"
+                    android:background="@drawable/btn_fondo1_2"
                     android:text="Ingresar"
+                    android:textColor="@drawable/btn_fondo1"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.755" />
+                    app:layout_constraintVertical_bias="0.788" />
 
                 <TextView
                     android:id="@+id/xvRecup1"
@@ -106,26 +113,26 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.93"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintHorizontal_bias="0.842"
-                    app:layout_constraintVertical_bias="0.533" />
+                    app:layout_constraintVertical_bias="0.653" />
 
                 <TextView
                     android:id="@+id/xvCuenta1"
                     android:layout_width="124dp"
                     android:layout_height="25dp"
                     android:fontFamily="sans-serif"
-                    android:text="Crear cuenta"
+                    android:text="Registrarme"
                     android:textAlignment="center"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.811"
+                    app:layout_constraintHorizontal_bias="0.519"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.883" />
+                    app:layout_constraintVertical_bias="0.878" />
 
                 <ImageButton
                     android:id="@+id/btnMirar1"
@@ -135,11 +142,27 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.805"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.425"
+                    app:layout_constraintVertical_bias="0.578"
                     app:srcCompat="@drawable/eye" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="252dp"
+                    android:layout_height="75dp"
+                    android:fontFamily="@font/montserrat_thin"
+                    android:text="Bienvenido a VetSoft"
+                    android:textAlignment="center"
+                    android:textColor="#1B4965"
+                    android:textSize="34sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.496"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.267" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

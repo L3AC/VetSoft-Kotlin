@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00BCD4"
+    android:background="#5FA8D3"
+    android:backgroundTint="#5FA8D3"
     tools:context=".RecupContra">
 
     <ScrollView
@@ -22,7 +23,86 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="730dp"></androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="730dp"
+                android:background="#CAE9FF">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="348dp"
+                    android:layout_height="647dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.492"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.506"
+                    app:srcCompat="@drawable/recblanco" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="103dp"
+                    android:layout_height="95dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.025"
+                    app:srcCompat="@drawable/clinic" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="302dp"
+                    android:layout_height="72dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Recuperacion de contraseña"
+                    android:textAlignment="center"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.196" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="151dp"
+                    android:layout_height="53dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Ingrese su usuario"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.311" />
+
+                <EditText
+                    android:id="@+id/editTextText"
+                    android:layout_width="277dp"
+                    android:layout_height="53dp"
+                    android:background="@drawable/edt_background"
+                    android:ems="10"
+                    android:hint="Aqui"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView4"
+                    app:layout_constraintHorizontal_bias="0.508"
+                    app:layout_constraintStart_toStartOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.414" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Button"
+                    tools:layout_editor_absoluteX="162dp"
+                    tools:layout_editor_absoluteY="537dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>
