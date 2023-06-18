@@ -3,15 +3,12 @@ package com.example.vetsoft
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.text.InputFilter
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
-import android.util.Patterns
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.DatePicker
@@ -21,7 +18,6 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.Validation.Validat

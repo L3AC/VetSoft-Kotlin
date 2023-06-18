@@ -1,15 +1,18 @@
 package com.example.vetsoft
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.InputFilter
+import android.text.InputType
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.example.vetsoft.Conex.conx
+import com.example.vetsoft.Validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -19,34 +22,55 @@ lateinit var txtContra1: EditText
 lateinit var xvRecup1: TextView
 lateinit var btnIngresar1: Button
 lateinit var xvCuenta1: TextView
+lateinit var btnMirar1:ImageButton
 
 class MainActivity : AppCompatActivity() {
     private var conx = conx()
+    private var vali = Validat()
     private var idUs: Int = 0
     private var idCl: Int = 0
+    var contraVisible = false
 
     //conect.dbConn()
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         txtUsuario1 = findViewById(R.id.txtUsuario1)
-        txtContra1 = findViewById(R.id.txtContraN2)
-        xvRecup1= findViewById(R.id.xvRecup1)
-        btnIngresar1= findViewById(R.id.btnIngresar1)
-        xvCuenta1= findViewById(R.id.xvCuenta1)
+        txtContra1 = findViewById(R.id.txtContra1)
+        xvRecup1 = findViewById(R.id.xvRecup1)
+        btnIngresar1 = findViewById(R.id.btnIngresar1)
+        xvCuenta1 = findViewById(R.id.xvCuenta1)
+        btnMirar1=findViewById(R.id.btnMirar1)
 
-        /*validTxt(txtUsuario1)
-        validTxt(txtContra1)*/
-        btnIngresar1.setOnClickListener(){
-            val scndAct = Intent(this, BarraNavegar::class.java)
+        vali.setupUC(txtUsuario1);vali.setupUC(txtContra1);
+
+        btnIngresar1.setOnClickListener() {
+            val editTextList = listOf(txtUsuario1, txtContra1)
+            val areFieldsValid = vali.areFieldsNotEmpty(editTextList)
+            if (areFieldsValid) {
+                VerifUs()
+                verifCliente()
+            } else {
+                Toast.makeText(applicationContext, "Campos vacíos", Toast.LENGTH_SHORT).show()
+            }
+        }
+        xvRecup1.setOnClickListener() {
+            val scndAct = Intent(this, RecupContra::class.java)
             startActivity(scndAct)
         }
-        xvRecup1.setOnClickListener(){
-
-        }
-        xvCuenta1.setOnClickListener(){
-            val scndAct = Intent(this,CrearCuenta::class.java)
+        xvCuenta1.setOnClickListener() {
+            val scndAct = Intent(this, CrearCuenta::class.java)
             startActivity(scndAct)
+        }
+        btnMirar1.setOnClickListener(){
+            contraVisible = !contraVisible
+            if (contraVisible) {
+                txtContra1.inputType = InputType.TYPE_CLASS_TEXT
+            } else {
+                txtContra1.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }
+            txtContra1.setSelection(txtContra1.text.length)
         }
     }
 
@@ -75,7 +99,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun verifCliente() {
-        //val scndAct = Intent(this, MainInside::class.java)
         try {
             val cadena: String = "EXEC UsCliente ?;"
             val st: ResultSet
@@ -88,9 +111,10 @@ class MainActivity : AppCompatActivity() {
             val found = st.row
             if (found == 1) {
                 idCl = st.getInt("idCliente")
-                /*scndAct.putExtra("idCuenta", idCuenta)
+                val scndAct = Intent(this, BarraNavegar::class.java)
+                scndAct.putExtra("idCliente", idCl)
                 scndAct.putExtra("idus", idUs)
-                startActivity(scndAct)*/
+                startActivity(scndAct)
                 overridePendingTransition(0, 0)
                 Toast.makeText(applicationContext, "Acceso completado", Toast.LENGTH_SHORT)
                     .show()

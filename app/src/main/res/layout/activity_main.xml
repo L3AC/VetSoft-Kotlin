@@ -35,6 +35,44 @@
                     app:layout_constraintVertical_bias="0.628"
                     app:srcCompat="@drawable/recblanco" />
 
+                <EditText
+                    android:id="@+id/txtUsuario1"
+                    android:layout_width="240dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/editext"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Usuario"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.304" />
+
+                <EditText
+                    android:id="@+id/txtContra1"
+                    android:layout_width="209dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/editext"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Usuario"
+                    android:inputType="text|textPassword"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.42"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.427" />
+
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="113dp"
@@ -45,34 +83,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.054"
                     app:srcCompat="@drawable/clinic" />
-
-                <EditText
-                    android:id="@+id/txtUsuario1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="Name"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.3" />
-
-                <EditText
-                    android:id="@+id/txtContraN2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="Name"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.424" />
 
                 <Button
                     android:id="@+id/btnIngresar1"
@@ -116,6 +126,20 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.883" />
+
+                <ImageButton
+                    android:id="@+id/btnMirar1"
+                    android:layout_width="41dp"
+                    android:layout_height="46dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.805"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.425"
+                    app:srcCompat="@drawable/eye" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
