@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
         btnIngresar1= findViewById(R.id.btnIngresar1)
         xvCuenta1= findViewById(R.id.xvCuenta1)
 
-        validTxt(txtUsuario1)
-        validTxt(txtContra1)
+        /*validTxt(txtUsuario1)
+        validTxt(txtContra1)*/
         btnIngresar1.setOnClickListener(){
             val scndAct = Intent(this, BarraNavegar::class.java)
             startActivity(scndAct)
@@ -105,27 +105,5 @@ class MainActivity : AppCompatActivity() {
         }
         conx.dbConn()!!.close()
     }
-    //VERIFICAR QUE SOLO INGRESE NUMEROS Y LETRAS
-    fun validTxt(editText: EditText) {
-        val filter = InputFilter { source, _, _, _, _, _ ->
-            val pattern = Regex("^[a-zA-Z0-9]+\$") // Expresión regular para letras y numeros
-            if (pattern.matches(source)) {
-                source
-            } else {
-                "" // Si no coincide con la expresión regular, se rechaza el carácter
-            }
-        }
-        editText.filters = arrayOf(filter)
-    }
 
-    fun validEmpty(editTextList: List<EditText>): Boolean {
-        for (editText in editTextList) {
-            val text = editText.text.toString().trim()
-            if (text.isEmpty()) {
-                Toast.makeText(applicationContext, "Campos vacíos", Toast.LENGTH_SHORT).show()
-                return false
-            }
-        }
-        return true
-    }
 }

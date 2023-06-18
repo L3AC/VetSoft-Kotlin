@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
+import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
 import android.util.Patterns
@@ -23,6 +24,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Conex.conx
+import com.example.vetsoft.Validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -43,73 +45,16 @@ lateinit var btnVolver2:ImageButton
 lateinit var txvCont2:TextView
 lateinit var txvUs2:TextView
 lateinit var btnConfirm2:Button
+lateinit var btnMirar2:ImageButton
 
 class CrearCuenta : AppCompatActivity() {
-    fun isEmailValid(email: String): Boolean {
-        val pattern = Patterns.EMAIL_ADDRESS
-        return pattern.matcher(email).matches()
-    }
 
-    fun validateEmail(editText: EditText): Boolean {
-        val email = editText.text.toString().trim()
-        val isValid = isEmailValid(email)
-        if (!isValid) {
-            editText.error = "Correo electrónico inválido"
-            btnConfirm2.isEnabled=false
-
-        } else {
-            editText.error = null
-            btnConfirm2.isEnabled=true
-        }
-        return isValid
-    }
-    fun setupET(editText: EditText) {
-        val filter = InputFilter { source, _, _, _, _, _ ->
-            val pattern = Regex("[a-zA-Z\\s]*") // Expresión regular para letras y espacios
-            if (pattern.matches(source)) {
-                source
-            } else {
-                "" // Si no coincide con la expresión regular, se rechaza el carácter
-            }
-        }
-        editText.filters = arrayOf(filter)
-    }
-    fun setupUC(editText: EditText) {
-        val filter = InputFilter { source, _, _, _, _, _ ->
-            val pattern = Regex("^[a-zA-Z0-9]+$") // Expresión regular para letras y numeros
-            if (pattern.matches(source)) {
-                source
-            } else {
-                "" // Si no coincide con la expresión regular, se rechaza el carácter
-            }
-        }
-        editText.filters = arrayOf(filter)
-    }
-    fun setupNumb(editText: EditText) {
-        val filter = InputFilter { source, _, _, _, _, _ ->
-            val pattern = Regex("[0-9]+") // Expresión regular para numeros
-            if (pattern.matches(source)) {
-                source
-            } else {
-                "" // Si no coincide con la expresión regular, se rechaza el carácter
-            }
-        }
-        editText.filters = arrayOf(filter)
-    }
-    fun areFieldsNotEmpty(editTextList: List<EditText>): Boolean {
-        for (editText in editTextList) {
-            val text = editText.text.toString().trim()
-            if (text.isEmpty()) {
-                Toast.makeText(applicationContext, "Campos vacíos", Toast.LENGTH_SHORT).show()
-                return false
-            }
-        }
-        return true
-    }
     private var conx = conx()
+    private var vali=Validat()
     private var idUs: Int = 0
     private var idCl: Int = 0
     private var fechaSql: String = ""
+    var contraVisible = false
     val sexo = listOf("Femenino", "Masculino")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -129,19 +74,21 @@ class CrearCuenta : AppCompatActivity() {
         txvCont2=findViewById(R.id.txvCont2)
         txvUs2=findViewById(R.id.txvUs2)
         btnConfirm2=findViewById(R.id.btnConfirm2)
+        btnMirar2=findViewById(R.id.btnMirar2)
 
+        LLenarSpin()
         txvUs2.isVisible=false
         txvCont2.isVisible=false//Advertencias
         txtNaci2.isEnabled=false
 //VERIFICAR QUE NO ESTE VACIO
-        setupUC(txtUsuario2);setupUC(txtContraN2);setupUC(txtContraD2);
-        setupET(txtNomb2);setupET(txtApellidos2);
-        setupNumb(txtTel2);setupNumb(txtDui2)
+        vali.setupUC(txtUsuario2);vali.setupUC(txtContraN2);vali.setupUC(txtContraD2);
+        vali.setupET(txtNomb2);vali.setupET(txtApellidos2);
+        vali.setupNumb(txtTel2);vali.setupNumb(txtDui2)
 
         btnConfirm2.setOnClickListener(){
             val editTextList = listOf(txtUsuario2, txtContraN2,
                 txtContraD2, txtCorreo2,txtNomb2, txtApellidos2, txtTel2, txtDui2)
-            val areFieldsValid  = areFieldsNotEmpty(editTextList)
+            val areFieldsValid  = vali.areFieldsNotEmpty(editTextList)
             if(areFieldsValid){
                 createUs()
                 selectUs()
@@ -151,7 +98,7 @@ class CrearCuenta : AppCompatActivity() {
                 startActivity(scndAct)
             }
             else{
-                Toast.makeText(applicationContext, "Campos incorrectos o vacíos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Campos vacíos", Toast.LENGTH_SHORT).show()
             }
         }
         btnNaci2.setOnClickListener(){
@@ -174,7 +121,7 @@ class CrearCuenta : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                validateEmail(txtCorreo2)
+                vali.validateEmail(txtCorreo2, btnConfirm2)
             }
             override fun afterTextChanged(s: Editable?) {
             }
@@ -183,7 +130,7 @@ class CrearCuenta : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                validateEmail(txtCorreo2)
+                verifContra()
             }
             override fun afterTextChanged(s: Editable?) {
             }
@@ -192,11 +139,23 @@ class CrearCuenta : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                validateEmail(txtCorreo2)
+                verifContra()
             }
             override fun afterTextChanged(s: Editable?) {
             }
         })
+        btnMirar2.setOnClickListener{
+            contraVisible = !contraVisible
+            if (contraVisible) {
+                txtContraN2.inputType = InputType.TYPE_CLASS_TEXT
+                txtContraD2.inputType = InputType.TYPE_CLASS_TEXT
+            } else {
+                txtContraN2.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                txtContraD2.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }
+            txtContraN2.setSelection(txtContraN2.text.length)
+            txtContraD2.setSelection(txtContraD2.text.length)
+        }
 
     }
     fun verifUs() {
