@@ -1,5 +1,8 @@
 package com.example.vetsoft
 
+import android.app.DatePickerDialog
+import android.app.Dialog
+import android.content.Intent
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +11,9 @@ import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.Log
 import android.util.Patterns
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Spinner
@@ -16,10 +21,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Conex.conx
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
+import java.util.Calendar
+
 lateinit var txtUsuario2:EditText
 lateinit var txtContraN2:EditText
 lateinit var txtContraD2:EditText
@@ -47,9 +55,11 @@ class CrearCuenta : AppCompatActivity() {
         val isValid = isEmailValid(email)
         if (!isValid) {
             editText.error = "Correo electrónico inválido"
+            btnConfirm2.isEnabled=false
 
         } else {
             editText.error = null
+            btnConfirm2.isEnabled=true
         }
         return isValid
     }
@@ -99,6 +109,8 @@ class CrearCuenta : AppCompatActivity() {
     private var conx = conx()
     private var idUs: Int = 0
     private var idCl: Int = 0
+    private var fechaSql: String = ""
+    val sexo = listOf("Femenino", "Masculino")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_cuenta)
@@ -121,14 +133,33 @@ class CrearCuenta : AppCompatActivity() {
         txvUs2.isVisible=false
         txvCont2.isVisible=false//Advertencias
         txtNaci2.isEnabled=false
-
+//VERIFICAR QUE NO ESTE VACIO
         setupUC(txtUsuario2);setupUC(txtContraN2);setupUC(txtContraD2);
         setupET(txtNomb2);setupET(txtApellidos2);
         setupNumb(txtTel2);setupNumb(txtDui2)
 
         btnConfirm2.setOnClickListener(){
-
+            val editTextList = listOf(txtUsuario2, txtContraN2,
+                txtContraD2, txtCorreo2,txtNomb2, txtApellidos2, txtTel2, txtDui2)
+            val areFieldsValid  = areFieldsNotEmpty(editTextList)
+            if(areFieldsValid){
+                createUs()
+                selectUs()
+                createCl()
+                Toast.makeText(applicationContext, "Cuenta creada exitosamente", Toast.LENGTH_SHORT).show()
+                val scndAct = Intent(this, MainActivity::class.java)
+                startActivity(scndAct)
+            }
+            else{
+                Toast.makeText(applicationContext, "Campos incorrectos o vacíos", Toast.LENGTH_SHORT).show()
+            }
         }
+        btnNaci2.setOnClickListener(){
+            val Calendario =
+                DatePickerFragment { year, month, day -> verResultado(year, month, day) }
+            Calendario.show(supportFragmentManager, "DatePicker")
+        }
+
 //CADA VEZ QUE ESCRIBA SE MANDA A LLAMAR LA FUNCION
         txtUsuario2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -140,6 +171,24 @@ class CrearCuenta : AppCompatActivity() {
             }
         })
         txtCorreo2.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                validateEmail(txtCorreo2)
+            }
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        txtContraN2.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                validateEmail(txtCorreo2)
+            }
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        txtContraD2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -179,14 +228,15 @@ class CrearCuenta : AppCompatActivity() {
     fun createUs() {
 
         try {
-            val cadena: String = "EXEC insertUs ?,?,?,?,?,?;"
+            val cadena: String = "EXEC insertUs ?,?,?,?,?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            /*ps.setString(1, usu.text.toString())
-            ps.setString(2, contra2.text.toString())
-            ps.setString(3, correo.text.toString())*/
-
+            ps.setInt(1, 3)
+            ps.setString(2, txtUsuario2.text.toString())
+            ps.setString(3, txtContraN2.text.toString())
+            ps.setString(4, txtCorreo2.text.toString())
+            ps.setString(5, txtTel2.text.toString())
             ps.executeUpdate()
 
         } catch (ex: SQLException) {
@@ -202,7 +252,7 @@ class CrearCuenta : AppCompatActivity() {
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-           // ps.setString(1, usu.text.toString())
+            ps.setString(1, txtUsuario2.text.toString())
             st = ps.executeQuery()
             st.next()
 
@@ -228,21 +278,12 @@ class CrearCuenta : AppCompatActivity() {
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            ps.setString(1, idUs.toString())
-           /* ps.setString(2, nomb.text.toString())
-            ps.setString(3, apell.text.toString())
-            ps.setString(4, tpdoc.selectedItem.toString())
-            ps.setString(5, ndoc.text.toString())
-            ps.setString(6, fechaSql)
-            ps.setString(7, tpsexo.selectedItem.toString())
-            ps.setString(8, tel.text.toString())
-            ps.setString(9, tpsangre.text.toString())
-            if(patol.text.toString()==""){
-                ps.setString(10, "Ninguna")
-            }
-            else{
-                ps.setString(10, patol.text.toString())
-            }*/
+            ps.setInt(1, idUs)
+            ps.setString(2, txtNomb2.text.toString())
+            ps.setString(3, txtApellidos2.text.toString())
+            ps.setString(4, txtDui2.text.toString())
+            ps.setString(5, fechaSql)
+            ps.setString(6, spinSexo2.selectedItem.toString())
             ps.executeUpdate()
 
         } catch (ex: SQLException) {
@@ -252,6 +293,45 @@ class CrearCuenta : AppCompatActivity() {
         conx.dbConn()!!.close()
 
     }
+    fun LLenarSpin() {
+        val adaptadorSpinner = ArrayAdapter(this, android.R.layout.simple_spinner_item, sexo)
+        adaptadorSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val spinner = findViewById<Spinner>(R.id.spinSexo2)
+        spinner.adapter = adaptadorSpinner
 
+    }
+    private fun verResultado(year: Int, month: Int, day: Int) {
+        val mes = month + 1
+        fechaSql = "$year-$mes-$day"
+        txtNaci2?.setText("$day-$mes-$year")
+
+    }
+    class DatePickerFragment(val listener: (year: Int, month: Int, day: Int) -> Unit) :
+        DialogFragment(),
+        DatePickerDialog.OnDateSetListener {
+
+        override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+
+            return DatePickerDialog(requireActivity(), this, year, month, day)
+        }
+
+        override fun onDateSet(p0: DatePicker?, year: Int, month: Int, day: Int) {
+            listener(year, month, day)
+        }
+    }
+    fun verifContra() {
+        if (txtContraN2.text.toString() != txtContraD2.text.toString()) {
+            txvCont2.isVisible=true
+            btnConfirm2.isEnabled=false
+        }
+        else {
+            txvCont2.isVisible=false
+            btnConfirm2.isEnabled=true
+        }
+    }
 
 }
