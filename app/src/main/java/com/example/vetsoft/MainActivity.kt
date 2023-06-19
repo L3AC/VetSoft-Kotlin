@@ -2,6 +2,7 @@ package com.example.vetsoft
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -11,8 +12,10 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.Validation.Validat
+import com.example.vetsoft.Cryptation.Crypto
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -27,11 +30,13 @@ lateinit var btnMirar1:ImageButton
 class MainActivity : AppCompatActivity() {
     private var conx = conx()
     private var vali = Validat()
+    private var crypt=Crypto()
     private var idUs: Int = 0
     private var idCl: Int = 0
     var contraVisible = false
 
     //conect.dbConn()
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,14 +79,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun VerifUs() {
         try {
             val cadena: String = "EXEC LoginUs ?,?; "
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
+
             ps.setString(1, txtUsuario1.text.toString())
-            ps.setString(2, txtContra1.text.toString())
+            ps.setString(2, crypt.encrypt(txtContra1.text.toString(),"vets"))//ENCRIPTADO
             st = ps.executeQuery()
             st.next()
 

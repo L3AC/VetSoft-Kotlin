@@ -68,4 +68,8 @@ class Validat {
         }
         return true
     }
+    fun setMax(editText: EditText, maxLength: Int) {
+        val filterArray = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
+        editText.filters = filterArray
+    }
 }

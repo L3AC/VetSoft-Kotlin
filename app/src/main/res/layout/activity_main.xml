@@ -58,13 +58,13 @@
 
                 <EditText
                     android:id="@+id/txtContra1"
-                    android:layout_width="304dp"
-                    android:layout_height="55dp"
+                    android:layout_width="253dp"
+                    android:layout_height="57dp"
                     android:layout_margin="15dp"
                     android:background="@drawable/edt_background"
                     android:drawableLeft="@drawable/baseline_lock_24"
-                    android:elevation="5dp"
-                    android:ems="10"
+                    android:elevation="10dp"
+                    android:ems="20"
                     android:hint="Contraseña"
                     android:inputType="text|textPassword"
                     android:textAlignment="center"
@@ -72,10 +72,10 @@
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.514"
+                    app:layout_constraintHorizontal_bias="0.348"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.591" />
+                    app:layout_constraintVertical_bias="0.582" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -113,10 +113,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.93"
+                    app:layout_constraintHorizontal_bias="0.834"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.653" />
+                    app:layout_constraintVertical_bias="0.657" />
 
                 <TextView
                     android:id="@+id/xvCuenta1"
@@ -129,10 +129,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.519"
+                    app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.878" />
+                    app:layout_constraintVertical_bias="0.882" />
 
                 <ImageButton
                     android:id="@+id/btnMirar1"
@@ -142,10 +142,10 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.867"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.578"
+                    app:layout_constraintVertical_bias="0.573"
                     app:srcCompat="@drawable/eye" />
 
                 <TextView

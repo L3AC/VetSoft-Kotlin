@@ -3,6 +3,7 @@ package com.example.vetsoft
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -17,9 +18,11 @@ import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Conex.conx
+import com.example.vetsoft.Cryptation.Crypto
 import com.example.vetsoft.Validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -47,11 +50,13 @@ class CrearCuenta : AppCompatActivity() {
 
     private var conx = conx()
     private var vali=Validat()
+    private var crypt= Crypto()
     private var idUs: Int = 0
     private var idCl: Int = 0
     private var fechaSql: String = ""
     var contraVisible = false
     val sexo = listOf("Femenino", "Masculino")
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_cuenta)
@@ -80,6 +85,8 @@ class CrearCuenta : AppCompatActivity() {
         vali.setupUC(txtUsuario2);vali.setupUC(txtContraN2);vali.setupUC(txtContraD2);
         vali.setupET(txtNomb2);vali.setupET(txtApellidos2);
         vali.setupNumb(txtTel2);vali.setupNumb(txtDui2)
+
+        vali.setMax(txtUsuario2,15);vali.setMax(txtContraN2,20);vali.setMax(txtContraD2,20);
 
         btnConfirm2.setOnClickListener(){
             val editTextList = listOf(txtUsuario2, txtContraN2,
@@ -180,7 +187,8 @@ class CrearCuenta : AppCompatActivity() {
         conx.dbConn()!!.close()
     }
 //CAMBIAR
-    fun createUs() {
+@RequiresApi(Build.VERSION_CODES.O)
+fun createUs() {
 
         try {
             val cadena: String = "EXEC insertUs ?,?,?,?,?;"
@@ -189,7 +197,7 @@ class CrearCuenta : AppCompatActivity() {
 
             ps.setInt(1, 3)
             ps.setString(2, txtUsuario2.text.toString())
-            ps.setString(3, txtContraN2.text.toString())
+            ps.setString(3, crypt.encrypt(txtContraN2.text.toString(),"vets"))
             ps.setString(4, txtCorreo2.text.toString())
             ps.setString(5, txtTel2.text.toString())
             ps.executeUpdate()
