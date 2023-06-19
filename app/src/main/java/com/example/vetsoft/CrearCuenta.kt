@@ -27,6 +27,7 @@ import com.example.vetsoft.Validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
+import java.util.Base64
 import java.util.Calendar
 
 lateinit var txtUsuario2:EditText
@@ -81,13 +82,15 @@ class CrearCuenta : AppCompatActivity() {
         txvUs2.isVisible=false
         txvCont2.isVisible=false//Advertencias
         txtNaci2.isEnabled=false
-//VERIFICAR QUE NO ESTE VACIO
+
         vali.setupUC(txtUsuario2);vali.setupUC(txtContraN2);vali.setupUC(txtContraD2);
         vali.setupET(txtNomb2);vali.setupET(txtApellidos2);
         vali.setupNumb(txtTel2);vali.setupNumb(txtDui2)
 
-        vali.setMax(txtUsuario2,15);vali.setMax(txtContraN2,20);vali.setMax(txtContraD2,20);
-
+        vali.setMax(txtUsuario2,15);vali.setMax(txtContraN2,20);
+        vali.setMax(txtContraD2,20);vali.setMax(txtNomb2,30);
+        vali.setMax(txtApellidos2,30);vali.setMax(txtTel2,8);vali.setMax(txtDui2,10)
+//VERIFICAR QUE NO ESTE VACIO
         btnConfirm2.setOnClickListener(){
             val editTextList = listOf(txtUsuario2, txtContraN2,
                 txtContraD2, txtCorreo2,txtNomb2, txtApellidos2, txtTel2, txtDui2)
@@ -192,12 +195,11 @@ fun createUs() {
 
         try {
             val cadena: String = "EXEC insertUs ?,?,?,?,?;"
-
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
             ps.setInt(1, 3)
             ps.setString(2, txtUsuario2.text.toString())
-            ps.setString(3, crypt.encrypt(txtContraN2.text.toString(),"vets"))
+            ps.setString(3, crypt.encrypt(txtContraN2.text.toString(),"key"))
             ps.setString(4, txtCorreo2.text.toString())
             ps.setString(5, txtTel2.text.toString())
             ps.executeUpdate()

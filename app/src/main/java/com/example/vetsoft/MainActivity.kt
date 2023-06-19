@@ -16,9 +16,12 @@ import androidx.annotation.RequiresApi
 import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.Validation.Validat
 import com.example.vetsoft.Cryptation.Crypto
+import com.google.android.gms.common.util.IOUtils.toByteArray
+import java.security.Key
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
+import javax.crypto.spec.SecretKeySpec
 
 lateinit var txtUsuario1: EditText
 lateinit var txtContra1: EditText
@@ -33,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     private var crypt=Crypto()
     private var idUs: Int = 0
     private var idCl: Int = 0
+    @RequiresApi(Build.VERSION_CODES.O)
     var contraVisible = false
 
     //conect.dbConn()
@@ -47,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         btnIngresar1 = findViewById(R.id.btnIngresar1)
         xvCuenta1 = findViewById(R.id.xvCuenta1)
         btnMirar1=findViewById(R.id.btnMirar1)
-
+        //DIFERENT
         vali.setupUC(txtUsuario1);vali.setupUC(txtContra1);
 
         btnIngresar1.setOnClickListener() {
@@ -86,13 +90,14 @@ class MainActivity : AppCompatActivity() {
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-
             ps.setString(1, txtUsuario1.text.toString())
-            ps.setString(2, crypt.encrypt(txtContra1.text.toString(),"vets"))//ENCRIPTADO
+            ps.setString(2, crypt.encrypt(txtContraN2.text.toString(),"key"))//ENCRIPTADO
+
             st = ps.executeQuery()
             st.next()
 
             val found = st.row
+
             if (found == 1) {
                 idUs = st.getInt("idUsuario")
             } else {
