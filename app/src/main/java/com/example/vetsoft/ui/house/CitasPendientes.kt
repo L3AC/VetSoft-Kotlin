@@ -5,10 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.R
+import com.example.vetsoft.Validation.Validat
 
 class CitasPendientes : Fragment() {
-
+    private var idUs: Int = 0
+    private var idCl:Int=0
+    private var conx = conx()
+    private var vali = Validat()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

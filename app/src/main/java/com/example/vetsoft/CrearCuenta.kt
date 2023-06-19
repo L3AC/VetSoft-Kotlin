@@ -192,7 +192,6 @@ class CrearCuenta : AppCompatActivity() {
 //CAMBIAR
 @RequiresApi(Build.VERSION_CODES.O)
 fun createUs() {
-
         try {
             val cadena: String = "EXEC insertUs ?,?,?,?,?;"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!

@@ -5,28 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.R
+import com.example.vetsoft.Validation.Validat
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AgendarCIta.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AgendarCIta : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
+    private var idUs: Int = 0
+    private var idCl:Int=0
+    private var conx = conx()
+    private var vali = Validat()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            idUs = arguments?.getInt("idUs")!!
+            idCl = arguments?.getInt("idCl")!!
         }
     }
 
@@ -38,23 +31,4 @@ class AgendarCIta : Fragment() {
         return inflater.inflate(R.layout.fragment_agendar_cita, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AgendarCIta.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AgendarCIta().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

@@ -124,8 +124,8 @@ class MainActivity : AppCompatActivity() {
             if (found == 1) {
                 idCl = st.getInt("idCliente")
                 val scndAct = Intent(this, BarraNavegar::class.java)
-                scndAct.putExtra("idCliente", idCl)
-                scndAct.putExtra("idus", idUs)
+                scndAct.putExtra("idCl", idCl)
+                scndAct.putExtra("idUs", idUs)
                 startActivity(scndAct)
                 overridePendingTransition(0, 0)
                 Toast.makeText(applicationContext, "Acceso completado", Toast.LENGTH_SHORT)

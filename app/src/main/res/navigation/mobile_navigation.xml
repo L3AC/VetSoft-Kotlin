@@ -9,7 +9,20 @@
         android:id="@+id/houseCliente"
         android:name="com.example.vetsoft.ui.house.houseCliente"
         android:label="fragment_house_cliente"
-        tools:layout="@layout/fragment_house_cliente" />
+        tools:layout="@layout/fragment_house_cliente" >
+        <action
+            android:id="@+id/action_houseCliente_to_agendarCIta"
+            app:destination="@id/agendarCIta" />
+        <action
+            android:id="@+id/action_houseCliente_to_citasPendientes"
+            app:destination="@id/citasPendientes" />
+        <action
+            android:id="@+id/action_houseCliente_to_agregarMascota"
+            app:destination="@id/agregarMascota" />
+        <action
+            android:id="@+id/action_houseCliente_to_historialCitas"
+            app:destination="@id/historialCitas" />
+    </fragment>
     <fragment
         android:id="@+id/doctMain"
         android:name="com.example.vetsoft.ui.doctores.doctMain"
@@ -29,4 +42,40 @@
         android:id="@+id/barraNavegar"
         android:name="com.example.vetsoft.BarraNavegar"
         android:label="BarraNavegar" />
+    <fragment
+        android:id="@+id/agendarCIta"
+        android:name="com.example.vetsoft.ui.house.AgendarCIta"
+        android:label="fragment_agendar_cita"
+        tools:layout="@layout/fragment_agendar_cita" >
+        <action
+            android:id="@+id/action_agendarCIta_to_houseCliente"
+            app:destination="@id/houseCliente" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarMascota"
+        android:name="com.example.vetsoft.ui.house.AgregarMascota"
+        android:label="fragment_agregar_mascota"
+        tools:layout="@layout/fragment_agregar_mascota" >
+        <action
+            android:id="@+id/action_agregarMascota_to_houseCliente"
+            app:destination="@id/houseCliente" />
+    </fragment>
+    <fragment
+        android:id="@+id/citasPendientes"
+        android:name="com.example.vetsoft.ui.house.CitasPendientes"
+        android:label="fragment_citas_pendientes"
+        tools:layout="@layout/fragment_citas_pendientes" >
+        <action
+            android:id="@+id/action_citasPendientes_to_houseCliente"
+            app:destination="@id/houseCliente" />
+    </fragment>
+    <fragment
+        android:id="@+id/historialCitas"
+        android:name="com.example.vetsoft.ui.house.HistorialCitas"
+        android:label="fragment_historial_citas"
+        tools:layout="@layout/fragment_historial_citas" >
+        <action
+            android:id="@+id/action_historialCitas_to_houseCliente"
+            app:destination="@id/houseCliente" />
+    </fragment>
 </navigation>

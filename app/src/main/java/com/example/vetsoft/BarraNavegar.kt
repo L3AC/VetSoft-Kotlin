@@ -8,19 +8,25 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.vetsoft.Conex.conx
+import com.example.vetsoft.Validation.Validat
 import com.example.vetsoft.databinding.ActivityBarraNavegarBinding
 
 @Suppress("UNREACHABLE_CODE")
 class BarraNavegar : AppCompatActivity() {
     private var idUs: Int = 0
+    private var idCl:Int=0
+
     private lateinit var binding: ActivityBarraNavegarBinding
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-
         val extras = intent.extras
+        idUs= extras?.getInt("idUs")!!
+        idCl = extras?.getInt("idCl")!!
+
 
         binding = ActivityBarraNavegarBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -33,15 +39,16 @@ class BarraNavegar : AppCompatActivity() {
             )
         )*/
 
-        /*val bundle = Bundle().apply {
-            putInt("idus", idUs)
-        }*/
+        val bundle = Bundle().apply {
+            putInt("idUs", idUs)
+            putInt("idCl", idCl)
+        }
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        navController.navigate(R.id.houseCliente,/* bundle*/)
+        navController.navigate(R.id.houseCliente,bundle)
 
         navView.setOnNavigationItemSelectedListener { item ->
-            navController.navigate(item.itemId,/* bundle*/)
+            navController.navigate(item.itemId, bundle)
             true
         }
     }
