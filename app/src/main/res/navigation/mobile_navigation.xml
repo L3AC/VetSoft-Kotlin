@@ -17,11 +17,11 @@
             android:id="@+id/action_houseCliente_to_citasPendientes"
             app:destination="@id/citasPendientes" />
         <action
-            android:id="@+id/action_houseCliente_to_agregarMascota"
-            app:destination="@id/agregarMascota" />
-        <action
             android:id="@+id/action_houseCliente_to_historialCitas"
             app:destination="@id/historialCitas" />
+        <action
+            android:id="@+id/action_houseCliente_to_mainMascota"
+            app:destination="@id/mainMascota" />
     </fragment>
     <fragment
         android:id="@+id/doctMain"
@@ -57,8 +57,8 @@
         android:label="fragment_agregar_mascota"
         tools:layout="@layout/fragment_agregar_mascota" >
         <action
-            android:id="@+id/action_agregarMascota_to_houseCliente"
-            app:destination="@id/houseCliente" />
+            android:id="@+id/action_agregarMascota_to_infoMascota"
+            app:destination="@id/infoMascota" />
     </fragment>
     <fragment
         android:id="@+id/citasPendientes"
@@ -77,5 +77,29 @@
         <action
             android:id="@+id/action_historialCitas_to_houseCliente"
             app:destination="@id/houseCliente" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMascota"
+        android:name="com.example.vetsoft.ui.house.MainMascota"
+        android:label="fragment_main_mascota"
+        tools:layout="@layout/fragment_main_mascota" >
+        <action
+            android:id="@+id/action_mainMascota_to_houseCliente"
+            app:destination="@id/houseCliente" />
+        <action
+            android:id="@+id/action_mainMascota_to_infoMascota"
+            app:destination="@id/infoMascota" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoMascota"
+        android:name="com.example.vetsoft.ui.house.InfoMascota"
+        android:label="fragment_info_mascota"
+        tools:layout="@layout/fragment_info_mascota" >
+        <action
+            android:id="@+id/action_infoMascota_to_mainMascota"
+            app:destination="@id/mainMascota" />
+        <action
+            android:id="@+id/action_infoMascota_to_agregarMascota"
+            app:destination="@id/agregarMascota" />
     </fragment>
 </navigation>

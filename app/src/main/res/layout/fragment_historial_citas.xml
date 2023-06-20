@@ -24,7 +24,7 @@
                 android:layout_height="734dp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcViewCD"
+                    android:id="@+id/rcMainMasc"
                     android:layout_width="408dp"
                     android:layout_height="413dp"
                     app:layout_constraintBottom_toBottomOf="parent"
