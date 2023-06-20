@@ -29,7 +29,7 @@
                     android:id="@+id/imageView14"
                     android:layout_width="386dp"
                     android:layout_height="113dp"
-                    android:src="@tools:sample/avatars"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.36"
@@ -42,7 +42,7 @@
                     android:id="@+id/imageView13"
                     android:layout_width="386dp"
                     android:layout_height="113dp"
-                    android:src="@tools:sample/avatars"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.48"
@@ -55,7 +55,7 @@
                     android:id="@+id/imageView12"
                     android:layout_width="386dp"
                     android:layout_height="113dp"
-                    android:src="@tools:sample/avatars"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.49"
@@ -114,23 +114,23 @@
                     android:text="VetSoft"
                     android:textAlignment="textStart"
                     android:textColor="#1B4965"
-                    android:textSize="34sp"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.735"
+                    app:layout_constraintHorizontal_bias="0.695"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.103" />
+                    app:layout_constraintVertical_bias="0.116" />
 
                 <TextView
                     android:id="@+id/textView8"
-                    android:layout_width="233dp"
-                    android:layout_height="50dp"
+                    android:layout_width="223dp"
+                    android:layout_height="33dp"
                     android:fontFamily="sans-serif"
                     android:text="Mis mascotas"
                     android:textAlignment="textStart"
                     android:textColor="#1B4965"
-                    android:textSize="34sp"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.235"
@@ -140,13 +140,13 @@
 
                 <TextView
                     android:id="@+id/textView12"
-                    android:layout_width="269dp"
-                    android:layout_height="45dp"
+                    android:layout_width="267dp"
+                    android:layout_height="42dp"
                     android:fontFamily="sans-serif"
                     android:text="Citas pendientes"
                     android:textAlignment="textStart"
                     android:textColor="#1B4965"
-                    android:textSize="34sp"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.235"
@@ -156,31 +156,31 @@
 
                 <TextView
                     android:id="@+id/textView13"
-                    android:layout_width="269dp"
-                    android:layout_height="45dp"
+                    android:layout_width="276dp"
+                    android:layout_height="38dp"
                     android:fontFamily="sans-serif"
                     android:text="Historial de citas"
                     android:textAlignment="textStart"
                     android:textColor="#1B4965"
-                    android:textSize="34sp"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.239"
+                    app:layout_constraintHorizontal_bias="0.251"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.777" />
+                    app:layout_constraintVertical_bias="0.791" />
 
                 <ImageView
                     android:id="@+id/imageView5"
-                    android:layout_width="115dp"
-                    android:layout_height="105dp"
+                    android:layout_width="84dp"
+                    android:layout_height="79dp"
                     android:src="@drawable/clinic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.101"
+                    app:layout_constraintHorizontal_bias="0.134"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.065" />
+                    app:layout_constraintVertical_bias="0.106" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

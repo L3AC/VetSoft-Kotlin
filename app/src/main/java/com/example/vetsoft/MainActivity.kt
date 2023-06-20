@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
             if (areFieldsValid) {
                 VerifUs()
                 verifCliente()
+
             } else {
                 Toast.makeText(applicationContext, "Campos vacíos", Toast.LENGTH_SHORT).show()
             }
@@ -91,7 +92,7 @@ class MainActivity : AppCompatActivity() {
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
             ps.setString(1, txtUsuario1.text.toString())
-            ps.setString(2, crypt.encrypt(txtContraN2.text.toString(),"key"))//ENCRIPTADO
+            ps.setString(2, crypt.encrypt(txtContra1.text.toString(),"key"))//ENCRIPTADO
 
             st = ps.executeQuery()
             st.next()
