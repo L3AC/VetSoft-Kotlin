@@ -26,7 +26,34 @@
                 android:layout_height="734dp">
 
                 <ImageView
-                    android:id="@+id/imageView14"
+                    android:id="@+id/imageView7"
+                    android:layout_width="386dp"
+                    android:layout_height="113dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.317"
+                    app:srcCompat="@drawable/rect"
+                    tools:srcCompat="@drawable/rect" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="386dp"
+                    android:layout_height="113dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.52"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.561"
+                    app:srcCompat="@drawable/rect"
+                    tools:srcCompat="@drawable/rect" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
                     android:layout_width="386dp"
                     android:layout_height="113dp"
 
@@ -35,33 +62,8 @@
                     app:layout_constraintHorizontal_bias="0.36"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.814"
-                    tools:srcCompat="@drawable/rect" />
-
-                <ImageView
-                    android:id="@+id/imageView13"
-                    android:layout_width="386dp"
-                    android:layout_height="113dp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.48"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.563"
-                    tools:srcCompat="@drawable/rect" />
-
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="386dp"
-                    android:layout_height="113dp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.49"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.317"
+                    app:layout_constraintVertical_bias="0.811"
+                    app:srcCompat="@drawable/rect"
                     tools:srcCompat="@drawable/rect" />
 
                 <ImageButton
@@ -168,7 +170,7 @@
                     app:layout_constraintHorizontal_bias="0.251"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.791" />
+                    app:layout_constraintVertical_bias="0.78" />
 
                 <ImageView
                     android:id="@+id/imageView5"
