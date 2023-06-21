@@ -24,7 +24,7 @@
                 android:layout_height="734dp">
 
                 <ImageButton
-                    android:id="@+id/btnVolverM5"
+                    android:id="@+id/btnVolverF5"
                     android:layout_width="45dp"
                     android:layout_height="44dp"
                     android:background="@android:color/transparent"
@@ -64,23 +64,136 @@
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.531"
+                    app:layout_constraintHorizontal_bias="0.791"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.322" />
+                    app:layout_constraintVertical_bias="0.299" />
 
                 <ImageView
-                    android:id="@+id/btnAddC5"
+                    android:id="@+id/btnAddF5"
                     android:layout_width="82dp"
                     android:layout_height="89dp"
                     android:src="@drawable/add"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.525"
+                    app:layout_constraintHorizontal_bias="0.753"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.2"
+                    app:layout_constraintVertical_bias="0.176"
                     tools:srcCompat="@drawable/calnd" />
+
+                <TextView
+                    android:id="@+id/txvAniF5"
+                    android:layout_width="350dp"
+                    android:layout_height="37dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Animal:"
+                    android:textAlignment="textStart"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.42" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="183dp"
+                    android:layout_height="106dp"
+                    android:fontFamily="sans-serif"
+                    android:text="!Nota! - Hay datos que solo se ingresan en el centro médico"
+                    android:textAlignment="center"
+                    android:textColor="#1B4965"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.105"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.211" />
+
+                <TextView
+                    android:id="@+id/txvSexoF5"
+                    android:layout_width="350dp"
+                    android:layout_height="37dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Sexo:"
+                    android:textAlignment="textStart"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.638" />
+
+                <TextView
+                    android:id="@+id/txvRazaF5"
+                    android:layout_width="350dp"
+                    android:layout_height="37dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Raza:"
+                    android:textAlignment="textStart"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.492" />
+
+                <TextView
+                    android:id="@+id/txvNombF5"
+                    android:layout_width="350dp"
+                    android:layout_height="37dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Nombre:"
+                    android:textAlignment="textStart"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.565" />
+
+                <TextView
+                    android:id="@+id/txvEdadF5"
+                    android:layout_width="350dp"
+                    android:layout_height="37dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Edad:"
+                    android:textAlignment="textStart"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.786" />
+
+                <TextView
+                    android:id="@+id/txvPesoF5"
+                    android:layout_width="350dp"
+                    android:layout_height="37dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Peso:"
+                    android:textAlignment="textStart"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.715" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
