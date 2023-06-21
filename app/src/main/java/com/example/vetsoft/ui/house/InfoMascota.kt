@@ -71,7 +71,6 @@ class InfoMascota : Fragment() {
             putInt("idAni", idAni)
         }
         btnAddF5.setOnClickListener(){
-
             findNavController().navigate(R.id.action_infoMascota_to_agregarMascota, bundle)
         }
     }

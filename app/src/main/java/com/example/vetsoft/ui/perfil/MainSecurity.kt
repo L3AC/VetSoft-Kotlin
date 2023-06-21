@@ -11,10 +11,11 @@ import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.R
 import com.example.vetsoft.Validation.Validat
 
-lateinit var btnPerC9:ImageButton
-lateinit var btnSegC9:ImageButton
+lateinit var btnVolverS9:ImageButton
+lateinit var btnContraS9:ImageButton
+lateinit var btnPregS9:ImageButton
 
-class perfilMain : Fragment() {
+class MainSecurity : Fragment() {
     private var idUs: Int = 0
     private var idCl:Int=0
     private var conx = conx()
@@ -32,23 +33,27 @@ class perfilMain : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil_main, container, false)
+        return inflater.inflate(R.layout.fragment_main_security, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnPerC9 =requireView().findViewById(R.id.btnPerC9)
-        btnSegC9 =requireView().findViewById(R.id.btnSegC9)
+        btnVolverS9 =requireView().findViewById(R.id.btnVolverS9)
+        btnPregS9 =requireView().findViewById(R.id.btnPregS9)
+        btnContraS9 =requireView().findViewById(R.id.btnContraS9)
 
         val bundle = Bundle().apply {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
         }
-        btnPerC9.setOnClickListener(){
-            findNavController().navigate(R.id.action_perfilMain_to_dataPerfil, bundle)
+        btnVolverS9.setOnClickListener(){
+            findNavController().navigate(R.id.action_mainSecurity_to_perfilMain, bundle)
         }
-        btnSegC9.setOnClickListener(){
-            findNavController().navigate(R.id.action_perfilMain_to_mainSecurity, bundle)
+        btnPregS9.setOnClickListener(){
+            findNavController().navigate(R.id.action_mainSecurity_to_changePreguntas, bundle)
+        }
+        btnContraS9.setOnClickListener(){
+            findNavController().navigate(R.id.action_mainSecurity_to_changePassw, bundle)
         }
     }
 

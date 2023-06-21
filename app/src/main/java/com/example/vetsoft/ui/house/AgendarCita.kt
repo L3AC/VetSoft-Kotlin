@@ -13,6 +13,7 @@ import com.example.vetsoft.Validation.Validat
 class AgendarCIta : Fragment() {
     private var idUs: Int = 0
     private var idCl:Int=0
+    private var idAni:Int=0
     private var conx = conx()
     private var vali = Validat()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +21,7 @@ class AgendarCIta : Fragment() {
         arguments?.let {
             idUs = arguments?.getInt("idUs")!!
             idCl = arguments?.getInt("idCl")!!
+            idAni = arguments?.getInt("idAni")!!
         }
     }
 

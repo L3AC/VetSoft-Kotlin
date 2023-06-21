@@ -32,7 +32,14 @@
         android:id="@+id/perfilMain"
         android:name="com.example.vetsoft.ui.perfil.perfilMain"
         android:label="fragment_perfil_main"
-        tools:layout="@layout/fragment_perfil_main" />
+        tools:layout="@layout/fragment_perfil_main" >
+        <action
+            android:id="@+id/action_perfilMain_to_mainSecurity"
+            app:destination="@id/mainSecurity" />
+        <action
+            android:id="@+id/action_perfilMain_to_dataPerfil"
+            app:destination="@id/dataPerfil" />
+    </fragment>
     <fragment
         android:id="@+id/tiendaMain"
         android:name="com.example.vetsoft.ui.tienda.tiendaMain"
@@ -101,5 +108,47 @@
         <action
             android:id="@+id/action_infoMascota_to_agregarMascota"
             app:destination="@id/agregarMascota" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePassw"
+        android:name="com.example.vetsoft.ui.perfil.ChangePassw"
+        android:label="fragment_change_passw"
+        tools:layout="@layout/fragment_change_passw" >
+        <action
+            android:id="@+id/action_changePassw_to_mainSecurity"
+            app:destination="@id/mainSecurity" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePreguntas"
+        android:name="com.example.vetsoft.ui.perfil.ChangePreguntas"
+        android:label="fragment_change_preguntas"
+        tools:layout="@layout/fragment_change_preguntas" >
+        <action
+            android:id="@+id/action_changePreguntas_to_mainSecurity"
+            app:destination="@id/mainSecurity" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainSecurity"
+        android:name="com.example.vetsoft.ui.perfil.MainSecurity"
+        android:label="fragment_main_security"
+        tools:layout="@layout/fragment_main_security" >
+        <action
+            android:id="@+id/action_mainSecurity_to_perfilMain"
+            app:destination="@id/perfilMain" />
+        <action
+            android:id="@+id/action_mainSecurity_to_changePassw"
+            app:destination="@id/changePassw" />
+        <action
+            android:id="@+id/action_mainSecurity_to_changePreguntas"
+            app:destination="@id/changePreguntas" />
+    </fragment>
+    <fragment
+        android:id="@+id/dataPerfil"
+        android:name="com.example.vetsoft.ui.perfil.DataPerfil"
+        android:label="fragment_data_perfil"
+        tools:layout="@layout/fragment_data_perfil" >
+        <action
+            android:id="@+id/action_dataPerfil_to_perfilMain"
+            app:destination="@id/perfilMain" />
     </fragment>
 </navigation>
