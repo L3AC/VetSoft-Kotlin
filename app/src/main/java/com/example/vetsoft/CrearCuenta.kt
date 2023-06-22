@@ -83,15 +83,15 @@ class CrearCuenta : AppCompatActivity() {
         txvCont2.isVisible=false//Advertencias
         txtNaci2.isEnabled=false
 
-        vali.setMax(txtUsuario2,15);vali.setMax(txtContraN2,20);
-        vali.setMax(txtContraD2,20);vali.setMax(txtNomb2,30);
-        vali.setMax(txtApellidos2,30);vali.setMax(txtTel2,8);vali.setMax(txtDui2,10)
+        vali.configEditText(txtUsuario2,15,"^[a-zA-Z0-9]+$")
+        vali.configEditText(txtContraN2,20,"^[a-zA-Z0-9]+$")
+        vali.configEditText(txtContraD2,20,"^[a-zA-Z0-9]+$")
+        vali.configEditText(txtNomb2,30,"[a-zA-Z\\s]+")
+        vali.configEditText(txtApellidos2,30,"[a-zA-Z\\s]+")
+        vali.configEditText(txtTel2,8,"[0-9]+")
+        vali.configEditText(txtDui2,10,"[0-9]+")
 
 
-        vali.setupUC(txtUsuario2);vali.setupUC(txtContraN2);vali.setupUC(txtContraD2);
-        vali.setupET(txtNomb2);vali.setupET(txtApellidos2);
-        vali.setupNumb(txtTel2);vali.setupNumb(txtDui2)
-//VERIFICAR QUE NO ESTE VACIO
         btnConfirm2.setOnClickListener(){
             val editTextList = listOf(txtUsuario2, txtContraN2,
                 txtContraD2, txtCorreo2,txtNomb2, txtApellidos2, txtTel2, txtDui2)
@@ -263,7 +263,6 @@ fun createUs() {
         adaptadorSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         val spinner = findViewById<Spinner>(R.id.spinSexo2)
         spinner.adapter = adaptadorSpinner
-
     }
     private fun verResultado(year: Int, month: Int, day: Int) {
         val mes = month + 1

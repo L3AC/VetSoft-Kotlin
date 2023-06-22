@@ -52,7 +52,10 @@ class MainActivity : AppCompatActivity() {
         xvCuenta1 = findViewById(R.id.xvCuenta1)
         btnMirar1=findViewById(R.id.btnMirar1)
         //DIFERENT
-        vali.setupUC(txtUsuario1);vali.setupUC(txtContra1);
+
+        vali.configEditText(txtUsuario1,15,"^[a-zA-Z0-9]+$")
+        vali.configEditText(txtContra1,20,"^[a-zA-Z0-9]+$")
+
 
         btnIngresar1.setOnClickListener() {
             val editTextList = listOf(txtUsuario1, txtContra1)

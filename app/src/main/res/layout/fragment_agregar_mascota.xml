@@ -24,7 +24,7 @@
                 android:layout_height="734dp">
 
                 <Button
-                    android:id="@+id/btnConfirm5"
+                    android:id="@+id/btnConfirmAM"
                     android:layout_width="165dp"
                     android:layout_height="75dp"
                     android:backgroundTint="#4CAF50"
@@ -33,12 +33,13 @@
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.913" />
+                    app:layout_constraintVertical_bias="0.878" />
 
                 <ImageButton
-                    android:id="@+id/btnVolverAC2"
+                    android:id="@+id/btnVolverAM"
                     android:layout_width="45dp"
                     android:layout_height="44dp"
                     android:background="@android:color/transparent"
@@ -66,8 +67,24 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.063" />
 
+                <TextView
+                    android:id="@+id/txvCitasP5"
+                    android:layout_width="350dp"
+                    android:layout_height="73dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Asegurese que esta información sea correcta, debido a que ya no va a poder ser modificada por su propia cuenta en un futuro"
+                    android:textAlignment="center"
+                    android:textColor="#FF0101"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.714" />
+
                 <Spinner
-                    android:id="@+id/spSexoAM"
+                    android:id="@+id/spRazaAM"
                     android:layout_width="281dp"
                     android:layout_height="46dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -75,22 +92,7 @@
                     app:layout_constraintHorizontal_bias="0.261"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.745" />
-
-                <TextView
-                    android:id="@+id/txvCitasP2"
-                    android:layout_width="132dp"
-                    android:layout_height="40dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Animal"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.121"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.194" />
+                    app:layout_constraintVertical_bias="0.436" />
 
                 <Spinner
                     android:id="@+id/spAnimalAM"
@@ -101,7 +103,7 @@
                     app:layout_constraintHorizontal_bias="0.261"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.255" />
+                    app:layout_constraintVertical_bias="0.263" />
 
                 <TextView
                     android:id="@+id/txvCitasP3"
@@ -116,21 +118,10 @@
                     app:layout_constraintHorizontal_bias="0.121"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.367" />
-
-                <Spinner
-                    android:id="@+id/spRazaAM"
-                    android:layout_width="281dp"
-                    android:layout_height="46dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.261"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.428" />
+                    app:layout_constraintVertical_bias="0.374" />
 
                 <EditText
-                    android:id="@+id/txtContraN"
+                    android:id="@+id/txtNombreAM"
                     android:layout_width="343dp"
                     android:layout_height="59dp"
                     android:background="@drawable/editext"
@@ -147,14 +138,14 @@
                     app:layout_constraintHorizontal_bias="0.573"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.56" />
+                    app:layout_constraintVertical_bias="0.567" />
 
                 <TextView
-                    android:id="@+id/txvCitasP5"
+                    android:id="@+id/txvCitasP2"
                     android:layout_width="132dp"
                     android:layout_height="40dp"
                     android:fontFamily="sans-serif"
-                    android:text="Sexo"
+                    android:text="Animal"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -162,7 +153,7 @@
                     app:layout_constraintHorizontal_bias="0.121"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.68" />
+                    app:layout_constraintVertical_bias="0.2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

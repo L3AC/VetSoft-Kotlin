@@ -62,11 +62,16 @@ class MainMascota : Fragment() {
         rcMainMasc.layoutManager = LinearLayoutManager(context)
 
         CargarDatos()
+        val bundle2 = Bundle().apply {
+            putInt("idUs", idUs)
+            putInt("idCl", idCl)
+            putInt("idAni", idAni)
+        }
         btnVolverM5.setOnClickListener(){
-
+            findNavController().navigate(R.id.action_mainMascota_to_houseCliente, bundle2)
         }
         btnAddM5.setOnClickListener(){
-
+            findNavController().navigate(R.id.action_mainMascota_to_agregarMascota, bundle2)
         }
 
         rcMainMasc.addOnItemTouchListener(

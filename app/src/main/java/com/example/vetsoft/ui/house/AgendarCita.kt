@@ -23,48 +23,55 @@ import androidx.navigation.fragment.findNavController
 import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.R
 import com.example.vetsoft.Validation.Validat
+import com.example.vetsoft.txtUsuario2
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
 import java.util.Calendar
 
 class servC(val id: Int, val nombre: String)
+
 val servL = mutableListOf<servC>()
+
 class espC(val id: Int, val nombre: String)
+
 val espL = mutableListOf<espC>()
+
 class docC(val id: Int, val nombre: String)
+
 val docL = mutableListOf<docC>()
-lateinit var btnVolver5:ImageButton
-lateinit var spinServ5:Spinner
-lateinit var spinArea5:Spinner
-lateinit var spinDoc5:Spinner
-lateinit var btnFecha5:ImageButton
-lateinit var txtFecha5:EditText
-lateinit var spinEnt5:Spinner
-lateinit var txtHora5:EditText
-lateinit var txvDispo5:TextView
-lateinit var txtNota5:EditText
-lateinit var btnConfirm5:Button
+lateinit var btnVolver5: ImageButton
+lateinit var spinServ5: Spinner
+lateinit var spinArea5: Spinner
+lateinit var spinDoc5: Spinner
+lateinit var btnFecha5: ImageButton
+lateinit var txtFecha5: EditText
+lateinit var spinEnt5: Spinner
+lateinit var txtHora5: EditText
+lateinit var txvDispo5: TextView
+lateinit var txtNota5: EditText
+lateinit var btnConfirm5: Button
 
 class AgendarCIta : Fragment() {
     private var idUs: Int = 0
-    private var idCl:Int=0
-    private var idAni:Int=0
+    private var idCl: Int = 0
+    private var idAni: Int = 0
     private var conx = conx()
-    private var idServ=0
-    private var nServ=""
-    private var idEsp=0
-    private var nEsp=""
-    private var idDoc=0
-    private var nDoc=""
+    private var idServ = 0
+    private var nServ = ""
+    private var idEsp = 0
+    private var nEsp = ""
+    private var idDoc = 0
+    private var nDoc = ""
     private var vali = Validat()
-    private var fechaSql= ""
-    private var dateh= ""
+    private var fechaSql = ""
+    private var dateh = ""
     val hora = listOf(
-        "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00",
-        "08:00", "09:00", "10:00","11:00", "12:00", "13:00", "14:00", "15:00",
-        "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"
+        /*"00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00",*/ "07:00",
+        "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00",
+        "16:00", "17:00", "18:00"/*, "19:00", "20:00", "21:00", "22:00", "23:00"*/
     )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -84,22 +91,25 @@ class AgendarCIta : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnVolver5=requireView().findViewById(R.id.btnVolver5)
-        spinServ5=requireView().findViewById(R.id.spinServ5)
-        spinArea5=requireView().findViewById(R.id.spinArea5)
-        spinDoc5=requireView().findViewById(R.id.spinDoc5)
-        btnFecha5=requireView().findViewById(R.id.btnFecha5)
-        txtFecha5=requireView().findViewById(R.id.txtFecha5)
-        spinEnt5=requireView().findViewById(R.id.spinEnt5)
-        txtHora5=requireView().findViewById(R.id.txtHora5)
-        txvDispo5=requireView().findViewById(R.id.txvDispo5)
-        txtNota5=requireView().findViewById(R.id.txtNota5)
-        btnConfirm5=requireView().findViewById(R.id.btnConfirm5)
+        btnVolver5 = requireView().findViewById(R.id.btnVolverF5)
+        spinServ5 = requireView().findViewById(R.id.spinServ5)
+        spinArea5 = requireView().findViewById(R.id.spinArea5)
+        spinDoc5 = requireView().findViewById(R.id.spinDoc5)
+        btnFecha5 = requireView().findViewById(R.id.btnFecha5)
+        txtFecha5 = requireView().findViewById(R.id.txtFecha5)
+        spinEnt5 = requireView().findViewById(R.id.spinEnt5)
+        txtHora5 = requireView().findViewById(R.id.txtHora5)
+        txvDispo5 = requireView().findViewById(R.id.txvDispo5)
+        txtNota5 = requireView().findViewById(R.id.txtNota5)
+        btnConfirm5 = requireView().findViewById(R.id.btnConfirm5)
         spinDoc5.isEnabled = false
         txvDispo5.isVisible = false
         btnConfirm5.isEnabled = false
-        txtFecha5.isEnabled=false
-        txtHora5.isEnabled=false
+        txtFecha5.isEnabled = false
+        txtHora5.isEnabled = false
+
+        vali.setMax(txtNota5, 300)
+        vali.configEditText(txtNota5,300,"^[a-zA-Z0-9]+.,")
 
         SpinHora()
         SpinServ(spinServ5)
@@ -109,16 +119,18 @@ class AgendarCIta : Fragment() {
             putInt("idCl", idCl)
             putInt("idAni", idAni)
         }
-        btnVolverF5.setOnClickListener(){
-findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
+        btnVolverF5.setOnClickListener() {
+            findNavController().navigate(R.id.action_agendarCIta_to_infoMascota, bundle)
         }
-        btnFecha5.setOnClickListener(){
+        btnFecha5.setOnClickListener() {
             val Calendario =
                 DatePickerFragment { year, month, day -> verResultado(year, month, day) }
             Calendario.show(childFragmentManager, "DatePicker")
+
         }
-        btnConfirm5.setOnClickListener(){
+        btnConfirm5.setOnClickListener() {
             Confirmar()
+
         }
         spinEnt5.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
@@ -129,14 +141,18 @@ findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
                 id: Long
             ) {
                 txtHora5.setText(spinEnt5.selectedItem.toString())
-                verifCita()
+                if (txtFecha5.text.isEmpty()) {
+
+                } else {
+                    verifCita()
+                }
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
-        verifCita()
     }
+
     fun SpinHora() {
         val adaptadorSpinner =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, hora)
@@ -144,6 +160,7 @@ findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
         val spinner = requireView().findViewById<Spinner>(R.id.spinEnt5)
         spinner.adapter = adaptadorSpinner
     }
+
     fun SpinServ(cb: Spinner) {
         try {
             servL.clear()
@@ -191,6 +208,7 @@ findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
             Toast.makeText(context, "Error al cargar los servicios", Toast.LENGTH_SHORT).show()
         }
     }
+
     fun SpinArea(cb: Spinner) {
         try {
             espL.clear()
@@ -225,6 +243,11 @@ findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
                     // = esp.nombre
                     idEsp = esp.id
                     SpinDoc(spinDoc5)
+                    if (txtFecha5.text.isEmpty()) {
+
+                    } else {
+                        verifCita()
+                    }
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -237,6 +260,7 @@ findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
             Toast.makeText(context, "No existen doctores", Toast.LENGTH_SHORT).show()
         }
     }
+
     fun SpinDoc(cb: Spinner) {
         try {
             docL.clear()
@@ -270,6 +294,11 @@ findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
                 ) {
                     val doct = docL[position]
                     idDoc = doct.id
+                    if (txtFecha5.text.isEmpty()) {
+
+                    } else {
+                        verifCita()
+                    }
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -282,9 +311,10 @@ findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
             Toast.makeText(context, "No existen doctores", Toast.LENGTH_SHORT).show()
         }
     }
+
     fun verifCita() {
         try {
-            dateh =fechaSql + " " + txtHora5.text
+            dateh = fechaSql + " " + txtHora5.text
 
             val cadena = "EXEC selectCitaCl ?,?;"
             val st: ResultSet
@@ -312,6 +342,7 @@ findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
         }
         conx.dbConn()!!.close()
     }
+
     fun Confirmar() {
         try {
             val cadena: String =
@@ -326,7 +357,13 @@ findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
             ps.setString(5, fechaSql)
             ps.executeUpdate()
 
+            val bundle = Bundle().apply {
+                putInt("idUs", idUs)
+                putInt("idCl", idCl)
+                putInt("idAni", idAni)
+            }
             Toast.makeText(context, "Cita agendada correctamente", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_agendarCIta_to_infoMascota, bundle)
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
             Toast.makeText(
@@ -342,9 +379,7 @@ findNavController().navigate(R.id.action_agendarCIta_to_infoMascota,bundle)
         val mes = month + 1
         fechaSql = "$year-$mes-$day"
         txtFecha5?.setText("$day-$mes-$year")
-        /*if (txtHora5.text.isNotEmpty()) {
-            verifCita()
-        }*/
+        verifCita()
     }
 
     class DatePickerFragment(val listener: (year: Int, month: Int, day: Int) -> Unit) :
