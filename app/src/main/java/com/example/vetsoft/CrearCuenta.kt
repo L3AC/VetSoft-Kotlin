@@ -83,13 +83,14 @@ class CrearCuenta : AppCompatActivity() {
         txvCont2.isVisible=false//Advertencias
         txtNaci2.isEnabled=false
 
-        vali.setupUC(txtUsuario2);vali.setupUC(txtContraN2);vali.setupUC(txtContraD2);
-        vali.setupET(txtNomb2);vali.setupET(txtApellidos2);
-        vali.setupNumb(txtTel2);vali.setupNumb(txtDui2)
-
         vali.setMax(txtUsuario2,15);vali.setMax(txtContraN2,20);
         vali.setMax(txtContraD2,20);vali.setMax(txtNomb2,30);
         vali.setMax(txtApellidos2,30);vali.setMax(txtTel2,8);vali.setMax(txtDui2,10)
+
+
+        vali.setupUC(txtUsuario2);vali.setupUC(txtContraN2);vali.setupUC(txtContraD2);
+        vali.setupET(txtNomb2);vali.setupET(txtApellidos2);
+        vali.setupNumb(txtTel2);vali.setupNumb(txtDui2)
 //VERIFICAR QUE NO ESTE VACIO
         btnConfirm2.setOnClickListener(){
             val editTextList = listOf(txtUsuario2, txtContraN2,

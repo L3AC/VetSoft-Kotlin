@@ -28,7 +28,7 @@ class Validat {
     }
     fun setupET(editText: EditText) {
         val filter = InputFilter { source, _, _, _, _, _ ->
-            val pattern = Regex("[a-zA-Z\\s]*") // Expresión regular para letras y espacios
+            val pattern = Regex("[a-zA-Z\\s]+") // Expresión regular para letras y espacios
             if (pattern.matches(source)) {
                 source
             } else {

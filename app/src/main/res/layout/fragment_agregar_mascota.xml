@@ -24,7 +24,7 @@
                 android:layout_height="734dp">
 
                 <Button
-                    android:id="@+id/btnConfirm"
+                    android:id="@+id/btnConfirm5"
                     android:layout_width="165dp"
                     android:layout_height="75dp"
                     android:backgroundTint="#4CAF50"

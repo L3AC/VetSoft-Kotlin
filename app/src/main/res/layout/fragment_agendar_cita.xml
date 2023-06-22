@@ -27,7 +27,7 @@
                 tools:layout_editor_absoluteY="80dp">
 
                 <Spinner
-                    android:id="@+id/spinEsp2"
+                    android:id="@+id/spinArea5"
                     android:layout_width="321dp"
                     android:layout_height="53dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -55,16 +55,16 @@
 
                 <ImageButton
                     android:id="@+id/btnVolver5"
-                    android:layout_width="49dp"
-                    android:layout_height="49dp"
+                    android:layout_width="41dp"
+                    android:layout_height="41dp"
                     android:background="@android:color/transparent"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.086"
+                    app:layout_constraintHorizontal_bias="0.078"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.046"
+                    app:layout_constraintVertical_bias="0.048"
                     app:srcCompat="@drawable/flecha" />
 
                 <TextView
@@ -83,7 +83,7 @@
                     app:layout_constraintVertical_bias="0.058" />
 
                 <Spinner
-                    android:id="@+id/spinDoc"
+                    android:id="@+id/spinDoc5"
                     android:layout_width="321dp"
                     android:layout_height="53dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -109,7 +109,7 @@
                     app:layout_constraintVertical_bias="0.385" />
 
                 <Spinner
-                    android:id="@+id/spinEsp"
+                    android:id="@+id/spinServ5"
                     android:layout_width="321dp"
                     android:layout_height="53dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -136,7 +136,7 @@
                     app:layout_constraintVertical_bias="0.151" />
 
                 <EditText
-                    android:id="@+id/txtNota"
+                    android:id="@+id/txtNota5"
                     android:layout_width="339dp"
                     android:layout_height="50dp"
                     android:ems="10"
@@ -151,14 +151,14 @@
                     app:layout_constraintVertical_bias="0.787" />
 
                 <EditText
-                    android:id="@+id/txtHora"
+                    android:id="@+id/txtHora5"
                     android:layout_width="93dp"
                     android:layout_height="46dp"
                     android:ems="10"
                     android:hint="00:00"
                     android:inputType="time"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.433"
@@ -167,7 +167,7 @@
                     app:layout_constraintVertical_bias="0.693" />
 
                 <Spinner
-                    android:id="@+id/spinEnt"
+                    android:id="@+id/spinEnt5"
                     android:layout_width="112dp"
                     android:layout_height="46dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -193,7 +193,7 @@
                     app:layout_constraintVertical_bias="0.631" />
 
                 <TextView
-                    android:id="@+id/txvDispo"
+                    android:id="@+id/txvDispo5"
                     android:layout_width="145dp"
                     android:layout_height="47dp"
                     android:gravity="center"
@@ -208,14 +208,14 @@
                     app:layout_constraintVertical_bias="0.694" />
 
                 <EditText
-                    android:id="@+id/txtFecha"
+                    android:id="@+id/txtFecha5"
                     android:layout_width="144dp"
                     android:layout_height="51dp"
                     android:ems="10"
                     android:hint="YYYY/MM/DD"
                     android:inputType="date"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#0B0B0B"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.146"
@@ -239,7 +239,7 @@
                     app:layout_constraintVertical_bias="0.502" />
 
                 <ImageButton
-                    android:id="@+id/btnFecha"
+                    android:id="@+id/btnFecha5"
                     android:layout_width="49dp"
                     android:layout_height="49dp"
                     android:background="@android:color/transparent"
@@ -253,17 +253,16 @@
                     app:srcCompat="@drawable/calnd" />
 
                 <Button
-                    android:id="@+id/btnConfirm"
+                    android:id="@+id/btnConfirm5"
                     android:layout_width="135dp"
                     android:layout_height="60dp"
                     android:text="Confirmar"
                     android:textColor="#FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.449"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.925" />
+                    app:layout_constraintVertical_bias="0.885" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
