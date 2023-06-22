@@ -6,4 +6,124 @@
     android:layout_height="match_parent"
     tools:context=".MainRecup">
 
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="386dp"
+        android:layout_height="113dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.792"
+        app:srcCompat="@drawable/rect"
+        tools:srcCompat="@drawable/rect" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="386dp"
+        android:layout_height="113dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.524"
+        app:srcCompat="@drawable/rect"
+        tools:srcCompat="@drawable/rect" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="386dp"
+        android:layout_height="113dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26"
+        app:srcCompat="@drawable/rect"
+        tools:srcCompat="@drawable/rect" />
+
+    <ImageButton
+        android:id="@+id/btnVolverS"
+        android:layout_width="45dp"
+        android:layout_height="44dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.059"
+        app:srcCompat="@drawable/flecha" />
+
+    <TextView
+        android:id="@+id/txvCitasP10"
+        android:layout_width="108dp"
+        android:layout_height="36dp"
+        android:fontFamily="sans-serif"
+        android:text="E-Mail"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.285" />
+
+    <TextView
+        android:id="@+id/txvCitasP13"
+        android:layout_width="121dp"
+        android:layout_height="41dp"
+        android:fontFamily="sans-serif"
+        android:text="Preguntas"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523" />
+
+    <TextView
+        android:id="@+id/txvCitasP14"
+        android:layout_width="108dp"
+        android:layout_height="36dp"
+        android:fontFamily="sans-serif"
+        android:text="WhatsApp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.759" />
+
+    <TextView
+        android:id="@+id/txvCitasP12"
+        android:layout_width="220dp"
+        android:layout_height="78dp"
+        android:fontFamily="sans-serif"
+        android:text="Métodos de recuperación"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
