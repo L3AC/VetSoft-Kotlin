@@ -36,7 +36,7 @@
                     app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.878" />
+                    app:layout_constraintVertical_bias="0.848" />
 
                 <ImageButton
                     android:id="@+id/btnVolverAM"
@@ -54,15 +54,16 @@
 
                 <TextView
                     android:id="@+id/txvCitasP6"
-                    android:layout_width="184dp"
+                    android:layout_width="223dp"
                     android:layout_height="41dp"
                     android:fontFamily="sans-serif"
                     android:text="Agregar mascota"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.537"
+                    app:layout_constraintHorizontal_bias="0.563"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.063" />
@@ -128,14 +129,13 @@
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Nombre de su mascota"
-                    android:inputType="textPassword"
+                    android:inputType="text|textPersonName"
                     android:textAlignment="viewStart"
                     android:textColor="#000000"
                     android:textColorHint="#000000"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.573"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.567" />

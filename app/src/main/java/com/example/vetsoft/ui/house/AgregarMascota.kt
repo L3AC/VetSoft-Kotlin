@@ -87,6 +87,7 @@ class AgregarMascota : Fragment() {
         vali.setMax(txtNombreAM, 25);
         val editTextList1 = listOf(txtNombreAM)
         vali.setupET(editTextList1);
+
         btnVolverAM.setOnClickListener() {
             findNavController().navigate(R.id.action_agregarMascota_to_mainMascota, bundle)
         }
