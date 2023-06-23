@@ -44,7 +44,7 @@
         tools:layout="@layout/fragment_tienda_main" />
     <activity
         android:id="@+id/barraNavegar"
-        android:name="com.example.vetsoft.BarraNavegar"
+        android:name="com.example.vetsoft.AMain.BarraNavegar"
         android:label="BarraNavegar" />
     <fragment
         android:id="@+id/agendarCIta"

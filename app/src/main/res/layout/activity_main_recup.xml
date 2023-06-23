@@ -4,10 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainRecup">
+    tools:context=".AMain.MainRecup">
+
+    <ImageButton
+        android:id="@+id/btnVolverR"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052"
+        app:srcCompat="@drawable/flecha" />
 
     <ImageView
-        android:id="@+id/imageView21"
+        android:id="@+id/imgWhaR"
         android:layout_width="386dp"
         android:layout_height="113dp"
 
@@ -21,7 +35,7 @@
         tools:srcCompat="@drawable/rect" />
 
     <ImageView
-        android:id="@+id/imageView20"
+        android:id="@+id/imgPregR"
         android:layout_width="386dp"
         android:layout_height="113dp"
 
@@ -35,32 +49,59 @@
         tools:srcCompat="@drawable/rect" />
 
     <ImageView
-        android:id="@+id/imageView18"
+        android:id="@+id/imgMailR"
         android:layout_width="386dp"
         android:layout_height="113dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26"
+        app:layout_constraintVertical_bias="0.263"
         app:srcCompat="@drawable/rect"
         tools:srcCompat="@drawable/rect" />
 
     <ImageButton
-        android:id="@+id/btnVolverS"
-        android:layout_width="45dp"
-        android:layout_height="44dp"
+        android:id="@+id/btnWhaR"
+        android:layout_width="57dp"
+        android:layout_height="56dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.824"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059"
-        app:srcCompat="@drawable/flecha" />
+        app:layout_constraintVertical_bias="0.764"
+        app:srcCompat="@drawable/waza" />
+
+    <ImageButton
+        android:id="@+id/btnPregR"
+        android:layout_width="57dp"
+        android:layout_height="56dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.522"
+        app:srcCompat="@drawable/quest" />
+
+    <ImageButton
+        android:id="@+id/btnMailR"
+        android:layout_width="57dp"
+        android:layout_height="56dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.277"
+        app:srcCompat="@drawable/mail" />
 
     <TextView
         android:id="@+id/txvCitasP10"
@@ -73,10 +114,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285" />
+        app:layout_constraintVertical_bias="0.282" />
 
     <TextView
         android:id="@+id/txvCitasP13"
@@ -89,14 +130,14 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.523" />
+        app:layout_constraintVertical_bias="0.52" />
 
     <TextView
         android:id="@+id/txvCitasP14"
-        android:layout_width="108dp"
+        android:layout_width="138dp"
         android:layout_height="36dp"
         android:fontFamily="sans-serif"
         android:text="WhatsApp"
@@ -105,7 +146,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.759" />
@@ -125,5 +166,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.047" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

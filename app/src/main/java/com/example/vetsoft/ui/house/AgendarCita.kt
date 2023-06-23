@@ -23,7 +23,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.R
 import com.example.vetsoft.Validation.Validat
-import com.example.vetsoft.txtUsuario2
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException

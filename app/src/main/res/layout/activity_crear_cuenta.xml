@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CAE9FF"
-    tools:context=".CrearCuenta">
+    tools:context=".AMain.CrearCuenta">
 
     <ScrollView
         android:layout_width="match_parent"

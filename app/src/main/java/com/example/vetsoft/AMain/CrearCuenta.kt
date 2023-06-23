@@ -1,4 +1,4 @@
-package com.example.vetsoft
+package com.example.vetsoft.AMain
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -23,11 +23,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.Cryptation.Crypto
+import com.example.vetsoft.R
 import com.example.vetsoft.Validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
-import java.util.Base64
 import java.util.Calendar
 
 lateinit var txtUsuario2:EditText
@@ -61,22 +61,22 @@ class CrearCuenta : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_cuenta)
-        txtUsuario2=findViewById(R.id.txtUsuario2)
-        txtContraN2=findViewById(R.id.txtContraN2)
-        txtContraD2=findViewById(R.id.txtContraD2)
-        txtCorreo2=findViewById(R.id.txtCorreo2)
-        txtNomb2=findViewById(R.id.txtNomb2)
-        txtApellidos2=findViewById(R.id.txtApellidos2)
-        txtTel2=findViewById(R.id.txtTel2)
-        txtDui2=findViewById(R.id.txtDui2)
-        spinSexo2=findViewById(R.id.spinSexo2)
-        txtNaci2=findViewById(R.id.txtNaci2)
-        btnNaci2=findViewById(R.id.btnNaci2)
-        btnVolver2=findViewById(R.id.btnVolver2)
-        txvCont2=findViewById(R.id.txvCont2)
-        txvUs2=findViewById(R.id.txvUs2)
-        btnConfirm2=findViewById(R.id.btnConfirm2)
-        btnMirar2=findViewById(R.id.btnMirar2)
+        txtUsuario2 =findViewById(R.id.txtUsuario2)
+        txtContraN2 =findViewById(R.id.txtContraN2)
+        txtContraD2 =findViewById(R.id.txtContraD2)
+        txtCorreo2 =findViewById(R.id.txtCorreo2)
+        txtNomb2 =findViewById(R.id.txtNomb2)
+        txtApellidos2 =findViewById(R.id.txtApellidos2)
+        txtTel2 =findViewById(R.id.txtTel2)
+        txtDui2 =findViewById(R.id.txtDui2)
+        spinSexo2 =findViewById(R.id.spinSexo2)
+        txtNaci2 =findViewById(R.id.txtNaci2)
+        btnNaci2 =findViewById(R.id.btnNaci2)
+        btnVolver2 =findViewById(R.id.btnVolver2)
+        txvCont2 =findViewById(R.id.txvCont2)
+        txvUs2 =findViewById(R.id.txvUs2)
+        btnConfirm2 =findViewById(R.id.btnConfirm2)
+        btnMirar2 =findViewById(R.id.btnMirar2)
 
         LLenarSpin()
         txvUs2.isVisible=false
@@ -93,8 +93,10 @@ class CrearCuenta : AppCompatActivity() {
 
 
         btnConfirm2.setOnClickListener(){
-            val editTextList = listOf(txtUsuario2, txtContraN2,
-                txtContraD2, txtCorreo2,txtNomb2, txtApellidos2, txtTel2, txtDui2)
+            val editTextList = listOf(
+                txtUsuario2, txtContraN2,
+                txtContraD2, txtCorreo2, txtNomb2, txtApellidos2, txtTel2, txtDui2
+            )
             val areFieldsValid  = vali.areFieldsNotEmpty(editTextList)
             if(areFieldsValid){
                 createUs()

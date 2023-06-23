@@ -1,12 +1,10 @@
 package com.example.vetsoft.Validation
 import android.text.InputFilter
-import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
-import com.example.vetsoft.btnConfirm2
+
 class Validat {
         fun isEmailValid(email: String): Boolean {
             val pattern = Patterns.EMAIL_ADDRESS

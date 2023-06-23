@@ -1,15 +1,12 @@
-package com.example.vetsoft
+package com.example.vetsoft.AMain
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.vetsoft.Conex.conx
-import com.example.vetsoft.Validation.Validat
+import com.example.vetsoft.R
 import com.example.vetsoft.databinding.ActivityBarraNavegarBinding
 
 @Suppress("UNREACHABLE_CODE")

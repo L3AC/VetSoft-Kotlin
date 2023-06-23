@@ -1,4 +1,4 @@
-package com.example.vetsoft
+package com.example.vetsoft.AMain
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -16,12 +16,11 @@ import androidx.annotation.RequiresApi
 import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.Validation.Validat
 import com.example.vetsoft.Cryptation.Crypto
-import com.google.android.gms.common.util.IOUtils.toByteArray
-import java.security.Key
+import com.example.vetsoft.R
+import com.example.vetsoft.Recuperacion.RecupContra
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
-import javax.crypto.spec.SecretKeySpec
 
 lateinit var txtUsuario1: EditText
 lateinit var txtContra1: EditText
@@ -50,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         xvRecup1 = findViewById(R.id.xvRecup1)
         btnIngresar1 = findViewById(R.id.btnIngresar1)
         xvCuenta1 = findViewById(R.id.xvCuenta1)
-        btnMirar1=findViewById(R.id.btnMirar1)
+        btnMirar1 =findViewById(R.id.btnMirar1)
         //DIFERENT
 
         vali.configEditText(txtUsuario1,15,"^[a-zA-Z0-9]+$")
@@ -69,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         xvRecup1.setOnClickListener() {
-            val scndAct = Intent(this, RecupContra::class.java)
+            val scndAct = Intent(this, MainRecup::class.java)
             startActivity(scndAct)
         }
         xvCuenta1.setOnClickListener() {

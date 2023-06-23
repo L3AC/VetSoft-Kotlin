@@ -16,17 +16,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.example.vetsoft.Conex.conx
-import com.example.vetsoft.Cryptation.Crypto
 import com.example.vetsoft.R
 import com.example.vetsoft.Validation.Validat
-import com.example.vetsoft.txtApellidos2
-import com.example.vetsoft.txtContraD2
-import com.example.vetsoft.txtContraN2
-import com.example.vetsoft.txtCorreo2
-import com.example.vetsoft.txtDui2
-import com.example.vetsoft.txtNomb2
-import com.example.vetsoft.txtTel2
-import com.example.vetsoft.txtUsuario2
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
