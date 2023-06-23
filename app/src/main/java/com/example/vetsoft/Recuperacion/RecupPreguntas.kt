@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -12,18 +14,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
-import com.example.vetsoft.AMain.txtContra1
-import com.example.vetsoft.AMain.txtUsuario1
+import com.example.vetsoft.AMain.txtUsuario2
 import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.Cryptation.Crypto
 import com.example.vetsoft.R
 import com.example.vetsoft.Validation.Validat
-import com.example.vetsoft.ui.house.txvAniF5
-import com.example.vetsoft.ui.house.txvEdadF5
-import com.example.vetsoft.ui.house.txvNombF5
-import com.example.vetsoft.ui.house.txvPesoF5
-import com.example.vetsoft.ui.house.txvRazaF5
-import com.example.vetsoft.ui.house.txvSexoF5
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -37,6 +32,7 @@ lateinit var txvPreg2:TextView
 lateinit var txtResp2:EditText
 lateinit var txvPreg3:TextView
 lateinit var txtResp3:EditText
+lateinit var txvAdvPS:TextView
 class RecupPreguntas : AppCompatActivity() {
     private var idUs: Int = 0
     private var pasw:String=""
@@ -58,7 +54,9 @@ class RecupPreguntas : AppCompatActivity() {
         txtResp1=findViewById(R.id.txtResp1)
         txtResp2=findViewById(R.id.txtResp2)
         txtResp3=findViewById(R.id.txtResp3)
+        txvAdvPS=findViewById(R.id.txvAdvP)
 
+        txvAdvPS.isVisible=false
 
         Habilit(false)
         btnVerifPS.setOnClickListener(){
@@ -72,6 +70,44 @@ class RecupPreguntas : AppCompatActivity() {
 
             }
         }
+        txtUsuarioPS.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                Habilit(false)
+            }
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+    }
+    fun verifExist() {
+        try {
+            var st: ResultSet
+            val cadena ="EXEC existPreg ?;"
+            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
+            ps.setInt(1, idUs)
+            st = ps.executeQuery()
+            var found=0
+            while (st.next()) {
+                found++
+            }
+            //val found = st.row
+            Log.i("found",found.toString())
+            if (found == 3) {
+                txvAdvPS.isVisible=false
+                Habilit(true)
+                cargarPreg(txvPreg1,1);cargarPreg(txvPreg2,2);cargarPreg(txvPreg3,3);
+            } else {
+                Toast.makeText(applicationContext, "No se encontraron respuestas",
+                    Toast.LENGTH_SHORT).show()
+                Habilit(false)
+                txvAdvPS.isVisible=true
+            }
+        } catch (ex: SQLException) {
+            Log.e("Error: ", ex.message!!)
+            Toast.makeText(applicationContext, "Error al cargar", Toast.LENGTH_SHORT).show()
+        }
+        conx.dbConn()!!.close()
     }
     @RequiresApi(Build.VERSION_CODES.O)
     fun VerifUs() {
@@ -91,10 +127,10 @@ class RecupPreguntas : AppCompatActivity() {
                 idUs = st.getInt("idUsuario")
                 pasw=crypt.decrypt(st.getString("contraseña"),"key")
                 Log.i("contra",pasw)
-                Habilit(true)
-                cargarPreg(txvPreg1,1);cargarPreg(txvPreg2,2);cargarPreg(txvPreg3,3);
+                verifExist()
             } else {
                 Toast.makeText(applicationContext, "Usuario incorrecto", Toast.LENGTH_SHORT).show()
+                Habilit(false)
             }
         } catch (ex: SQLException) {
             Log.e("Error L010 ", ex.message!!)
@@ -144,6 +180,7 @@ class RecupPreguntas : AppCompatActivity() {
         }
         conx.dbConn()!!.close()
     }
+
     fun Habilit(tf: Boolean) {
         txvPreg1.isVisible = tf
         txvPreg2.isVisible= tf
