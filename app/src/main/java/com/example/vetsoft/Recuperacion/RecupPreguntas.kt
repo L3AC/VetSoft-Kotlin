@@ -43,7 +43,7 @@ class RecupPreguntas : AppCompatActivity() {
         txtResp1=findViewById(R.id.txtResp1)
         txtResp2=findViewById(R.id.txtResp2)
         txtResp3=findViewById(R.id.txtResp3)
-
+btnConfirmPS;
 
     }
     fun VerifUs() {
