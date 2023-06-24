@@ -24,9 +24,9 @@
                 android:layout_height="734dp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcMainMasc"
+                    android:id="@+id/rcMainCP"
                     android:layout_width="408dp"
-                    android:layout_height="331dp"
+                    android:layout_height="418dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -72,7 +72,7 @@
                     android:src="@drawable/add"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.531"
+                    app:layout_constraintHorizontal_bias="0.37"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.196" />
@@ -88,10 +88,10 @@
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.538"
+                    app:layout_constraintHorizontal_bias="0.781"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.319" />
+                    app:layout_constraintVertical_bias="0.206" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

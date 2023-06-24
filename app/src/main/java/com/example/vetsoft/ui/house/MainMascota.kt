@@ -29,7 +29,6 @@ lateinit var rcMainMasc:RecyclerView
 lateinit var btnAddM5:ImageView
 
 class fila(val id: Int)
-
 val reg1 = mutableListOf<fila>()
 val myData1 = mutableListOf<String>()
 class MainMascota : Fragment() {
@@ -57,7 +56,7 @@ class MainMascota : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnVolverM5=requireView().findViewById(R.id.btnVolverM5)
-        rcMainMasc=requireView().findViewById(R.id.rcMainMasc)
+        rcMainMasc=requireView().findViewById(R.id.rcMainCP)
         btnAddM5=requireView().findViewById(R.id.btnAddM5)
         rcMainMasc.layoutManager = LinearLayoutManager(context)
 

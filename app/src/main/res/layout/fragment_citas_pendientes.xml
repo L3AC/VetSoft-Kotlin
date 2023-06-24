@@ -23,8 +23,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="734dp">
 
+                <Spinner
+                    android:id="@+id/spBusqCP"
+                    android:layout_width="127dp"
+                    android:layout_height="46dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.056"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.197" />
+
+                <Spinner
+                    android:id="@+id/spTimeCP"
+                    android:layout_width="241dp"
+                    android:layout_height="46dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.894"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.197" />
+
+                <EditText
+                    android:id="@+id/txtNombCP"
+                    android:layout_width="237dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/rect"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Nombre de su mascota"
+                    android:inputType="text|textPersonName"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.87"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.199" />
+
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcMainMasc"
+                    android:id="@+id/rcMainCP"
                     android:layout_width="408dp"
                     android:layout_height="413dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +93,7 @@
                     app:layout_constraintVertical_bias="0.063" />
 
                 <ImageButton
-                    android:id="@+id/btnVolverAC"
+                    android:id="@+id/btnVolverCP"
                     android:layout_width="45dp"
                     android:layout_height="44dp"
                     android:background="@android:color/transparent"
