@@ -144,5 +144,8 @@ class MainActivity : AppCompatActivity() {
         }
         conx.dbConn()!!.close()
     }
+    override fun onBackPressed() {
+        // Deja vacío este método
+    }
 
 }

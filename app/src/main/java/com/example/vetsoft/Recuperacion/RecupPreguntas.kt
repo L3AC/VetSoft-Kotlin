@@ -1,6 +1,7 @@
 package com.example.vetsoft.Recuperacion
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,8 +14,9 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
-import com.example.vetsoft.AMain.txtUsuario2
+import com.example.vetsoft.AMain.MainRecup
 import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.Cryptation.Crypto
 import com.example.vetsoft.R
@@ -44,27 +46,45 @@ class RecupPreguntas : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recup_preguntas)
-        btnVolverPS=findViewById(R.id.btnVolverPS)
-        btnVerifPS=findViewById(R.id.btnVerifPS)
-        btnConfirmPS=findViewById(R.id.btnConfirmPS)
+        btnVolverPS=findViewById(R.id.btnVolverCC)
+        btnVerifPS=findViewById(R.id.btnVerifCC)
+        btnConfirmPS=findViewById(R.id.btnConfirmCC)
         txtUsuarioPS=findViewById(R.id.txtUsuarioPS)
         txvPreg1=findViewById(R.id.txvPreg1)
         txvPreg2=findViewById(R.id.txvPreg2)
         txvPreg3=findViewById(R.id.txvPreg3)
-        txtResp1=findViewById(R.id.txtResp1)
-        txtResp2=findViewById(R.id.txtResp2)
+        txtResp1=findViewById(R.id.txtContra1CC)
+        txtResp2=findViewById(R.id.txtContra2CC)
         txtResp3=findViewById(R.id.txtResp3)
-        txvAdvPS=findViewById(R.id.txvAdvP)
+        txvAdvPS=findViewById(R.id.txvAdvCC)
 
         txvAdvPS.isVisible=false
 
         Habilit(false)
+        btnVolverPS.setOnClickListener(){
+            val scndAct = Intent(this, MainRecup::class.java)
+            startActivity(scndAct)
+        }
         btnVerifPS.setOnClickListener(){
             VerifUs()
         }
         btnConfirmPS.setOnClickListener(){
             if(verifResp(txtResp1,1) && verifResp(txtResp2,2)&&verifResp(txtResp3,3)){
-                Toast.makeText(applicationContext, "Su contraseña es:", Toast.LENGTH_SHORT).show()
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Recuperación")
+                builder.setMessage("Su contraseña actual es: $pasw ." +
+                        " ¿Desea cambiarla?")
+                builder.setPositiveButton("Si") { dialog, which ->
+                    val scndAct = Intent(this, CambioContra::class.java)
+                    scndAct.putExtra("idUs", idUs)
+                    scndAct.putExtra("pasw", pasw)
+                    scndAct.putExtra("met", 2)
+                    startActivity(scndAct)
+                }
+                builder.setNegativeButton("No", null)
+                val dialog = builder.create()
+                dialog.show()
+
             }
             else{
 
@@ -189,5 +209,8 @@ class RecupPreguntas : AppCompatActivity() {
         txtResp2.isVisible = tf
         txtResp3.isVisible = tf
         btnConfirmPS.isVisible = tf
+    }
+    override fun onBackPressed() {
+        // Deja vacío este método
     }
 }

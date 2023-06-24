@@ -15,6 +15,9 @@
         android:theme="@style/Theme.VetSoft"
         tools:targetApi="31">
         <activity
+            android:name=".Recuperacion.CambioContra"
+            android:exported="false" />
+        <activity
             android:name=".Recuperacion.RecupWha"
             android:exported="false" />
         <activity
@@ -50,7 +53,7 @@
         <activity
             android:name=".AMain.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

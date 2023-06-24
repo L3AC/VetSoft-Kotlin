@@ -14,9 +14,9 @@ import com.example.vetsoft.Recuperacion.RecupPreguntas
 import com.example.vetsoft.Recuperacion.RecupWha
 
 lateinit var btnVolverR:ImageButton
-lateinit var imgMailR:ImageView
-lateinit var imgPregR:ImageView
-lateinit var imgWhaR:ImageView
+lateinit var btnMailR:ImageButton
+lateinit var btnPregR:ImageButton
+lateinit var btnWhaR:ImageButton
 
 @Suppress("UNREACHABLE_CODE")
 class MainRecup : AppCompatActivity() {
@@ -24,23 +24,23 @@ class MainRecup : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_recup)
         btnVolverR=findViewById(R.id.btnVolverR)
-        imgMailR=findViewById(R.id.imgMailR)
-        imgPregR=findViewById(R.id.imgPregR)
-        imgWhaR=findViewById(R.id.imgWhaR)
+        btnMailR=findViewById(R.id.btnMailR)
+        btnPregR=findViewById(R.id.btnPregR)
+        btnWhaR=findViewById(R.id.btnWhaR)
 
         btnVolverR.setOnClickListener(){
             val scndAct1 = Intent(this, MainActivity::class.java)
             startActivity(scndAct1)
         }
-        imgMailR.setOnClickListener(){
+        btnMailR.setOnClickListener(){
             val scndAct2 = Intent(this, RecupContra::class.java)
             startActivity(scndAct2)
         }
-        imgPregR.setOnClickListener(){
+        btnPregR.setOnClickListener(){
             val scndAct3 = Intent(this, RecupPreguntas::class.java)
             startActivity(scndAct3)
         }
-        imgWhaR.setOnClickListener(){
+        btnWhaR.setOnClickListener(){
             val scndAct4 = Intent(this, RecupWha::class.java)
             startActivity(scndAct4)
         }

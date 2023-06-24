@@ -299,5 +299,8 @@ fun createUs() {
             btnConfirm2.isEnabled=true
         }
     }
+    override fun onBackPressed() {
+        // Deja vacío este método
+    }
 
 }
