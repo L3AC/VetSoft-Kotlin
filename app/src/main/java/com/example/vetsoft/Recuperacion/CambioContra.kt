@@ -1,6 +1,7 @@
 package com.example.vetsoft.Recuperacion
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -12,7 +13,9 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
+import com.example.vetsoft.AMain.MainActivity
 import com.example.vetsoft.AMain.MainRecup
 import com.example.vetsoft.AMain.btnConfirm2
 import com.example.vetsoft.AMain.btnMirar2
@@ -45,6 +48,7 @@ class CambioContra : AppCompatActivity() {
     private var crypt= Crypto()
     private var vali = Validat()
     private var contraVisible = false
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val extras = intent.extras
@@ -62,6 +66,7 @@ class CambioContra : AppCompatActivity() {
         txvAdvCC=findViewById(R.id.txvAdvCC)
         btnMirarCC=findViewById(R.id.btnMirarCC)
 
+        txvAdvCC.isVisible=false
         Habilit(false)
         btnVolverCC.setOnClickListener(){
             val scndAct = Intent(this, RecupPreguntas::class.java)
@@ -73,6 +78,7 @@ class CambioContra : AppCompatActivity() {
             }
             else{
                 Habilit(false)
+                Toast.makeText(applicationContext, "Contraseña incorrecta",Toast.LENGTH_SHORT).show()
             }
         }
         btnConfirmCC.setOnClickListener(){
@@ -110,6 +116,7 @@ class CambioContra : AppCompatActivity() {
         }
 
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     fun updateC() {
         try {
             val cadena: String = "EXEC updtContra ?,?;"
@@ -117,9 +124,11 @@ class CambioContra : AppCompatActivity() {
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
             ps.setInt(1, idUs)
-            ps.setString(2, txtContra1CC.text.toString())
+            ps.setString(2, crypt.encrypt(txtContra1CC.text.toString(),"key"))
             ps.executeUpdate()
-
+            Toast.makeText(applicationContext, "Contraseña actualizada", Toast.LENGTH_SHORT).show()
+            val scndAct = Intent(this, MainActivity::class.java)
+            startActivity(scndAct)
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
             Toast.makeText(applicationContext, "Error al actualizar", Toast.LENGTH_SHORT).show()
@@ -141,7 +150,7 @@ class CambioContra : AppCompatActivity() {
         txtContra1CC.isVisible = tf
         txtContra2CC.isVisible= tf
         btnConfirmCC.isVisible= tf
-        txvAdvCC.isVisible = tf
+        btnMirarCC.isVisible=tf
     }
     override fun onBackPressed() {
         // Deja vacío este método
