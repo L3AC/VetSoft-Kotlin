@@ -15,6 +15,9 @@
         android:theme="@style/Theme.VetSoft"
         tools:targetApi="31">
         <activity
+            android:name=".Recuperacion.RecuContra_dos"
+            android:exported="false" />
+        <activity
             android:name=".Recuperacion.CambioContra"
             android:exported="false" />
         <activity

@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5FA8D3"
-    android:backgroundTint="#5FA8D3"
-    tools:context=".Recuperacion.RecupContra">
-
+    tools:context=".Recuperacion.RecuContra_dos">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -69,7 +66,7 @@
                     android:layout_width="151dp"
                     android:layout_height="53dp"
                     android:fontFamily="@font/montserrat"
-                    android:text="Ingrese su usuario"
+                    android:text="Ingrese el codigo"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +76,7 @@
                     app:layout_constraintVertical_bias="0.311" />
 
                 <EditText
-                    android:id="@+id/txtUsuarioRecu"
+                    android:id="@+id/txtCodigoRecu"
                     android:layout_width="277dp"
                     android:layout_height="53dp"
                     android:background="@drawable/edt_background"
@@ -95,15 +92,15 @@
                     app:layout_constraintVertical_bias="0.414" />
 
                 <Button
-                    android:id="@+id/btnEnviarRecu"
+                    android:id="@+id/btnCodigoRecu"
                     android:layout_width="174dp"
                     android:layout_height="60dp"
-                    android:text="Enviar"
+                    android:text="Verificar"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/txtUsuarioRecu"
+                    app:layout_constraintEnd_toEndOf="@+id/txtCodigoRecu"
                     app:layout_constraintHorizontal_bias="0.51"
-                    app:layout_constraintStart_toStartOf="@+id/txtUsuarioRecu"
-                    app:layout_constraintTop_toBottomOf="@+id/txtUsuarioRecu"
+                    app:layout_constraintStart_toStartOf="@+id/txtCodigoRecu"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCodigoRecu"
                     app:layout_constraintVertical_bias="0.105" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
