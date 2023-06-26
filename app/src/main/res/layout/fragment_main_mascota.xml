@@ -51,47 +51,59 @@
 
                 <TextView
                     android:id="@+id/txvCitasP4"
-                    android:layout_width="184dp"
-                    android:layout_height="41dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Mascotas"
+                    android:layout_width="290dp"
+                    android:layout_height="63dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Mis mascotas"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="30sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.537"
+                    app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.063" />
+                    app:layout_constraintVertical_bias="0.061" />
 
                 <ImageView
                     android:id="@+id/btnAddM5"
-                    android:layout_width="82dp"
-                    android:layout_height="89dp"
+                    android:layout_width="72dp"
+                    android:layout_height="66dp"
                     android:src="@drawable/add"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.37"
+                    app:layout_constraintHorizontal_bias="0.304"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.196" />
+                    app:layout_constraintVertical_bias="0.213" />
 
                 <TextView
                     android:id="@+id/textView5"
-                    android:layout_width="123dp"
-                    android:layout_height="62dp"
-                    android:fontFamily="sans-serif"
+                    android:layout_width="192dp"
+                    android:layout_height="35dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="Agregar mascota"
                     android:textAlignment="center"
                     android:textColor="#1B4965"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/btnAddM5"
+                    app:layout_constraintHorizontal_bias="0.218"
+                    app:layout_constraintStart_toStartOf="@+id/imageView11"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.301" />
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="100dp"
+                    android:layout_height="107dp"
+                    android:src="@drawable/dosamigos"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.781"
+                    app:layout_constraintHorizontal_bias="0.022"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.206" />
+                    app:layout_constraintVertical_bias="0.175" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

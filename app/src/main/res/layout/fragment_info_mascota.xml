@@ -39,19 +39,19 @@
 
                 <TextView
                     android:id="@+id/txvCitasP4"
-                    android:layout_width="184dp"
-                    android:layout_height="41dp"
-                    android:fontFamily="sans-serif"
+                    android:layout_width="238dp"
+                    android:layout_height="49dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="Información"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.537"
+                    app:layout_constraintHorizontal_bias="0.531"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.063" />
+                    app:layout_constraintVertical_bias="0.059" />
 
                 <TextView
                     android:id="@+id/textView14"
@@ -86,6 +86,7 @@
                     android:id="@+id/txvAniF5"
                     android:layout_width="350dp"
                     android:layout_height="37dp"
+                    android:background="@drawable/style_spinner"
                     android:fontFamily="sans-serif"
                     android:text="Animal:"
                     android:textAlignment="textStart"
@@ -93,10 +94,10 @@
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintHorizontal_bias="0.409"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.42" />
+                    app:layout_constraintVertical_bias="0.418" />
 
                 <TextView
                     android:id="@+id/textView24"
@@ -105,6 +106,7 @@
                     android:fontFamily="sans-serif"
                     android:text="!Nota! - Hay datos que solo se ingresan en el centro médico"
                     android:textAlignment="center"
+                    android:background="@drawable/style_spinner"
                     android:textColor="#1B4965"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -121,35 +123,37 @@
                     android:fontFamily="sans-serif"
                     android:text="Sexo:"
                     android:textAlignment="textStart"
+                    android:background="@drawable/style_spinner"
                     android:textColor="#1B4965"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintHorizontal_bias="0.409"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.638" />
+                    app:layout_constraintVertical_bias="0.671" />
 
                 <TextView
                     android:id="@+id/txvRazaF5"
                     android:layout_width="350dp"
                     android:layout_height="37dp"
                     android:fontFamily="sans-serif"
+                    android:background="@drawable/style_spinner"
                     android:text="Raza:"
                     android:textAlignment="textStart"
                     android:textColor="#1B4965"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintHorizontal_bias="0.409"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.492" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/txvNombF5"
                     android:layout_width="350dp"
                     android:layout_height="37dp"
+                    android:background="@drawable/style_spinner"
                     android:fontFamily="sans-serif"
                     android:text="Nombre:"
                     android:textAlignment="textStart"
@@ -157,10 +161,10 @@
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintHorizontal_bias="0.393"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.565" />
+                    app:layout_constraintVertical_bias="0.588" />
 
                 <TextView
                     android:id="@+id/txvEdadF5"
@@ -169,14 +173,15 @@
                     android:fontFamily="sans-serif"
                     android:text="Edad:"
                     android:textAlignment="textStart"
+                    android:background="@drawable/style_spinner"
                     android:textColor="#1B4965"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintHorizontal_bias="0.393"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.786" />
+                    app:layout_constraintVertical_bias="0.84" />
 
                 <TextView
                     android:id="@+id/txvPesoF5"
@@ -184,15 +189,16 @@
                     android:layout_height="37dp"
                     android:fontFamily="sans-serif"
                     android:text="Peso:"
+                    android:background="@drawable/style_spinner"
                     android:textAlignment="textStart"
                     android:textColor="#1B4965"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintHorizontal_bias="0.409"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.715" />
+                    app:layout_constraintVertical_bias="0.761" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

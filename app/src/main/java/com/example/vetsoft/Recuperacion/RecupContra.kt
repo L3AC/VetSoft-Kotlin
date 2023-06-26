@@ -31,24 +31,29 @@ class RecupContra : AppCompatActivity() {
 
         btnEnviarRecu.setOnClickListener {
 
+            //codigo aleatorio
             val codigoAleatorio = Random.nextInt(0, 10000).toString()
 
+            //trae el correo
             try{
                 val traerCorreo: PreparedStatement = conx.dbConn()?.prepareStatement("Select correo from tbUsuarios where usuario = ?")!!
                 traerCorreo.setString(1, txtUsuarioRecu.text.toString())
                 val rs = traerCorreo.executeQuery()
 
                 while (rs.next()){
+                    //correo del usuario ingresado
                     correo = rs.getString("correo")
                 }
             }catch (ex: SQLException){
                 Toast.makeText(this, "error ${ex.toString()}", Toast.LENGTH_SHORT).show()
             }
 
+            //se manda el correo con numero aleatorio
             val mandarCorreo = MandarCorreo(correo, "Codigo de recuperacion", codigoAleatorio)
             mandarCorreo.execute()
 
             try {
+                //ingresa el numero aletorio a la tabla
                 val addCodigo: PreparedStatement = conx.dbConn()?.prepareStatement("update tbUsuarios set codigoVerif = ? where usuario = ?")!!
                 addCodigo.setString(1, codigoAleatorio)
                 addCodigo.setString(2, txtUsuarioRecu.text.toString())

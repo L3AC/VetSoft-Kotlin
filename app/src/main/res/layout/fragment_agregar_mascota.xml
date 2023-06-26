@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout7"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.house.AgregarMascota" >
+    tools:context=".ui.house.AgregarMascota">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,16 +28,15 @@
                     android:id="@+id/btnConfirmAM"
                     android:layout_width="165dp"
                     android:layout_height="75dp"
-                    android:backgroundTint="#4CAF50"
+                    android:backgroundTint="#1B4965"
                     android:text="Confirmar"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.848" />
+                    app:layout_constraintVertical_bias="0.949" />
 
                 <ImageButton
                     android:id="@+id/btnVolverAM"
@@ -46,21 +46,21 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.069"
+                    app:layout_constraintHorizontal_bias="0.065"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.059"
+                    app:layout_constraintVertical_bias="0.072"
                     app:srcCompat="@drawable/flecha" />
 
                 <TextView
                     android:id="@+id/txvCitasP6"
-                    android:layout_width="223dp"
-                    android:layout_height="41dp"
-                    android:fontFamily="sans-serif"
+                    android:layout_width="288dp"
+                    android:layout_height="59dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="Agregar mascota"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="30sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.563"
@@ -70,62 +70,63 @@
 
                 <TextView
                     android:id="@+id/txvCitasP5"
-                    android:layout_width="350dp"
-                    android:layout_height="73dp"
-                    android:fontFamily="sans-serif"
+                    android:layout_width="351dp"
+                    android:layout_height="117dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="Asegurese que esta información sea correcta, debido a que ya no va a poder ser modificada por su propia cuenta en un futuro"
                     android:textAlignment="center"
                     android:textColor="#FF0101"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.491"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.714" />
+                    app:layout_constraintVertical_bias="0.824" />
 
                 <Spinner
                     android:id="@+id/spRazaAM"
-                    android:layout_width="281dp"
-                    android:layout_height="46dp"
+                    android:layout_width="330dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.261"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/txvCitasP3"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/txvCitasP3"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.436" />
+                    app:layout_constraintVertical_bias="0.643" />
 
                 <Spinner
                     android:id="@+id/spAnimalAM"
-                    android:layout_width="281dp"
-                    android:layout_height="46dp"
+                    android:layout_width="330dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.261"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/txvCitasP2"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/txvCitasP2"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.263" />
+                    app:layout_constraintVertical_bias="0.473" />
 
                 <TextView
                     android:id="@+id/txvCitasP3"
                     android:layout_width="132dp"
                     android:layout_height="40dp"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="@font/montserrat"
                     android:text="Raza"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.121"
+                    app:layout_constraintHorizontal_bias="0.107"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.374" />
+                    app:layout_constraintVertical_bias="0.576" />
 
                 <EditText
                     android:id="@+id/txtNombreAM"
-                    android:layout_width="343dp"
-                    android:layout_height="59dp"
-                    android:background="@drawable/editext"
+                    android:layout_width="341dp"
+                    android:layout_height="66dp"
+                    android:background="@drawable/edt_background"
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Nombre de su mascota"
@@ -133,27 +134,28 @@
                     android:textAlignment="viewStart"
                     android:textColor="#000000"
                     android:textColorHint="#000000"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.428"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.567" />
+                    app:layout_constraintVertical_bias="0.269" />
 
                 <TextView
                     android:id="@+id/txvCitasP2"
                     android:layout_width="132dp"
                     android:layout_height="40dp"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="@font/montserrat"
                     android:text="Animal"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.121"
+                    app:layout_constraintHorizontal_bias="0.107"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.2" />
+                    app:layout_constraintVertical_bias="0.41" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

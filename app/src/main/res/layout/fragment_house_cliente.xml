@@ -48,7 +48,7 @@
                     app:layout_constraintHorizontal_bias="0.52"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.561"
+                    app:layout_constraintVertical_bias="0.557"
                     app:srcCompat="@drawable/rect"
                     tools:srcCompat="@drawable/rect" />
 
@@ -112,17 +112,17 @@
                     android:id="@+id/textView6"
                     android:layout_width="135dp"
                     android:layout_height="50dp"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="@font/montserrat"
                     android:text="VetSoft"
                     android:textAlignment="textStart"
                     android:textColor="#1B4965"
-                    android:textSize="24sp"
+                    android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.695"
+                    app:layout_constraintHorizontal_bias="0.634"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.116" />
+                    app:layout_constraintVertical_bias="0.077" />
 
                 <TextView
                     android:id="@+id/textView8"
@@ -174,15 +174,29 @@
 
                 <ImageView
                     android:id="@+id/imageView5"
-                    android:layout_width="84dp"
-                    android:layout_height="79dp"
+                    android:layout_width="111dp"
+                    android:layout_height="109dp"
                     android:src="@drawable/clinic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.134"
+                    app:layout_constraintHorizontal_bias="0.086"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.106" />
+                    app:layout_constraintVertical_bias="0.056" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_thin"
+                    android:text="Bienvenido a casa"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView6"
+                    app:layout_constraintHorizontal_bias="0.564"
+                    app:layout_constraintStart_toStartOf="@+id/textView6"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6"
+                    app:layout_constraintVertical_bias="0.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

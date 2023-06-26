@@ -12,7 +12,10 @@
     android:layout_marginRight="8dp"
     android:layout_marginBottom="8dp"
 
-    app:cardCornerRadius="13dp"
+    app:cardBackgroundColor="#CAE9FF"
+
+
+    app:cardCornerRadius="20dp"
     app:cardElevation="8dp"
 
     app:contentPadding="20dp">
@@ -27,15 +30,16 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="79dp"
-                android:layout_height="60dp"
+                android:id="@+id/imageView12"
+                android:layout_width="60dp"
+                android:layout_height="49dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.057"
+                app:layout_constraintHorizontal_bias="0.088"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/masco" />
+                app:layout_constraintVertical_bias="0.551"
+                app:srcCompat="@drawable/pata" />
 
             <TextView
                 android:id="@+id/txvMascota"
@@ -45,9 +49,10 @@
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.96"
+                app:layout_constraintHorizontal_bias="0.872"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.666" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
