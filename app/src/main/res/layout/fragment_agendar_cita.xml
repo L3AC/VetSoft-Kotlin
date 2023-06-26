@@ -30,6 +30,7 @@
                     android:id="@+id/spinArea5"
                     android:layout_width="321dp"
                     android:layout_height="53dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.433"
@@ -41,17 +42,18 @@
                     android:id="@+id/textView"
                     android:layout_width="121dp"
                     android:layout_height="24dp"
+                    android:fontFamily="@font/montserrat"
                     android:gravity="center"
                     android:text="Área médica"
                     android:textAlignment="viewStart"
                     android:textColor="#000000"
-                    android:textSize="16sp"
+                    android:textSize="22sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.134"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.274" />
+                    app:layout_constraintVertical_bias="0.266" />
 
                 <ImageButton
                     android:id="@+id/btnVolverF5"
@@ -71,21 +73,35 @@
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
                     android:gravity="center"
                     android:text="Reserva de citas"
                     android:textColor="#050505"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.527"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.058" />
+                    app:layout_constraintVertical_bias="0.048" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="247dp"
+                    android:layout_height="5dp"
+                    android:background="@drawable/lineline"
+                    android:text=""
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.097" />
 
                 <Spinner
                     android:id="@+id/spinDoc5"
                     android:layout_width="321dp"
                     android:layout_height="53dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.433"
@@ -95,23 +111,25 @@
 
                 <TextView
                     android:id="@+id/textView10"
-                    android:layout_width="121dp"
-                    android:layout_height="24dp"
+                    android:layout_width="115dp"
+                    android:layout_height="31dp"
+                    android:fontFamily="@font/montserrat"
                     android:gravity="center"
                     android:text="Personal médico"
                     android:textColor="#000000"
-                    android:textSize="16sp"
+                    android:textSize="22sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.134"
+                    app:layout_constraintHorizontal_bias="0.097"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.385" />
+                    app:layout_constraintVertical_bias="0.39" />
 
                 <Spinner
                     android:id="@+id/spinServ5"
                     android:layout_width="321dp"
                     android:layout_height="53dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.433"
@@ -121,19 +139,20 @@
 
                 <TextView
                     android:id="@+id/textView9"
-                    android:layout_width="121dp"
-                    android:layout_height="24dp"
+                    android:layout_width="135dp"
+                    android:layout_height="29dp"
+                    android:fontFamily="@font/montserrat"
                     android:gravity="center"
                     android:text="Servicio"
                     android:textAlignment="viewStart"
                     android:textColor="#000000"
-                    android:textSize="16sp"
+                    android:textSize="22sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.134"
+                    app:layout_constraintHorizontal_bias="0.141"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.151" />
+                    app:layout_constraintVertical_bias="0.154" />
 
                 <EditText
                     android:id="@+id/txtNota5"
@@ -141,6 +160,7 @@
                     android:layout_height="50dp"
                     android:ems="10"
                     android:gravity="fill_vertical|fill_horizontal"
+                    android:background="@drawable/edt_background"
                     android:hint="Nota que desea agregar"
                     android:inputType="text"
                     android:textColor="#FFFFFF"
@@ -157,11 +177,12 @@
                     android:ems="10"
                     android:hint="00:00"
                     android:inputType="time"
+                    android:background="@drawable/edt_background"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.433"
+                    app:layout_constraintHorizontal_bias="0.503"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.693" />
@@ -170,9 +191,10 @@
                     android:id="@+id/spinEnt5"
                     android:layout_width="112dp"
                     android:layout_height="46dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.056"
+                    app:layout_constraintHorizontal_bias="0.13"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.693" />
@@ -181,31 +203,32 @@
                     android:id="@+id/textoLol"
                     android:layout_width="85dp"
                     android:layout_height="25dp"
+                    android:fontFamily="@font/montserrat"
                     android:gravity="center"
                     android:text="Hora:"
                     android:textColor="#050505"
-                    android:textSize="16sp"
+                    android:textSize="22sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.297"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.631" />
+                    app:layout_constraintVertical_bias="0.64" />
 
                 <TextView
                     android:id="@+id/txvDispo5"
-                    android:layout_width="145dp"
-                    android:layout_height="47dp"
+                    android:layout_width="118dp"
+                    android:layout_height="26dp"
+                    android:fontFamily="@font/montserrat"
                     android:gravity="center"
                     android:text="Disponible"
                     android:textColor="#050505"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.898"
+                    app:layout_constraintHorizontal_bias="0.877"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.694" />
+                    app:layout_constraintVertical_bias="0.692" />
 
                 <EditText
                     android:id="@+id/txtFecha5"
@@ -213,6 +236,7 @@
                     android:layout_height="51dp"
                     android:ems="10"
                     android:hint="YYYY/MM/DD"
+                    android:background="@drawable/edt_background"
                     android:inputType="date"
                     android:textAlignment="center"
                     android:textColor="#0B0B0B"
@@ -230,13 +254,13 @@
                     android:gravity="center"
                     android:text="Fecha:"
                     android:textColor="#050505"
-                    android:textSize="16sp"
+                    android:textSize="22sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.116"
+                    app:layout_constraintHorizontal_bias="0.11"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.502" />
+                    app:layout_constraintVertical_bias="0.514" />
 
                 <ImageButton
                     android:id="@+id/btnFecha5"
@@ -246,10 +270,10 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintHorizontal_bias="0.524"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.561"
+                    app:layout_constraintVertical_bias="0.56"
                     app:srcCompat="@drawable/calnd" />
 
                 <Button
@@ -262,7 +286,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.885" />
+                    app:layout_constraintVertical_bias="0.914" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,88 +25,143 @@
                 android:layout_width="match_parent"
                 android:layout_height="734dp">
 
-                <ImageView
-                    android:id="@+id/imageView7"
+                <TextView
+                    android:id="@+id/textView19"
                     android:layout_width="386dp"
-                    android:layout_height="113dp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.317"
-                    app:srcCompat="@drawable/rect"
-                    tools:srcCompat="@drawable/rect" />
-
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="386dp"
-                    android:layout_height="113dp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.52"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.557"
-                    app:srcCompat="@drawable/rect"
-                    tools:srcCompat="@drawable/rect" />
-
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="386dp"
-                    android:layout_height="113dp"
-
+                    android:layout_height="202dp"
+                    android:background="@drawable/bgtext"
+                    android:fontFamily="sans-serif"
+                    android:textAlignment="viewStart"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.36"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.811"
-                    app:srcCompat="@drawable/rect"
-                    tools:srcCompat="@drawable/rect" />
+                    app:layout_constraintVertical_bias="0.83" />
 
-                <ImageButton
-                    android:id="@+id/btnMasc4"
-                    android:layout_width="45dp"
-                    android:layout_height="44dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="fitXY"
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="192dp"
+                    android:layout_height="206dp"
+                    android:background="@drawable/bgtext"
+                    android:fontFamily="sans-serif"
+                    android:textAlignment="viewStart"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.893"
+                    app:layout_constraintHorizontal_bias="0.041"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.336"
-                    app:srcCompat="@drawable/arrow" />
+                    app:layout_constraintVertical_bias="0.397" />
 
-                <ImageButton
-                    android:id="@+id/btnPnd4"
-                    android:layout_width="45dp"
-                    android:layout_height="44dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="fitXY"
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="192dp"
+                    android:layout_height="206dp"
+                    android:background="@drawable/bgtext"
+                    android:fontFamily="sans-serif"
+                    android:textAlignment="viewStart"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.893"
+                    app:layout_constraintHorizontal_bias="0.954"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.557"
-                    app:srcCompat="@drawable/arrow" />
+                    app:layout_constraintVertical_bias="0.397" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="178dp"
+                    android:layout_height="34dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Mis mascotas"
+                    android:textAlignment="center"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.038"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.525" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="261dp"
+                    android:layout_height="50dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Historial de citas"
+                    android:textAlignment="textStart"
+                    android:textColor="#1B4965"
+                    android:textSize="34sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.855" />
 
                 <ImageButton
                     android:id="@+id/btnHist4"
-                    android:layout_width="45dp"
-                    android:layout_height="44dp"
+                    android:layout_width="102dp"
+                    android:layout_height="95dp"
                     android:background="@android:color/transparent"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.893"
+                    app:layout_constraintHorizontal_bias="0.491"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.778"
-                    app:srcCompat="@drawable/arrow" />
+                    app:layout_constraintVertical_bias="0.741"
+                    app:srcCompat="@drawable/history" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="187dp"
+                    android:layout_height="45dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Citas pendientes"
+                    android:textAlignment="textStart"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.955"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.534" />
+
+                <ImageButton
+                    android:id="@+id/btnMasc4"
+                    android:layout_width="128dp"
+                    android:layout_height="115dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.123"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.378"
+                    app:srcCompat="@drawable/dosamigos" />
+
+                <ImageButton
+                    android:id="@+id/btnPnd4"
+                    android:layout_width="116dp"
+                    android:layout_height="115dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.864"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.378"
+                    app:srcCompat="@drawable/clipboard" />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -123,54 +178,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.077" />
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="223dp"
-                    android:layout_height="33dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Mis mascotas"
-                    android:textAlignment="textStart"
-                    android:textColor="#1B4965"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.235"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.339" />
-
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="267dp"
-                    android:layout_height="42dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Citas pendientes"
-                    android:textAlignment="textStart"
-                    android:textColor="#1B4965"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.235"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.558" />
-
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="276dp"
-                    android:layout_height="38dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Historial de citas"
-                    android:textAlignment="textStart"
-                    android:textColor="#1B4965"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.251"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.78" />
 
                 <ImageView
                     android:id="@+id/imageView5"

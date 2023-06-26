@@ -112,7 +112,7 @@ class MainMascota : Fragment() {
 
                 reg1.add(fila(col1))
 
-                val newElement = "Nombre: $col2"
+                val newElement = "$col2"
                 myData1.add(newElement)
             }
         } catch (ex: SQLException) {

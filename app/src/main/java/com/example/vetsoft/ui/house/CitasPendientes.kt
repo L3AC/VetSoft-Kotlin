@@ -40,7 +40,11 @@ lateinit var rcMainCP:RecyclerView
 class filaCP(val id: Int, val nMasc:String,val fecha:String,val nDoc:String)
 val regCP = mutableListOf<filaCP>()
 val myDataCP = mutableListOf<String>()
-class CitasPendientes : Fragment() {
+class CitasPendientes : Fragment()
+
+
+
+{
     private var idUs: Int = 0
     private var idCl:Int=0
     private var idCit:Int=0
@@ -74,6 +78,13 @@ class CitasPendientes : Fragment() {
         rcMainCP.layoutManager = LinearLayoutManager(context)
 
         LlenarSpin()
+        val bundle2 = Bundle().apply {
+            putInt("idUs", idUs)
+            putInt("idCl", idCl)
+        }
+        btnVolverM5.setOnClickListener(){
+            findNavController().navigate(R.id.action_citasPendientes_to_houseCliente, bundle2)
+        }
 
         spBusqCP.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
