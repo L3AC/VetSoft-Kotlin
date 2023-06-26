@@ -69,6 +69,7 @@ class AgregarMascota : Fragment() {
         btnConfirmAM = requireView().findViewById(R.id.btnConfirmAM)
         spRazaAM.isEnabled = false
 
+
         SpinAni(spAnimalAM)
         val bundle = Bundle().apply {
             putInt("idUs", idUs)

@@ -72,6 +72,9 @@
         <action
             android:id="@+id/action_citasPendientes_to_houseCliente"
             app:destination="@id/houseCliente" />
+        <action
+            android:id="@+id/action_citasPendientes_to_infoCita"
+            app:destination="@id/infoCita" />
     </fragment>
     <fragment
         android:id="@+id/historialCitas"
@@ -150,5 +153,14 @@
         <action
             android:id="@+id/action_dataPerfil_to_perfilMain"
             app:destination="@id/perfilMain" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoCita"
+        android:name="com.example.vetsoft.ui.house.infoCita"
+        android:label="fragment_info_cita"
+        tools:layout="@layout/fragment_info_cita" >
+        <action
+            android:id="@+id/action_infoCita_to_citasPendientes"
+            app:destination="@id/citasPendientes" />
     </fragment>
 </navigation>

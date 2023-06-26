@@ -314,7 +314,7 @@ class AgendarCIta : Fragment() {
     fun verifCita() {
         try {
             dateh = fechaSql + " " + txtHora5.text
-
+            Log.i("date",dateh)
             val cadena = "EXEC selectCitaCl ?,?;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
@@ -353,7 +353,7 @@ class AgendarCIta : Fragment() {
             ps.setInt(2, idServ)
             ps.setInt(3, idDoc)
             ps.setString(4, txtNota5.text.toString())
-            ps.setString(5, fechaSql)
+            ps.setString(5, dateh)
             ps.executeUpdate()
 
             val bundle = Bundle().apply {

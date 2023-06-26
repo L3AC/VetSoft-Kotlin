@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         btnIngresar1 = findViewById(R.id.btnIngresar1)
         xvCuenta1 = findViewById(R.id.xvCuenta1)
         btnMirar1 =findViewById(R.id.btnMirar1)
+
         //DIFERENT
 
         vali.configEditText(txtUsuario1,15,"^[a-zA-Z0-9]+$")

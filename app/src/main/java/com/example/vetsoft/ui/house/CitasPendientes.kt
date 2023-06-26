@@ -3,6 +3,8 @@ package com.example.vetsoft.ui.house
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.GestureDetector
 import androidx.fragment.app.Fragment
@@ -18,9 +20,12 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vetsoft.Conex.conx
 import com.example.vetsoft.R
+import com.example.vetsoft.Recuperacion.txtContra2CC
 import com.example.vetsoft.Validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -38,9 +43,10 @@ val myDataCP = mutableListOf<String>()
 class CitasPendientes : Fragment() {
     private var idUs: Int = 0
     private var idCl:Int=0
+    private var idCit:Int=0
     private var conx = conx()
     private var vali = Validat()
-    val busque = listOf("Por tiempo","Por nombre")
+    val busque = listOf("Nombre","Tiempo")
     val time = listOf("2 semanas","2 meses","6 meses")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,8 +71,10 @@ class CitasPendientes : Fragment() {
         spTimeCP=requireView().findViewById(R.id.spTimeCP)
         txtNombCP=requireView().findViewById(R.id.txtNombCP)
         rcMainCP=requireView().findViewById(R.id.rcMainCP)
+        rcMainCP.layoutManager = LinearLayoutManager(context)
 
         LlenarSpin()
+
         spBusqCP.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -95,22 +103,50 @@ class CitasPendientes : Fragment() {
                 position: Int,
                 id: Long
             ) {
-
-               /* val esp = espL[position]
-                // = esp.nombre
-                idEsp = esp.id
-                SpinDoc(spinDoc5)
-                if (txtFecha5.text.isEmpty()) {
-
-                } else {
-                    verifCita()
-                }*/
+                when (position) {
+                    0 -> {
+                        CargarByF(15)
+                    }
+                    1 -> {
+                        CargarByF(60)
+                    }
+                    2 -> {
+                        CargarByF(180)
+                    }
+                }
             }
-
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
-
         }
+        rcMainCP.addOnItemTouchListener(
+            citasPRecycler(requireContext(), rcMainCP,
+                object : citasPRecycler.OnItemClickListener {
+                    override fun onItemClick(view: View, position: Int) {
+                        // Acciones a realizar cuando se hace clic en un elemento del RecyclerView
+                        val itm = regCP[position]
+                        idCit = itm.id
+                        val bundle = Bundle().apply {
+                            putInt("idUs", idUs)
+                            putInt("idCl", idCl)
+                            putInt("idCit", idCit)
+                        }
+                        Log.i("IDE: ", idCit.toString())
+                        findNavController().navigate(R.id.action_citasPendientes_to_infoCita, bundle)
+                    }
+                })
+        )
+
+        txtNombCP.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                CargarByN()
+            }
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        val miAdapter = CitasPendientes.citaCard()
+        rcMainCP.adapter = miAdapter
 
     }
     fun CargarByN() {
@@ -118,11 +154,38 @@ class CitasPendientes : Fragment() {
         regCP.clear()
         try {
             var st: ResultSet
-            var cadena: String ="SET LANGUAGE Spanish EXEC selectCitaN ?,'%?%';"
+            var cadena: String ="SET LANGUAGE Spanish EXEC selectCitaN ?,?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)
-            ps.setString(1, txtNombCP.text.toString())
+            ps.setString(2,txtNombCP.text.toString())
+
+            st = ps.executeQuery()
+
+            while (st?.next() == true) {
+
+                val col1 = st.getInt("idCita")
+                val col2 = st.getString("nombre")
+                val col3 = st.getString("fecha")
+                val col4 = st.getString("Doctor")
+                Log.i("dfg",col2)
+
+                regCP.add(filaCP(col1,col2,col3,col4))
+            }
+        } catch (ex: SQLException) {
+            Log.i("ol",ex.message.toString())
+            Toast.makeText(context, "Error al cargar cita N", Toast.LENGTH_SHORT).show()
+        }
+    }
+    fun CargarByF(Dias:Int) {
+        regCP.clear()
+        try {
+            var st: ResultSet
+            var cadena: String ="SET LANGUAGE Spanish EXEC selectCitaD ?,?"
+
+            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
+            ps.setInt(1, idCl)
+            ps.setInt(2, Dias)
             st = ps.executeQuery()
 
             while (st?.next() == true) {
@@ -132,41 +195,12 @@ class CitasPendientes : Fragment() {
                 val col3 = st.getString("fecha")
                 val col4 = st.getString("Doctor")
 
+
                 regCP.add(filaCP(col1,col2,col3,col4))
-
-                /*val newElement = "Nombre: $col2"
-                myData1.add(newElement)*/
             }
         } catch (ex: SQLException) {
             Log.i("ol",ex.message.toString())
-            Toast.makeText(context, "Error al mostrar animal", Toast.LENGTH_SHORT).show()
-        }
-    }
-    fun CargarByF() {
-        //myData1.clear()
-        regCP.clear()
-        try {
-            var st: ResultSet
-            var cadena: String ="SET LANGUAGE Spanish EXEC selectCitaN ?,'%?%';"
-
-            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
-            ps.setInt(1, idCl)
-            ps.setString(1, txtNombCP.text.toString())
-            st = ps.executeQuery()
-
-            while (st?.next() == true) {
-
-                val col1 = st.getInt("idAnimal")
-                val col2 = st.getString("nombre")
-
-                //regCP.add(fila(col1))
-
-                /*val newElement = "Nombre: $col2"
-                myData1.add(newElement)*/
-            }
-        } catch (ex: SQLException) {
-            Log.i("ol",ex.message.toString())
-            Toast.makeText(context, "Error al mostrar animal", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Error al cargar cita F", Toast.LENGTH_SHORT).show()
         }
     }
     fun LlenarSpin() {
@@ -182,8 +216,10 @@ class CitasPendientes : Fragment() {
         val spinner2 = requireView().findViewById<Spinner>(R.id.spTimeCP)
         spinner2.adapter = adaptadorSpinner2
     }
+
     class citaCard(/*private val Datos: MutableList<String>,private val btnClick:(Int)->Unit*/) :
         RecyclerView.Adapter<citaCard.MyViewHolder>() {
+
         class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val txvMascota: TextView = view.findViewById(R.id.txvMascota)
             val txvFecha: TextView = view.findViewById(R.id.txvFecha)
@@ -195,16 +231,10 @@ class CitasPendientes : Fragment() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val vista =
                 LayoutInflater.from(parent.context).inflate(R.layout.citas, parent, false)
-            /*val lol=vista.findViewById<TextView>(R.id.txCarta)
-            lol.setOnClickListener(){
-                Toast.makeText(parent.context, "PARA UN POCO NENE", Toast.LENGTH_SHORT).show()
-            }*/
             return MyViewHolder(vista)
         }
-
-       override fun getItemCount(): Int /*= Datos.size*/ {
-           return TODO("Provide the return value")
-       }
+       var Hola:Int=0
+       override fun getItemCount()=Hola
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             val itm = regCP[position]
             holder.txvMascota.setText(itm.nMasc)
