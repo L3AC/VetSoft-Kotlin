@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".ui.house.houseCliente">
+    tools:context=".Controlador.ui.Home.houseCliente">
 
     <ScrollView
         android:layout_width="match_parent"

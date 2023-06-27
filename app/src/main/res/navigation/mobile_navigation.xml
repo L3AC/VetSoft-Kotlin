@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/houseCliente"
-        android:name="com.example.vetsoft.ui.house.houseCliente"
+        android:name="com.example.vetsoft.Controlador.ui.Home.houseCliente"
         android:label="fragment_house_cliente"
         tools:layout="@layout/fragment_house_cliente" >
         <action
@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_doct_main" />
     <fragment
         android:id="@+id/perfilMain"
-        android:name="com.example.vetsoft.ui.perfil.perfilMain"
+        android:name="com.example.vetsoft.Controlador.ui.Perfil.perfilMain"
         android:label="fragment_perfil_main"
         tools:layout="@layout/fragment_perfil_main" >
         <action
@@ -39,16 +39,16 @@
     </fragment>
     <fragment
         android:id="@+id/tiendaMain"
-        android:name="com.example.vetsoft.ui.tienda.tiendaMain"
+        android:name="com.example.vetsoft.Controlador.ui.tiendaMain"
         android:label="fragment_tienda_main"
         tools:layout="@layout/fragment_tienda_main" />
     <activity
         android:id="@+id/barraNavegar"
-        android:name="com.example.vetsoft.AMain.BarraNavegar"
+        android:name="com.example.vetsoft.Controlador.Main.BarraNavegar"
         android:label="BarraNavegar" />
     <fragment
         android:id="@+id/agendarCIta"
-        android:name="com.example.vetsoft.ui.house.AgendarCIta"
+        android:name="com.example.vetsoft.Controlador.ui.Home.AgendarCIta"
         android:label="fragment_agendar_cita"
         tools:layout="@layout/fragment_agendar_cita" >
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/agregarMascota"
-        android:name="com.example.vetsoft.ui.house.AgregarMascota"
+        android:name="com.example.vetsoft.Controlador.ui.Home.AgregarMascota"
         android:label="fragment_agregar_mascota"
         tools:layout="@layout/fragment_agregar_mascota" >
         <action
@@ -66,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/citasPendientes"
-        android:name="com.example.vetsoft.ui.house.CitasPendientes"
+        android:name="com.example.vetsoft.Controlador.ui.Home.CitasPendientes"
         android:label="fragment_citas_pendientes"
         tools:layout="@layout/fragment_citas_pendientes" >
         <action
@@ -78,7 +78,7 @@
     </fragment>
     <fragment
         android:id="@+id/historialCitas"
-        android:name="com.example.vetsoft.ui.house.HistorialCitas"
+        android:name="com.example.vetsoft.Controlador.ui.Home.HistorialCitas"
         android:label="fragment_historial_citas"
         tools:layout="@layout/fragment_historial_citas" >
         <action
@@ -87,7 +87,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainMascota"
-        android:name="com.example.vetsoft.ui.house.MainMascota"
+        android:name="com.example.vetsoft.Controlador.ui.Home.MainMascota"
         android:label="fragment_main_mascota"
         tools:layout="@layout/fragment_main_mascota" >
         <action
@@ -102,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/infoMascota"
-        android:name="com.example.vetsoft.ui.house.InfoMascota"
+        android:name="com.example.vetsoft.Controlador.ui.Home.InfoMascota"
         android:label="fragment_info_mascota"
         tools:layout="@layout/fragment_info_mascota" >
         <action
@@ -114,7 +114,7 @@
     </fragment>
     <fragment
         android:id="@+id/changePassw"
-        android:name="com.example.vetsoft.ui.perfil.ChangePassw"
+        android:name="com.example.vetsoft.Controlador.ui.Perfil.ChangePassw"
         android:label="fragment_change_passw"
         tools:layout="@layout/fragment_change_passw" >
         <action
@@ -123,7 +123,7 @@
     </fragment>
     <fragment
         android:id="@+id/changePreguntas"
-        android:name="com.example.vetsoft.ui.perfil.ChangePreguntas"
+        android:name="com.example.vetsoft.Controlador.ui.Perfil.ChangePreguntas"
         android:label="fragment_change_preguntas"
         tools:layout="@layout/fragment_change_preguntas" >
         <action
@@ -132,7 +132,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainSecurity"
-        android:name="com.example.vetsoft.ui.perfil.MainSecurity"
+        android:name="com.example.vetsoft.Controlador.ui.Perfil.MainSecurity"
         android:label="fragment_main_security"
         tools:layout="@layout/fragment_main_security" >
         <action
@@ -147,7 +147,7 @@
     </fragment>
     <fragment
         android:id="@+id/dataPerfil"
-        android:name="com.example.vetsoft.ui.perfil.DataPerfil"
+        android:name="com.example.vetsoft.Controlador.ui.Perfil.DataPerfil"
         android:label="fragment_data_perfil"
         tools:layout="@layout/fragment_data_perfil" >
         <action
@@ -156,7 +156,7 @@
     </fragment>
     <fragment
         android:id="@+id/infoCita"
-        android:name="com.example.vetsoft.ui.house.infoCita"
+        android:name="com.example.vetsoft.Controlador.ui.Home.infoCita"
         android:label="fragment_info_cita"
         tools:layout="@layout/fragment_info_cita" >
         <action

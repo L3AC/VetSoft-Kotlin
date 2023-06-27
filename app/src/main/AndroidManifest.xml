@@ -15,19 +15,19 @@
         android:theme="@style/Theme.VetSoft"
         tools:targetApi="31">
         <activity
-            android:name=".Recuperacion.RecuContra_dos"
+            android:name=".Controlador.Recuperacion.RecuContra_dos"
             android:exported="false" />
         <activity
-            android:name=".Recuperacion.CambioContra"
+            android:name=".Controlador.Recuperacion.CambioContra"
             android:exported="false" />
         <activity
-            android:name=".Recuperacion.RecupWha"
+            android:name=".Controlador.Recuperacion.RecupWha"
             android:exported="false" />
         <activity
-            android:name=".Recuperacion.RecupPreguntas"
+            android:name=".Controlador.Recuperacion.RecupPreguntas"
             android:exported="false" />
         <activity
-            android:name=".AMain.MainRecup"
+            android:name=".Controlador.Main.MainRecup"
             android:exported="false" />
         <activity
             android:name=".Validation.MainRecup"
@@ -35,7 +35,7 @@
             android:label="@string/title_activity_main_recup"
             android:theme="@style/Theme.VetSoft" />
         <activity
-            android:name=".AMain.Pcarga"
+            android:name=".Controlador.Main.Pcarga"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,17 +44,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AMain.CrearCuenta"
+            android:name=".Controlador.Main.CrearCuenta"
             android:exported="false" />
         <activity
-            android:name=".Recuperacion.RecupContra"
+            android:name=".Controlador.Recuperacion.RecupContra"
             android:exported="false" />
         <activity
-            android:name=".AMain.BarraNavegar"
+            android:name=".Controlador.Main.BarraNavegar"
             android:exported="false"
             android:label="@string/title_activity_barra_navegar" />
         <activity
-            android:name=".AMain.MainActivity"
+            android:name=".Controlador.Main.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 

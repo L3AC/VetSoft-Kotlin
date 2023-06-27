@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#5FA8D3"
     android:backgroundTint="#5FA8D3"
-    tools:context=".Recuperacion.RecupContra">
+    tools:context=".Controlador.Recuperacion.RecupContra">
 
     <ScrollView
         android:layout_width="match_parent"
