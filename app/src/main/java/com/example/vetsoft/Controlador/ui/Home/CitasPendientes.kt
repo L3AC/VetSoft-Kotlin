@@ -29,7 +29,7 @@ import com.example.vetsoft.Controlador.validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
-
+@SuppressLint("StaticFieldLeak")
 lateinit var btnVolverCP:ImageButton
 lateinit var spBusqCP:Spinner
 lateinit var spTimeCP:Spinner
@@ -39,11 +39,7 @@ lateinit var rcMainCP:RecyclerView
 class filaCP(val id: Int, val nMasc:String,val fecha:String,val nDoc:String)
 val regCP = mutableListOf<filaCP>()
 val myDataCP = mutableListOf<String>()
-class CitasPendientes : Fragment()
-
-
-
-{
+class CitasPendientes : Fragment() {
     private var idUs: Int = 0
     private var idCl:Int=0
     private var idCit:Int=0
@@ -77,15 +73,16 @@ class CitasPendientes : Fragment()
         rcMainCP.layoutManager = LinearLayoutManager(context)
 
         LlenarSpin()
+        CargarByN()
         val bundle2 = Bundle().apply {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
         }
-        btnVolverM5.setOnClickListener(){
+        btnVolverCP.setOnClickListener(){
             findNavController().navigate(R.id.action_citasPendientes_to_houseCliente, bundle2)
         }
-        CargarByN()
-        spBusqCP.onItemSelectedListener = object :
+
+        /*spBusqCP.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,view: View?, position: Int,id: Long
@@ -127,7 +124,7 @@ class CitasPendientes : Fragment()
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
-        }
+        }*/
         rcMainCP.addOnItemTouchListener(
             citasPRecycler(requireContext(), rcMainCP,
                 object : citasPRecycler.OnItemClickListener {
@@ -155,21 +152,25 @@ class CitasPendientes : Fragment()
             override fun afterTextChanged(s: Editable?) {
             }
         })
-        val miAdapter = citaCard()
-        rcMainCP.adapter = miAdapter
+        val miAdapter2 = citaCard(myDataCP)
+        rcMainCP.adapter = miAdapter2
 
     }
     fun CargarByN() {
-        //myData1.clear()
+        myDataCP.clear()
         regCP.clear()
         try {
             var st: ResultSet
-            var cadena: String ="SET LANGUAGE Spanish EXEC selectCitaN ?,?;"
+            var cadena: String ="select idCita, CONVERT(varchar, fechahora, 100) as fecha,a.nombre, CONCAT(d.nombre, ' ', d.apellido) as 'Doctor'\n" +
+                    "from tbCitas c,tbAnimales a, tbDoctores d where c.idAnimal=a.idAnimal and d.idDoctor=c.idDoctor " +
+                    "and a.idCliente=? and estado='Pendiente' and a.nombre LIKE '%"+txtNombCP.text.toString()+"%';";
+                //"SET LANGUAGE Spanish EXEC selectCitaN ?,?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)
-            ps.setString(2, txtNombCP.text.toString())
-
+            //ps.setString(2, txtNombCP.text.toString())
+            Log.i("con",ps.toString())
+            Log.i("con",idCl.toString())
             st = ps.executeQuery()
 
             while (st?.next() == true) {
@@ -181,6 +182,8 @@ class CitasPendientes : Fragment()
                 Log.i("dfg",col2)
 
                 regCP.add(filaCP(col1,col2,col3,col4))
+                val newElement = "$col2"
+                myDataCP.add(newElement)
             }
         } catch (ex: SQLException) {
             Log.i("ol",ex.message.toString())
@@ -205,7 +208,6 @@ class CitasPendientes : Fragment()
                 val col3 = st.getString("fecha")
                 val col4 = st.getString("Doctor")
 
-
                 regCP.add(filaCP(col1,col2,col3,col4))
             }
         } catch (ex: SQLException) {
@@ -227,7 +229,7 @@ class CitasPendientes : Fragment()
         spinner2.adapter = adaptadorSpinner2
     }
 
-    class citaCard(/*private val Datos: MutableList<String>,private val btnClick:(Int)->Unit*/) :
+    class citaCard(private val Datos: MutableList<String>/*,private val btnClick:(Int)->Unit*/) :
         RecyclerView.Adapter<citaCard.MyViewHolder>() {
 
         class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -244,16 +246,15 @@ class CitasPendientes : Fragment()
             return MyViewHolder(vista)
         }
        var Hola:Int=0
-       override fun getItemCount()=Hola
+       override fun getItemCount()=Datos.size
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            val itm = regCP[position]
-            holder.txvMascota.setText(itm.nMasc)
-            holder.txvFecha.setText(itm.fecha)
-            holder.txvDoc.setText(itm.nDoc)
+            val itmg = regCP[position]
+            holder.txvMascota.text = Datos[position]
+            holder.txvFecha.text = itmg.fecha
+            holder.txvDoc.text = itmg.nDoc
             //Reemplazamos la imagen
             //  holder.imageView.setImageResource(Imagenes[position])
         }
-
     }
     class citasPRecycler(
         context: Context,

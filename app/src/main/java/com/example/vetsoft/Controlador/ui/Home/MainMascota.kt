@@ -56,7 +56,7 @@ class MainMascota : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnVolverM5 =requireView().findViewById(R.id.btnVolverM5)
-        rcMainMasc =requireView().findViewById(R.id.rcMainCP)
+        rcMainMasc =requireView().findViewById(R.id.rcMainMasc)
         btnAddM5 =requireView().findViewById(R.id.btnAddM5)
         rcMainMasc.layoutManager = LinearLayoutManager(context)
 
