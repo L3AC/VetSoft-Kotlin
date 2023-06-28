@@ -45,8 +45,8 @@ class CitasPendientes : Fragment() {
     private var idCit:Int=0
     private var conx = conx()
     private var vali = Validat()
-    val busque = listOf("Nombre","Tiempo")
-    val time = listOf("2 semanas","2 meses","6 meses")
+    val busque = listOf("Tiempo","Nombre")
+    val time = listOf("6 meses","2 meses","2 semanas")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -72,8 +72,9 @@ class CitasPendientes : Fragment() {
         rcMainCP =requireView().findViewById(R.id.rcMainCP)
         rcMainCP.layoutManager = LinearLayoutManager(context)
 
+        txtNombCP.isVisible=false
         LlenarSpin()
-        CargarByN()
+        //CargarByF()
         val bundle2 = Bundle().apply {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
@@ -82,49 +83,33 @@ class CitasPendientes : Fragment() {
             findNavController().navigate(R.id.action_citasPendientes_to_houseCliente, bundle2)
         }
 
-        /*spBusqCP.onItemSelectedListener = object :
+        spBusqCP.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,view: View?, position: Int,id: Long
             ) {
                 when (position) {
                     0 -> {
+                        /*CargarByN()
                         spTimeCP.isVisible=false
-                        txtNombCP.isVisible=true
-                    }
-                    1 -> {
+                        txtNombCP.isVisible=true*/
+                        CargarByF(180)
                         spTimeCP.isVisible=true
                         txtNombCP.isVisible=false
                     }
+                    1 -> {
+                        /*CargarByF(180)
+                        spTimeCP.isVisible=true
+                        txtNombCP.isVisible=false*/
+                        CargarByN()
+                        spTimeCP.isVisible=false
+                        txtNombCP.isVisible=true
+                    }
                 }
             }
-
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
-        spTimeCP.onItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                when (position) {
-                    0 -> {
-                        CargarByF(15)
-                    }
-                    1 -> {
-                        CargarByF(60)
-                    }
-                    2 -> {
-                        CargarByF(180)
-                    }
-                }
-            }
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
-        }*/
         rcMainCP.addOnItemTouchListener(
             citasPRecycler(requireContext(), rcMainCP,
                 object : citasPRecycler.OnItemClickListener {
@@ -152,8 +137,29 @@ class CitasPendientes : Fragment() {
             override fun afterTextChanged(s: Editable?) {
             }
         })
-        val miAdapter2 = citaCard(myDataCP)
-        rcMainCP.adapter = miAdapter2
+        spTimeCP.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
+                    0 -> {
+                        CargarByF(180)
+                    }
+                    1 -> {
+                        CargarByF(60)
+                    }
+                    2 -> {
+                        CargarByF(15)
+                    }
+                }
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
 
     }
     fun CargarByN() {
@@ -181,6 +187,9 @@ class CitasPendientes : Fragment() {
                 regCP.add(filaCP(col1,col2,col3,col4))
                 val newElement = "$col2"
                 myDataCP.add(newElement)
+
+                val miAdapter2 = citaCard(myDataCP)
+                rcMainCP.adapter = miAdapter2
             }
         } catch (ex: SQLException) {
             Log.i("ol",ex.message.toString())
@@ -188,6 +197,7 @@ class CitasPendientes : Fragment() {
         }
     }
     fun CargarByF(Dias:Int) {
+        myDataCP.clear()
         regCP.clear()
         try {
             var st: ResultSet
@@ -206,6 +216,11 @@ class CitasPendientes : Fragment() {
                 val col4 = st.getString("Doctor")
 
                 regCP.add(filaCP(col1,col2,col3,col4))
+                val newElement = "$col2"
+                myDataCP.add(newElement)
+
+                val miAdapter2 = citaCard(myDataCP)
+                rcMainCP.adapter = miAdapter2
             }
         } catch (ex: SQLException) {
             Log.i("ol",ex.message.toString())
@@ -246,9 +261,9 @@ class CitasPendientes : Fragment() {
        override fun getItemCount()=Datos.size
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             val itmg = regCP[position]
-            holder.txvMascota.text = Datos[position]
-            holder.txvFecha.text = itmg.fecha
-            holder.txvDoc.text = itmg.nDoc
+            holder.txvMascota.text = "Mascota: "+Datos[position]
+            holder.txvFecha.text = "Fecha: "+itmg.fecha
+            holder.txvDoc.text ="Doctor: "+ itmg.nDoc
             //Reemplazamos la imagen
             //  holder.imageView.setImageResource(Imagenes[position])
         }

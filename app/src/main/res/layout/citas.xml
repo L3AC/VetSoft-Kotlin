@@ -15,11 +15,11 @@
     app:cardCornerRadius="13dp"
     app:cardElevation="8dp"
 
-    app:contentPadding="20dp">
+    app:contentPadding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="110dp"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,26 +52,26 @@
 
             <TextView
                 android:id="@+id/txvFecha"
-                android:layout_width="169dp"
-                android:layout_height="28dp"
+                android:layout_width="238dp"
+                android:layout_height="25dp"
                 android:text="Fecha:"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintHorizontal_bias="0.846"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.491" />
+                app:layout_constraintVertical_bias="0.386" />
 
             <TextView
                 android:id="@+id/txvDoc"
-                android:layout_width="255dp"
-                android:layout_height="30dp"
+                android:layout_width="251dp"
+                android:layout_height="53dp"
                 android:text="Doctor:"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.99"
+                app:layout_constraintHorizontal_bias="0.951"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
