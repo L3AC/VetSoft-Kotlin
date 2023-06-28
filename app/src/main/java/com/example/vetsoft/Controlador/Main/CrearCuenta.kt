@@ -23,12 +23,15 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.Controlador.Cryptation.Crypto
+import com.example.vetsoft.Controlador.ui.Perfil.txtNaciDP
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 lateinit var txtUsuario2:EditText
 lateinit var txtContraN2:EditText
@@ -281,7 +284,6 @@ fun createUs() {
             val year = c.get(Calendar.YEAR)
             val month = c.get(Calendar.MONTH)
             val day = c.get(Calendar.DAY_OF_MONTH)
-
             return DatePickerDialog(requireActivity(), this, year, month, day)
         }
 
