@@ -1,6 +1,8 @@
 package com.example.vetsoft.Controlador.ui.Perfil
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,7 +19,15 @@ import androidx.core.view.isVisible
 import com.example.vetsoft.Controlador.Main.btnConfirm2
 import com.example.vetsoft.Controlador.Main.btnMirar2
 import com.example.vetsoft.Controlador.Main.btnVolver2
+import com.example.vetsoft.Controlador.Main.txtApellidos2
+import com.example.vetsoft.Controlador.Main.txtContraD2
+import com.example.vetsoft.Controlador.Main.txtContraN2
+import com.example.vetsoft.Controlador.Main.txtCorreo2
+import com.example.vetsoft.Controlador.Main.txtDui2
 import com.example.vetsoft.Controlador.Main.txtNaci2
+import com.example.vetsoft.Controlador.Main.txtNomb2
+import com.example.vetsoft.Controlador.Main.txtTel2
+import com.example.vetsoft.Controlador.Main.txtUsuario2
 import com.example.vetsoft.Controlador.Main.txvCont2
 import com.example.vetsoft.Controlador.Main.txvUs2
 import com.example.vetsoft.Controlador.ui.Home.txvAniF5
@@ -93,6 +103,13 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
 
         cargarData()
         Habilit(false)
+
+        vali.configEditText(txtUsDP,15,"^[a-zA-Z0-9]+$")
+        vali.configEditText(txtNombDP,30,"[a-zA-Z\\s]+")
+        vali.configEditText(txtApellDP,30,"[a-zA-Z\\s]+")
+        vali.configEditText(txtTelDP,8,"[0-9]+")
+        vali.configEditText(txtDuiDP,10,"[0-9]+")
+
         btnActDP.setOnClickListener(){
             if (btnGuardarDP.isVisible) {
                 btnActDP.text = "Editar"
@@ -106,8 +123,35 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             showDatePicker()
         }
         btnGuardarDP.setOnClickListener(){
-           // updateData()
+            val editTextList = listOf(
+                txtUsDP, txtCorreoDP, txtNombDP, txtApellDP, txtTelDP, txtDuiDP
+            )
+            val areFieldsValid  = vali.areFieldsNotEmpty(editTextList)
+            if(areFieldsValid){
+                updateData()
+            }
+            else{
+                Toast.makeText(requireContext(), "Campos vacios", Toast.LENGTH_SHORT).show()
+            }
         }
+        txtUsDP.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                verifUs()
+            }
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        txtCorreoDP.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                vali.validateEmail(txtCorreoDP, btnGuardarDP)
+            }
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
 
 
     }
@@ -125,7 +169,7 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             txtNombDP.setText(st.getString("nombre"))
             txtApellDP.setText(st.getString("apellido"))
             txtCorreoDP.setText(st.getString("correo"))
-            txtTelDP.setText(st.getString("apellido"))
+            txtTelDP.setText(st.getString("telefono"))
             spSexoDP.setSelection(adpt.getPosition(st.getString("sexo")))
             txtNaciDP.setText(st.getString("nacimiento"))
             txtDuiDP.setText(st.getString("DUI"))
@@ -134,6 +178,32 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
             Toast.makeText(context, "Error al cargar", Toast.LENGTH_SHORT).show()
+        }
+        conx.dbConn()!!.close()
+    }
+    fun verifUs() {
+        try {
+            val cadena: String = "EXEC selectUsN ?;"
+            val st: ResultSet
+            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
+
+            ps.setString(1, txtUsuario2.text.toString())
+            st = ps.executeQuery()
+            st.next()
+
+            val found = st.row
+            if (found == 1) {
+                txvUsDP.isVisible = true
+                btnGuardarDP.isEnabled = false
+                Toast.makeText(requireContext(), "Ya existe usuario", Toast.LENGTH_SHORT).show()
+
+            } else {
+                txvUsDP.isVisible = false
+                btnGuardarDP.isEnabled = true
+            }
+        } catch (ex: SQLException) {
+            Log.e("Error: ", ex.message!!)
+            Toast.makeText(requireContext(), "Error interno", Toast.LENGTH_SHORT).show()
         }
         conx.dbConn()!!.close()
     }
@@ -163,6 +233,7 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
         }
         conx.dbConn()!!.close()
     }
+
     fun LLenarSpin(): ArrayAdapter<String> {
         val adaptadorSpinner =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, sexo)

@@ -94,7 +94,6 @@ class CrearCuenta : AppCompatActivity() {
         vali.configEditText(txtTel2,8,"[0-9]+")
         vali.configEditText(txtDui2,10,"[0-9]+")
 
-
         btnConfirm2.setOnClickListener(){
             val editTextList = listOf(
                 txtUsuario2, txtContraN2,
@@ -113,6 +112,7 @@ class CrearCuenta : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Campos vacíos", Toast.LENGTH_SHORT).show()
             }
         }
+
         btnNaci2.setOnClickListener(){
             val Calendario =
                 DatePickerFragment { year, month, day -> verResultado(year, month, day) }
@@ -183,11 +183,12 @@ class CrearCuenta : AppCompatActivity() {
             val found = st.row
             if (found == 1) {
                 txvUs2.isVisible = true
+                btnConfirm2.isEnabled = false
                 Toast.makeText(applicationContext, "Ya existe usuario", Toast.LENGTH_SHORT).show()
 
             } else {
                 txvUs2.isVisible = false
-                btnConfirm2.isEnabled = false
+                btnConfirm2.isEnabled = true
             }
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
