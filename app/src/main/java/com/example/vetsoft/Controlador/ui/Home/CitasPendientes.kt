@@ -161,14 +161,11 @@ class CitasPendientes : Fragment() {
         regCP.clear()
         try {
             var st: ResultSet
-            var cadena: String ="select idCita, CONVERT(varchar, fechahora, 100) as fecha,a.nombre, CONCAT(d.nombre, ' ', d.apellido) as 'Doctor'\n" +
-                    "from tbCitas c,tbAnimales a, tbDoctores d where c.idAnimal=a.idAnimal and d.idDoctor=c.idDoctor " +
-                    "and a.idCliente=? and estado='Pendiente' and a.nombre LIKE '%"+txtNombCP.text.toString()+"%';";
-                //"SET LANGUAGE Spanish EXEC selectCitaN ?,?;"
+            var cadena: String ="SET LANGUAGE Spanish EXEC selectCitaN ?,?;";
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)
-            //ps.setString(2, txtNombCP.text.toString())
+            ps.setString(2,txtNombCP.text.toString())
             Log.i("con",ps.toString())
             Log.i("con",idCl.toString())
             st = ps.executeQuery()
