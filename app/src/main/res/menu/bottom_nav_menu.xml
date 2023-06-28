@@ -12,8 +12,8 @@
         android:title="Doctores" />
 
     <item
-        android:id="@+id/tiendaMain"
-        android:icon="@drawable/segu"
+        android:id="@+id/mainTienda"
+        android:icon="@drawable/tienda"
         android:title="Tienda" />
     <item
         android:id="@+id/perfilMain"

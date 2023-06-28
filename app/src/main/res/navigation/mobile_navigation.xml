@@ -37,11 +37,6 @@
             android:id="@+id/action_perfilMain_to_dataPerfil"
             app:destination="@id/dataPerfil" />
     </fragment>
-    <fragment
-        android:id="@+id/tiendaMain"
-        android:name="com.example.vetsoft.Controlador.ui.tiendaMain"
-        android:label="fragment_tienda_main"
-        tools:layout="@layout/fragment_tienda_main" />
     <activity
         android:id="@+id/barraNavegar"
         android:name="com.example.vetsoft.Controlador.Main.BarraNavegar"
@@ -163,4 +158,9 @@
             android:id="@+id/action_infoCita_to_citasPendientes"
             app:destination="@id/citasPendientes" />
     </fragment>
+    <fragment
+        android:id="@+id/mainTienda"
+        android:name="com.example.vetsoft.Controlador.ui.Tienda.MainTienda"
+        android:label="fragment_main_tienda"
+        tools:layout="@layout/fragment_main_tienda" />
 </navigation>

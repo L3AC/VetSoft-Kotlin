@@ -32,7 +32,7 @@ class BarraNavegar : AppCompatActivity() {
 
         /*val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.houseCliente, R.id.doctMain, R.id.tiendaMain, R.id.perfilMain
+                R.id.houseCliente, R.id.doctMain, R.id.MainTienda, R.id.perfilMain
             )
         )*/
 
