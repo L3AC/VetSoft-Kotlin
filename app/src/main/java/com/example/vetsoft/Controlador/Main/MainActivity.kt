@@ -89,7 +89,9 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun VerifUs() {
         try {
-            val cadena: String = "EXEC LoginUs ?,?; "
+            val cadena: String = "SELECT *FROM tbUsuarios " +
+                    " WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS" +
+                    " and contraseña = ? COLLATE SQL_Latin1_General_CP1_CS_AS and idTipoUsuario=3; "
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
@@ -115,7 +117,9 @@ class MainActivity : AppCompatActivity() {
 
     fun verifCliente() {
         try {
-            val cadena: String = "EXEC UsCliente ?;"
+            val cadena: String = "select idCliente from tbClientes inner join " +
+                    "   tbUsuarios on tbClientes.idUsuario=tbUsuarios.idUsuario " +
+                    "   where tbClientes.idUsuario=?;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 

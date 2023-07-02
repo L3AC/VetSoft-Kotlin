@@ -2,10 +2,12 @@ package com.example.vetsoft.Controlador.Cryptation
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import java.nio.charset.StandardCharsets
 import java.util.Base64
 import javax.crypto.Cipher
 import javax.crypto.SecretKey
 import javax.crypto.spec.SecretKeySpec
+
 
 class Crypto {
     @RequiresApi(Build.VERSION_CODES.O)
@@ -27,4 +29,7 @@ class Crypto {
         val decryptedBytes = cipher.doFinal(encryptedBytes)
         return String(decryptedBytes)
     }
+
+
+
 }
