@@ -270,7 +270,7 @@
                     app:layout_constraintVertical_bias="0.048" />
 
                 <ImageButton
-                    android:id="@+id/btnVolverDP2"
+                    android:id="@+id/btnVolverFC"
                     android:layout_width="41dp"
                     android:layout_height="41dp"
                     android:background="@android:color/transparent"
@@ -284,7 +284,7 @@
                     app:srcCompat="@drawable/flecha" />
 
                 <Button
-                    android:id="@+id/btnInfoDoc"
+                    android:id="@+id/btnInfoDocFC"
                     android:layout_width="153dp"
                     android:layout_height="68dp"
                     android:text="Info. Doctor"
