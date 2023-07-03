@@ -36,13 +36,14 @@ lateinit var spTimeCP:Spinner
 lateinit var txtNombCP:EditText
 lateinit var rcMainCP:RecyclerView
 
-class filaCP(val id: Int, val nMasc:String,val fecha:String,val nDoc:String)
+class filaCP(val idC: Int,val idD:Int, val nMasc:String,val fecha:String,val nDoc:String)
 val regCP = mutableListOf<filaCP>()
 val myDataCP = mutableListOf<String>()
 class CitasPendientes : Fragment() {
     private var idUs: Int = 0
     private var idCl:Int=0
     private var idCit:Int=0
+    private var idDoc:Int=0
     private var conx = conx()
     private var vali = Validat()
     val busque = listOf("Tiempo","Nombre")
@@ -116,11 +117,13 @@ class CitasPendientes : Fragment() {
                     override fun onItemClick(view: View, position: Int) {
                         // Acciones a realizar cuando se hace clic en un elemento del RecyclerView
                         val itm = regCP[position]
-                        idCit = itm.id
+                        idCit = itm.idC
+                        idDoc = itm.idD
                         val bundle = Bundle().apply {
                             putInt("idUs", idUs)
                             putInt("idCl", idCl)
                             putInt("idCit", idCit)
+                            putInt("idDoc", idDoc)
                         }
                         Log.i("IDE: ", idCit.toString())
                         findNavController().navigate(R.id.action_citasPendientes_to_infoCita, bundle)
@@ -167,7 +170,7 @@ class CitasPendientes : Fragment() {
         regCP.clear()
         try {
             var st: ResultSet
-            var cadena: String ="SET LANGUAGE Spanish EXEC selectCitaN ?,?;";
+            var cadena: String ="SET LANGUAGE Spanish EXEC selectCitaN ?,?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)
@@ -179,13 +182,14 @@ class CitasPendientes : Fragment() {
             while (st?.next() == true) {
 
                 val col1 = st.getInt("idCita")
-                val col2 = st.getString("nombre")
-                val col3 = st.getString("fecha")
-                val col4 = st.getString("Doctor")
-                Log.i("dfg",col2)
+                val col2 = st.getInt("idDoctor")
+                val col3 = st.getString("nombre")
+                val col4 = st.getString("fecha")
+                val col5 = st.getString("Doctor")
+                Log.i("dfg",col3)
 
-                regCP.add(filaCP(col1,col2,col3,col4))
-                val newElement = "$col2"
+                regCP.add(filaCP(col1,col2,col3,col4,col5))
+                val newElement = "$col3"
                 myDataCP.add(newElement)
 
                 val miAdapter2 = citaCard(myDataCP)
@@ -206,17 +210,19 @@ class CitasPendientes : Fragment() {
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)
             ps.setInt(2, Dias)
+            Log.i("con2",ps.toString())
             st = ps.executeQuery()
 
             while (st?.next() == true) {
 
                 val col1 = st.getInt("idCita")
-                val col2 = st.getString("nombre")
-                val col3 = st.getString("fecha")
-                val col4 = st.getString("Doctor")
+                val col2 = st.getInt("idDoctor")
+                val col3 = st.getString("nombre")
+                val col4 = st.getString("fecha")
+                val col5 = st.getString("Doctor")
 
-                regCP.add(filaCP(col1,col2,col3,col4))
-                val newElement = "$col2"
+                regCP.add(filaCP(col1,col2,col3,col4,col5))
+                val newElement = "$col3"
                 myDataCP.add(newElement)
 
                 val miAdapter2 = citaCard(myDataCP)

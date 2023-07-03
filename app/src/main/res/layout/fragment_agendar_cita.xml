@@ -26,6 +26,20 @@
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="80dp">
 
+                <ImageButton
+                    android:id="@+id/btnVolver5"
+                    android:layout_width="41dp"
+                    android:layout_height="41dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.078"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.048"
+                    app:srcCompat="@drawable/flecha" />
+
                 <Spinner
                     android:id="@+id/spinArea5"
                     android:layout_width="321dp"
@@ -54,20 +68,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.266" />
-
-                <ImageButton
-                    android:id="@+id/btnVolverF5"
-                    android:layout_width="41dp"
-                    android:layout_height="41dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="fitXY"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.078"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.048"
-                    app:srcCompat="@drawable/flecha" />
 
                 <TextView
                     android:id="@+id/textView7"

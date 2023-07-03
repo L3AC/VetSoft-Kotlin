@@ -2,6 +2,7 @@ package com.example.vetsoft.Controlador.validation
 import android.text.InputFilter
 import android.text.Spanned
 import android.util.Patterns
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 
@@ -107,4 +108,9 @@ class Validat {
             }
             editText.filters = editText.filters.plus(inputFilter)
         }
+    fun Habilit(mt:List<View>, tf: Boolean) {
+        for (obj in mt){
+            obj.isEnabled=tf
+        }
+    }
 }

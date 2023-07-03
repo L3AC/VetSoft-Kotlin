@@ -18,7 +18,7 @@ import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
 
-lateinit var btnVolverF5: ImageButton
+lateinit var btnVolverIM: ImageButton
 lateinit var btnAddF5: ImageView
 lateinit var txvAniF5:TextView
 lateinit var txvRazaF5:TextView
@@ -54,7 +54,7 @@ class InfoMascota : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnVolverF5 =requireView().findViewById(R.id.btnVolverF5)
+        btnVolverIM =requireView().findViewById(R.id.btnVolverIM)
         btnAddF5 =requireView().findViewById(R.id.btnAddF5)
         txvAniF5 =requireView().findViewById(R.id.txvAniF5)
         txvRazaF5 =requireView().findViewById(R.id.txvRazaF5)
@@ -73,7 +73,7 @@ class InfoMascota : Fragment() {
         btnAddF5.setOnClickListener(){
             findNavController().navigate(R.id.action_infoMascota_to_agendarCIta, bundle)
         }
-        btnVolverF5.setOnClickListener(){
+        btnVolverIM.setOnClickListener(){
             findNavController().navigate(R.id.action_infoMascota_to_mainMascota, bundle)
         }
     }
@@ -90,11 +90,11 @@ class InfoMascota : Fragment() {
             txvRazaF5.setText("Raza:  "+st.getString("nombreRaza"))
             txvNombF5.setText("Nombre:  "+st.getString("nombre"))
             txvPesoF5.setText("Peso:  "+st.getString("peso"))
-            if(st.getString("Edad")==null){//VERIFICAR PARA PONER PENDIENTE
+            if(st.getString("meses")==null){//VERIFICAR PARA PONER PENDIENTE
                 txvEdadF5.setText("Edad:  Pendiente")
             }
             else{
-                txvEdadF5.setText("Edad:  "+st.getString("Edad"))
+                txvEdadF5.setText("Edad:  "+st.getString("meses"))
             }
 
             txvSexoF5.setText("Sexo:  "+st.getString("sexo"))

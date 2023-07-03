@@ -30,6 +30,12 @@ import com.example.vetsoft.Controlador.Main.txtTel2
 import com.example.vetsoft.Controlador.Main.txtUsuario2
 import com.example.vetsoft.Controlador.Main.txvCont2
 import com.example.vetsoft.Controlador.Main.txvUs2
+import com.example.vetsoft.Controlador.ui.Home.txtDoctorFC
+import com.example.vetsoft.Controlador.ui.Home.txtFechaFC
+import com.example.vetsoft.Controlador.ui.Home.txtMascFC
+import com.example.vetsoft.Controlador.ui.Home.txtMotivoFC
+import com.example.vetsoft.Controlador.ui.Home.txtNCFC
+import com.example.vetsoft.Controlador.ui.Home.txtNDFC
 import com.example.vetsoft.Controlador.ui.Home.txvAniF5
 import com.example.vetsoft.Controlador.ui.Home.txvEdadF5
 import com.example.vetsoft.Controlador.ui.Home.txvNombF5
@@ -102,7 +108,9 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
         btnGuardarDP.isVisible=false
 
         cargarData()
-        Habilit(false)
+        //HABILI DESABILIT
+        val lista= listOf(txtUsDP,txtNombDP,txtApellDP,txtCorreoDP,txtNaciDP,spSexoDP,txtTelDP,txtDuiDP,btnNaciDP)
+        vali.Habilit(lista,false)
 
         vali.configEditText(txtUsDP,15,"^[a-zA-Z0-9]+$")
         vali.configEditText(txtNombDP,30,"[a-zA-Z\\s]+")
@@ -113,10 +121,12 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
         btnActDP.setOnClickListener(){
             if (btnGuardarDP.isVisible) {
                 btnActDP.text = "Editar"
-                Habilit(false)
+                vali.Habilit(lista,false)
+                btnGuardarDP.isVisible=false
             } else {
                 btnActDP.text = "Cancelar"
-                Habilit(true)
+                vali.Habilit(lista,true)
+                btnGuardarDP.isVisible=true
             }
         }
         btnNaciDP.setOnClickListener(){
@@ -266,17 +276,6 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
         val formattedDate = dateFormat.format(selectedDate.time)
         txtNaciDP.setText(formattedDate)
     }
-    fun Habilit(tf: Boolean) {
-        txtUsDP.isEnabled = tf
-        txtNombDP.isEnabled=tf
-        txtApellDP.isEnabled = tf
-        txtCorreoDP.isEnabled = tf
-        txtNaciDP.isEnabled = tf
-        spSexoDP.isEnabled = tf
-        txtTelDP.isEnabled = tf
-        txtDuiDP.isEnabled = tf
-        btnNaciDP.isEnabled = tf
-        btnGuardarDP.isVisible = tf
-    }
+
 
 }

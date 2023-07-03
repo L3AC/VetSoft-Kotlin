@@ -162,5 +162,17 @@
         <action
             android:id="@+id/action_infoCita_to_citasPendientes"
             app:destination="@id/citasPendientes" />
+        <action
+            android:id="@+id/action_infoCita_to_infoDoc"
+            app:destination="@id/infoDoc" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoDoc"
+        android:name="com.example.vetsoft.Controlador.ui.Home.infoDoc"
+        android:label="fragment_info_doc"
+        tools:layout="@layout/fragment_info_doc" >
+        <action
+            android:id="@+id/action_infoDoc_to_infoCita"
+            app:destination="@id/infoCita" />
     </fragment>
 </navigation>

@@ -42,6 +42,7 @@ class MainMascota : Fragment() {
         arguments?.let {
             idUs = arguments?.getInt("idUs")!!
             idCl = arguments?.getInt("idCl")!!
+            Log.i("IDCl: ", idCl.toString())
         }
     }
 

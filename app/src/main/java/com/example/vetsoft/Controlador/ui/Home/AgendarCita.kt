@@ -90,7 +90,7 @@ class AgendarCIta : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnVolver5 = requireView().findViewById(R.id.btnVolverF5)
+        btnVolver5 = requireView().findViewById(R.id.btnVolver5)
         spinServ5 = requireView().findViewById(R.id.spinServ5)
         spinArea5 = requireView().findViewById(R.id.spinArea5)
         spinDoc5 = requireView().findViewById(R.id.spinDoc5)
@@ -118,7 +118,7 @@ class AgendarCIta : Fragment() {
             putInt("idCl", idCl)
             putInt("idAni", idAni)
         }
-        btnVolverF5.setOnClickListener() {
+        btnVolver5.setOnClickListener() {
             findNavController().navigate(R.id.action_agendarCIta_to_infoMascota, bundle)
         }
         btnFecha5.setOnClickListener() {

@@ -24,7 +24,7 @@
                 android:layout_height="734dp">
 
                 <ImageButton
-                    android:id="@+id/btnVolverF5"
+                    android:id="@+id/btnVolverIM"
                     android:layout_width="45dp"
                     android:layout_height="44dp"
                     android:background="@android:color/transparent"
