@@ -20,7 +20,7 @@ AsyncTask<Void?, Void?, Void?>(){
     override fun doInBackground(vararg p0: Void?): Void? {
 
         val props = Properties()
-        props["mail.smtp.host"] = "stmp.gmail.com"
+        props["mail.smtp.host"] = "smtp.gmail.com"
         props["mail.smtp.socketFactory.port"] = "465"
         props["mail.smtp.socketFactory.class"] = "javax.net.ssl.SSLSocketFactory"
         props["mail.smtp.auth"]="true"
@@ -29,13 +29,13 @@ AsyncTask<Void?, Void?, Void?>(){
         val session = Session.getDefaultInstance(props,
         object : Authenticator(){
             override fun getPasswordAuthentication(): PasswordAuthentication {
-                return PasswordAuthentication("rodrigoalejandro2007123@gmail.com","qzmrjqgfyzwbvflz")
+                return PasswordAuthentication("vetsoftsoporte@gmail.com","jtsteydqiifilcpi")
             }
         })
         try {
             val message = MimeMessage(session)
 
-            message.setFrom(InternetAddress("rodrigoalejandro2007123@gmail.com"))
+            message.setFrom(InternetAddress("vetsoftsoporte@gmail.com"))
             message.addRecipient(RecipientType.TO, InternetAddress(destinatario))
             message.subject = asunto
             message.setText(this.mensaje)

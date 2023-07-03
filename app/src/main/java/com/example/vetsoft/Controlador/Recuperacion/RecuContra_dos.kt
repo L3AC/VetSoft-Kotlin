@@ -45,8 +45,8 @@ class RecuContra_dos : AppCompatActivity() {
             }
 
             if (txtCodigo.text.toString() == codigoDB){
-                val intent = Intent(this, houseCliente::class.java)
-                startActivity(intent)
+                //val intent = Intent(this, houseCliente::class.java)
+                //startActivity(intent)
             }else{
                 Toast.makeText(this, "El codigo ingresado no coincide", Toast.LENGTH_SHORT).show()
             }
