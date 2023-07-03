@@ -5,6 +5,8 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import java.util.Locale
+import java.util.Random
 
 class Validat {
         fun isEmailValid(email: String): Boolean {
@@ -112,5 +114,19 @@ class Validat {
         for (obj in mt){
             obj.isEnabled=tf
         }
+    }
+    fun GenerC(longi: Int): String? {
+        val num = "0123456789"
+        val lmin = "abcdefghijklmnopqrstuvwxyz"
+        val lmay = lmin.uppercase(Locale.getDefault())
+        val caract = lmay + num
+        val cod = Random()
+        var result: String? = ""
+        for (i in 0 until longi) {
+            val posic: Int = cod.nextInt(caract.length)
+            val caracter = caract[posic]
+            result += caracter
+        }
+        return result
     }
 }

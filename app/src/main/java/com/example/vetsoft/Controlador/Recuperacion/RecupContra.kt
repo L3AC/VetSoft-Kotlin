@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.vetsoft.Controlador.validation.Validat
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
 import java.sql.PreparedStatement
@@ -19,6 +20,7 @@ lateinit var txtUsuarioRecu: EditText
 class RecupContra : AppCompatActivity() {
 
     private var conx = conx()
+    private var vali= Validat()
     private lateinit var correo: String
 
     @SuppressLint("MissingInflatedId")
@@ -32,7 +34,7 @@ class RecupContra : AppCompatActivity() {
         btnEnviarRecu.setOnClickListener {
 
             //codigo aleatorio
-            val codigoAleatorio = Random.nextInt(0, 10000).toString()
+            val codigoAleatorio = vali.GenerC(8)
 
             //trae el correo
             try{
@@ -49,7 +51,7 @@ class RecupContra : AppCompatActivity() {
             }
 
             //se manda el correo con numero aleatorio
-            val mandarCorreo = MandarCorreo(correo, "Codigo de recuperacion", codigoAleatorio)
+            val mandarCorreo = MandarCorreo(correo, "Codigo de recuperacion", codigoAleatorio!!)
             mandarCorreo.execute()
 
             try {
