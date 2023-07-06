@@ -172,7 +172,7 @@ class CrearCuenta : AppCompatActivity() {
     }
     fun verifUs() {
         try {
-            val cadena: String = "EXEC selectUsN ?;"
+            val cadena: String = "SELECT *FROM tbUsuarios WHERE usuario = ?;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
@@ -200,7 +200,8 @@ class CrearCuenta : AppCompatActivity() {
 @RequiresApi(Build.VERSION_CODES.O)
 fun createUs() {
         try {
-            val cadena: String = "EXEC insertUs ?,?,?,?,?;"
+            val cadena: String = "INSERT INTO tbUsuarios " +
+                    "values(?,?,?,?,?,null,getdate());"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
             ps.setInt(1, 3)
@@ -219,7 +220,8 @@ fun createUs() {
     }
     fun selectUs(){
         try {
-            val cadena: String = "EXEC selectUsB ?;"
+            val cadena: String = "SELECT *FROM tbUsuarios " +
+                    "    WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
@@ -245,7 +247,7 @@ fun createUs() {
 
         try {
             val cadena: String =
-                "EXEC insertClientes ?,?,?,?,?,?;"
+                "insert into tbClientes values(?,?,?,?,?,?,GETDATE());;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 

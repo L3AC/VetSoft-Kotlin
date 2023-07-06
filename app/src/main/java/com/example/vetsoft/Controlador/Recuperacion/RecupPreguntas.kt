@@ -103,7 +103,7 @@ class RecupPreguntas : AppCompatActivity() {
     fun verifExist() {
         try {
             var st: ResultSet
-            val cadena ="EXEC existPreg ?;"
+            val cadena ="select * from tbPreguntasUsuarios where idUsuario=?;"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idUs)
             st = ps.executeQuery()
@@ -132,7 +132,8 @@ class RecupPreguntas : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun VerifUs() {
         try {
-            val cadena: String = "EXEC selectUsB ?;"
+            val cadena: String = "SELECT *FROM tbUsuarios" +
+                    "    WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
@@ -161,7 +162,7 @@ class RecupPreguntas : AppCompatActivity() {
     fun cargarPreg(textV:TextView,idPreg:Int) {
         try {
             var st: ResultSet
-            val cadena ="EXEC selectPreg ?;"
+            val cadena ="select * from tbPreguntas where idPregunta=?;"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idPreg)
             st = ps.executeQuery()
@@ -177,7 +178,8 @@ class RecupPreguntas : AppCompatActivity() {
     fun verifResp(resp:EditText,idPreg:Int) :Boolean{
         try {
             var st: ResultSet
-            val cadena ="EXEC selectPregUs ?,?,?;"
+            val cadena ="select pu.respuesta,pu.idUsuario,pu.idPregunta from tbPreguntasUsuarios pu,tbPreguntas p, tbUsuarios u where pu.idUsuario=u.idUsuario and\n" +
+                    "pu.idPregunta=p.idPregunta and pu.idUsuario=? and pu.idPregunta=? and respuesta=? ;"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idUs)
             ps.setInt(2, idPreg)

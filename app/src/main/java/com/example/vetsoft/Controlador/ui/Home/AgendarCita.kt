@@ -163,7 +163,8 @@ class AgendarCIta : Fragment() {
     fun SpinServ(cb: Spinner) {
         try {
             servL.clear()
-            val cadena = "EXEC selectServ;"
+            val cadena = "select idTipoServicio,nombre from tbTipoServicio ts,tbNivelServicio ns\n" +
+                    "   where ts.idNivelServicio=ns.idNivelServicio and ts.idNivelServicio=2;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             st = ps.executeQuery()
@@ -211,7 +212,7 @@ class AgendarCIta : Fragment() {
     fun SpinArea(cb: Spinner) {
         try {
             espL.clear()
-            val cadena = "EXEC selectEsp;"
+            val cadena = "   select * from tbEspecialidades;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             st = ps.executeQuery()
@@ -263,7 +264,8 @@ class AgendarCIta : Fragment() {
     fun SpinDoc(cb: Spinner) {
         try {
             docL.clear()
-            val cadena = "EXEC selectDoc ?;"
+            val cadena = "select idDoctor,CONCAT(nombre,' ',apellido) as Nombre from tbDoctores d,tbEspecialidades e\n" +
+                    "   where d.idEspecialidad=e.idEspecialidad and d.idEspecialidad=?;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setString(1, idEsp.toString())
@@ -315,7 +317,7 @@ class AgendarCIta : Fragment() {
         try {
             dateh = fechaSql + " " + txtHora5.text
             Log.i("date",dateh)
-            val cadena = "EXEC selectCitaCl ?,?;"
+            val cadena = "select * from tbCitas c where idDoctor=? and fechahora=? and estado='Pendiente';"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
@@ -345,7 +347,8 @@ class AgendarCIta : Fragment() {
     fun Confirmar() {
         try {
             val cadena: String =
-                "EXEC insertCita ?,?,?,?,'',?;"
+                "insert into tbCitas values(?,?,?,'Pendiente',?," +
+                        "?,'',?,GETDATE())"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
