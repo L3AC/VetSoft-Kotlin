@@ -107,7 +107,7 @@ class AgregarMascota : Fragment() {
     fun SpinAni(cb: Spinner) {
         try {
             aniL.clear()
-            val cadena = "EXEC selectTipoAni;"
+            val cadena = "select * from tbTipoAnimales;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             st = ps.executeQuery()
@@ -154,7 +154,7 @@ class AgregarMascota : Fragment() {
     fun SpinRaza(cb: Spinner) {
         try {
             razaL.clear()
-            val cadena = "EXEC selectRaza ?;"
+            val cadena = "select * from tbRazas where idTipoAnimal=?;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setString(1, idAni.toString())
@@ -200,7 +200,7 @@ class AgregarMascota : Fragment() {
     fun Confirmar() {
         try {
             val cadena: String =
-                "EXEC insertAnCl ?,?,?;"
+                "INSERT INTO tbAnimales values(?,?,'Pendiente',?,'Pendiente',null,'Pendiente',getdate());"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 

@@ -16,6 +16,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import com.example.vetsoft.Controlador.Main.btnConfirm2
 import com.example.vetsoft.Controlador.Main.btnMirar2
 import com.example.vetsoft.Controlador.Main.btnVolver2
@@ -162,6 +163,13 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             override fun afterTextChanged(s: Editable?) {
             }
         })
+        val bundle = Bundle().apply {
+            putInt("idUs", idUs)
+            putInt("idCl", idCl)
+        }
+        btnVolverDP.setOnClickListener(){
+            findNavController().navigate(R.id.action_dataPerfil_to_perfilMain, bundle)
+        }
 
 
     }

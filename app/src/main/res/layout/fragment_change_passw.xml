@@ -22,6 +22,152 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="734dp">
+                <ImageButton
+                    android:id="@+id/btnMirarCP2"
+                    android:layout_width="41dp"
+                    android:layout_height="46dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.851"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.558"
+                    app:srcCompat="@drawable/eye" />
+
+                <Button
+                    android:id="@+id/btnVerifCP2"
+                    android:layout_width="166dp"
+                    android:layout_height="73dp"
+                    android:backgroundTint="#66AAD4"
+                    android:text="Verificar"
+                    android:textColor="#040404"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.353" />
+
+                <EditText
+                    android:id="@+id/txtContraCP2"
+                    android:layout_width="290dp"
+                    android:layout_height="53dp"
+                    android:background="@drawable/editext"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Ingrese su contraseña actual"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.238" />
+
+                <EditText
+                    android:id="@+id/txtContra2CP2"
+                    android:layout_width="290dp"
+                    android:layout_height="53dp"
+                    android:background="@drawable/editext"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Repitala de nuevo"
+                    android:inputType="text|textPassword"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.729" />
+
+                <TextView
+                    android:id="@+id/txvAdvCP2"
+                    android:layout_width="282dp"
+                    android:layout_height="37dp"
+                    android:fontFamily="sans-serif"
+                    android:text="La contraseña debe ser igual"
+                    android:textAlignment="center"
+                    android:textColor="#FF0000"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.496"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.647" />
+
+                <EditText
+                    android:id="@+id/txtContra1CP2"
+                    android:layout_width="245dp"
+                    android:layout_height="53dp"
+                    android:background="@drawable/editext"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Ingrese contraseña nueva"
+                    android:inputType="text|textPassword"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.361"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.555" />
+
+                <Button
+                    android:id="@+id/btnConfirmCP2"
+                    android:layout_width="166dp"
+                    android:layout_height="73dp"
+                    android:backgroundTint="#66AAD4"
+                    android:text="Confirmar"
+                    android:textColor="#040404"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.888" />
+
+                <ImageButton
+                    android:id="@+id/btnVolverCP2"
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.069"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.052"
+                    app:srcCompat="@drawable/flecha" />
+
+                <TextView
+                    android:id="@+id/txvCitasCP2"
+                    android:layout_width="220dp"
+                    android:layout_height="78dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Cambio de contraseña"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.047" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

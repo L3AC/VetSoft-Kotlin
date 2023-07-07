@@ -100,7 +100,8 @@ class MainMascota : Fragment() {
         try {
 
             var st: ResultSet
-            var cadena: String ="EXEC selectAnCl ?;"
+            var cadena: String ="select idAnimal,a.nombre from tbAnimales a,tbClientes c\n" +
+                    "   where a.idCliente=c.idCliente and a.idCliente=?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)

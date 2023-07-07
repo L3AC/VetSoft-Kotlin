@@ -81,7 +81,8 @@ class InfoMascota : Fragment() {
         try {
             var st: ResultSet
             val cadena =
-                "EXEC selectAnInf ?;"
+                "select nombrePopular,nombreRaza,nombre,peso,DATEDIFF(MONTH, edad, GETDATE()) AS meses,sexo,padecimientos from tbTipoAnimales ta,tbRazas r,tbAnimales a\n" +
+                " where ta.idTipoAnimal=r.idTipoAnimal and a.idRaza=r.idRaza and idAnimal=?;;"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idAni)
             st = ps.executeQuery()
