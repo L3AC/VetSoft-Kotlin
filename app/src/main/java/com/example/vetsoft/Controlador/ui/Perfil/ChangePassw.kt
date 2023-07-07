@@ -81,6 +81,7 @@ class ChangePassw : Fragment() {
         txvAdvCP2 =requireView().findViewById(R.id.txvAdvCP2)
         btnMirarCP2 =requireView().findViewById(R.id.btnMirarCP2)
 
+        txvAdvCP2.isVisible=false
         val lista= listOf(txtContra1CP2,txtContra2CP2,btnConfirmCP2,btnMirarCP2)
         vali.Visib(lista,false)
 
@@ -100,7 +101,6 @@ class ChangePassw : Fragment() {
         }
         btnConfirmCP2.setOnClickListener(){
             updateC()
-            vali.Visib(lista,false)
         }
         btnVolverCP2.setOnClickListener(){
             findNavController().navigate(R.id.action_changePassw_to_mainSecurity, bundle)
@@ -174,6 +174,11 @@ class ChangePassw : Fragment() {
             ps.setString(1, crypt.encrypt(txtContra1CP2.text.toString(),"key"))
             ps.executeUpdate()
             Toast.makeText(requireContext(), "Contraseña actualizada", Toast.LENGTH_SHORT).show()
+            val bundle = Bundle().apply {
+                putInt("idUs", idUs)
+                putInt("idCl", idCl)
+            }
+            findNavController().navigate(R.id.action_changePassw_to_mainSecurity, bundle)
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
             Toast.makeText(requireContext(), "Error al actualizar", Toast.LENGTH_SHORT).show()
