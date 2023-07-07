@@ -10,6 +10,14 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import com.example.vetsoft.Controlador.Cryptation.Crypto
+import com.example.vetsoft.Controlador.Recuperacion.btnConfirmCC
+import com.example.vetsoft.Controlador.Recuperacion.btnMirarCC
+import com.example.vetsoft.Controlador.Recuperacion.btnVerifCC
+import com.example.vetsoft.Controlador.Recuperacion.btnVolverCC
+import com.example.vetsoft.Controlador.Recuperacion.txtContra1CC
+import com.example.vetsoft.Controlador.Recuperacion.txtContra2CC
+import com.example.vetsoft.Controlador.Recuperacion.txtContraCC
+import com.example.vetsoft.Controlador.Recuperacion.txvAdvCC
 import com.example.vetsoft.Controlador.validation.Validat
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
@@ -42,6 +50,18 @@ class ChangePassw : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_change_passw, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btnVolverCP2 =requireView().findViewById(R.id.btnVolverCP2)
+        btnVerifCP2 =requireView().findViewById(R.id.btnVerifCP2)
+        btnConfirmCP2=requireView().findViewById(R.id.btnConfirmCP2)
+        txtContraCP2 =requireView().findViewById(R.id.txtContraCP2)
+        txtContra1CP2 =requireView().findViewById(R.id.txtContra1CP2)
+        txtContra2CP2 =requireView().findViewById(R.id.txtContra2CP2)
+        txvAdvCP2 =requireView().findViewById(R.id.txvAdvCP2)
+        btnMirarCP2 =requireView().findViewById(R.id.btnMirarCP2)
     }
 
 
