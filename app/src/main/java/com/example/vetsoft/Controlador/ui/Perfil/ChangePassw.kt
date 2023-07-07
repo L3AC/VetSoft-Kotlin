@@ -31,6 +31,7 @@ lateinit var txvAdvCP2: TextView
 lateinit var btnMirarCP2: ImageButton
 class ChangePassw : Fragment() {
     private var idUs: Int = 0
+    private var idCl: Int = 0
     private var pasw=""
     private var conx = conx()
     private var crypt= Crypto()
@@ -40,7 +41,7 @@ class ChangePassw : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             idUs= arguments?.getInt("idUs")!!
-            pasw = arguments?.getString("pasw")!!
+            idCl = arguments?.getInt("idCl")!!
         }
     }
 
@@ -62,6 +63,13 @@ class ChangePassw : Fragment() {
         txtContra2CP2 =requireView().findViewById(R.id.txtContra2CP2)
         txvAdvCP2 =requireView().findViewById(R.id.txvAdvCP2)
         btnMirarCP2 =requireView().findViewById(R.id.btnMirarCP2)
+        val bundle = Bundle().apply {
+            putInt("idUs", idUs)
+            putInt("idCl", idCl)
+        }
+        btnVolverCP2.setOnClickListener(){
+
+        }
     }
 
 
