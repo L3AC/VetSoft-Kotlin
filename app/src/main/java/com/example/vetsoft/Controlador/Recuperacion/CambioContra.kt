@@ -8,6 +8,7 @@ import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -18,6 +19,7 @@ import androidx.core.view.isVisible
 import com.example.vetsoft.Controlador.Main.MainActivity
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.Controlador.Cryptation.Crypto
+import com.example.vetsoft.Controlador.ui.Perfil.txtContra1CP2
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
 import java.sql.PreparedStatement
@@ -57,17 +59,19 @@ class CambioContra : AppCompatActivity() {
         btnMirarCC =findViewById(R.id.btnMirarCC)
 
         txvAdvCC.isVisible=false
-        Habilit(false)
+        val lista= listOf(txtContra1CC,txtContra2CC,btnConfirmCC,btnMirarCC)
+        vali.Visib(lista,false)
+
         btnVolverCC.setOnClickListener(){
             val scndAct = Intent(this, RecupPreguntas::class.java)
             startActivity(scndAct)
         }
         btnVerifCC.setOnClickListener(){
             if (txtContraCC.text.toString()==pasw){
-                Habilit(true)
+                vali.Visib(lista,true)
             }
             else{
-                Habilit(false)
+                vali.Visib(lista,false)
                 Toast.makeText(applicationContext, "Contraseña incorrecta",Toast.LENGTH_SHORT).show()
             }
         }
@@ -109,12 +113,12 @@ class CambioContra : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun updateC() {
         try {
-            val cadena: String = "EXEC updtContra ?,?;"
+            val cadena: String = "update tbUsuarios set contraseña=? where idUsuario=?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            ps.setInt(1, idUs)
-            ps.setString(2, crypt.encrypt(txtContra1CC.text.toString(),"key"))
+            ps.setInt(2, idUs)
+            ps.setString(1, crypt.encrypt(txtContra1CC.text.toString(),"key"))
             ps.executeUpdate()
             Toast.makeText(applicationContext, "Contraseña actualizada", Toast.LENGTH_SHORT).show()
             val scndAct = Intent(this, MainActivity::class.java)
@@ -124,7 +128,6 @@ class CambioContra : AppCompatActivity() {
             Toast.makeText(applicationContext, "Error al actualizar", Toast.LENGTH_SHORT).show()
         }
         conx.dbConn()!!.close()
-
     }
     fun verifContra() {
         if (txtContra1CC.text.toString() != txtContra2CC.text.toString()) {

@@ -133,6 +133,7 @@ class MainActivity : AppCompatActivity() {
                 val scndAct = Intent(this, BarraNavegar::class.java)
                 scndAct.putExtra("idCl", idCl)
                 scndAct.putExtra("idUs", idUs)
+                scndAct.putExtra("idUs", idUs)
                 startActivity(scndAct)
                 overridePendingTransition(0, 0)
                 Toast.makeText(applicationContext, "Acceso completado", Toast.LENGTH_SHORT)

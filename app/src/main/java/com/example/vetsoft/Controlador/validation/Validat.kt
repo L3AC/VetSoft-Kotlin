@@ -5,6 +5,7 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.view.isVisible
 import java.util.Locale
 import java.util.Random
 
@@ -113,6 +114,11 @@ class Validat {
     fun Habilit(mt:List<View>, tf: Boolean) {
         for (obj in mt){
             obj.isEnabled=tf
+        }
+    }
+    fun Visib(mt:List<View>, tf: Boolean) {
+        for (obj in mt){
+            obj.isVisible=tf
         }
     }
     fun GenerC(longi: Int): String? {
