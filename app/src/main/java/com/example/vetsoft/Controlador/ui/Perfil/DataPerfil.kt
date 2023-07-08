@@ -201,11 +201,12 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
     }
     fun verifUs() {
         try {
-            val cadena: String = "EXEC selectUsN ?;"
+            val cadena: String = " SELECT *FROM tbUsuarios " +
+                    "    WHERE usuario = ?;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            ps.setString(1, txtUsuario2.text.toString())
+            ps.setString(1, txtUsDP.text.toString())
             st = ps.executeQuery()
             st.next()
 
@@ -228,20 +229,21 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
     fun updateData() {
         try {
             val cadena =
-                "EXEC updtUs ?,?,?,?;"+
-                "EXEC updtCl ?,?,?,?,?,?;"
+                "update tbUsuarios set  usuario=?,correo=?,telefono=? where idUsuario=?;"+
+                "update tbClientes set nombre= ?,apellido= ?,DUI= ?,nacimiento= ?,sexo= ? where idCliente=?;"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            ps.setInt(1,idUs)
-            ps.setString(2, txtUsDP.text.toString())
-            ps.setString(3, txtCorreoDP.text.toString())
-            ps.setString(4, txtTelDP.text.toString())
-            ps.setInt(5, idCl)
-            ps.setString(6, txtNombDP.text.toString())
-            ps.setString(7, txtApellDP.text.toString())
-            ps.setString(8, txtDuiDP.text.toString())
-            ps.setString(9, txtNaciDP.text.toString())
-            ps.setString(10, spSexoDP.selectedItem.toString())
+
+            ps.setString(1, txtUsDP.text.toString())
+            ps.setString(2, txtCorreoDP.text.toString())
+            ps.setString(3, txtTelDP.text.toString())
+            ps.setInt(4,idUs)
+            ps.setString(5, txtNombDP.text.toString())
+            ps.setString(6, txtApellDP.text.toString())
+            ps.setString(7, txtDuiDP.text.toString())
+            ps.setString(8, txtNaciDP.text.toString())
+            ps.setString(9, spSexoDP.selectedItem.toString())
+            ps.setInt(10, idCl)
 //
             ps.executeUpdate()
             Toast.makeText(context, "Campos actualizados", Toast.LENGTH_SHORT).show()
