@@ -71,6 +71,7 @@ lateinit var selectedDate: Calendar
 class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
     private var idUs: Int = 0
     private var idCl: Int = 0
+    private var user:String=""
     private var conx = conx()
     private var vali = Validat()
     val sexo = listOf("Femenino", "Masculino")
@@ -149,7 +150,14 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                verifUs()
+                if(user==txtUsDP.text.toString()){
+                    txvUsDP.isVisible = false
+                    btnGuardarDP.isEnabled = true
+                }
+                else{
+                    verifUs()
+                }
+
             }
             override fun afterTextChanged(s: Editable?) {
             }
@@ -184,6 +192,7 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             st = ps.executeQuery()
             st.next()
             txtUsDP.setText(st.getString("usuario"))
+            user=st.getString("usuario")
             txtNombDP.setText(st.getString("nombre"))
             txtApellDP.setText(st.getString("apellido"))
             txtCorreoDP.setText(st.getString("correo"))
@@ -209,12 +218,10 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             ps.setString(1, txtUsDP.text.toString())
             st = ps.executeQuery()
             st.next()
-
             val found = st.row
             if (found == 1) {
                 txvUsDP.isVisible = true
                 btnGuardarDP.isEnabled = false
-                Toast.makeText(requireContext(), "Ya existe usuario", Toast.LENGTH_SHORT).show()
 
             } else {
                 txvUsDP.isVisible = false
