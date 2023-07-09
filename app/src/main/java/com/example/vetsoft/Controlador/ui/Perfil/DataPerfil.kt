@@ -17,32 +17,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
-import com.example.vetsoft.Controlador.Main.btnConfirm2
-import com.example.vetsoft.Controlador.Main.btnMirar2
-import com.example.vetsoft.Controlador.Main.btnVolver2
-import com.example.vetsoft.Controlador.Main.txtApellidos2
-import com.example.vetsoft.Controlador.Main.txtContraD2
-import com.example.vetsoft.Controlador.Main.txtContraN2
-import com.example.vetsoft.Controlador.Main.txtCorreo2
-import com.example.vetsoft.Controlador.Main.txtDui2
-import com.example.vetsoft.Controlador.Main.txtNaci2
-import com.example.vetsoft.Controlador.Main.txtNomb2
-import com.example.vetsoft.Controlador.Main.txtTel2
-import com.example.vetsoft.Controlador.Main.txtUsuario2
-import com.example.vetsoft.Controlador.Main.txvCont2
-import com.example.vetsoft.Controlador.Main.txvUs2
-import com.example.vetsoft.Controlador.ui.Home.txtDoctorFC
-import com.example.vetsoft.Controlador.ui.Home.txtFechaFC
-import com.example.vetsoft.Controlador.ui.Home.txtMascFC
-import com.example.vetsoft.Controlador.ui.Home.txtMotivoFC
-import com.example.vetsoft.Controlador.ui.Home.txtNCFC
-import com.example.vetsoft.Controlador.ui.Home.txtNDFC
-import com.example.vetsoft.Controlador.ui.Home.txvAniF5
-import com.example.vetsoft.Controlador.ui.Home.txvEdadF5
-import com.example.vetsoft.Controlador.ui.Home.txvNombF5
-import com.example.vetsoft.Controlador.ui.Home.txvPesoF5
-import com.example.vetsoft.Controlador.ui.Home.txvRazaF5
-import com.example.vetsoft.Controlador.ui.Home.txvSexoF5
+import com.example.vetsoft.Controlador.Main.*
+import com.example.vetsoft.Controlador.ui.Home.*
 import com.example.vetsoft.Controlador.validation.Validat
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
@@ -62,6 +38,7 @@ lateinit var txtTelDP: EditText
 lateinit var spSexoDP: Spinner
 lateinit var txtNaciDP: EditText
 lateinit var txtDuiDP: EditText
+lateinit var txtDirDP: EditText
 lateinit var btnNaciDP: ImageButton
 lateinit var btnVolverDP: ImageButton
 lateinit var txvUsDP: TextView
@@ -103,6 +80,7 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
         btnVolverDP =requireView().findViewById(R.id.btnVolverDP)
         txvUsDP =requireView().findViewById(R.id.txvUsDP)
         txtDuiDP =requireView().findViewById(R.id.txtDuiDP)
+        txtDirDP =requireView().findViewById(R.id.txtDirDP)
         btnActDP =requireView().findViewById(R.id.btnActDP)
         btnGuardarDP =requireView().findViewById(R.id.btnGuardarDP)
 
@@ -119,6 +97,7 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
         vali.configEditText(txtApellDP,30,"[a-zA-Z\\s]+")
         vali.configEditText(txtTelDP,8,"[0-9]+")
         vali.configEditText(txtDuiDP,10,"[0-9]+")
+        vali.configEditText(txtDirDP,300,"[a-zA-Z\\s]+")
 
         btnActDP.setOnClickListener(){
             if (btnGuardarDP.isVisible) {
@@ -186,7 +165,8 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             val adpt = LLenarSpin()
             var st: ResultSet
             val cadena =
-                "EXEC loadUsCl ?;"
+                "select * from tbUsuarios u, tbClientes c where c.idUsuario=u.idUsuario \n" +
+                        "and c.idUsuario=?;"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idUs)
             st = ps.executeQuery()
@@ -200,6 +180,7 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             spSexoDP.setSelection(adpt.getPosition(st.getString("sexo")))
             txtNaciDP.setText(st.getString("nacimiento"))
             txtDuiDP.setText(st.getString("DUI"))
+            txtDirDP.setText(st.getString("direccion"))
 
 
         } catch (ex: SQLException) {
@@ -237,7 +218,8 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
         try {
             val cadena =
                 "update tbUsuarios set  usuario=?,correo=?,telefono=? where idUsuario=?;"+
-                "update tbClientes set nombre= ?,apellido= ?,DUI= ?,nacimiento= ?,sexo= ? where idCliente=?;"
+                "update tbClientes set nombre= ?,apellido= ?,DUI= ?," +
+                "nacimiento= ?,sexo= ?, direccion=? where idCliente=?;"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
 
@@ -250,7 +232,8 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             ps.setString(7, txtDuiDP.text.toString())
             ps.setString(8, txtNaciDP.text.toString())
             ps.setString(9, spSexoDP.selectedItem.toString())
-            ps.setInt(10, idCl)
+            ps.setString(10, txtDirDP.text.toString())
+            ps.setInt(11, idCl)
 //
             ps.executeUpdate()
             Toast.makeText(context, "Campos actualizados", Toast.LENGTH_SHORT).show()

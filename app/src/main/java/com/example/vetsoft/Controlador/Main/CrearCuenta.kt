@@ -23,15 +23,12 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.Controlador.Cryptation.Crypto
-import com.example.vetsoft.Controlador.ui.Perfil.txtNaciDP
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
-import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Locale
 
 lateinit var txtUsuario2:EditText
 lateinit var txtContraN2:EditText
@@ -43,6 +40,7 @@ lateinit var txtTel2:EditText
 lateinit var txtDui2:EditText
 lateinit var spinSexo2:Spinner
 lateinit var txtNaci2:EditText
+lateinit var txtDir2:EditText
 lateinit var btnNaci2:ImageButton
 lateinit var btnVolver2:ImageButton
 lateinit var txvCont2:TextView
@@ -74,6 +72,7 @@ class CrearCuenta : AppCompatActivity() {
         txtDui2 =findViewById(R.id.txtDui2)
         spinSexo2 =findViewById(R.id.spinSexo2)
         txtNaci2 =findViewById(R.id.txtNaci2)
+        txtDir2 =findViewById(R.id.txtDir2)
         btnNaci2 =findViewById(R.id.btnNaci2)
         btnVolver2 =findViewById(R.id.btnVolver2)
         txvCont2 =findViewById(R.id.txvCont2)
@@ -93,6 +92,7 @@ class CrearCuenta : AppCompatActivity() {
         vali.configEditText(txtApellidos2,30,"[a-zA-Z\\s]+")
         vali.configEditText(txtTel2,8,"[0-9]+")
         vali.configEditText(txtDui2,10,"[0-9]+")
+        vali.configEditText(txtDir2,300,"[a-zA-Z\\s]+")
 
         btnConfirm2.setOnClickListener(){
             val editTextList = listOf(
@@ -247,7 +247,8 @@ fun createUs() {
 
         try {
             val cadena: String =
-                "insert into tbClientes values(?,?,?,?,?,?,GETDATE());;"
+                "insert into tbClientes(idUsuario,nombre,apellido,DUI,nacimiento,sexo,direccion,fechaRegistro)" +
+                        " values(?,?,?,?,?,?,?,GETDATE());"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
@@ -257,6 +258,7 @@ fun createUs() {
             ps.setString(4, txtDui2.text.toString())
             ps.setString(5, fechaSql)
             ps.setString(6, spinSexo2.selectedItem.toString())
+            ps.setString(7, txtDir2.text.toString())
             ps.executeUpdate()
 
         } catch (ex: SQLException) {
