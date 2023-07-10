@@ -47,7 +47,7 @@ class CambioContra : AppCompatActivity() {
         idUs= extras?.getInt("met")!!
 
         setContentView(R.layout.activity_cambio_contra)
-        btnVolverCC =findViewById(R.id.btnVolverRP)
+        btnVolverCC =findViewById(R.id.btnVolverCC)
         btnVerifCC =findViewById(R.id.btnVerifCC)
         btnConfirmCC =findViewById(R.id.btnConfirmCC)
         txtContraCC =findViewById(R.id.txtContraCC)
