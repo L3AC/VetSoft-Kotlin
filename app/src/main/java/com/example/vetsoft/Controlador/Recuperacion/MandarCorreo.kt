@@ -41,7 +41,7 @@ AsyncTask<Void?, Void?, Void?>(){
             message.setText(this.mensaje)
             Transport.send(message)
 
-            println("Correo enviado correctamente")
+            println("Correo enviado correctamente .;")
         }catch (e: MessagingException){
             e.printStackTrace()
 
