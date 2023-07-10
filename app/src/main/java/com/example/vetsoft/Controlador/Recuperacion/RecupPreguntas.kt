@@ -46,17 +46,17 @@ class RecupPreguntas : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recup_preguntas)
-        btnVolverPS =findViewById(R.id.btnVolverCC)
-        btnVerifPS =findViewById(R.id.btnVerifCC)
-        btnConfirmPS =findViewById(R.id.btnConfirmCC)
-        txtUsuarioPS =findViewById(R.id.txtUsuarioPS)
+        btnVolverPS =findViewById(R.id.btnVolverRP)
+        btnVerifPS =findViewById(R.id.btnVerifRP)
+        btnConfirmPS =findViewById(R.id.btnConfirmRP)
+        txtUsuarioPS =findViewById(R.id.txtUsuarioRP)
         txvPreg1 =findViewById(R.id.txvPreg1)
         txvPreg2 =findViewById(R.id.txvPreg2)
         txvPreg3 =findViewById(R.id.txvPreg3)
-        txtResp1 =findViewById(R.id.txtContra1CC)
-        txtResp2 =findViewById(R.id.txtContra2CC)
-        txtResp3 =findViewById(R.id.txtResp3)
-        txvAdvPS =findViewById(R.id.txvAdvCC)
+        txtResp1 =findViewById(R.id.txtResp1RP)
+        txtResp2 =findViewById(R.id.txtResp2RP)
+        txtResp3 =findViewById(R.id.txtResp3RP)
+        txvAdvPS =findViewById(R.id.txvAdvRP)
 
         txvAdvPS.isVisible=false
 

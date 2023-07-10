@@ -25,7 +25,7 @@
                 android:layout_height="1000dp">
 
                 <Button
-                    android:id="@+id/btnConfirmCC"
+                    android:id="@+id/btnConfirmRP"
                     android:layout_width="166dp"
                     android:layout_height="73dp"
                     android:backgroundTint="#66AAD4"
@@ -40,7 +40,7 @@
                     app:layout_constraintVertical_bias="0.887" />
 
                 <Button
-                    android:id="@+id/btnVerifCC"
+                    android:id="@+id/btnVerifRP"
                     android:layout_width="166dp"
                     android:layout_height="73dp"
                     android:backgroundTint="#66AAD4"
@@ -55,7 +55,7 @@
                     app:layout_constraintVertical_bias="0.265" />
 
                 <EditText
-                    android:id="@+id/txtUsuarioPS"
+                    android:id="@+id/txtUsuarioRP"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
                     android:background="@drawable/editext"
@@ -74,7 +74,7 @@
                     app:layout_constraintVertical_bias="0.184" />
 
                 <EditText
-                    android:id="@+id/txtContra1CC"
+                    android:id="@+id/txtResp1RP"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
                     android:background="@drawable/editext"
@@ -93,7 +93,7 @@
                     app:layout_constraintVertical_bias="0.452" />
 
                 <EditText
-                    android:id="@+id/txtContra2CC"
+                    android:id="@+id/txtResp2RP"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
                     android:background="@drawable/editext"
@@ -128,7 +128,7 @@
                     tools:text="Pregunta 1" />
 
                 <EditText
-                    android:id="@+id/txtResp3"
+                    android:id="@+id/txtResp3RP"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
                     android:background="@drawable/editext"
@@ -147,7 +147,7 @@
                     app:layout_constraintVertical_bias="0.754" />
 
                 <ImageButton
-                    android:id="@+id/btnVolverCC"
+                    android:id="@+id/btnVolverRP"
                     android:layout_width="49dp"
                     android:layout_height="49dp"
                     android:background="@android:color/transparent"
@@ -177,7 +177,7 @@
                     app:layout_constraintVertical_bias="0.047" />
 
                 <TextView
-                    android:id="@+id/txvAdvCC"
+                    android:id="@+id/txvAdvRP"
                     android:layout_width="282dp"
                     android:layout_height="37dp"
                     android:fontFamily="sans-serif"

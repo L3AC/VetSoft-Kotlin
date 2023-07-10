@@ -8,7 +8,6 @@ import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -19,7 +18,6 @@ import androidx.core.view.isVisible
 import com.example.vetsoft.Controlador.Main.MainActivity
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.Controlador.Cryptation.Crypto
-import com.example.vetsoft.Controlador.ui.Perfil.txtContra1CP2
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
 import java.sql.PreparedStatement
@@ -49,7 +47,7 @@ class CambioContra : AppCompatActivity() {
         idUs= extras?.getInt("met")!!
 
         setContentView(R.layout.activity_cambio_contra)
-        btnVolverCC =findViewById(R.id.btnVolverCC)
+        btnVolverCC =findViewById(R.id.btnVolverRP)
         btnVerifCC =findViewById(R.id.btnVerifCC)
         btnConfirmCC =findViewById(R.id.btnConfirmCC)
         txtContraCC =findViewById(R.id.txtContraCC)

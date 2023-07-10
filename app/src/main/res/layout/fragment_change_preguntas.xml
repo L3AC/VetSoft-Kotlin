@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout12"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controlador.ui.Perfil.ChangePreguntas" >
+    android:background="#CAE9FF"
+    tools:context=".Controlador.ui.Perfil.ChangePreguntas">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
                 tools:layout_editor_absoluteY="4dp">
 
                 <TextView
-                    android:id="@+id/txvPreg5"
+                    android:id="@+id/txvPreg3PS"
                     android:layout_width="380dp"
                     android:layout_height="48dp"
                     android:fontFamily="sans-serif"
@@ -36,14 +37,87 @@
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.516"
+                    app:layout_constraintHorizontal_bias="0.612"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.603"
+                    app:layout_constraintVertical_bias="0.575"
                     tools:text="Pregunta 3" />
 
                 <TextView
-                    android:id="@+id/txvPreg"
+                    android:id="@+id/txvPreg2PS"
+                    android:layout_width="375dp"
+                    android:layout_height="48dp"
+                    android:fontFamily="sans-serif"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.666"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.381"
+                    tools:text="Pregunta 2" />
+
+                <EditText
+                    android:id="@+id/txtResp3PS"
+                    android:layout_width="290dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/editext"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Respuesta"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.638" />
+
+                <EditText
+                    android:id="@+id/txtResp1PS"
+                    android:layout_width="290dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/editext"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Respuesta"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.268" />
+
+                <EditText
+                    android:id="@+id/txtResp2PS"
+                    android:layout_width="290dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/editext"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Respuesta"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.444" />
+
+                <TextView
+                    android:id="@+id/txvPreg1PS"
                     android:layout_width="375dp"
                     android:layout_height="49dp"
                     android:fontFamily="sans-serif"
@@ -52,102 +126,44 @@
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.527"
+                    app:layout_constraintHorizontal_bias="0.611"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.235"
+                    app:layout_constraintVertical_bias="0.207"
                     tools:text="Pregunta 1" />
 
-                <EditText
-                    android:id="@+id/txtContra1CC2"
-                    android:layout_width="290dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/editext"
-                    android:elevation="5dp"
-                    android:ems="10"
-                    android:hint="Respuesta"
-                    android:inputType="text"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.537"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.295" />
-
-                <TextView
-                    android:id="@+id/txvPreg4"
-                    android:layout_width="375dp"
-                    android:layout_height="48dp"
-                    android:fontFamily="sans-serif"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.583"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.409"
-                    tools:text="Pregunta 2" />
-
-                <EditText
-                    android:id="@+id/txtContra2CC2"
-                    android:layout_width="290dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/editext"
-                    android:elevation="5dp"
-                    android:ems="10"
-                    android:hint="Respuesta"
-                    android:inputType="text"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.537"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.472" />
-
-                <EditText
-                    android:id="@+id/txtResp"
-                    android:layout_width="290dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/editext"
-                    android:elevation="5dp"
-                    android:ems="10"
-                    android:hint="Respuesta"
-                    android:inputType="text"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.537"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.666" />
-
                 <Button
-                    android:id="@+id/btnConfirmCC2"
-                    android:layout_width="166dp"
-                    android:layout_height="73dp"
+                    android:id="@+id/btnEditarPS2"
+                    android:layout_width="167dp"
+                    android:layout_height="69dp"
                     android:backgroundTint="#66AAD4"
-                    android:text="Confirmar"
+                    android:text="Editar"
                     android:textColor="#040404"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintHorizontal_bias="0.09"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.834" />
+                    app:layout_constraintVertical_bias="0.811" />
+
+                <Button
+                    android:id="@+id/btnGuardarPS2"
+                    android:layout_width="167dp"
+                    android:layout_height="69dp"
+                    android:backgroundTint="#66AAD4"
+                    android:text="Guardar"
+                    android:textColor="#040404"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.864"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.811" />
 
                 <ImageButton
-                    android:id="@+id/btnVolverPS9"
+                    android:id="@+id/btnVolverPS2"
                     android:layout_width="45dp"
                     android:layout_height="44dp"
                     android:background="@android:color/transparent"
