@@ -110,8 +110,15 @@ class ChangePreguntas : Fragment() {
             )
             val areFieldsValid  = vali.areFieldsNotEmpty(editTextList)
             if(areFieldsValid){
-                updatePreg(txtResp1PS2,1);updatePreg(txtResp2PS2,2)
-                updatePreg(txtResp3PS2,3);
+                if(verifExist(1)||verifExist(2)||verifExist(3)){
+                    updatePreg(txtResp1PS2,1);updatePreg(txtResp2PS2,2)
+                    updatePreg(txtResp3PS2,3);
+                }
+                else{
+                    insertPreg(txtResp1PS2,1);insertPreg(txtResp2PS2,2)
+                    insertPreg(txtResp3PS2,3);
+                }
+
             }
             else{
                 Toast.makeText(requireContext(), "Campos vacios", Toast.LENGTH_SHORT).show()
@@ -147,12 +154,36 @@ class ChangePreguntas : Fragment() {
                 textV.setText(st.getString("respuesta"))
             }
             else{
+
                 textV.setHint("No hay respuesta ingresada")
             }
 
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
             Toast.makeText(requireContext(), "Error al cargar", Toast.LENGTH_SHORT).show()
+        }
+        conx.dbConn()!!.close()
+    }
+    fun verifExist(idPreg:Int):Boolean {
+        try {
+            var st: ResultSet
+            val cadena ="select * from tbPreguntasUsuarios where idUsuario=? and idPregunta=?;"
+            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
+            ps.setInt(1, idUs)
+            ps.setInt(2,idPreg)
+            st = ps.executeQuery()
+
+            if(st.next()){
+                return true
+            }
+            else{
+                return false
+            }
+
+        } catch (ex: SQLException) {
+            Log.e("Error: ", ex.message!!)
+            Toast.makeText(requireContext(), "Error al cargar", Toast.LENGTH_SHORT).show()
+            return false
         }
         conx.dbConn()!!.close()
     }
@@ -176,5 +207,23 @@ class ChangePreguntas : Fragment() {
         }
         conx.dbConn()!!.close()
     }
+    fun insertPreg(txt:EditText,idPreg: Int) {
+        try {
+            val cadena =
+                "insert into tbPreguntasUsuarios values(?,?,?);"
+            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
+
+            ps.setInt(1, idPreg)
+            ps.setString(2, txt.text.toString())
+            ps.setInt(3, idUs)
+            ps.executeUpdate()
+            //Toast.makeText(context, "Campos actualizados", Toast.LENGTH_SHORT).show()
+        } catch (ex: SQLException) {
+            Log.e("Error: ", ex.message!!)
+            Toast.makeText(context, "No se pudo actualizar", Toast.LENGTH_SHORT).show()
+        }
+        conx.dbConn()!!.close()
+    }
+
 
 }
