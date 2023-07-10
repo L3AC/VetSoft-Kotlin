@@ -137,7 +137,7 @@ class ChangePreguntas : Fragment() {
 
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
-            Toast.makeText(requireContext(), "Error al cargar", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Error al cargar1", Toast.LENGTH_SHORT).show()
         }
         conx.dbConn()!!.close()
     }
@@ -160,7 +160,7 @@ class ChangePreguntas : Fragment() {
 
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
-            Toast.makeText(requireContext(), "Error al cargar", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Error al cargar2", Toast.LENGTH_SHORT).show()
         }
         conx.dbConn()!!.close()
     }
