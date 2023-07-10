@@ -110,7 +110,7 @@ class ChangePreguntas : Fragment() {
             )
             val areFieldsValid  = vali.areFieldsNotEmpty(editTextList)
             if(areFieldsValid){
-                if(verifExist(1)||verifExist(2)||verifExist(3)){
+                if(verifExist(1)&&verifExist(2)&&verifExist(3)){
                     updatePreg(txtResp1PS2,1);updatePreg(txtResp2PS2,2)
                     updatePreg(txtResp3PS2,3);
                 }
