@@ -22,45 +22,29 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1000dp">
+                android:layout_height="800dp"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="4dp">
 
-                <EditText
-                    android:id="@+id/txtUsuarioPS2"
-                    android:layout_width="290dp"
+                <TextView
+                    android:id="@+id/txvPreg5"
+                    android:layout_width="380dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/editext"
-                    android:elevation="5dp"
-                    android:ems="10"
-                    android:hint="Ingrese su usuario"
-                    android:inputType="text"
+                    android:fontFamily="sans-serif"
                     android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintHorizontal_bias="0.516"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.184" />
-
-                <Button
-                    android:id="@+id/btnVerifCC2"
-                    android:layout_width="166dp"
-                    android:layout_height="73dp"
-                    android:backgroundTint="#66AAD4"
-                    android:text="Verificar"
-                    android:textColor="#040404"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.265" />
+                    app:layout_constraintVertical_bias="0.603"
+                    tools:text="Pregunta 3" />
 
                 <TextView
                     android:id="@+id/txvPreg"
-                    android:layout_width="371dp"
+                    android:layout_width="375dp"
                     android:layout_height="49dp"
                     android:fontFamily="sans-serif"
                     android:textAlignment="center"
@@ -68,10 +52,10 @@
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.4"
+                    app:layout_constraintHorizontal_bias="0.527"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.392"
+                    app:layout_constraintVertical_bias="0.235"
                     tools:text="Pregunta 1" />
 
                 <EditText
@@ -88,10 +72,10 @@
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintHorizontal_bias="0.537"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.452" />
+                    app:layout_constraintVertical_bias="0.295" />
 
                 <TextView
                     android:id="@+id/txvPreg4"
@@ -103,10 +87,10 @@
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.555"
+                    app:layout_constraintHorizontal_bias="0.583"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.543"
+                    app:layout_constraintVertical_bias="0.409"
                     tools:text="Pregunta 2" />
 
                 <EditText
@@ -123,25 +107,10 @@
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintHorizontal_bias="0.537"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.608" />
-
-                <TextView
-                    android:id="@+id/txvPreg5"
-                    android:layout_width="380dp"
-                    android:layout_height="48dp"
-                    android:fontFamily="sans-serif"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.684"
-                    tools:text="Pregunta 3" />
+                    app:layout_constraintVertical_bias="0.472" />
 
                 <EditText
                     android:id="@+id/txtResp"
@@ -157,10 +126,10 @@
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintHorizontal_bias="0.537"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.754" />
+                    app:layout_constraintVertical_bias="0.666" />
 
                 <Button
                     android:id="@+id/btnConfirmCC2"
@@ -172,10 +141,10 @@
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.887" />
+                    app:layout_constraintVertical_bias="0.834" />
 
                 <ImageButton
                     android:id="@+id/btnVolverPS9"
