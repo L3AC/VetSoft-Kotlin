@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.ui.Home.houseCliente
@@ -20,6 +21,8 @@ class RecuContra_dos : AppCompatActivity() {
 
     private var conx = conx()
     private lateinit var codigoDB: String
+    private var idUs: Int = 0
+    private var pasw:String=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +48,20 @@ class RecuContra_dos : AppCompatActivity() {
             }
 
             if (txtCodigo.text.toString() == codigoDB){
-                //val intent = Intent(this, houseCliente::class.java)
-                //startActivity(intent)
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Recuperación")
+                builder.setMessage("Su contraseña actual es: $pasw ." +
+                        " ¿Desea cambiarla?")
+                builder.setPositiveButton("Si") { dialog, which ->
+                    val scndAct = Intent(this, CambioContra::class.java)
+                    scndAct.putExtra("idUs", idUs)
+                    scndAct.putExtra("pasw", pasw)
+                    scndAct.putExtra("met", 2)
+                    startActivity(scndAct)
+                }
+                builder.setNegativeButton("No", null)
+                val dialog = builder.create()
+                dialog.show()
             }else{
                 Toast.makeText(this, "El codigo ingresado no coincide", Toast.LENGTH_SHORT).show()
             }

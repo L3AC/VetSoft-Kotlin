@@ -22,21 +22,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1100dp">
-
-                <ImageButton
-                    android:id="@+id/btnMirar2"
-                    android:layout_width="41dp"
-                    android:layout_height="46dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="fitXY"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.966"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.256"
-                    app:srcCompat="@drawable/eye" />
+                android:layout_height="1100dp"
+                tools:layout_editor_absoluteX="287dp"
+                tools:layout_editor_absoluteY="48dp">
 
                 <ImageButton
                     android:id="@+id/btnVolver2"
@@ -62,20 +50,126 @@
                     android:textColor="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.544"
+                    app:layout_constraintHorizontal_bias="0.455"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.047" />
+                    app:layout_constraintVertical_bias="0.05" />
+
+                <Button
+                    android:id="@+id/btnConfirm2"
+                    android:layout_width="166dp"
+                    android:layout_height="73dp"
+                    android:backgroundTint="#66AAD4"
+                    android:text="Confirmar"
+                    android:textColor="#040404"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.947" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="396dp"
+                    android:layout_height="924dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.466"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.369"
+                    app:srcCompat="@drawable/recblanco" />
+
+                <ImageButton
+                    android:id="@+id/btnNaci2"
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.687"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.658"
+                    app:srcCompat="@drawable/calnd" />
 
                 <EditText
-                    android:id="@+id/txtUsuario2"
-                    android:layout_width="290dp"
+                    android:id="@+id/txtNaci2"
+                    android:layout_width="145dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/editext"
+                    android:background="@drawable/edt_background"
                     android:elevation="5dp"
                     android:ems="10"
-                    android:hint="Usuario"
+                    android:enabled="false"
+                    android:hint="Nacimiento"
                     android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.345"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.656" />
+
+                <Spinner
+                    android:id="@+id/spinSexo2"
+                    android:layout_width="145dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/style_spinner"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.845"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.589" />
+
+                <EditText
+                    android:id="@+id/txtTel2"
+                    android:layout_width="145dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edt_background"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Teléfono"
+                    android:inputType="phone"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.218"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.586" />
+
+                <ImageButton
+                    android:id="@+id/btnMirar2"
+                    android:layout_width="41dp"
+                    android:layout_height="46dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.966"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.256"
+                    app:srcCompat="@drawable/eye" />
+
+                <EditText
+                    android:id="@+id/txtContraN2"
+                    android:layout_width="290dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edt_background"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textColorHint="#000000"
@@ -84,13 +178,13 @@
                     app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.194" />
+                    app:layout_constraintVertical_bias="0.257" />
 
                 <EditText
                     android:id="@+id/txtApellidos2"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/editext"
+                    android:background="@drawable/edt_background"
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Ingrese sus apellidos"
@@ -109,7 +203,7 @@
                     android:id="@+id/txtNomb2"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/editext"
+                    android:background="@drawable/edt_background"
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Ingrese sus nombres"
@@ -124,80 +218,11 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.46" />
 
-                <Spinner
-                    android:id="@+id/spinSexo2"
-                    android:layout_width="145dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/style_spinner"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.845"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.589" />
-
-                <EditText
-                    android:id="@+id/txtTel2"
-                    android:layout_width="145dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/editext"
-                    android:elevation="5dp"
-                    android:ems="10"
-                    android:hint="Teléfono"
-                    android:inputType="phone"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.218"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.586" />
-
-                <EditText
-                    android:id="@+id/txtContraN2"
-                    android:layout_width="290dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/editext"
-                    android:elevation="5dp"
-                    android:ems="10"
-                    android:hint="Contraseña"
-                    android:inputType="textPassword"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.257" />
-
-                <EditText
-                    android:id="@+id/txtContraD2"
-                    android:layout_width="290dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/editext"
-                    android:elevation="5dp"
-                    android:ems="10"
-                    android:hint="Repita su contraseña"
-                    android:inputType="textPassword"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.333" />
-
                 <EditText
                     android:id="@+id/txtCorreo2"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/editext"
+                    android:background="@drawable/edt_background"
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Correo electronico"
@@ -213,10 +238,76 @@
                     app:layout_constraintVertical_bias="0.399" />
 
                 <EditText
+                    android:id="@+id/txtContraD2"
+                    android:layout_width="290dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edt_background"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Repita su contraseña"
+                    android:inputType="textPassword"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.333" />
+
+                <TextView
+                    android:id="@+id/txvCont2"
+                    android:layout_width="210dp"
+                    android:layout_height="20dp"
+                    android:text="La contraseña debe ser igual"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.696"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.302" />
+
+                <EditText
+                    android:id="@+id/txtUsuario2"
+                    android:layout_width="290dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edt_background"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Usuario"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.194" />
+
+                <TextView
+                    android:id="@+id/txvUs2"
+                    android:layout_width="122dp"
+                    android:layout_height="28dp"
+                    android:text="Ya existe usuario"
+                    android:textColor="#050505"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.74"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.163" />
+
+                <EditText
                     android:id="@+id/txtDui2"
                     android:layout_width="206dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/editext"
+                    android:background="@drawable/edt_background"
                     android:drawablePadding="10dp"
                     android:elevation="5dp"
                     android:ems="10"
@@ -236,7 +327,7 @@
                     android:id="@+id/txtDir2"
                     android:layout_width="350dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/editext"
+                    android:background="@drawable/edt_background"
                     android:drawablePadding="10dp"
                     android:elevation="5dp"
                     android:ems="10"
@@ -247,87 +338,10 @@
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.448"
+                    app:layout_constraintHorizontal_bias="0.409"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.8" />
-
-                <EditText
-                    android:id="@+id/txtNaci2"
-                    android:layout_width="145dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/editext"
-                    android:elevation="5dp"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:hint="Nacimiento"
-                    android:inputType="text"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.345"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.656" />
-
-                <ImageButton
-                    android:id="@+id/btnNaci2"
-                    android:layout_width="49dp"
-                    android:layout_height="49dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="fitXY"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.687"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.658"
-                    app:srcCompat="@drawable/calnd" />
-
-                <Button
-                    android:id="@+id/btnConfirm2"
-                    android:layout_width="166dp"
-                    android:layout_height="73dp"
-                    android:backgroundTint="#66AAD4"
-                    android:text="Confirmar"
-                    android:textColor="#040404"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.907" />
-
-                <TextView
-                    android:id="@+id/txvUs2"
-                    android:layout_width="122dp"
-                    android:layout_height="28dp"
-                    android:text="Ya existe usuario"
-                    android:textColor="#050505"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.74"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.163" />
-
-                <TextView
-                    android:id="@+id/txvCont2"
-                    android:layout_width="210dp"
-                    android:layout_height="20dp"
-                    android:text="La contraseña debe ser igual"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.696"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.302" />
+                    app:layout_constraintVertical_bias="0.789" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
