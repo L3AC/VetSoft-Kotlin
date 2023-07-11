@@ -79,7 +79,7 @@
                     app:layout_constraintVertical_bias="0.311" />
 
                 <EditText
-                    android:id="@+id/txtUsuarioRecu"
+                    android:id="@+id/txtUsuarioPs"
                     android:layout_width="277dp"
                     android:layout_height="53dp"
                     android:background="@drawable/edt_background"
@@ -100,10 +100,10 @@
                     android:layout_height="60dp"
                     android:text="Enviar"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/txtUsuarioRecu"
+                    app:layout_constraintEnd_toEndOf="@+id/txtUsuarioPs"
                     app:layout_constraintHorizontal_bias="0.51"
-                    app:layout_constraintStart_toStartOf="@+id/txtUsuarioRecu"
-                    app:layout_constraintTop_toBottomOf="@+id/txtUsuarioRecu"
+                    app:layout_constraintStart_toStartOf="@+id/txtUsuarioPs"
+                    app:layout_constraintTop_toBottomOf="@+id/txtUsuarioPs"
                     app:layout_constraintVertical_bias="0.105" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

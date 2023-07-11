@@ -63,17 +63,18 @@
 
                 <TextView
                     android:id="@+id/textView4"
-                    android:layout_width="151dp"
-                    android:layout_height="53dp"
+                    android:layout_width="244dp"
+                    android:layout_height="42dp"
                     android:fontFamily="@font/montserrat"
                     android:text="Ingrese el codigo"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.311" />
+                    app:layout_constraintVertical_bias="0.345" />
 
                 <EditText
                     android:id="@+id/txtCodigoRecu"

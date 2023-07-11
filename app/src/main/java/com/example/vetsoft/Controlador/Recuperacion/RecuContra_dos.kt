@@ -36,16 +36,18 @@ class RecuContra_dos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recu_contra_dos)
 
+        val extras = intent.extras
+        idUs= extras?.getInt("idUs")!!
         txtCodigo = findViewById(R.id.txtCodigoRecu)
         btnVerificar = findViewById(R.id.btnCodigoRecu)
 
         btnVerificar.setOnClickListener {
-            val usuarioIngresado = intent.extras?.getString("usuarioIngresado").orEmpty()
+            //val usuarioIngresado = intent.extras?.getString("usuarioIngresado").orEmpty()
 
 
             try{
-                val traerCorreo: PreparedStatement = conx.dbConn()?.prepareStatement("select codigoVerif from tbUsuarios where usuario = ?")!!
-                traerCorreo.setString(1, usuarioIngresado)
+                val traerCorreo: PreparedStatement = conx.dbConn()?.prepareStatement("select codigoVerif from tbUsuarios where idUsuario = ?")!!
+                traerCorreo.setInt(1, idUs)
                 val rs = traerCorreo.executeQuery()
 
                 while (rs.next()){
@@ -56,6 +58,7 @@ class RecuContra_dos : AppCompatActivity() {
             }
 
             if (txtCodigo.text.toString() == codigoDB){
+                contra()
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("Recuperación")
                 builder.setMessage("Su contraseña actual es: $pasw ." +
@@ -70,7 +73,7 @@ class RecuContra_dos : AppCompatActivity() {
                 builder.setNegativeButton("No", null)
                 val dialog = builder.create()
                 dialog.show()
-                VerifUs()
+
             }else{
                 Toast.makeText(this, "El codigo ingresado no coincide", Toast.LENGTH_SHORT).show()
             }
@@ -78,14 +81,14 @@ class RecuContra_dos : AppCompatActivity() {
 
     }
     @RequiresApi(Build.VERSION_CODES.O)
-    fun VerifUs() {
+    fun contra() {
         try {
             val cadena: String = "SELECT *FROM tbUsuarios" +
-                    "    WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS;"
+                    "    WHERE idUsuario = ? ;"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            ps.setString(1, txtUsuarioPS.text.toString())
+            ps.setInt(1, idUs)
 
             st = ps.executeQuery()
             st.next()
@@ -95,6 +98,7 @@ class RecuContra_dos : AppCompatActivity() {
             if (found == 1) {
                 idUs = st.getInt("idUsuario")
                 pasw=crypt.decrypt(st.getString("contraseña"),"key")
+
                 Log.i("contra",pasw)
             } else {
                 Toast.makeText(applicationContext, "Usuario incorrecto", Toast.LENGTH_SHORT).show()

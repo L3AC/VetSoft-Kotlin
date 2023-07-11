@@ -39,7 +39,7 @@ class RecupContra : AppCompatActivity() {
         setContentView(R.layout.activity_recup_contra)
 
         btnEnviarRecu = findViewById(R.id.btnEnviarRecu)
-        txtUsuarioRecu = findViewById(R.id.txtUsuarioRecu)
+        txtUsuarioRecu = findViewById(R.id.txtUsuarioPs)
 
         btnEnviarRecu.setOnClickListener {
 
@@ -61,7 +61,7 @@ class RecupContra : AppCompatActivity() {
             }
 
             //se manda el correo con numero aleatorio
-            val mandarCorreo = MandarCorreo(correo, "Codigo de recuperacion", codigoAleatorio!!)
+            val mandarCorreo = MandarCorreo(correo, "Codigo de recuperacion", "Usted a solicitado un codigo de recuperacion de contraseña, su codigo es: "+codigoAleatorio!!)
             mandarCorreo.execute()
 
             try {
@@ -73,11 +73,6 @@ class RecupContra : AppCompatActivity() {
             }catch (ex: SQLException){
                 Toast.makeText(this, "Error ${ex.toString()}", Toast.LENGTH_SHORT).show()
             }
-
-            val intent = Intent(this, RecuContra_dos::class.java)
-            intent.putExtra("usuarioIngresado", txtUsuarioRecu.text.toString())
-            startActivity(intent)
-
             VerifUs()
         }
 
@@ -90,7 +85,7 @@ class RecupContra : AppCompatActivity() {
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            ps.setString(1, txtUsuarioPS.text.toString())
+            ps.setString(1, txtUsuarioRecu.text.toString())
 
             st = ps.executeQuery()
             st.next()
@@ -99,8 +94,9 @@ class RecupContra : AppCompatActivity() {
 
             if (found == 1) {
                 idUs = st.getInt("idUsuario")
-                pasw=crypt.decrypt(st.getString("contraseña"),"key")
-                Log.i("contra",pasw)
+                val intent = Intent(this, RecuContra_dos::class.java)
+                intent.putExtra("idUs", idUs)
+                startActivity(intent)
             } else {
                 Toast.makeText(applicationContext, "Usuario incorrecto", Toast.LENGTH_SHORT).show()
                 Habilit(false)
