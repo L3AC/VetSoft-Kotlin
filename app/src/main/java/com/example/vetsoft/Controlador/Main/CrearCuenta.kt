@@ -23,6 +23,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.Controlador.Cryptation.Crypto
+import com.example.vetsoft.Controlador.Recuperacion.CambioContra
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
 import java.sql.PreparedStatement
@@ -167,6 +168,10 @@ class CrearCuenta : AppCompatActivity() {
             }
             txtContraN2.setSelection(txtContraN2.text.length)
             txtContraD2.setSelection(txtContraD2.text.length)
+        }
+        btnVolver2.setOnClickListener(){
+            val scndAct = Intent(this, MainActivity::class.java)
+            startActivity(scndAct)
         }
 
     }

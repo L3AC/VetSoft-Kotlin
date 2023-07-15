@@ -30,6 +30,7 @@ class RecuContra_dos : AppCompatActivity() {
     private lateinit var codigoDB: String
     private var idUs: Int = 0
     private var pasw:String=""
+    private var usuarioIngresado:String=""
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,11 +39,11 @@ class RecuContra_dos : AppCompatActivity() {
 
         txtCodigo = findViewById(R.id.txtCodigoRecu)
         btnVerificar = findViewById(R.id.btnCodigoRecu)
+        val extras = intent.extras
+        usuarioIngresado = extras?.getString("usuarioIngresado")!!
+        pasw= extras?.getString("pasw")!!
 
         btnVerificar.setOnClickListener {
-            val usuarioIngresado = intent.extras?.getString("usuarioIngresado").orEmpty()
-
-
             try{
                 val traerCorreo: PreparedStatement = conx.dbConn()?.prepareStatement("select codigoVerif from tbUsuarios where usuario = ?")!!
                 traerCorreo.setString(1, usuarioIngresado)
@@ -57,6 +58,7 @@ class RecuContra_dos : AppCompatActivity() {
 
             if (txtCodigo.text.toString() == codigoDB){
                 val builder = AlertDialog.Builder(this)
+                Log.i("k",pasw)
                 builder.setTitle("Recuperación")
                 builder.setMessage("Su contraseña actual es: $pasw ." +
                         " ¿Desea cambiarla?")
@@ -70,49 +72,14 @@ class RecuContra_dos : AppCompatActivity() {
                 builder.setNegativeButton("No", null)
                 val dialog = builder.create()
                 dialog.show()
-                VerifUs()
+
             }else{
                 Toast.makeText(this, "El codigo ingresado no coincide", Toast.LENGTH_SHORT).show()
             }
         }
 
     }
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun VerifUs() {
-        try {
-            val cadena: String = "SELECT *FROM tbUsuarios" +
-                    "    WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS;"
-            val st: ResultSet
-            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
-
-            ps.setString(1, txtCodigo.text.toString())
-
-            st = ps.executeQuery()
-            st.next()
-
-            val found = st.row
-
-            if (found == 1) {
-                idUs = st.getInt("idUsuario")
-                pasw=crypt.decrypt(st.getString("contraseña"),"key")
-                Log.i("contra",pasw)
-            } else {
-                Toast.makeText(applicationContext, "Usuario incorrecto", Toast.LENGTH_SHORT).show()
-                Habilit(false)
-            }
-        } catch (ex: SQLException) {
-            Log.e("Error L010 ", ex.message!!)
-            Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
-        }
-        conx.dbConn()!!.close()
-    }
-    fun Habilit(tf: Boolean) {
-        txvPreg1.isVisible = tf
-        txvPreg2.isVisible= tf
-        txvPreg3.isVisible = tf
-        txtResp1.isVisible = tf
-        txtResp2.isVisible = tf
-        txtResp3.isVisible = tf
-        btnConfirmPS.isVisible = tf
+    override fun onBackPressed() {
+        // Deja vacío este método
     }
 }

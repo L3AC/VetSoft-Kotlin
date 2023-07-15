@@ -9,4 +9,7 @@ class RecupWha : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recup_wha)
     }
+    override fun onBackPressed() {
+        // Deja vacío este método
+    }
 }

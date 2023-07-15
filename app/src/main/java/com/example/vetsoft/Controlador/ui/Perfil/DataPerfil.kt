@@ -234,6 +234,7 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             ps.setString(9, spSexoDP.selectedItem.toString())
             ps.setString(10, txtDirDP.text.toString())
             ps.setInt(11, idCl)
+
 //
             ps.executeUpdate()
             Toast.makeText(context, "Campos actualizados", Toast.LENGTH_SHORT).show()

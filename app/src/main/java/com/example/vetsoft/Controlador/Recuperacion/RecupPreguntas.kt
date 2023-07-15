@@ -72,7 +72,7 @@ class RecupPreguntas : AppCompatActivity() {
             if(verifResp(txtResp1,1) && verifResp(txtResp2,2)&&verifResp(txtResp3,3)){
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("Recuperación")
-                builder.setMessage("Su contraseña actual es: $pasw ." +
+                builder.setMessage("Su contraseña actual es: $pasw  ." +
                         " ¿Desea cambiarla?")
                 builder.setPositiveButton("Si") { dialog, which ->
                     val scndAct = Intent(this, CambioContra::class.java)
