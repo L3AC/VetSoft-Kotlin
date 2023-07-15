@@ -90,7 +90,7 @@ class RecupContra : AppCompatActivity() {
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            ps.setString(1, txtUsuarioPS.text.toString())
+            ps.setString(1, txtUsuarioRecu.text.toString())
 
             st = ps.executeQuery()
             st.next()

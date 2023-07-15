@@ -85,7 +85,7 @@ class RecuContra_dos : AppCompatActivity() {
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            ps.setString(1, txtUsuarioPS.text.toString())
+            ps.setString(1, txtCodigo.text.toString())
 
             st = ps.executeQuery()
             st.next()
