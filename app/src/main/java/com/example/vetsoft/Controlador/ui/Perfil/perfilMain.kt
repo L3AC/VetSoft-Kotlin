@@ -1,5 +1,6 @@
 package com.example.vetsoft.Controlador.ui.Perfil
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.navigation.fragment.findNavController
+import com.example.vetsoft.Controlador.Main.MainActivity
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
 
 lateinit var btnPerC9:ImageButton
 lateinit var btnSegC9:ImageButton
+lateinit var btnCerrar:ImageButton
 
 class perfilMain : Fragment() {
     private var idUs: Int = 0
@@ -39,6 +42,7 @@ class perfilMain : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btnPerC9 =requireView().findViewById(R.id.btnPerC9)
         btnSegC9 =requireView().findViewById(R.id.btnSegC9)
+        btnCerrar = requireView().findViewById(R.id.btnCerrar)
 
         val bundle = Bundle().apply {
             putInt("idUs", idUs)
@@ -49,6 +53,10 @@ class perfilMain : Fragment() {
         }
         btnSegC9.setOnClickListener(){
             findNavController().navigate(R.id.action_perfilMain_to_mainSecurity, bundle)
+        }
+        btnCerrar.setOnClickListener(){
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            startActivity(intent)
         }
     }
 

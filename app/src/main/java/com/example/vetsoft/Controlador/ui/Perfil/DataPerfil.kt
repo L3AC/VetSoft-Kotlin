@@ -1,5 +1,7 @@
 package com.example.vetsoft.Controlador.ui.Perfil
 
+import android.content.Context.MODE_PRIVATE
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -29,6 +31,9 @@ import java.sql.SQLException
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
+
 
 lateinit var txtUsDP: EditText
 lateinit var txtNombDP: EditText
@@ -44,6 +49,7 @@ lateinit var btnVolverDP: ImageButton
 lateinit var txvUsDP: TextView
 lateinit var btnActDP: Button
 lateinit var btnGuardarDP: Button
+lateinit var btnCerrarSesion: Button
 lateinit var selectedDate: Calendar
 class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
     private var idUs: Int = 0
@@ -160,6 +166,7 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
 
 
     }
+
     fun cargarData() {
         try {
             val adpt = LLenarSpin()
