@@ -348,7 +348,7 @@ class AgendarCIta : Fragment() {
         try {
             val cadena: String =
                 "insert into tbCitas values(?,?,?,'Pendiente',?," +
-                        "?,'',?,GETDATE())"
+                        "'',?,GETDATE())"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 

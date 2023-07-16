@@ -36,7 +36,8 @@ lateinit var spTimeCP:Spinner
 lateinit var txtNombCP:EditText
 lateinit var rcMainCP:RecyclerView
 
-class filaCP(val idC: Int,val idD:Int, val nMasc:String,val fecha:String,val nDoc:String)
+class filaCP(val idC: Int,val idD:Int, val nMasc:String,
+             val fecha:String,val nDoc:String,val estado:String)
 val regCP = mutableListOf<filaCP>()
 val myDataCP = mutableListOf<String>()
 class CitasPendientes : Fragment() {
@@ -186,9 +187,10 @@ class CitasPendientes : Fragment() {
                 val col3 = st.getString("nombre")
                 val col4 = st.getString("fecha")
                 val col5 = st.getString("Doctor")
+                val col6 = st.getString("estado")
                 Log.i("dfg",col3)
 
-                regCP.add(filaCP(col1,col2,col3,col4,col5))
+                regCP.add(filaCP(col1,col2,col3,col4,col5,col6))
                 val newElement = "$col3"
                 myDataCP.add(newElement)
 
@@ -220,8 +222,9 @@ class CitasPendientes : Fragment() {
                 val col3 = st.getString("nombre")
                 val col4 = st.getString("fecha")
                 val col5 = st.getString("Doctor")
+                val col6 = st.getString("estado")
 
-                regCP.add(filaCP(col1,col2,col3,col4,col5))
+                regCP.add(filaCP(col1,col2,col3,col4,col5,col6))
                 val newElement = "$col3"
                 myDataCP.add(newElement)
 
@@ -254,6 +257,7 @@ class CitasPendientes : Fragment() {
             val txvMascota: TextView = view.findViewById(R.id.txvMascota)
             val txvFecha: TextView = view.findViewById(R.id.txvFecha)
             val txvDoc: TextView = view.findViewById(R.id.txvDoc)
+            val txvEstado: TextView = view.findViewById(R.id.txvEstadoC)
             ///val btn:Button=view.findViewById<Button>(R.id.txCarta)
             //   val imageView: ImageView = view.findViewById(R.id.image_view)
         }
@@ -270,6 +274,7 @@ class CitasPendientes : Fragment() {
             holder.txvMascota.text = "Mascota: "+Datos[position]
             holder.txvFecha.text = "Fecha: "+itmg.fecha
             holder.txvDoc.text ="Doctor: "+ itmg.nDoc
+            holder.txvEstado.text ="Estado: "+ itmg.estado
             //Reemplazamos la imagen
             //  holder.imageView.setImageResource(Imagenes[position])
         }
