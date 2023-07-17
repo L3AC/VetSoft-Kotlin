@@ -24,7 +24,7 @@
                 android:layout_height="734dp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcMainCP"
+                    android:id="@+id/rcMainHC"
                     android:layout_width="408dp"
                     android:layout_height="413dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +36,7 @@
                     app:layout_constraintVertical_bias="0.707" />
 
                 <TextView
-                    android:id="@+id/txvCitasP"
+                    android:id="@+id/txvCitasHC"
                     android:layout_width="184dp"
                     android:layout_height="41dp"
                     android:fontFamily="sans-serif"
@@ -51,7 +51,7 @@
                     app:layout_constraintVertical_bias="0.063" />
 
                 <ImageButton
-                    android:id="@+id/btnVolverCP"
+                    android:id="@+id/btnVolverHC"
                     android:layout_width="45dp"
                     android:layout_height="44dp"
                     android:background="@android:color/transparent"
@@ -65,7 +65,7 @@
                     app:srcCompat="@drawable/flecha"/>
 
                 <EditText
-                    android:id="@+id/txtBusqCD"
+                    android:id="@+id/txtBusqHC"
                     android:layout_width="212dp"
                     android:layout_height="49dp"
                     android:background="@drawable/editext"
@@ -81,7 +81,7 @@
                     app:layout_constraintVertical_bias="0.195" />
 
                 <Spinner
-                    android:id="@+id/spBuscCD"
+                    android:id="@+id/spBuscHC"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"

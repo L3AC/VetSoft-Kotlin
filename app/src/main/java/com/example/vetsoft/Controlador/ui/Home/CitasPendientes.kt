@@ -29,26 +29,31 @@ import com.example.vetsoft.Controlador.validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
-@SuppressLint("StaticFieldLeak")
-lateinit var btnVolverCP:ImageButton
-lateinit var spBusqCP:Spinner
-lateinit var spTimeCP:Spinner
-lateinit var txtNombCP:EditText
-lateinit var rcMainCP:RecyclerView
 
-class filaCP(val idC: Int,val idD:Int, val nMasc:String,
-             val fecha:String,val nDoc:String,val estado:String)
+@SuppressLint("StaticFieldLeak")
+lateinit var btnVolverCP: ImageButton
+lateinit var spBusqCP: Spinner
+lateinit var spTimeCP: Spinner
+lateinit var txtNombCP: EditText
+lateinit var rcMainCP: RecyclerView
+
+class filaCP(
+    val idC: Int, val idD: Int, val nMasc: String,
+    val fecha: String, val nDoc: String, val estado: String
+)
+
 val regCP = mutableListOf<filaCP>()
 val myDataCP = mutableListOf<String>()
+
 class CitasPendientes : Fragment() {
     private var idUs: Int = 0
-    private var idCl:Int=0
-    private var idCit:Int=0
-    private var idDoc:Int=0
+    private var idCl: Int = 0
+    private var idCit: Int = 0
+    private var idDoc: Int = 0
     private var conx = conx()
     private var vali = Validat()
-    val busque = listOf("Tiempo","Nombre")
-    val time = listOf("6 meses","2 meses","2 semanas")
+    val busque = listOf("Tiempo", "Nombre")
+    val time = listOf("6 meses", "2 meses", "2 semanas")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -67,48 +72,47 @@ class CitasPendientes : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnVolverCP =requireView().findViewById(R.id.btnVolverCP)
-        spBusqCP =requireView().findViewById(R.id.spBusqCP)
-        spTimeCP =requireView().findViewById(R.id.spTimeCP)
-        txtNombCP =requireView().findViewById(R.id.txtNombCP)
-        rcMainCP =requireView().findViewById(R.id.rcMainCP)
+        btnVolverCP = requireView().findViewById(R.id.btnVolverCP)
+        spBusqCP = requireView().findViewById(R.id.spBusqCP)
+        spTimeCP = requireView().findViewById(R.id.spTimeCP)
+        txtNombCP = requireView().findViewById(R.id.txtNombCP)
+        rcMainCP = requireView().findViewById(R.id.rcMainCP)
         rcMainCP.layoutManager = LinearLayoutManager(context)
 
-        txtNombCP.isVisible=false
+        val miAdapter = citaCard(myDataCP)
+        rcMainCP.adapter = miAdapter
+
+        txtNombCP.isVisible = false
         LlenarSpin()
         //CargarByF()
         val bundle2 = Bundle().apply {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
         }
-        btnVolverCP.setOnClickListener(){
+        btnVolverCP.setOnClickListener() {
             findNavController().navigate(R.id.action_citasPendientes_to_houseCliente, bundle2)
         }
 
         spBusqCP.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
-                parent: AdapterView<*>,view: View?, position: Int,id: Long
+                parent: AdapterView<*>, view: View?, position: Int, id: Long
             ) {
                 when (position) {
                     0 -> {
-                        /*CargarByN()
-                        spTimeCP.isVisible=false
-                        txtNombCP.isVisible=true*/
                         CargarByF(180)
-                        spTimeCP.isVisible=true
-                        txtNombCP.isVisible=false
+                        spTimeCP.isVisible = true
+                        txtNombCP.isVisible = false
                     }
+
                     1 -> {
-                        /*CargarByF(180)
-                        spTimeCP.isVisible=true
-                        txtNombCP.isVisible=false*/
                         CargarByN()
-                        spTimeCP.isVisible=false
-                        txtNombCP.isVisible=true
+                        spTimeCP.isVisible = false
+                        txtNombCP.isVisible = true
                     }
                 }
             }
+
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
@@ -127,7 +131,10 @@ class CitasPendientes : Fragment() {
                             putInt("idDoc", idDoc)
                         }
                         Log.i("IDE: ", idCit.toString())
-                        findNavController().navigate(R.id.action_citasPendientes_to_infoCita, bundle)
+                        findNavController().navigate(
+                            R.id.action_citasPendientes_to_infoCita,
+                            bundle
+                        )
                     }
                 })
         )
@@ -135,9 +142,11 @@ class CitasPendientes : Fragment() {
         txtNombCP.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 CargarByN()
             }
+
             override fun afterTextChanged(s: Editable?) {
             }
         })
@@ -153,66 +162,66 @@ class CitasPendientes : Fragment() {
                     0 -> {
                         CargarByF(180)
                     }
+
                     1 -> {
                         CargarByF(60)
                     }
+
                     2 -> {
                         CargarByF(15)
                     }
                 }
             }
+
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
-
     }
+
     fun CargarByN() {
         myDataCP.clear()
         regCP.clear()
         try {
             var st: ResultSet
-            var cadena: String ="SET LANGUAGE Spanish EXEC selectCitaN ?,?;"
+            var cadena: String = "SET LANGUAGE Spanish EXEC selectCitaN ?,?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)
-            ps.setString(2,txtNombCP.text.toString())
-            Log.i("con",ps.toString())
-            Log.i("con",idCl.toString())
+            ps.setString(2, txtNombCP.text.toString())
             st = ps.executeQuery()
 
             while (st?.next() == true) {
-
                 val col1 = st.getInt("idCita")
                 val col2 = st.getInt("idDoctor")
                 val col3 = st.getString("nombre")
                 val col4 = st.getString("fecha")
                 val col5 = st.getString("Doctor")
                 val col6 = st.getString("estado")
-                Log.i("dfg",col3)
 
-                regCP.add(filaCP(col1,col2,col3,col4,col5,col6))
+                regCP.add(filaCP(col1, col2, col3, col4, col5, col6))
                 val newElement = "$col3"
                 myDataCP.add(newElement)
 
-                val miAdapter2 = citaCard(myDataCP)
-                rcMainCP.adapter = miAdapter2
+                val miAdapter = citaCard(myDataCP)
+                rcMainCP.adapter = miAdapter
             }
+
         } catch (ex: SQLException) {
-            Log.i("ol",ex.message.toString())
+            Log.i("ol", ex.message.toString())
             Toast.makeText(context, "Error al cargar cita N", Toast.LENGTH_SHORT).show()
         }
     }
-    fun CargarByF(Dias:Int) {
+
+    fun CargarByF(Dias: Int) {
         myDataCP.clear()
         regCP.clear()
         try {
             var st: ResultSet
-            var cadena: String ="SET LANGUAGE Spanish EXEC selectCitaD ?,?"
+            var cadena: String = "SET LANGUAGE Spanish EXEC selectCitaD ?,?"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)
             ps.setInt(2, Dias)
-            Log.i("con2",ps.toString())
             st = ps.executeQuery()
 
             while (st?.next() == true) {
@@ -224,18 +233,20 @@ class CitasPendientes : Fragment() {
                 val col5 = st.getString("Doctor")
                 val col6 = st.getString("estado")
 
-                regCP.add(filaCP(col1,col2,col3,col4,col5,col6))
+                regCP.add(filaCP(col1, col2, col3, col4, col5, col6))
                 val newElement = "$col3"
                 myDataCP.add(newElement)
 
                 val miAdapter2 = citaCard(myDataCP)
                 rcMainCP.adapter = miAdapter2
             }
+
         } catch (ex: SQLException) {
-            Log.i("ol",ex.message.toString())
+            Log.i("ol", ex.message.toString())
             Toast.makeText(context, "Error al cargar cita F", Toast.LENGTH_SHORT).show()
         }
     }
+
     fun LlenarSpin() {
         val adaptadorSpinner =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, busque)
@@ -261,24 +272,33 @@ class CitasPendientes : Fragment() {
             ///val btn:Button=view.findViewById<Button>(R.id.txCarta)
             //   val imageView: ImageView = view.findViewById(R.id.image_view)
         }
+
         @SuppressLint("MissingInflatedId")
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val vista =
                 LayoutInflater.from(parent.context).inflate(R.layout.citas, parent, false)
             return MyViewHolder(vista)
         }
-       var Hola:Int=0
-       override fun getItemCount()=Datos.size
+
+        override fun getItemCount() = Datos.size
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            val itmg = regCP[position]
-            holder.txvMascota.text = "Mascota: "+Datos[position]
-            holder.txvFecha.text = "Fecha: "+itmg.fecha
-            holder.txvDoc.text ="Doctor: "+ itmg.nDoc
-            holder.txvEstado.text ="Estado: "+ itmg.estado
-            //Reemplazamos la imagen
-            //  holder.imageView.setImageResource(Imagenes[position])
+            if (regCP.isEmpty()) {
+                holder.txvMascota.isVisible = false
+                holder.txvFecha.isVisible = false
+                holder.txvDoc.isVisible = false
+                holder.txvEstado.isVisible = false
+            } else {
+                val itmg = regCP[position]
+                holder.txvMascota.text = "Mascota: " + Datos[position]
+                holder.txvFecha.text = "Fecha: " + itmg.fecha
+                holder.txvDoc.text = "Doctor: " + itmg.nDoc
+                holder.txvEstado.text = "Estado: " + itmg.estado
+                //Reemplazamos la imagen
+                //  holder.imageView.setImageResource(Imagenes[position])
+            }
         }
     }
+
     class citasPRecycler(
         context: Context,
         recyclerView: RecyclerView,

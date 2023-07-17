@@ -91,8 +91,7 @@ class MainMascota : Fragment() {
                     }
                 })
         )
-        val miAdapter = misCard(myData1)
-        rcMainMasc.adapter = miAdapter
+
     }
     fun CargarDatos() {
         myData1.clear()
@@ -116,6 +115,9 @@ class MainMascota : Fragment() {
 
                 val newElement = "$col2"
                 myData1.add(newElement)
+
+                val miAdapter = misCard(myData1)
+                rcMainMasc.adapter = miAdapter
             }
         } catch (ex: SQLException) {
             Log.i("ol",ex.message.toString())
