@@ -64,6 +64,7 @@ class RecupContra : AppCompatActivity() {
                 val intent = Intent(this, RecuContra_dos::class.java)
                 intent.putExtra("usuarioIngresado", txtUsuarioRecu.text.toString())
                 intent.putExtra("pasw", pasw)
+                intent.putExtra("idUs", idUs)
                 startActivity(intent)
             }
 

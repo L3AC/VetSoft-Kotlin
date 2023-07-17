@@ -42,8 +42,9 @@ class RecuContra_dos : AppCompatActivity() {
         val extras = intent.extras
         usuarioIngresado = extras?.getString("usuarioIngresado")!!
         pasw= extras?.getString("pasw")!!
+        idUs= extras?.getInt("idUs")!!
 
-        btnVerificar.setOnClickListener {
+        btnVerificar.setOnClickListener() {
             try{
                 val traerCorreo: PreparedStatement = conx.dbConn()?.prepareStatement("select codigoVerif from tbUsuarios where usuario = ?")!!
                 traerCorreo.setString(1, usuarioIngresado)

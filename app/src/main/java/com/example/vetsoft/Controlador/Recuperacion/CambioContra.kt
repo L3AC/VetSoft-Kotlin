@@ -44,6 +44,7 @@ class CambioContra : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val extras = intent.extras
         idUs= extras?.getInt("idUs")!!
+        Log.i("jojo", idUs.toString())
         pasw = extras?.getString("pasw")!!
         met= extras?.getInt("met")!!
 
@@ -122,8 +123,9 @@ class CambioContra : AppCompatActivity() {
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            ps.setInt(2, idUs)
             ps.setString(1, crypt.encrypt(txtContra1CC.text.toString(),"key"))
+            Log.i("jojo", crypt.encrypt(txtContra1CC.text.toString(),"key"))
+            ps.setInt(2, idUs)
             ps.executeUpdate()
             Toast.makeText(applicationContext, "Contraseña actualizada", Toast.LENGTH_SHORT).show()
             val scndAct = Intent(this, MainActivity::class.java)
