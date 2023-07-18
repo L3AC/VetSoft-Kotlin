@@ -93,7 +93,7 @@ class infoDoc : Fragment() {
             txtEspFD.setText(st.getString("especialidad"))
             txtNombFD.setText(st.getString("nombre"))
             txtApellFD.setText(st.getString("apellido"))
-            txtSexoFD.setText(st.getString("telefono"))
+            txtSexoFD.setText(st.getString("sexo"))
             txtEdadFD.setText(st.getString("edad"))
             txtCorreoFD.setText(st.getString("correo"))
             txtTelFD.setText(st.getString("telefono"))

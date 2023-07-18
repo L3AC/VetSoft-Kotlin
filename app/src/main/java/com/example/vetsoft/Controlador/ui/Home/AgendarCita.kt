@@ -107,7 +107,6 @@ class AgendarCIta : Fragment() {
         txtFecha5.isEnabled = false
         txtHora5.isEnabled = false
 
-        vali.setMax(txtNota5, 300)
         vali.configEditText(txtNota5,300,"^[a-zA-Z0-9]+.,")
 
         SpinHora()

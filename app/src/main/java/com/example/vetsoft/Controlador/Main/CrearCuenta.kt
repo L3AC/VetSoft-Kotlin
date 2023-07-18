@@ -30,6 +30,8 @@ import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
 import java.util.Calendar
+import java.util.Date
+import java.time.LocalDate
 
 lateinit var txtUsuario2:EditText
 lateinit var txtContraN2:EditText
@@ -214,6 +216,14 @@ fun createUs() {
             ps.setString(3, crypt.encrypt(txtContraN2.text.toString(),"key"))
             ps.setString(4, txtCorreo2.text.toString())
             ps.setString(5, txtTel2.text.toString())
+
+            val fechaActual = LocalDate.now()
+            val fechaNacimiento: LocalDate = obtenerFechaNacimiento()
+            if (fechaNacimiento.isAfter(fechaActual)) {
+                Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual", Toast.LENGTH_SHORT).show()
+                return  // Detener el proceso de guardado en la base de datos
+            }
+
             ps.executeUpdate()
 
         } catch (ex: SQLException) {
@@ -223,6 +233,18 @@ fun createUs() {
         conx.dbConn()!!.close()
 
     }
+    /*fun obtenerFechaNacimiento(): LocalDate {
+        // Obtén el año, mes y día seleccionados del DatePicker
+        val anio = datePicker.year
+        val mes = datePicker.month + 1 // Se suma 1 ya que en DatePicker los meses van de 0 a 11
+        val dia = datePicker.dayOfMonth
+
+        // Crea una instancia de LocalDate con los valores obtenidos
+        val fechaNacimiento = LocalDate.of(anio, mes, dia)
+
+        return fechaNacimiento
+    }*/
+
     fun selectUs(){
         try {
             val cadena: String = "SELECT *FROM tbUsuarios " +
