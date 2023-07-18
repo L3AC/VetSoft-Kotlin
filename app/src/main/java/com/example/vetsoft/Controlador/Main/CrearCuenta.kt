@@ -32,6 +32,7 @@ import java.sql.SQLException
 import java.util.Calendar
 import java.util.Date
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 lateinit var txtUsuario2:EditText
 lateinit var txtContraN2:EditText
@@ -206,6 +207,11 @@ class CrearCuenta : AppCompatActivity() {
 //CAMBIAR
 @RequiresApi(Build.VERSION_CODES.O)
 fun createUs() {
+    val txtNaci0 = txtNaci2.text.toString()
+    val formatter = DateTimeFormatter.ofPattern("d-M-yyyy")
+    val fechaNacimiento = LocalDate.parse(txtNaci0, formatter)
+    val fechaActual = LocalDate.now()
+    if (fechaNacimiento < fechaActual) {
         try {
             val cadena: String = "INSERT INTO tbUsuarios " +
                     "values(?,?,?,?,?,null,getdate());"
@@ -213,16 +219,24 @@ fun createUs() {
 
             ps.setInt(1, 3)
             ps.setString(2, txtUsuario2.text.toString())
-            ps.setString(3, crypt.encrypt(txtContraN2.text.toString(),"key"))
+            ps.setString(3, crypt.encrypt(txtContraN2.text.toString(), "key"))
             ps.setString(4, txtCorreo2.text.toString())
             ps.setString(5, txtTel2.text.toString())
 
-            val fechaActual = LocalDate.now()
+
+            /*if (txtNaci2 == fechaActual()){
+                createUs()
+            }else{
+                Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual", Toast.LENGTH_SHORT).show()
+                return  // Detener el proceso de guardado en la base de datos
+            }*/
+
+            /*val fechaActual = LocalDate.now()
             val fechaNacimiento: LocalDate = obtenerFechaNacimiento()
             if (fechaNacimiento.isAfter(fechaActual)) {
                 Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual", Toast.LENGTH_SHORT).show()
                 return  // Detener el proceso de guardado en la base de datos
-            }
+            }*/
 
             ps.executeUpdate()
 
@@ -231,7 +245,16 @@ fun createUs() {
             Toast.makeText(applicationContext, "Errorsito", Toast.LENGTH_SHORT).show()
         }
         conx.dbConn()!!.close()
+    }else{
+        Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual", Toast.LENGTH_SHORT).show()
+        return
+    }
 
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun fechaActual(): LocalDate {
+        return LocalDate.now()
     }
     /*fun obtenerFechaNacimiento(): LocalDate {
         // Obtén el año, mes y día seleccionados del DatePicker
