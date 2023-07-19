@@ -107,7 +107,7 @@ class AgendarCIta : Fragment() {
         txtFecha5.isEnabled = false
         txtHora5.isEnabled = false
 
-        vali.configEditText(txtNota5,300,"^[a-zA-Z0-9]+.,")
+        //vali.configEditText(txtNota5,300,"^[a-zA-Z0-9]+.,")
 
         SpinHora()
         SpinServ(spinServ5)
@@ -316,12 +316,13 @@ class AgendarCIta : Fragment() {
         try {
             dateh = fechaSql + " " + txtHora5.text
             Log.i("date",dateh)
-            val cadena = "select * from tbCitas c where idDoctor=? and fechahora=? and estado='Pendiente';"
+            val cadena = "select * from tbCitas c where idDoctor=? and fecha=? and hora=? and estado='Pendiente';"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
             ps.setString(1, idDoc.toString())
-            ps.setString(2, dateh)
+            ps.setString(2, fechaSql)
+            ps.setString(3, spinEnt5.selectedItem.toString() )
             st = ps.executeQuery()
             st.next()
 
@@ -347,7 +348,7 @@ class AgendarCIta : Fragment() {
         try {
             val cadena: String =
                 "insert into tbCitas values(?,?,?,'Pendiente',?," +
-                        "'',?,GETDATE())"
+                        "'',?,?,GETDATE())"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
@@ -355,7 +356,8 @@ class AgendarCIta : Fragment() {
             ps.setInt(2, idServ)
             ps.setInt(3, idDoc)
             ps.setString(4, txtNota5.text.toString())
-            ps.setString(5, dateh)
+            ps.setString(5, fechaSql)
+            ps.setString(6, spinEnt5.selectedItem.toString() )
             ps.executeUpdate()
 
             val bundle = Bundle().apply {

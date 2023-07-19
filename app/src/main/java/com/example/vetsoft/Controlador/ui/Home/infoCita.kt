@@ -93,7 +93,7 @@ class infoCita : Fragment() {
     fun CargarDatos() {
         try {
             var cadena: String =
-            "select idCita,ts.nombre as 'Servicio',notaDelCliente as 'NC',notaDelDoctor as 'ND', CONVERT(varchar, fechahora, 100) as fecha,a.nombre, \n" +
+            "select idCita,ts.nombre as 'Servicio',notaDelCliente as 'NC',notaDelDoctor as 'ND', CONCAT(CONVERT(varchar, c.fecha, 100),' ',CONVERT(varchar,c.hora, 100)) as fecha, \n" +
             "CONCAT(d.nombre, ' ', d.apellido) as 'Doctor' from tbCitas c,tbAnimales a, tbDoctores d,tbTipoServicio ts \n" +
             "where c.idAnimal=a.idAnimal and d.idDoctor=c.idDoctor and ts.idTipoServicio=c.idTipoServicio\n" +
             "and idCita=? and estado='Pendiente';"
