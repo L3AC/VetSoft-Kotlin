@@ -23,7 +23,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="734dp">
+                android:layout_height="820dp">
 
                 <ImageView
                     android:id="@+id/imageView16"
@@ -32,10 +32,10 @@
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.484"
+                    app:layout_constraintHorizontal_bias="0.515"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.583"
+                    app:layout_constraintVertical_bias="0.548"
                     app:srcCompat="@drawable/bgrectan" />
 
                 <ImageView
@@ -45,10 +45,10 @@
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.484"
+                    app:layout_constraintHorizontal_bias="0.515"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.903"
+                    app:layout_constraintVertical_bias="0.85"
                     app:srcCompat="@drawable/bgrectan" />
 
                 <ImageView
@@ -58,16 +58,16 @@
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.091"
+                    app:layout_constraintHorizontal_bias="0.105"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.581"
+                    app:layout_constraintVertical_bias="0.54"
                     app:srcCompat="@drawable/segu" />
 
                 <TextView
                     android:id="@+id/txvCitasP9"
-                    android:layout_width="184dp"
-                    android:layout_height="41dp"
+                    android:layout_width="190dp"
+                    android:layout_height="45dp"
                     android:fontFamily="@font/montserrat"
                     android:text="Seguridad"
                     android:textAlignment="textStart"
@@ -75,10 +75,10 @@
                     android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.462"
+                    app:layout_constraintHorizontal_bias="0.484"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.58" />
+                    app:layout_constraintVertical_bias="0.535" />
 
                 <TextView
                     android:id="@+id/txvCitasP16"
@@ -93,7 +93,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.857" />
+                    app:layout_constraintVertical_bias="0.806" />
 
                 <ImageButton
                     android:id="@+id/btnSegC9"
@@ -106,7 +106,7 @@
                     app:layout_constraintHorizontal_bias="0.898"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.582"
+                    app:layout_constraintVertical_bias="0.534"
                     app:srcCompat="@drawable/arrow" />
 
                 <ImageButton
@@ -120,8 +120,20 @@
                     app:layout_constraintHorizontal_bias="0.898"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.849"
+                    app:layout_constraintVertical_bias="0.807"
                     app:srcCompat="@drawable/arrow" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="55dp"
+                    android:layout_height="61dp"
+                    android:src="@drawable/cerrarsesion"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.089"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.803" />
 
                 <ImageView
                     android:id="@+id/imageView15"
@@ -194,18 +206,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.284" />
-
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="55dp"
-                    android:layout_height="61dp"
-                    android:src="@drawable/cerrarsesion"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.091"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.864" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

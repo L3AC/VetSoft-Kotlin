@@ -51,7 +51,7 @@ lateinit var btnActDP: Button
 lateinit var btnGuardarDP: Button
 lateinit var btnCerrarSesion: Button
 lateinit var selectedDate: Calendar
-class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
+class DataPerfil : Fragment(){
     private var idUs: Int = 0
     private var idCl: Int = 0
     private var user:String=""
@@ -117,7 +117,7 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
             }
         }
         btnNaciDP.setOnClickListener(){
-            showDatePicker()
+            showDatePickerDialog()
         }
         btnGuardarDP.setOnClickListener(){
             val editTextList = listOf(
@@ -260,29 +260,30 @@ class DataPerfil : Fragment(), DatePickerDialog.OnDateSetListener {
         spinner.adapter = adaptadorSpinner
         return adaptadorSpinner
     }
-    private fun showDatePicker() {
-        val currentDate = Calendar.getInstance()
-        val datePickerDialog = DatePickerDialog.newInstance(
-            this,
-            currentDate.get(Calendar.YEAR),
-            currentDate.get(Calendar.MONTH),
-            currentDate.get(Calendar.DAY_OF_MONTH)
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+
+        // Crear un DatePickerDialog con la fecha actual y la fecha mínima permitida
+        val datePickerDialog = android.app.DatePickerDialog(
+            requireContext(),
+            android.app.DatePickerDialog.OnDateSetListener { _, year, month, day ->
+                // Aquí puedes hacer algo con la fecha seleccionada, como guardarla en una variable
+                val mes = month + 1
+                txtNaciDP.setText("$year-$mes-$day")
+
+                // También puedes mostrarla en un TextView, etc.
+            },
+            year, month, dayOfMonth
         )
 
-        // Configurar la fecha mínima y máxima permitida (opcional)
-        // datePickerDialog.minDate = Calendar.getInstance() // Fecha mínima: hoy
-        datePickerDialog.maxDate = currentDate // Fecha máxima: fecha actual
+        // 18 años=6570 dias
+        calendar.add(Calendar.DAY_OF_MONTH,-6570)
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
 
-        datePickerDialog.show(requireFragmentManager(), "DatePickerDialog")
-    }
-
-    override fun onDateSet(view: DatePickerDialog?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
-        val selectedDate = Calendar.getInstance()
-        selectedDate.set(year, monthOfYear, dayOfMonth)
-
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val formattedDate = dateFormat.format(selectedDate.time)
-        txtNaciDP.setText(formattedDate)
+        datePickerDialog.show()
     }
 
 

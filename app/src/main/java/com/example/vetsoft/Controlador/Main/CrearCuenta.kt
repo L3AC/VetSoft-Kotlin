@@ -24,15 +24,18 @@ import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.Controlador.Cryptation.Crypto
 import com.example.vetsoft.Controlador.Recuperacion.CambioContra
+import com.example.vetsoft.Controlador.ui.Perfil.txtNaciDP
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
+import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 lateinit var txtUsuario2:EditText
 lateinit var txtContraN2:EditText
@@ -52,7 +55,7 @@ lateinit var txvUs2:TextView
 lateinit var btnConfirm2:Button
 lateinit var btnMirar2:ImageButton
 
-class CrearCuenta : AppCompatActivity() {
+class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.date.DatePickerDialog.OnDateSetListener {
 
     private var conx = conx()
     private var vali= Validat()
@@ -118,9 +121,10 @@ class CrearCuenta : AppCompatActivity() {
         }
 
         btnNaci2.setOnClickListener(){
-            val Calendario =
+            showDatePickerDialog()
+            /*val Calendario =
                 DatePickerFragment { year, month, day -> verResultado(year, month, day) }
-            Calendario.show(supportFragmentManager, "DatePicker")
+            Calendario.show(supportFragmentManager, "DatePicker")*/
         }
 
 //CADA VEZ QUE ESCRIBA SE MANDA A LLAMAR LA FUNCION
@@ -356,6 +360,45 @@ fun createUs() {
             btnConfirm2.isEnabled=true
         }
     }
+
+
+    override fun onDateSet(view: com.wdullaer.materialdatetimepicker.date.DatePickerDialog?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
+        val selectedDate = Calendar.getInstance()
+        selectedDate.set(year, monthOfYear, dayOfMonth)
+
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val formattedDate = dateFormat.format(selectedDate.time)
+        txtNaciDP.setText(formattedDate)
+    }
+
+
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+
+        // Crear un DatePickerDialog con la fecha actual y la fecha mínima permitida
+        val datePickerDialog = DatePickerDialog(
+            this,
+            DatePickerDialog.OnDateSetListener { _, year,month, day ->
+                // Aquí puedes hacer algo con la fecha seleccionada, como guardarla en una variable
+                val mes = month + 1
+                fechaSql = "$year-$mes-$day"
+                txtNaci2?.setText("$day-$mes-$year")
+
+                // También puedes mostrarla en un TextView, etc.
+            },
+            year, month, dayOfMonth
+        )
+
+        // 18 años=6570 dias
+        calendar.add(Calendar.DAY_OF_MONTH,-6570)
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
+
+        datePickerDialog.show()
+    }
+
     override fun onBackPressed() {
         // Deja vacío este método
     }

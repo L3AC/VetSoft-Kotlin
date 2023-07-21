@@ -20,13 +20,17 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import com.example.vetsoft.Controlador.Main.txtNaci2
+import com.example.vetsoft.Controlador.ui.Perfil.txtNaciDP
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 class servC(val id: Int, val nombre: String)
 
@@ -121,10 +125,7 @@ class AgendarCIta : Fragment() {
             findNavController().navigate(R.id.action_agendarCIta_to_infoMascota, bundle)
         }
         btnFecha5.setOnClickListener() {
-            val Calendario =
-                DatePickerFragment { year, month, day -> verResultado(year, month, day) }
-            Calendario.show(childFragmentManager, "DatePicker")
-
+            showDatePickerDialog()
         }
         btnConfirm5.setOnClickListener() {
             Confirmar()
@@ -377,30 +378,31 @@ class AgendarCIta : Fragment() {
         }
         conx.dbConn()!!.close()
     }
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
 
-    private fun verResultado(year: Int, month: Int, day: Int) {
-        val mes = month + 1
-        fechaSql = "$year-$mes-$day"
-        txtFecha5?.setText("$day-$mes-$year")
-        verifCita()
-    }
+        // Crear un DatePickerDialog con la fecha actual y la fecha mínima permitida
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            DatePickerDialog.OnDateSetListener { _, year,month, day ->
+                // Aquí puedes hacer algo con la fecha seleccionada, como guardarla en una variable
+                val mes = month + 1
+                fechaSql = "$year-$mes-$day"
+                txtFecha5?.setText("$day-$mes-$year")
 
-    class DatePickerFragment(val listener: (year: Int, month: Int, day: Int) -> Unit) :
-        DialogFragment(),
-        DatePickerDialog.OnDateSetListener {
+                // También puedes mostrarla en un TextView, etc.
+            },
+            year, month, dayOfMonth
+        )
 
-        override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-            val c = Calendar.getInstance()
-            val year = c.get(Calendar.YEAR)
-            val month = c.get(Calendar.MONTH)
-            val day = c.get(Calendar.DAY_OF_MONTH)
+        // 18 años=6570 dias
+        calendar.add(Calendar.DAY_OF_MONTH,-6570)
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
 
-            return DatePickerDialog(requireActivity(), this, year, month, day)
-        }
-
-        override fun onDateSet(p0: DatePicker?, year: Int, month: Int, day: Int) {
-            listener(year, month, day)
-        }
+        datePickerDialog.show()
     }
 
 }
