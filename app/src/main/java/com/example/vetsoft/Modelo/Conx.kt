@@ -12,7 +12,7 @@ class conx {
     private val username="userSQL"
     private val password="pasf2"
 
-    private val ipAlva="192.168.0.14:51150"
+    private val ipAlva="192.168.0.13:51150"
     private val dbAlva="VetSoft"
     private val usernameAlva="alvita"
     private val passwordAlva="ferelmejor"
