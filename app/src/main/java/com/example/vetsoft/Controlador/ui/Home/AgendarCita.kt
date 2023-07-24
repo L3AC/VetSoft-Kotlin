@@ -399,8 +399,8 @@ class AgendarCIta : Fragment() {
         )
 
         // 18 años=6570 dias
-        calendar.add(Calendar.DAY_OF_MONTH,-6570)
-        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
+
+        datePickerDialog.datePicker.minDate = calendar.timeInMillis
 
         datePickerDialog.show()
     }
