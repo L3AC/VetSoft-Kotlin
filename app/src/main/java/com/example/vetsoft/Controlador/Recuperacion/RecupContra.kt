@@ -8,10 +8,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import com.example.vetsoft.Controlador.Cryptation.Crypto
+import com.example.vetsoft.Controlador.Main.MainRecup
 import com.example.vetsoft.Controlador.validation.Validat
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
@@ -22,6 +24,7 @@ import kotlin.random.Random
 
 lateinit var btnEnviarRecu: Button
 lateinit var txtUsuarioRecu: EditText
+lateinit var  btnVolver: ImageButton
 
 class RecupContra : AppCompatActivity() {
 
@@ -40,6 +43,12 @@ class RecupContra : AppCompatActivity() {
 
         btnEnviarRecu = findViewById(R.id.btnEnviarRecu)
         txtUsuarioRecu = findViewById(R.id.txtUsuarioPs)
+        btnVolver = findViewById(R.id.btnVolverDPe)
+
+        btnVolver.setOnClickListener{
+            val scndAct = Intent(this, MainRecup::class.java)
+            startActivity(scndAct)
+        }
 
         btnEnviarRecu.setOnClickListener {
 

@@ -1,5 +1,6 @@
 package com.example.vetsoft.Controlador.Recuperacion
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -21,7 +23,7 @@ import java.sql.SQLException
 
 lateinit var txtCodigo: EditText
 lateinit var btnVerificar: Button
-
+lateinit var btnVolverr: ImageButton
 
 class RecuContra_dos : AppCompatActivity() {
 
@@ -32,6 +34,7 @@ class RecuContra_dos : AppCompatActivity() {
     private var pasw:String=""
     private var usuarioIngresado:String=""
 
+    @SuppressLint("MissingInflatedId")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +42,16 @@ class RecuContra_dos : AppCompatActivity() {
 
         txtCodigo = findViewById(R.id.txtCodigoRecu)
         btnVerificar = findViewById(R.id.btnCodigoRecu)
+        btnVolverr = findViewById(R.id.btnVolverDPo)
         val extras = intent.extras
         usuarioIngresado = extras?.getString("usuarioIngresado")!!
         pasw= extras?.getString("pasw")!!
         idUs= extras?.getInt("idUs")!!
+
+        btnVolverr.setOnClickListener{
+            val scndAct = Intent(this, RecupContra::class.java)
+            startActivity(scndAct)
+        }
 
         btnVerificar.setOnClickListener() {
             try{
