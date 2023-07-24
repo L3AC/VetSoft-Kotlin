@@ -30,6 +30,7 @@ lateinit var btnMirar1:ImageButton
 
 class MainActivity : AppCompatActivity() {
     private var conx = conx()
+    private var lol= Int
     private var vali = Validat()
     private var crypt= Crypto()
     private var idUs: Int = 0
