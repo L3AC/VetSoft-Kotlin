@@ -23,25 +23,133 @@
                 android:layout_width="match_parent"
                 android:layout_height="734dp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="472dp"
-                    android:layout_height="427dp"
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="378dp"
+                    android:layout_height="153dp"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.231"
+                    app:layout_constraintHorizontal_bias="0.515"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.659"
+                    app:srcCompat="@drawable/bgrectan" />
 
                 <ImageView
-                    android:id="@+id/imageView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/manteni"
+                    android:id="@+id/imageView20"
+                    android:layout_width="61dp"
+                    android:layout_height="70dp"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.088"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.637"
+                    app:srcCompat="@drawable/perf" />
+
+                <TextView
+                    android:id="@+id/txvCitasP19"
+                    android:layout_width="184dp"
+                    android:layout_height="41dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Reservas"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="34sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.629" />
+
+                <ImageButton
+                    android:id="@+id/btnReserv"
+                    android:layout_width="45dp"
+                    android:layout_height="44dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.89"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.637"
+                    app:srcCompat="@drawable/arrow" />
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="378dp"
+                    android:layout_height="153dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.484"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.318"
+                    app:srcCompat="@drawable/bgrectan" />
+
+                <ImageButton
+                    android:id="@+id/btnProd"
+                    android:layout_width="45dp"
+                    android:layout_height="44dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.89"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.349"
+                    app:srcCompat="@drawable/arrow" />
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="61dp"
+                    android:layout_height="70dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.088"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.335"
+                    app:srcCompat="@drawable/perf" />
+
+                <TextView
+                    android:id="@+id/txvCitasP18"
+                    android:layout_width="184dp"
+                    android:layout_height="41dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Productos"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="34sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.341" />
+
+                <TextView
+                    android:id="@+id/txvCitasP17"
+                    android:layout_width="184dp"
+                    android:layout_height="41dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Tienda"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.069" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

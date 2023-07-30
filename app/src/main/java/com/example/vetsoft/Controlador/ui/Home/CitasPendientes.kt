@@ -54,6 +54,7 @@ class CitasPendientes : Fragment() {
     private var vali = Validat()
     val busque = listOf("Tiempo", "Nombre")
     val time = listOf("6 meses", "2 meses", "2 semanas")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
