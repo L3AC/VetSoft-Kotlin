@@ -147,7 +147,7 @@ class Productos : Fragment() {
             val itm = regProd2[position]
             holder.txvNomb.text = itm.nProd
             holder.txvMarca.text=itm.prov
-            holder.txvPrecio.text=itm.precio.toString()
+            holder.txvPrecio.text="$ "+itm.precio.toString()
             if (itm.img != null) {
                 val bitmap: Bitmap = BitmapFactory.decodeByteArray(itm.img, 0, itm.img.size)
                 holder.imgP.setImageBitmap(bitmap)
