@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/tipoprod"
+    android:id="@+id/prodre"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
@@ -38,7 +38,7 @@
                 app:srcCompat="@drawable/tprod" />
 
             <TextView
-                android:id="@+id/txvTPN"
+                android:id="@+id/txvNomb"
                 android:layout_width="250dp"
                 android:layout_height="24dp"
                 android:text="Producto:"

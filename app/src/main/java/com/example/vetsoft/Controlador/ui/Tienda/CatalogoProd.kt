@@ -12,22 +12,13 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.vetsoft.Controlador.ui.Home.CitasPendientes
-import com.example.vetsoft.Controlador.ui.Home.btnVolverCP
-import com.example.vetsoft.Controlador.ui.Home.filaCP
-import com.example.vetsoft.Controlador.ui.Home.rcMainCP
-import com.example.vetsoft.Controlador.ui.Home.regCP
-import com.example.vetsoft.Controlador.ui.Home.spBusqCP
-import com.example.vetsoft.Controlador.ui.Home.txtNombCP
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
 import java.sql.PreparedStatement
@@ -47,6 +38,7 @@ class CatalogoProd : Fragment() {
     lateinit var rcCataProd: RecyclerView
     private var idUs: Int = 0
     private var idCl: Int = 0
+    private var idTipoP: Int = 0
     private var conx = conx()
 
 
@@ -78,6 +70,26 @@ class CatalogoProd : Fragment() {
 
         CargarByN()
 
+        rcCataProd.addOnItemTouchListener(
+            CatalogoProd.citasPRecycler(requireContext(), rcCataProd,
+                object : citasPRecycler.OnItemClickListener {
+                    override fun onItemClick(view: View, position: Int) {
+                        // Acciones a realizar cuando se hace clic en un elemento del RecyclerView
+                        val itm = regProd[position]
+                        idTipoP = itm.id
+                        val bundle = Bundle().apply {
+                            putInt("idUs", idUs)
+                            putInt("idCl", idCl)
+                            putInt("idTipoP", idTipoP)
+                        }
+                        Log.i("IDTIPO: ", idTipoP.toString())
+                        findNavController().navigate(
+                            R.id.action_catalogoProd_to_productos,
+                            bundle
+                        )
+                    }
+                })
+        )
         val bundle = Bundle().apply {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
@@ -132,7 +144,7 @@ class CatalogoProd : Fragment() {
         RecyclerView.Adapter<catCard.MyViewHolder>() {
 
         class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val txvTipoP: TextView = view.findViewById(R.id.txvTipoP)
+            val txvTipoP: TextView = view.findViewById(R.id.txvTPN)
         }
 
         @SuppressLint("MissingInflatedId")
@@ -150,40 +162,40 @@ class CatalogoProd : Fragment() {
             //  holder.imageView.setImageResource(Imagenes[position])
         }
     }
-}
+    class citasPRecycler(
+        context: Context,
+        recyclerView: RecyclerView,
+        private val listener: OnItemClickListener?
+    ) : RecyclerView.OnItemTouchListener {
 
-class citasPRecycler(
-    context: Context,
-    recyclerView: RecyclerView,
-    private val listener: OnItemClickListener?
-) : RecyclerView.OnItemTouchListener {
+        private val gestureDetector: GestureDetector
 
-    private val gestureDetector: GestureDetector
-
-    init {
-        gestureDetector =
-            GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
-                override fun onSingleTapUp(e: MotionEvent): Boolean {
-                    return true
-                }
-            })
-    }
-
-    override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
-        val childView = rv.findChildViewUnder(e.x, e.y)
-        if (childView != null && gestureDetector.onTouchEvent(e)) {
-            listener?.onItemClick(childView, rv.getChildAdapterPosition(childView))
-            return true
+        init {
+            gestureDetector =
+                GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+                    override fun onSingleTapUp(e: MotionEvent): Boolean {
+                        return true
+                    }
+                })
         }
-        return false
+
+        override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+            val childView = rv.findChildViewUnder(e.x, e.y)
+            if (childView != null && gestureDetector.onTouchEvent(e)) {
+                listener?.onItemClick(childView, rv.getChildAdapterPosition(childView))
+                return true
+            }
+            return false
+        }
+
+        override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {}
+
+        override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
+
+        interface OnItemClickListener {
+            fun onItemClick(view: View, position: Int)
+        }
+
     }
-
-    override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {}
-
-    override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
-
-    interface OnItemClickListener {
-        fun onItemClick(view: View, position: Int)
-    }
-
 }
+
