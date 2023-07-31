@@ -153,7 +153,14 @@
         android:id="@+id/mainTienda"
         android:name="com.example.vetsoft.Controlador.ui.Tienda.MainTienda"
         android:label="fragment_main_tienda"
-        tools:layout="@layout/fragment_main_tienda" />
+        tools:layout="@layout/fragment_main_tienda" >
+        <action
+            android:id="@+id/action_mainTienda_to_catalogoProd"
+            app:destination="@id/catalogoProd" />
+        <action
+            android:id="@+id/action_mainTienda_to_mainReserva"
+            app:destination="@id/mainReserva" />
+    </fragment>
     <fragment
         android:id="@+id/infoCita"
         android:name="com.example.vetsoft.Controlador.ui.Home.infoCita"
@@ -174,5 +181,47 @@
         <action
             android:id="@+id/action_infoDoc_to_infoCita"
             app:destination="@id/infoCita" />
+    </fragment>
+    <fragment
+        android:id="@+id/catalogoProd"
+        android:name="com.example.vetsoft.Controlador.ui.Tienda.CatalogoProd"
+        android:label="fragment_catalogo_prod"
+        tools:layout="@layout/fragment_catalogo_prod" >
+        <action
+            android:id="@+id/action_catalogoProd_to_mainTienda"
+            app:destination="@id/mainTienda" />
+        <action
+            android:id="@+id/action_catalogoProd_to_productos"
+            app:destination="@id/productos" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainReserva"
+        android:name="com.example.vetsoft.Controlador.ui.Tienda.MainReserva"
+        android:label="fragment_main_reserva"
+        tools:layout="@layout/fragment_main_reserva" >
+        <action
+            android:id="@+id/action_mainReserva_to_mainTienda"
+            app:destination="@id/mainTienda" />
+        <action
+            android:id="@+id/action_mainReserva_to_prodReserv"
+            app:destination="@id/prodReserv" />
+    </fragment>
+    <fragment
+        android:id="@+id/productos"
+        android:name="com.example.vetsoft.Controlador.ui.Tienda.Productos"
+        android:label="fragment_productos"
+        tools:layout="@layout/fragment_productos" >
+        <action
+            android:id="@+id/action_productos_to_catalogoProd"
+            app:destination="@id/catalogoProd" />
+    </fragment>
+    <fragment
+        android:id="@+id/prodReserv"
+        android:name="com.example.vetsoft.Controlador.ui.Tienda.prodReserv"
+        android:label="fragment_prod_reserv"
+        tools:layout="@layout/fragment_prod_reserv" >
+        <action
+            android:id="@+id/action_prodReserv_to_mainReserva"
+            app:destination="@id/mainReserva" />
     </fragment>
 </navigation>

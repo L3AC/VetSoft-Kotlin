@@ -1,12 +1,13 @@
-package com.example.vetsoft
+package com.example.vetsoft.Controlador.ui.Tienda
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-class MainReserva : Fragment() {
+import com.example.vetsoft.R
 
+class Productos : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +21,7 @@ class MainReserva : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_reserva, container, false)
+        return inflater.inflate(R.layout.fragment_productos, container, false)
     }
-
 
 }
