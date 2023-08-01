@@ -12,7 +12,7 @@ class conx {
     private val username="userSQL"
     private val password="pasf2"
 
-    private val ipAlva="192.168.0.13:51150"
+    private val ipAlva="192.168.1.6:51150"
     private val dbAlva="VetSoft"
     private val usernameAlva="alvita"
     private val passwordAlva="ferelmejor"
@@ -25,10 +25,10 @@ class conx {
         try{
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance()
             connString="jdbc:jtds:sqlserver://" +
-                    "$ip;" +
-                    "databaseName=$db;" +
-                    "user=$username;" +
-                    "password=$password"
+                    "$ipAlva;" +
+                    "databaseName=$dbAlva;" +
+                    "user=$usernameAlva;" +
+                    "password=$passwordAlva"
 
             conn= DriverManager.getConnection(connString)
         }

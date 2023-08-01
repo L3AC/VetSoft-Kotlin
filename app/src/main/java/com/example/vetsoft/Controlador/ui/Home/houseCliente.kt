@@ -35,9 +35,9 @@ class houseCliente : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnMasc4 =requireView().findViewById(R.id.btnMasc4)
-        btnPnd4 =requireView().findViewById(R.id.btnPnd4)
-        btnHist4 =requireView().findViewById(R.id.btnHist4)
+        btnMasc4 =requireView().findViewById(R.id.btnMasc2)
+        btnPnd4 =requireView().findViewById(R.id.btnPnd2)
+        btnHist4 =requireView().findViewById(R.id.btnHist2)
 
         val bundle = Bundle().apply {
             putInt("idUs", idUs)
