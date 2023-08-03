@@ -21,7 +21,21 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="734dp">
+                android:layout_height="734dp"
+                android:background="#1B4965">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="406dp"
+                    android:layout_height="613dp"
+                    android:src="@drawable/fondoblanc"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txvCitasP4"
+                    app:layout_constraintVertical_bias="1.0" />
+
 
                 <ImageButton
                     android:id="@+id/btnVolverIM"
@@ -44,7 +58,7 @@
                     android:fontFamily="@font/montserrat"
                     android:text="Información"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +69,8 @@
 
                 <TextView
                     android:id="@+id/textView14"
-                    android:layout_width="123dp"
-                    android:layout_height="62dp"
+                    android:layout_width="163dp"
+                    android:layout_height="37dp"
                     android:fontFamily="sans-serif"
                     android:text="Agendar cita"
                     android:textAlignment="center"
@@ -64,10 +78,10 @@
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.791"
+                    app:layout_constraintHorizontal_bias="0.93"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.299" />
+                    app:layout_constraintVertical_bias="0.311" />
 
                 <TextView
                     android:id="@+id/txvAniF5"
@@ -90,27 +104,27 @@
                     android:id="@+id/textView24"
                     android:layout_width="183dp"
                     android:layout_height="106dp"
+                    android:background="@drawable/style_spinner"
                     android:fontFamily="sans-serif"
                     android:text="!Nota! - Hay datos que solo se ingresan en el centro médico"
                     android:textAlignment="center"
-                    android:background="@drawable/style_spinner"
                     android:textColor="#1B4965"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.105"
+                    app:layout_constraintHorizontal_bias="0.08"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.211" />
+                    app:layout_constraintVertical_bias="0.235" />
 
                 <TextView
                     android:id="@+id/txvSexoF5"
                     android:layout_width="350dp"
                     android:layout_height="37dp"
+                    android:background="@drawable/style_spinner"
                     android:fontFamily="sans-serif"
                     android:text="Sexo:"
                     android:textAlignment="textStart"
-                    android:background="@drawable/style_spinner"
                     android:textColor="#1B4965"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -124,8 +138,8 @@
                     android:id="@+id/txvRazaF5"
                     android:layout_width="350dp"
                     android:layout_height="37dp"
-                    android:fontFamily="sans-serif"
                     android:background="@drawable/style_spinner"
+                    android:fontFamily="sans-serif"
                     android:text="Raza:"
                     android:textAlignment="textStart"
                     android:textColor="#1B4965"
@@ -157,10 +171,10 @@
                     android:id="@+id/txvEdadF5"
                     android:layout_width="350dp"
                     android:layout_height="37dp"
+                    android:background="@drawable/style_spinner"
                     android:fontFamily="sans-serif"
                     android:text="Edad:"
                     android:textAlignment="textStart"
-                    android:background="@drawable/style_spinner"
                     android:textColor="#1B4965"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -174,9 +188,9 @@
                     android:id="@+id/txvPesoF5"
                     android:layout_width="350dp"
                     android:layout_height="37dp"
+                    android:background="@drawable/style_spinner"
                     android:fontFamily="sans-serif"
                     android:text="Peso:"
-                    android:background="@drawable/style_spinner"
                     android:textAlignment="textStart"
                     android:textColor="#1B4965"
                     android:textSize="24sp"
@@ -191,26 +205,13 @@
                     android:id="@+id/btnAddF5"
                     android:layout_width="88dp"
                     android:layout_height="97dp"
-                    android:src="@drawable/calnd"
+                    android:src="@drawable/citamedica"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.773"
+                    app:layout_constraintHorizontal_bias="0.826"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.163" />
-
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="247dp"
-                    android:layout_height="5dp"
-                    android:background="@drawable/lineline"
-                    android:text=""
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/txvCitasP4"
-                    app:layout_constraintHorizontal_bias="0.466"
-                    app:layout_constraintStart_toStartOf="@+id/txvCitasP4"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.124" />
+                    app:layout_constraintVertical_bias="0.207" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
