@@ -22,7 +22,21 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="900dp">
+                android:layout_height="900dp"
+                android:background="#1B4965">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="410dp"
+                    android:layout_height="753dp"
+                    android:src="@drawable/fondoblanc"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txvCitasP6"
+                    app:layout_constraintVertical_bias="1.0" />
+
 
                 <ImageButton
                     android:id="@+id/btnVolverAM"
@@ -32,24 +46,11 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.065"
+                    app:layout_constraintHorizontal_bias="0.066"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.072"
+                    app:layout_constraintVertical_bias="0.052"
                     app:srcCompat="@drawable/flecha" />
-
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="286dp"
-                    android:layout_height="6dp"
-                    android:background="@drawable/lineline"
-                    android:text=""
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.568"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.12" />
 
                 <TextView
                     android:id="@+id/txvCitasP6"
@@ -58,14 +59,14 @@
                     android:fontFamily="@font/montserrat"
                     android:text="Agregar mascota"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="30sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.563"
+                    app:layout_constraintHorizontal_bias="0.647"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.063" />
+                    app:layout_constraintVertical_bias="0.054" />
 
                 <Spinner
                     android:id="@+id/spRazaAM"
@@ -94,10 +95,10 @@
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.571"
+                    app:layout_constraintHorizontal_bias="0.538"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.172" />
+                    app:layout_constraintVertical_bias="0.209" />
 
                 <TextView
                     android:id="@+id/txvCitasP2"
@@ -148,7 +149,7 @@
                     android:fontFamily="@font/montserrat"
                     android:text="Asegurese que esta información sea correcta, debido a que ya no va a poder ser modificada por su propia cuenta en un futuro"
                     android:textAlignment="center"
-                    android:textColor="#FF0101"
+                    android:textColor="#1B4965"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
