@@ -24,7 +24,52 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="800dp">
+                android:layout_height="800dp"
+                android:background="#1B4965">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="411dp"
+                    android:layout_height="672dp"
+                    android:src="@drawable/fondoblanc"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txvCitasP7"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/txvCitasP8"
+                    android:layout_width="322dp"
+                    android:layout_height="227dp"
+                    android:background="@drawable/bkgw"
+                    android:fontFamily="sans-serif"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.225"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.293" />
+
+                <TextView
+                    android:id="@+id/txvCitasP26"
+                    android:layout_width="322dp"
+                    android:layout_height="227dp"
+                    android:background="@drawable/bkgw"
+                    android:fontFamily="sans-serif"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.225"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.76" />
 
                 <ImageButton
                     android:id="@+id/btnVolverS9"
@@ -40,131 +85,81 @@
                     app:layout_constraintVertical_bias="0.059"
                     app:srcCompat="@drawable/flecha" />
 
-                <ImageView
-                    android:id="@+id/imageView15"
-                    android:layout_width="359dp"
-                    android:layout_height="277dp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.253"
-                    app:srcCompat="@drawable/granrectang" />
-
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="359dp"
-                    android:layout_height="277dp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.48"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.82"
-                    app:srcCompat="@drawable/granrectang" />
-
                 <TextView
                     android:id="@+id/txvCitasP9"
                     android:layout_width="169dp"
-                    android:layout_height="63dp"
+                    android:layout_height="64dp"
                     android:fontFamily="sans-serif"
                     android:text="Preguntas de seguridad"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="#1B4965"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.38"
+                    app:layout_constraintHorizontal_bias="0.415"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.785" />
+                    app:layout_constraintVertical_bias="0.8" />
 
-                <ImageView
-                    android:id="@+id/imageView19"
-                    android:layout_width="61dp"
-                    android:layout_height="70dp"
-
+                <TextView
+                    android:id="@+id/txvCitasP20"
+                    android:layout_width="221dp"
+                    android:layout_height="53dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Restablecer contraseña"
+                    android:textAlignment="center"
+                    android:textColor="#1B4965"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintHorizontal_bias="0.361"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.619"
-                    app:srcCompat="@drawable/prgseg" />
+                    app:layout_constraintVertical_bias="0.45" />
 
                 <ImageButton
                     android:id="@+id/btnPregS9"
-                    android:layout_width="45dp"
-                    android:layout_height="44dp"
+                    android:layout_width="127dp"
+                    android:layout_height="124dp"
                     android:background="@android:color/transparent"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.734"
+                    app:layout_constraintHorizontal_bias="0.424"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.776"
-                    app:srcCompat="@drawable/arrow" />
-
-                <ImageView
-                    android:id="@+id/imageView17"
-                    android:layout_width="61dp"
-                    android:layout_height="70dp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.221"
-                    app:srcCompat="@drawable/contracamb" />
+                    app:layout_constraintVertical_bias="0.687"
+                    app:srcCompat="@drawable/consejo" />
 
                 <ImageButton
                     android:id="@+id/btnContraS9"
-                    android:layout_width="45dp"
-                    android:layout_height="44dp"
+                    android:layout_width="146dp"
+                    android:layout_height="139dp"
                     android:background="@android:color/transparent"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.737"
+                    app:layout_constraintHorizontal_bias="0.421"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.4"
-                    app:srcCompat="@drawable/arrow" />
+                    app:layout_constraintVertical_bias="0.298"
+                    app:srcCompat="@drawable/lacontrasena" />
 
                 <TextView
                     android:id="@+id/txvCitasP7"
-                    android:layout_width="184dp"
-                    android:layout_height="41dp"
-                    android:fontFamily="sans-serif"
+                    android:layout_width="183dp"
+                    android:layout_height="53dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="Seguridad"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.063" />
-
-                <TextView
-                    android:id="@+id/txvCitasP8"
-                    android:layout_width="161dp"
-                    android:layout_height="71dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Cambio de contraseña"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.372"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.398" />
+                    app:layout_constraintVertical_bias="0.059" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
