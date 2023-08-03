@@ -31,15 +31,15 @@
 
             <ImageView
                 android:id="@+id/imageView12"
-                android:layout_width="60dp"
-                android:layout_height="49dp"
+                android:layout_width="69dp"
+                android:layout_height="76dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.02"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.551"
-                app:srcCompat="@drawable/pata" />
+                app:srcCompat="@drawable/annimal" />
 
             <TextView
                 android:id="@+id/txvMascota"
@@ -50,7 +50,7 @@
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.656"
+                app:layout_constraintHorizontal_bias="0.691"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
