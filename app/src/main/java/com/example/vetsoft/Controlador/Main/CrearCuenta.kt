@@ -101,13 +101,28 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
         vali.configEditText(txtDui2,10,"[0-9]+")
         vali.configEditText(txtDir2,300,"[a-zA-Z\\s]+")
 
+        vali.setMinLength(txtUsuario2, 8)
+        vali.setMinLength(txtContraN2, 8)
+        vali.setMinLength(txtContraD2, 8)
+        vali.setMinLength(txtNomb2, 3)
+        vali.setMinLength(txtDir2, 10)
+        vali.setMinLength(txtApellidos2, 5)
+
+
         btnConfirm2.setOnClickListener(){
+            val allFieldsValid = txtUsuario2.text.length >= 8 &&
+                    txtContraN2.text.length >= 8 &&
+                    txtContraD2.text.length >= 8 &&
+                    txtNomb2.text.length >= 3 &&
+                    txtDir2.text.length >= 10 &&
+                    txtApellidos2.text.length >= 5
+
             val editTextList = listOf(
                 txtUsuario2, txtContraN2,
                 txtContraD2, txtCorreo2, txtNomb2, txtApellidos2, txtTel2, txtDui2
             )
             val areFieldsValid  = vali.areFieldsNotEmpty(editTextList)
-            if(areFieldsValid){
+            if(areFieldsValid && allFieldsValid){
                 createUs()
                 selectUs()
                 createCl()
@@ -116,7 +131,7 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
                 startActivity(scndAct)
             }
             else{
-                Toast.makeText(applicationContext, "Campos vacíos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Campos invalidos", Toast.LENGTH_SHORT).show()
             }
         }
 

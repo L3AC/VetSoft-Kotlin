@@ -22,8 +22,21 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="734dp"
+                android:background="#1B4965"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="-16dp">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="406dp"
+                    android:layout_height="606dp"
+                    android:src="@drawable/fondoblanc"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.523"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txvCitasCP2"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <ImageButton
                     android:id="@+id/btnMirarCP2"
@@ -41,8 +54,8 @@
 
                 <Button
                     android:id="@+id/btnVerifCP2"
-                    android:layout_width="166dp"
-                    android:layout_height="73dp"
+                    android:layout_width="174dp"
+                    android:layout_height="57dp"
                     android:backgroundTint="#66AAD4"
                     android:text="Verificar"
                     android:textColor="#040404"
@@ -52,7 +65,7 @@
                     app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.353" />
+                    app:layout_constraintVertical_bias="0.37" />
 
                 <EditText
                     android:id="@+id/txtContraCP2"
@@ -68,10 +81,10 @@
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintHorizontal_bias="0.485"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.238" />
+                    app:layout_constraintVertical_bias="0.262" />
 
                 <EditText
                     android:id="@+id/txtContra2CP2"
@@ -163,8 +176,8 @@
                     android:fontFamily="sans-serif"
                     android:text="Cambio de contraseña"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"

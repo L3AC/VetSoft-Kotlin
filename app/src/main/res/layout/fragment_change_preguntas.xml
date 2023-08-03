@@ -24,8 +24,45 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="800dp"
+                android:background="#1B4965"
                 tools:layout_editor_absoluteX="5dp"
                 tools:layout_editor_absoluteY="4dp">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="406dp"
+                    android:layout_height="665dp"
+                    android:src="@drawable/fondoblanc"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txvCitasP11"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="361dp"
+                    android:layout_height="114dp"
+                    android:background="@drawable/bkgw"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.468"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.252" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="361dp"
+                    android:layout_height="114dp"
+                    android:background="@drawable/bkgw"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.468"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.653" />
 
                 <TextView
                     android:id="@+id/txvPreg3PS"
@@ -37,27 +74,11 @@
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.612"
+                    app:layout_constraintHorizontal_bias="0.615"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.575"
+                    app:layout_constraintVertical_bias="0.599"
                     tools:text="Pregunta 3" />
-
-                <TextView
-                    android:id="@+id/txvPreg2PS"
-                    android:layout_width="375dp"
-                    android:layout_height="48dp"
-                    android:fontFamily="@font/montserrat"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.666"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.381"
-                    tools:text="Pregunta 2" />
 
                 <EditText
                     android:id="@+id/txtResp3PS"
@@ -76,7 +97,7 @@
                     app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.638" />
+                    app:layout_constraintVertical_bias="0.663" />
 
                 <EditText
                     android:id="@+id/txtResp1PS"
@@ -95,7 +116,7 @@
                     app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.268" />
+                    app:layout_constraintVertical_bias="0.292" />
 
                 <EditText
                     android:id="@+id/txtResp2PS"
@@ -114,7 +135,7 @@
                     app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.444" />
+                    app:layout_constraintVertical_bias="0.469" />
 
                 <TextView
                     android:id="@+id/txvPreg1PS"
@@ -129,8 +150,36 @@
                     app:layout_constraintHorizontal_bias="0.611"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.207"
+                    app:layout_constraintVertical_bias="0.231"
                     tools:text="Pregunta 1" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="361dp"
+                    android:layout_height="114dp"
+                    android:background="@drawable/bkgw"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.468"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.446" />
+
+                <TextView
+                    android:id="@+id/txvPreg2PS"
+                    android:layout_width="375dp"
+                    android:layout_height="48dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.666"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.406"
+                    tools:text="Pregunta 2" />
 
                 <Button
                     android:id="@+id/btnEditarPS2"
@@ -178,18 +227,19 @@
 
                 <TextView
                     android:id="@+id/txvCitasP11"
-                    android:layout_width="261dp"
-                    android:layout_height="64dp"
+                    android:layout_width="276dp"
+                    android:layout_height="83dp"
                     android:fontFamily="@font/montserrat"
                     android:text="Preguntas de seguridad"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.06" />
+                    app:layout_constraintVertical_bias="0.046" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

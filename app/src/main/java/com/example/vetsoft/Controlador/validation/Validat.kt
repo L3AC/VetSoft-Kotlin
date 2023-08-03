@@ -1,10 +1,13 @@
 package com.example.vetsoft.Controlador.validation
+import android.text.Editable
 import android.text.InputFilter
 import android.text.Spanned
+import android.text.TextWatcher
 import android.util.Patterns
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.view.isVisible
 import java.util.Locale
 import java.util.Random
@@ -14,6 +17,19 @@ class Validat {
             val pattern = Patterns.EMAIL_ADDRESS
             return pattern.matcher(email).matches()
         }
+
+    fun setMinLength(editText: EditText, minLength: Int) {
+        editText.setOnFocusChangeListener { view, hasFocus ->
+            if (!hasFocus) {
+                val text = editText.text.toString()
+                if (text.length < minLength) {
+                    // Mostrar el Toast indicando la longitud mínima requerida
+                    val toast = Toast.makeText(editText.context, "Mínimo $minLength caracteres requeridos", Toast.LENGTH_SHORT)
+                    toast.show()
+                }
+            }
+        }
+    }
 
         fun validateEmail(editText: EditText, btn: Button): Boolean {
             val email = editText.text.toString().trim()
