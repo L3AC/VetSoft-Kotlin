@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
@@ -13,6 +14,7 @@ import com.example.vetsoft.Controlador.validation.Validat
 lateinit var btnMasc4:ImageButton
 lateinit var btnPnd4:ImageButton
 lateinit var btnHist4:ImageButton
+lateinit var btnMasP: TextView
 class houseCliente : Fragment() {
     private var idUs: Int = 0
     private var idCl:Int=0
@@ -38,6 +40,7 @@ class houseCliente : Fragment() {
         btnMasc4 =requireView().findViewById(R.id.btnMasc2)
         btnPnd4 =requireView().findViewById(R.id.btnPnd2)
         btnHist4 =requireView().findViewById(R.id.btnHist2)
+        btnMasP=requireView().findViewById(R.id.textView32)
 
         val bundle = Bundle().apply {
             putInt("idUs", idUs)
@@ -51,6 +54,9 @@ class houseCliente : Fragment() {
         }
         btnHist4.setOnClickListener(){
             findNavController().navigate(R.id.action_houseCliente_to_historialCitas, bundle)
+        }
+        btnMasP.setOnClickListener {
+            findNavController().navigate(R.id.action_houseCliente_to_mainMascota, bundle)
         }
     }
 
