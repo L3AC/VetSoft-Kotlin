@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.vetsoft.Controlador.Main.MainActivity
 import com.example.vetsoft.Modelo.conx
@@ -16,7 +17,10 @@ import com.example.vetsoft.Controlador.validation.Validat
 lateinit var btnPerC9:ImageButton
 lateinit var btnSegC9:ImageButton
 lateinit var btnCerrar:ImageButton
-
+lateinit var btnPer2: TextView
+lateinit var btnPer3: TextView
+lateinit var btnSeg2: TextView
+lateinit var btnSeg3: TextView
 class perfilMain : Fragment() {
     private var idUs: Int = 0
     private var idCl:Int=0
@@ -42,6 +46,10 @@ class perfilMain : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btnPerC9 =requireView().findViewById(R.id.btnPerC9)
         btnSegC9 =requireView().findViewById(R.id.btnSegC9)
+        btnPer2=requireView().findViewById(R.id.txvCitasP8)
+        btnSeg2=requireView().findViewById(R.id.txvCitasP23)
+        btnSeg3=requireView().findViewById(R.id.txvCitasP9)
+        btnPer3=requireView().findViewById(R.id.txvCitasP24)
         btnCerrar = requireView().findViewById(R.id.btnCerrar)
 
         val bundle = Bundle().apply {
@@ -50,6 +58,18 @@ class perfilMain : Fragment() {
         }
         btnPerC9.setOnClickListener(){
             findNavController().navigate(R.id.action_perfilMain_to_dataPerfil, bundle)
+        }
+        btnPer2.setOnClickListener {
+            findNavController().navigate(R.id.action_perfilMain_to_dataPerfil, bundle)
+        }
+        btnPer3.setOnClickListener {
+            findNavController().navigate(R.id.action_perfilMain_to_dataPerfil, bundle)
+        }
+        btnSeg2.setOnClickListener {
+            findNavController().navigate(R.id.action_perfilMain_to_mainSecurity, bundle)
+        }
+        btnSeg3.setOnClickListener {
+            findNavController().navigate(R.id.action_perfilMain_to_mainSecurity, bundle)
         }
         btnSegC9.setOnClickListener(){
             findNavController().navigate(R.id.action_perfilMain_to_mainSecurity, bundle)
