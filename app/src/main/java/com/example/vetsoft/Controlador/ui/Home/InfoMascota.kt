@@ -87,18 +87,18 @@ class InfoMascota : Fragment() {
             ps.setInt(1, idAni)
             st = ps.executeQuery()
             st.next()
-            txvAniF5.setText("Animal:  "+st.getString("nombrePopular"))
-            txvRazaF5.setText("Raza:  "+st.getString("nombreRaza"))
-            txvNombF5.setText("Nombre:  "+st.getString("nombre"))
-            txvPesoF5.setText("Peso:  "+st.getString("peso"))
+            txvAniF5.setText(""+st.getString("nombrePopular"))
+            txvRazaF5.setText(""+st.getString("nombreRaza"))
+            txvNombF5.setText(""+st.getString("nombre"))
+            txvPesoF5.setText(""+st.getString("peso"))
             if(st.getString("meses")==null){//VERIFICAR PARA PONER PENDIENTE
-                txvEdadF5.setText("Edad:  Pendiente")
+                txvEdadF5.setText("Pendiente")
             }
             else{
-                txvEdadF5.setText("Edad:  "+st.getString("meses"))
+                txvEdadF5.setText(""+st.getString("meses"))
             }
 
-            txvSexoF5.setText("Sexo:  "+st.getString("sexo"))
+            txvSexoF5.setText(""+st.getString("sexo"))
             //txvPadF5.setText("Padecimientos: "+st.getString("padecimientos"))
 
         } catch (ex: SQLException) {
