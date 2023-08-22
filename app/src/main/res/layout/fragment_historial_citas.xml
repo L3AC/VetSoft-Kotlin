@@ -23,6 +23,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="734dp">
 
+                <EditText
+                    android:id="@+id/txtNombHC"
+                    android:layout_width="237dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/rect"
+                    android:elevation="5dp"
+                    android:ems="10"
+                    android:hint="Nombre de su mascota"
+                    android:inputType="text|textPersonName"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.954"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.202" />
+
+                <Spinner
+                    android:id="@+id/spTimeHC"
+                    android:layout_width="237dp"
+                    android:layout_height="48dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.954"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.201" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcMainHC"
                     android:layout_width="408dp"
@@ -64,24 +95,8 @@
                     app:layout_constraintVertical_bias="0.059"
                     app:srcCompat="@drawable/flecha"/>
 
-                <EditText
-                    android:id="@+id/txtBusqHC"
-                    android:layout_width="212dp"
-                    android:layout_height="49dp"
-                    android:background="@drawable/editext"
-                    android:elevation="5dp"
-                    android:ems="10"
-                    android:fontFamily="sans-serif"
-                    android:inputType="textPersonName"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.869"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.195" />
-
                 <Spinner
-                    android:id="@+id/spBuscHC"
+                    android:id="@+id/spBusqHC"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -89,7 +104,7 @@
                     app:layout_constraintHorizontal_bias="0.061"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.194" />
+                    app:layout_constraintVertical_bias="0.203" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
