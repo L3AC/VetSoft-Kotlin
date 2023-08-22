@@ -1,8 +1,6 @@
 package com.example.vetsoft.Controlador.validation
-import android.text.Editable
 import android.text.InputFilter
 import android.text.Spanned
-import android.text.TextWatcher
 import android.util.Patterns
 import android.view.View
 import android.widget.Button

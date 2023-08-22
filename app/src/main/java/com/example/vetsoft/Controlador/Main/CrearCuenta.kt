@@ -23,7 +23,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.Controlador.Cryptation.Crypto
-import com.example.vetsoft.Controlador.Recuperacion.CambioContra
 import com.example.vetsoft.Controlador.ui.Perfil.txtNaciDP
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
@@ -32,7 +31,6 @@ import java.sql.ResultSet
 import java.sql.SQLException
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Date
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -101,20 +99,20 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
         vali.configEditText(txtDui2,10,"[0-9]+")
         vali.configEditText(txtDir2,300,"[a-zA-Z\\s]+")
 
-        vali.setMinLength(txtUsuario2, 8)
-        vali.setMinLength(txtContraN2, 8)
-        vali.setMinLength(txtContraD2, 8)
+        /*vali.setMinLength(txtUsuario2, 6)
+        vali.setMinLength(txtContraN2, 4)
+        vali.setMinLength(txtContraD2, 4)
         vali.setMinLength(txtNomb2, 3)
         vali.setMinLength(txtDir2, 10)
-        vali.setMinLength(txtApellidos2, 5)
+        vali.setMinLength(txtApellidos2, 5)*/
 
 
         btnConfirm2.setOnClickListener(){
-            val allFieldsValid = txtUsuario2.text.length >= 8 &&
-                    txtContraN2.text.length >= 8 &&
-                    txtContraD2.text.length >= 8 &&
+            val allFieldsValid = txtUsuario2.text.length >= 6 &&
+                    txtContraN2.text.length >= 4 &&
+                    txtContraD2.text.length >= 4 &&
                     txtNomb2.text.length >= 3 &&
-                    txtDir2.text.length >= 10 &&
+                    txtDir2.text.length >= 8 &&
                     txtApellidos2.text.length >= 5
 
             val editTextList = listOf(

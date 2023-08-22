@@ -21,32 +21,44 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="734dp">
+                android:layout_height="734dp"
+                android:background="#1B4965">
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="403dp"
+                    android:layout_height="554dp"
+                    android:src="@drawable/aaaaa"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <EditText
                     android:id="@+id/txtNProd"
-                    android:layout_width="342dp"
-                    android:layout_height="63dp"
-                    android:background="@drawable/rect"
+                    android:layout_width="350dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/buscadorbkg"
                     android:elevation="5dp"
                     android:ems="10"
-                    android:hint="Tipo de producto"
+                    android:hint="Buscador"
                     android:inputType="text|textPersonName"
                     android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.444"
+                    app:layout_constraintHorizontal_bias="0.488"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.201" />
+                    app:layout_constraintVertical_bias="0.169" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcCataProd"
-                    android:layout_width="408dp"
-                    android:layout_height="435dp"
+                    android:layout_width="377dp"
+                    android:layout_height="434dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.333"
@@ -57,33 +69,33 @@
 
                 <ImageButton
                     android:id="@+id/btnVolverCat"
-                    android:layout_width="41dp"
-                    android:layout_height="41dp"
+                    android:layout_width="42dp"
+                    android:layout_height="50dp"
                     android:background="@android:color/transparent"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.118"
+                    app:layout_constraintHorizontal_bias="0.042"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.075"
+                    app:layout_constraintVertical_bias="0.062"
                     app:srcCompat="@drawable/flecha" />
 
                 <TextView
                     android:id="@+id/txvCitasP17"
-                    android:layout_width="231dp"
-                    android:layout_height="38dp"
+                    android:layout_width="294dp"
+                    android:layout_height="52dp"
                     android:fontFamily="sans-serif"
                     android:text="Tipo de productos"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.622"
+                    app:layout_constraintHorizontal_bias="0.575"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.079" />
+                    app:layout_constraintVertical_bias="0.06" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
