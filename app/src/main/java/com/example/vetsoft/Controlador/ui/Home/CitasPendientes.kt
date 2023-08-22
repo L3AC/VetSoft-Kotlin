@@ -130,6 +130,7 @@ class CitasPendientes : Fragment() {
                             putInt("idCl", idCl)
                             putInt("idCit", idCit)
                             putInt("idDoc", idDoc)
+                            putInt("citaT", 1)
                         }
                         Log.i("IDE: ", idCit.toString())
                         findNavController().navigate(

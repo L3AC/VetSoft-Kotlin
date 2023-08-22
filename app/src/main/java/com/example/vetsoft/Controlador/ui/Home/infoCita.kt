@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.vetsoft.Controlador.validation.Validat
 import com.example.vetsoft.Modelo.conx
@@ -34,6 +35,7 @@ class infoCita : Fragment() {
     private var idCl: Int = 0
     private var idCit: Int = 0
     private var idDoc: Int = 0
+    private var citaT: Int = 0
     private var conx = conx()
     private var vali = Validat()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +45,7 @@ class infoCita : Fragment() {
             idCl = arguments?.getInt("idCl")!!
             idCit = arguments?.getInt("idCit")!!
             idDoc = arguments?.getInt("idDoc")!!
+            citaT = arguments?.getInt("citaT")!!
             Log.i("idoc",idDoc.toString())
         }
     }
@@ -72,12 +75,20 @@ class infoCita : Fragment() {
         vali.Habilit(lista,false)
 
         CargarDatos()
+        if(citaT==1){//VIENE DE LA PANTALLA DE CITAS PENDIENTES
+
+        }
+        else{//VIENE DE LA PANTALLA HISTORIAL DE CITAS
+            btnEliminarFC.isVisible=false
+        }
         val bundle = Bundle().apply {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
             putInt("idCit", idCit)
             putInt("idDoc", idDoc)
+            putInt("citaT", citaT)
         }
+
 
         btnVolverFC.setOnClickListener(){
             findNavController().navigate(R.id.action_infoCita_to_citasPendientes, bundle)

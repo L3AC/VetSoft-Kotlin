@@ -79,6 +79,9 @@
         <action
             android:id="@+id/action_historialCitas_to_houseCliente"
             app:destination="@id/houseCliente" />
+        <action
+            android:id="@+id/action_historialCitas_to_infoCita"
+            app:destination="@id/infoCita" />
     </fragment>
     <fragment
         android:id="@+id/mainMascota"
@@ -172,6 +175,9 @@
         <action
             android:id="@+id/action_infoCita_to_infoDoc"
             app:destination="@id/infoDoc" />
+        <action
+            android:id="@+id/action_infoCita_to_historialCitas"
+            app:destination="@id/historialCitas" />
     </fragment>
     <fragment
         android:id="@+id/infoDoc"
