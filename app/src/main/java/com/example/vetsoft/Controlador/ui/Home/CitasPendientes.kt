@@ -170,6 +170,7 @@ class CitasPendientes : Fragment() {
 
                     2 -> {
                         CargarByF(15)
+                        Log.i("time","hola")
                     }
                 }
             }

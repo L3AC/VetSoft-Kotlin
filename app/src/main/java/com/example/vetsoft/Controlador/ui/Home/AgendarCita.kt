@@ -317,13 +317,17 @@ class AgendarCIta : Fragment() {
         try {
             dateh = fechaSql + " " + txtHora5.text
             Log.i("date",dateh)
-            val cadena = "select * from tbCitas c where idDoctor=? and fecha=? and hora=? and estado='Pendiente';"
+            val cadena = "select * from tbCitas c where idDoctor=? and fecha=? and hora=? and estado='Pendiente'" +
+                    " or idDoctor=? and fecha=? and hora=? and Estado='Aceptada';"
             val st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
             ps.setString(1, idDoc.toString())
             ps.setString(2, fechaSql)
-            ps.setString(3, spinEnt5.selectedItem.toString() )
+            ps.setString(3, spinEnt5.selectedItem.toString())
+            ps.setString(4, idDoc.toString())
+            ps.setString(5, fechaSql)
+            ps.setString(6, spinEnt5.selectedItem.toString())
             st = ps.executeQuery()
             st.next()
 

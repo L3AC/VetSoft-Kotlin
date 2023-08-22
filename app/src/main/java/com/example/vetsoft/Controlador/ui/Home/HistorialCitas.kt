@@ -21,6 +21,8 @@ import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
 
 
+val regHC = mutableListOf<HistorialCitas.filaHC>()
+val myDataHC = mutableListOf<String>()
 class HistorialCitas : Fragment() {
     lateinit var btnVolverHC: ImageButton
     lateinit var spBusqHC: Spinner
@@ -28,13 +30,11 @@ class HistorialCitas : Fragment() {
     lateinit var txtNombHC: EditText
     lateinit var rcMainHC: RecyclerView
 
-    class filaCP(
+    class filaHC(
         val idC: Int, val idD: Int, val nMasc: String,
         val fecha: String, val nDoc: String, val estado: String
     )
 
-    val regCP = mutableListOf<filaCP>()
-    val myDataCP = mutableListOf<String>()
 
     private var idUs: Int = 0
     private var idCl: Int = 0
@@ -63,19 +63,19 @@ class HistorialCitas : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnVolverCP = requireView().findViewById(R.id.btnVolverHC)
-        spBusqCP = requireView().findViewById(R.id.spBusqHC)
-        spTimeCP = requireView().findViewById(R.id.spTimeHC)
-        txtNombCP = requireView().findViewById(R.id.txtNombHC)
-        rcMainCP = requireView().findViewById(R.id.rcMainHC)
-        rcMainCP.layoutManager = LinearLayoutManager(context)
+        btnVolverHC = requireView().findViewById(R.id.btnVolverHC)
+        spBusqHC = requireView().findViewById(R.id.spBusqHC)
+        spTimeHC = requireView().findViewById(R.id.spTimeHC)
+        txtNombHC = requireView().findViewById(R.id.txtNombHC)
+        rcMainHC = requireView().findViewById(R.id.rcMainHC)
+        rcMainHC.layoutManager = LinearLayoutManager(context)
 
-        val miAdapter = CitasPendientes.citaCard(myDataCP)
-        rcMainCP.adapter = miAdapter
+        val miAdapter = CitasPendientes.citaCard(myDataHC)
+        rcMainHC.adapter = miAdapter
 
     }
-    class citaCard(private val Datos: MutableList<String>/*,private val btnClick:(Int)->Unit*/) :
-        RecyclerView.Adapter<citaCard.MyViewHolder>() {
+    class citaCardH(private val Datos: MutableList<String>/*,private val btnClick:(Int)->Unit*/) :
+        RecyclerView.Adapter<citaCardH.MyViewHolder>() {
 
         class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val txvMascota: TextView = view.findViewById(R.id.txvMascota)
@@ -95,13 +95,13 @@ class HistorialCitas : Fragment() {
 
         override fun getItemCount() = Datos.size
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            if (regCP.isEmpty()) {
+            if (regHC.isEmpty()) {
                 holder.txvMascota.isVisible = false
                 holder.txvFecha.isVisible = false
                 holder.txvDoc.isVisible = false
                 holder.txvEstado.isVisible = false
             } else {
-                val itmg = regCP[position]
+                val itmg = regHC[position]
                 holder.txvMascota.text = "Mascota: " + Datos[position]
                 holder.txvFecha.text = "Fecha: " + itmg.fecha
                 holder.txvDoc.text = "Doctor: " + itmg.nDoc
@@ -112,7 +112,7 @@ class HistorialCitas : Fragment() {
         }
     }
 
-    class citasPRecycler(
+    class citasHCRecycler(
         context: Context,
         recyclerView: RecyclerView,
         private val listener: OnItemClickListener?
