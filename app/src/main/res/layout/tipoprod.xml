@@ -1,20 +1,19 @@
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tipoprod"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:layout_marginLeft="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="8dp"
 
+    app:cardBackgroundColor="#CAE9FF"
     app:cardCornerRadius="13dp"
-    app:cardElevation="8dp"
 
+    app:cardElevation="8dp"
     app:contentPadding="10dp">
 
     <LinearLayout
@@ -39,16 +38,17 @@
 
             <TextView
                 android:id="@+id/txvTPN"
-                android:layout_width="250dp"
-                android:layout_height="24dp"
-                android:text="Producto:"
-                android:textSize="17sp"
+                android:layout_width="249dp"
+                android:layout_height="49dp"
+                android:fontFamily="@font/montserrat"
+                android:textAlignment="center"
+                android:textSize="32dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.873"
+                app:layout_constraintHorizontal_bias="0.783"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.480" />
+                app:layout_constraintVertical_bias="0.508" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
