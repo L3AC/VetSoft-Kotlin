@@ -38,21 +38,9 @@
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.954"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.202" />
-
-                <Spinner
-                    android:id="@+id/spTimeHC"
-                    android:layout_width="237dp"
-                    android:layout_height="48dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.954"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.201" />
+                    app:layout_constraintVertical_bias="0.192" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcMainHC"
@@ -95,16 +83,6 @@
                     app:layout_constraintVertical_bias="0.059"
                     app:srcCompat="@drawable/flecha"/>
 
-                <Spinner
-                    android:id="@+id/spBusqHC"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.061"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.203" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

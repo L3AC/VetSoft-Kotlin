@@ -107,7 +107,7 @@ class infoCita : Fragment() {
             "select a.Nombre,ts.nombre as 'Servicio',notaDelCliente as 'NC',notaDelDoctor as 'ND', CONCAT(CONVERT(varchar, c.fecha, 100),' ',CONVERT(varchar,c.hora, 100)) as fecha, \n" +
             "CONCAT(d.nombre, ' ', d.apellido) as 'Doctor' from tbCitas c,tbAnimales a, tbDoctores d,tbTipoServicio ts \n" +
             "where c.idAnimal=a.idAnimal and d.idDoctor=c.idDoctor and ts.idTipoServicio=c.idTipoServicio\n" +
-            "and idCita=? and estado='Pendiente';"
+            "and idCita=?;"
             var st: ResultSet
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 

@@ -36,8 +36,6 @@ val regHC = mutableListOf<HistorialCitas.filaHC>()
 val myDataHC = mutableListOf<String>()
 class HistorialCitas : Fragment() {
     lateinit var btnVolverHC: ImageButton
-    lateinit var spBusqHC: Spinner
-    lateinit var spTimeHC: Spinner
     lateinit var txtNombHC: EditText
     lateinit var rcMainHC: RecyclerView
 
@@ -75,8 +73,6 @@ class HistorialCitas : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnVolverHC = requireView().findViewById(R.id.btnVolverHC)
-        spBusqHC = requireView().findViewById(R.id.spBusqHC)
-        spTimeHC = requireView().findViewById(R.id.spTimeHC)
         txtNombHC = requireView().findViewById(R.id.txtNombHC)
         rcMainHC = requireView().findViewById(R.id.rcMainHC)
         rcMainHC.layoutManager = LinearLayoutManager(context)
@@ -84,39 +80,13 @@ class HistorialCitas : Fragment() {
         val miAdapter = CitasPendientes.citaCard(myDataHC)
         rcMainHC.adapter = miAdapter
 
-        txtNombHC.isVisible = false
-        LlenarSpin()
-        //CargarByF()
+        CargarByN()
         val bundle2 = Bundle().apply {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
         }
         btnVolverHC.setOnClickListener() {
             findNavController().navigate(R.id.action_historialCitas_to_houseCliente, bundle2)
-        }
-
-        spBusqHC.onItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>, view: View?, position: Int, id: Long
-            ) {
-                when (position) {
-                    0 -> {
-                        //CargarByF(180)
-                        spTimeHC.isVisible = true
-                        txtNombHC.isVisible = false
-                    }
-
-                    1 -> {
-                        CargarByN()
-                        spTimeHC.isVisible = false
-                        txtNombHC.isVisible = true
-                    }
-                }
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
         }
         rcMainHC.addOnItemTouchListener(
             citasHCRecycler(requireContext(), rcMainHC,
@@ -153,47 +123,18 @@ class HistorialCitas : Fragment() {
             override fun afterTextChanged(s: Editable?) {
             }
         })
-        spTimeHC.onItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                when (position) {
-                    0 -> {
-                        //CargarByF(180)
-                    }
 
-                    1 -> {
-                        //CargarByF(60)
-                    }
-
-                    2 -> {
-                        //CargarByF(15)
-                        Log.i("time","hola")
-                    }
-                }
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
-        }
     }
     fun CargarByN() {
         myDataHC.clear()
         regHC.clear()
         try {
             var st: ResultSet
-            var cadena: String = "set language spanish select idCita,d.idDoctor,estado,  CONCAT(CONVERT(varchar, c.fecha, 100),' ',CONVERT(varchar, c.hora, 100)) as fecha,a.nombre, CONCAT(d.nombre, ' ', d.apellido) as 'Doctor'\n" +
-                    "from tbCitas c,tbAnimales a, tbDoctores d where c.idAnimal=a.idAnimal and d.idDoctor=c.idDoctor\n" +
-                    "and a.idCliente=? and estado='Inactiva' and a.nombre LIKE ?"
+            var cadena: String = "SET LANGUAGE Spanish EXEC selectCitaN2 ?,?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)
-            ps.setString(2,"'%"+ txtNombHC.text.toString()+"%'")
-            Log.i("PPPPPPPPPPPPPPPP ","%"+ txtNombHC.text.toString()+"%")
+            ps.setString(2, txtNombHC.text.toString())
             st = ps.executeQuery()
 
             while (st?.next() == true) {
@@ -218,53 +159,7 @@ class HistorialCitas : Fragment() {
         }
     }
 
-    fun CargarByF(Dias: Int) {
-        myDataHC.clear()
-        regHC.clear()
-        try {
-            var st: ResultSet
-            var cadena: String = "SET LANGUAGE Spanish EXEC selectCitaD ?,?"
 
-            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
-            ps.setInt(1, idCl)
-            ps.setInt(2, Dias)
-            st = ps.executeQuery()
-
-            while (st?.next() == true) {
-
-                val col1 = st.getInt("idCita")
-                val col2 = st.getInt("idDoctor")
-                val col3 = st.getString("nombre")
-                val col4 = st.getString("fecha")
-                val col5 = st.getString("Doctor")
-                val col6 = st.getString("estado")
-
-                regHC.add(filaHC(col1, col2, col3, col4, col5, col6))
-                val newElement = "$col3"
-                myDataHC.add(newElement)
-
-                val miAdapter2 = citaCardH(myDataHC)
-                rcMainHC.adapter = miAdapter2
-            }
-
-        } catch (ex: SQLException) {
-            Log.i("ol", ex.message.toString())
-            Toast.makeText(context, "Error al cargar cita F", Toast.LENGTH_SHORT).show()
-        }
-    }
-    fun LlenarSpin() {
-        val adaptadorSpinner =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, busque)
-        adaptadorSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        val spinner = requireView().findViewById<Spinner>(R.id.spBusqHC)
-        spinner.adapter = adaptadorSpinner
-
-        val adaptadorSpinner2 =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, time)
-        adaptadorSpinner2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        val spinner2 = requireView().findViewById<Spinner>(R.id.spTimeHC)
-        spinner2.adapter = adaptadorSpinner2
-    }
 
     class citaCardH(private val Datos: MutableList<String>/*,private val btnClick:(Int)->Unit*/) :
         RecyclerView.Adapter<citaCardH.MyViewHolder>() {

@@ -28,9 +28,11 @@ lateinit var btnVolverFD: ImageButton
 
 class infoDoc : Fragment() {
     private var idUs: Int = 0
+
     private var idCl: Int = 0
     private var idCit: Int = 0
     private var idDoc: Int = 0
+    private var citaT: Int = 0
     private var conx = conx()
     private var vali = Validat()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +42,7 @@ class infoDoc : Fragment() {
             idCl = arguments?.getInt("idCl")!!
             idCit = arguments?.getInt("idCit")!!
             idDoc = arguments?.getInt("idDoc")!!
+            citaT = arguments?.getInt("citaT")!!
         }
     }
 
@@ -72,6 +75,7 @@ class infoDoc : Fragment() {
             putInt("idCl", idCl)
             putInt("idCit", idCit)
             putInt("idDoc", idDoc)
+            putInt("citaT", citaT)
         }
         btnVolverFD.setOnClickListener(){
             findNavController().navigate(R.id.action_infoDoc_to_infoCita, bundle)
