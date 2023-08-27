@@ -37,7 +37,7 @@ import java.sql.SQLException
 lateinit var txvCant: TextView
 lateinit var txvProducP: TextView
 lateinit var txvPre: TextView
-lateinit var btnVolverE: EditText
+lateinit var btnVolverE: ImageButton
 lateinit var btnImg: ImageButton
 lateinit var txvDisp: TextView
 lateinit var txvMarcaE: TextView
