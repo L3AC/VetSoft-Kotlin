@@ -61,10 +61,39 @@
                     android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.235"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.547" />
+                    app:layout_constraintVertical_bias="0.546" />
+
+                <TextView
+                    android:id="@+id/txvCitasP9"
+                    android:layout_width="190dp"
+                    android:layout_height="45dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Seguridad"
+                    android:textAlignment="textStart"
+                    android:textColor="#1B4965"
+                    android:textSize="34sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.728"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.538" />
+
+                <ImageButton
+                    android:id="@+id/btnSegC9"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.14"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.542"
+                    app:srcCompat="@drawable/seguridad" />
 
                 <TextView
                     android:id="@+id/txvCitasP25"
@@ -78,26 +107,23 @@
                     android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.235"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.749" />
 
-                <TextView
-                    android:id="@+id/txvCitasP9"
-                    android:layout_width="190dp"
-                    android:layout_height="45dp"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Seguridad"
-                    android:textAlignment="textStart"
-                    android:textColor="#1B4965"
-                    android:textSize="34sp"
+                <ImageButton
+                    android:id="@+id/btnCerrar"
+                    android:layout_width="83dp"
+                    android:layout_height="83dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.665"
+                    app:layout_constraintHorizontal_bias="0.158"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.539" />
+                    app:layout_constraintVertical_bias="0.742"
+                    app:srcCompat="@drawable/cerrars" />
 
                 <TextView
                     android:id="@+id/txvCitasP16"
@@ -110,38 +136,10 @@
                     android:textSize="32sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.719"
+                    app:layout_constraintHorizontal_bias="0.79"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.733" />
-
-                <ImageButton
-                    android:id="@+id/btnSegC9"
-                    android:layout_width="84dp"
-                    android:layout_height="84dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="fitXY"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.097"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.544"
-                    app:srcCompat="@drawable/seguridad" />
-
-                <ImageButton
-                    android:id="@+id/btnCerrar"
-                    android:layout_width="83dp"
-                    android:layout_height="83dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="fitXY"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.116"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.742"
-                    app:srcCompat="@drawable/cerrars" />
 
                 <TextView
                     android:id="@+id/txvCitasP7"
@@ -171,10 +169,9 @@
                     android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.235"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.352" />
+                    app:layout_constraintVertical_bias="0.347" />
 
                 <ImageButton
                     android:id="@+id/btnPerC9"
