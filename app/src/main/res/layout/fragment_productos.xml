@@ -70,7 +70,7 @@
                     app:srcCompat="@drawable/flecha" />
 
                 <TextView
-                    android:id="@+id/txvCitasP17"
+                    android:id="@+id/txvProducP"
                     android:layout_width="231dp"
                     android:layout_height="38dp"
                     android:fontFamily="sans-serif"

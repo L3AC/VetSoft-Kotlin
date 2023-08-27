@@ -181,10 +181,10 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.098"
+                    app:layout_constraintHorizontal_bias="0.149"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.355"
+                    app:layout_constraintVertical_bias="0.354"
                     app:srcCompat="@drawable/perfilll" />
 
                 <TextView
@@ -198,10 +198,10 @@
                     android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.665"
+                    app:layout_constraintHorizontal_bias="0.701"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.369" />
+                    app:layout_constraintVertical_bias="0.358" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

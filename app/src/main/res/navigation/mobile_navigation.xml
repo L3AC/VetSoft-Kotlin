@@ -220,6 +220,9 @@
         <action
             android:id="@+id/action_productos_to_catalogoProd"
             app:destination="@id/catalogoProd" />
+        <action
+            android:id="@+id/action_productos_to_ejemMain"
+            app:destination="@id/ejemMain" />
     </fragment>
     <fragment
         android:id="@+id/prodReserv"
@@ -229,5 +232,14 @@
         <action
             android:id="@+id/action_prodReserv_to_mainReserva"
             app:destination="@id/mainReserva" />
+    </fragment>
+    <fragment
+        android:id="@+id/ejemMain"
+        android:name="com.example.vetsoft.Controlador.ui.Tienda.ejemMain"
+        android:label="fragment_ejem_main"
+        tools:layout="@layout/fragment_ejem_main" >
+        <action
+            android:id="@+id/action_ejemMain_to_productos"
+            app:destination="@id/productos" />
     </fragment>
 </navigation>

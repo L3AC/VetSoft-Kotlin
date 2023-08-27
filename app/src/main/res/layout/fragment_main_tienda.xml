@@ -33,7 +33,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txvCitasP17"
+                    app:layout_constraintTop_toBottomOf="@+id/txvProducP"
                     app:layout_constraintVertical_bias="1.0" />
 
                 <ImageView
@@ -141,7 +141,7 @@
                     app:layout_constraintVertical_bias="0.903" />
 
                 <TextView
-                    android:id="@+id/txvCitasP17"
+                    android:id="@+id/txvProducP"
                     android:layout_width="184dp"
                     android:layout_height="41dp"
                     android:fontFamily="@font/montserrat"

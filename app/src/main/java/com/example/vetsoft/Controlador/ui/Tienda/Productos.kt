@@ -22,6 +22,9 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.vetsoft.Controlador.ui.Home.CitasPendientes
+import com.example.vetsoft.Controlador.ui.Home.rcMainCP
+import com.example.vetsoft.Controlador.ui.Home.regCP
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
 import java.sql.PreparedStatement
@@ -29,15 +32,17 @@ import java.sql.ResultSet
 import java.sql.SQLException
 
 class classProd(
-    val id: Int, val nProd: String,val prov:String, val precio:Float,val img:ByteArray
+    val id: Int, val nProd: String, val prov: String, val precio: Float, val img: ByteArray
 )
 
 val regProd2 = mutableListOf<classProd>()
 val myDataProd2 = mutableListOf<String>()
+
 class Productos : Fragment() {
     lateinit var btnVolver: ImageButton
     lateinit var txtNProd: EditText
     lateinit var rcProd: RecyclerView
+    private var idProd: Int = 0
     private var idUs: Int = 0
     private var idCl: Int = 0
     private var idTipoP: Int = 0
@@ -75,7 +80,7 @@ class Productos : Fragment() {
         }
         CargarByN()
 
-        btnVolver.setOnClickListener(){
+        btnVolver.setOnClickListener() {
             findNavController().navigate(R.id.action_catalogoProd_to_mainTienda, bundle)
         }
         txtNProd.addTextChangedListener(object : TextWatcher {
@@ -89,8 +94,29 @@ class Productos : Fragment() {
             override fun afterTextChanged(s: Editable?) {
             }
         })
+        rcProd.addOnItemTouchListener(
+            citasPRecycler(requireContext(), rcProd,
+                object : citasPRecycler.OnItemClickListener {
+                    override fun onItemClick(view: View, position: Int) {
+                        // Acciones a realizar cuando se hace clic en un elemento del RecyclerView
+                        val itm = regProd2[position]
+                        idProd = itm.id
+                        val bundle = Bundle().apply {
+                            putInt("idUs", idUs)
+                            putInt("idCl", idCl)
+                            putInt("idProd", idProd)
+                        }
+                        Log.i("IDE: ", idProd.toString())
+                        findNavController().navigate(
+                            R.id.action_productos_to_ejemMain,
+                            bundle
+                        )
+                    }
+                })
+        )
 
     }
+
     fun CargarByN() {
         myDataProd2.clear()
         regProd2.clear()
@@ -100,9 +126,9 @@ class Productos : Fragment() {
                     "where p.idTipoProducto=tp.idTipoProducto and Nombre like ? and p.idTipoProducto=?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
-            ps.setString(1, '%'+txtNProd.text.toString()+'%')
+            ps.setString(1, '%' + txtNProd.text.toString() + '%')
             ps.setInt(2, idTipoP)
-            Log.i("sda",'%'+txtNProd.text.toString()+'%')
+            Log.i("sda", '%' + txtNProd.text.toString() + '%')
             st = ps.executeQuery()
 
             while (st?.next() == true) {
@@ -112,7 +138,7 @@ class Productos : Fragment() {
                 val col4 = st.getFloat("Precio")
                 val col5 = st.getBytes("img")
 
-                regProd2.add(classProd(col1, col2,col3,col4,col5))
+                regProd2.add(classProd(col1, col2, col3, col4, col5))
                 val newElement = "$col2"
                 myDataProd2.add(newElement)
 
@@ -125,6 +151,7 @@ class Productos : Fragment() {
             Toast.makeText(context, "Error al cargar cita N", Toast.LENGTH_SHORT).show()
         }
     }
+
     class prodCard(private val Datos: MutableList<String>/*,private val btnClick:(Int)->Unit*/) :
         RecyclerView.Adapter<prodCard.MyViewHolder>() {
 
@@ -146,8 +173,8 @@ class Productos : Fragment() {
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             val itm = regProd2[position]
             holder.txvNomb.text = itm.nProd
-            holder.txvMarca.text=itm.prov
-            holder.txvPrecio.text="$ "+itm.precio.toString()
+            holder.txvMarca.text = itm.prov
+            holder.txvPrecio.text = "$ " + itm.precio.toString()
             if (itm.img != null) {
                 val bitmap: Bitmap = BitmapFactory.decodeByteArray(itm.img, 0, itm.img.size)
                 holder.imgP.setImageBitmap(bitmap)
@@ -157,6 +184,7 @@ class Productos : Fragment() {
             //  holder.imageView.setImageResource(Imagenes[position])
         }
     }
+
     class citasPRecycler(
         context: Context,
         recyclerView: RecyclerView,

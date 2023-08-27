@@ -61,11 +61,11 @@
                     android:layout_height="434dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.333"
+                    app:layout_constraintHorizontal_bias="0.47"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.755" />
+                    app:layout_constraintVertical_bias="0.756" />
 
                 <ImageButton
                     android:id="@+id/btnVolverCat"
@@ -82,7 +82,7 @@
                     app:srcCompat="@drawable/flecha" />
 
                 <TextView
-                    android:id="@+id/txvCitasP17"
+                    android:id="@+id/txvProducP"
                     android:layout_width="294dp"
                     android:layout_height="52dp"
                     android:fontFamily="sans-serif"

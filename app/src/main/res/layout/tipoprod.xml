@@ -34,7 +34,7 @@
                 app:layout_constraintHorizontal_bias="0.014"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/tprod" />
+                app:srcCompat="@drawable/caja" />
 
             <TextView
                 android:id="@+id/txvTPN"
