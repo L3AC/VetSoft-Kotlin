@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,7 +39,7 @@ lateinit var txvCant: TextView
 lateinit var txvProducP: TextView
 lateinit var txvPre: TextView
 lateinit var btnVolverE: ImageButton
-lateinit var btnImg: ImageButton
+lateinit var btnImg: ImageView
 lateinit var txvDisp: TextView
 lateinit var txvMarcaE: TextView
 lateinit var btnL: ImageButton
@@ -78,21 +79,29 @@ class ejemMain : Fragment() {
         txvMarcaE = requireView().findViewById(R.id.txvMarcaE)
         btnL = requireView().findViewById(R.id.btnL)
         btnM = requireView().findViewById(R.id.btnM)
+        btnImg= requireView().findViewById(R.id.btnImg)
         btnConfirmE = requireView().findViewById(R.id.btnConfirmE)
 
         cargarData()
         dispE()
+
+        btnL.setOnClickListener(){
+
+        }
+        btnM.setOnClickListener(){
+
+        }
     }
     fun cargarData() {
         try {
             var st: ResultSet
             val cadena =
-                "select * from tbProductos where idProducto=?;"
+                "select Nombre,ROUND(Precio, 2) as Precio,Proveedor,img from tbProductos where idProducto=?;"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idProd)
             st = ps.executeQuery()
             st.next()
-            txvPre.setText(st.getString("precio"))
+            txvPre.setText("$"+st.getString("precio"))
             txvProducP.setText(st.getString("nombre"))
             txvMarcaE.setText(st.getString("proveedor"))
             val bitmap: Bitmap = BitmapFactory.decodeByteArray(st.getBytes("img"), 0, st.getBytes("img").size)
@@ -112,10 +121,21 @@ class ejemMain : Fragment() {
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idProd)
             st = ps.executeQuery()
-            st.next()
-            Log.i("filas",st.row.toString())
-            if(st.row>0){
-                txvCant.setText(st.row.toString())
+            var rowCount = 0
+            while (st.next()) {
+                rowCount++
+            }
+            Log.i("filas",rowCount.toString())
+            if(rowCount>0){
+                txvDisp.text=rowCount.toString()
+                txvCant.text="1"
+                //txvCant.setText(rowCount.toString())
+            }
+            else{
+                txvDisp.text="Agotado"
+                txvCant.setText("--")
+                btnL.isEnabled=false
+                btnM.isEnabled=false
             }
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
