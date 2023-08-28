@@ -87,18 +87,23 @@ class ejemMain : Fragment() {
         dispE()
 
         btnL.setOnClickListener(){
-            val disp= Integer.parseInt(txvDisp.text.toString())
-            if(disp>2){
-                cont -= Integer.parseInt(txvCant.text.toString())
-                txvCant.text=cont.toString()
+            val disp= Integer.parseInt(txvCant.text.toString())
+            if(disp>1){
+                //if(cont<disp){
+                    cont -= 1
+                    txvCant.text=cont.toString()
+                //}
+
             }
 
         }
         btnM.setOnClickListener(){
-            val disp= Integer.parseInt(txvDisp.text.toString())
-            if(disp<11){
-                cont += Integer.parseInt(txvCant.text.toString())
-                txvCant.text=cont.toString()
+            val disp= Integer.parseInt(txvCant.text.toString())
+            if(disp<10){
+                //if(cont<disp){
+                    cont += 1
+                    txvCant.text=cont.toString()
+                //}
             }
         }
     }
