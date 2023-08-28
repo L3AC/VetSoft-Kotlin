@@ -97,8 +97,11 @@ class ejemMain : Fragment() {
         }
         btnConfirmE.setOnClickListener() {
             lista.toString()
+            val sublista = lista.take(Integer.parseInt(txvCant.text.toString()))
             lista.forEach { id ->
                 insertR(id)
+                stateE(id)
+                cargarData()
             }
         }
     }
@@ -172,6 +175,24 @@ class ejemMain : Fragment() {
             Toast.makeText(
                 context,
                 "No se pudo reservar",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        conx.dbConn()!!.close()
+    }
+    fun stateE(id: Int) {
+        try {
+            val cadena: String =
+                "update tbEjemplares set Estado='Reservado' where idEjemplar=?;"
+            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
+            ps.setInt(1, id)
+            ps.executeUpdate()
+
+        } catch (ex: SQLException) {
+            Log.e("Error: ", ex.message!!)
+            Toast.makeText(
+                context,
+                "No se pudo cambiar",
                 Toast.LENGTH_SHORT
             ).show()
         }
