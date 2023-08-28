@@ -45,10 +45,11 @@ lateinit var txvDisp: TextView
 lateinit var txvMarcaE: TextView
 lateinit var btnL: ImageButton
 lateinit var btnM: ImageButton
-lateinit var btnConfirmE:Button
+lateinit var btnConfirmE: Button
+
 class ejemMain : Fragment() {
 
-    private var cont:Int=1
+    private var cont: Int = 1
     private var idProd: Int = 0
     private var idUs: Int = 0
     private var idCl: Int = 0
@@ -80,37 +81,35 @@ class ejemMain : Fragment() {
         txvMarcaE = requireView().findViewById(R.id.txvMarcaE)
         btnL = requireView().findViewById(R.id.btnL)
         btnM = requireView().findViewById(R.id.btnM)
-        btnImg= requireView().findViewById(R.id.btnImg)
+        btnImg = requireView().findViewById(R.id.btnImg)
         btnConfirmE = requireView().findViewById(R.id.btnConfirmE)
 
         cargarData()
         dispE()
 
-        btnL.setOnClickListener(){
-            val disp= Integer.parseInt(txvDisp.text.toString())
-            val cant= Integer.parseInt(txvCant.text.toString())
-            Log.i("gal",disp.toString())
-            if(cant>1){
-                if(cont<disp){
-                    cont -= 1
-                    txvCant.text=cont.toString()
-                }
-
+        btnL.setOnClickListener() {
+            val disp = Integer.parseInt(txvDisp.text.toString())
+            val cant = Integer.parseInt(txvCant.text.toString())
+            Log.i("gal", disp.toString())
+            if (cant > 1) {
+                cont -= 1
+                txvCant.text = cont.toString()
             }
 
         }
-        btnM.setOnClickListener(){
-            val disp= Integer.parseInt(txvDisp.text.toString())
-            val cant= Integer.parseInt(txvCant.text.toString())
-            Log.i("gal",disp.toString())
-            if(cant<10){
-                if(cont<disp){
+        btnM.setOnClickListener() {
+            val disp = Integer.parseInt(txvDisp.text.toString())
+            val cant = Integer.parseInt(txvCant.text.toString())
+            Log.i("gal", disp.toString())
+            if (cant < 10) {
+                if (cont < disp) {
                     cont += 1
-                    txvCant.text=cont.toString()
+                    txvCant.text = cont.toString()
                 }
             }
         }
     }
+
     fun cargarData() {
         try {
             var st: ResultSet
@@ -120,10 +119,11 @@ class ejemMain : Fragment() {
             ps.setInt(1, idProd)
             st = ps.executeQuery()
             st.next()
-            txvPre.setText("$"+st.getString("precio"))
+            txvPre.setText("$" + st.getString("precio"))
             txvProducP.setText(st.getString("nombre"))
             txvMarcaE.setText(st.getString("proveedor"))
-            val bitmap: Bitmap = BitmapFactory.decodeByteArray(st.getBytes("img"), 0, st.getBytes("img").size)
+            val bitmap: Bitmap =
+                BitmapFactory.decodeByteArray(st.getBytes("img"), 0, st.getBytes("img").size)
             btnImg.setImageBitmap(bitmap)
 
         } catch (ex: SQLException) {
@@ -132,6 +132,7 @@ class ejemMain : Fragment() {
         }
         conx.dbConn()!!.close()
     }
+
     fun dispE() {
         try {
             var st: ResultSet
@@ -144,17 +145,16 @@ class ejemMain : Fragment() {
             while (st.next()) {
                 rowCount++
             }
-            Log.i("filas",rowCount.toString())
-            if(rowCount>0){
-                txvDisp.text=rowCount.toString()
-                txvCant.text=cont.toString()
+            Log.i("filas", rowCount.toString())
+            if (rowCount > 0) {
+                txvDisp.text = rowCount.toString()
+                txvCant.text = cont.toString()
                 //txvCant.setText(rowCount.toString())
-            }
-            else{
-                txvDisp.text="Agotado"
+            } else {
+                txvDisp.text = "Agotado"
                 txvCant.setText("--")
-                btnL.isEnabled=false
-                btnM.isEnabled=false
+                btnL.isEnabled = false
+                btnM.isEnabled = false
             }
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
@@ -162,7 +162,6 @@ class ejemMain : Fragment() {
         }
         conx.dbConn()!!.close()
     }
-
 
 
 }
