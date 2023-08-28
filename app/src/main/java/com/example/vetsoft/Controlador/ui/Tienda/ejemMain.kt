@@ -96,91 +96,86 @@ class ejemMain : Fragment() {
             }
         }
         btnConfirmE.setOnClickListener() {
-
-            for (i in 1..cont) {
-
+            lista.toString()
+            lista.forEach { id ->
+                insertR(id)
             }
         }
     }
 
-        fun cargarData() {
-            try {
-                var st: ResultSet
-                val cadena =
-                    "select Nombre,ROUND(Precio, 2) as Precio,Proveedor,img from tbProductos where idProducto=?;"
-                val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
-                ps.setInt(1, idProd)
-                st = ps.executeQuery()
-                st.next()
-                txvPre.setText("$" + st.getString("precio"))
-                txvProducP.setText(st.getString("nombre"))
-                txvMarcaE.setText(st.getString("proveedor"))
-                val bitmap: Bitmap =
-                    BitmapFactory.decodeByteArray(st.getBytes("img"), 0, st.getBytes("img").size)
-                btnImg.setImageBitmap(bitmap)
+    fun cargarData() {
+        try {
+            var st: ResultSet
+            val cadena =
+                "select Nombre,ROUND(Precio, 2) as Precio,Proveedor,img from tbProductos where idProducto=?;"
+            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
+            ps.setInt(1, idProd)
+            st = ps.executeQuery()
+            st.next()
+            txvPre.setText("$" + st.getDouble("precio"))
+            txvProducP.setText(st.getString("nombre"))
+            txvMarcaE.setText(st.getString("proveedor"))
+            val bitmap: Bitmap =
+                BitmapFactory.decodeByteArray(st.getBytes("img"), 0, st.getBytes("img").size)
+            btnImg.setImageBitmap(bitmap)
 
-            } catch (ex: SQLException) {
-                Log.e("Error: ", ex.message!!)
-                Toast.makeText(context, "Error al cargar", Toast.LENGTH_SHORT).show()
-            }
-            conx.dbConn()!!.close()
-        }
 
-        fun dispE() {
-            try {
-                var st: ResultSet
-                val cadena =
-                    "select * from tbEjemplares where estado='Disponible' and  idProducto=?;"
-                val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
-                ps.setInt(1, idProd)
-                st = ps.executeQuery()
-                var rowCount = 0
-                while (st.next()) {
-                    rowCount++
-                }
-                Log.i("filas", rowCount.toString())
-                if (rowCount > 0) {
-                    txvDisp.text = rowCount.toString()
-                    txvCant.text = cont.toString()
-                    //txvCant.setText(rowCount.toString())
-                } else {
-                    txvDisp.text = "Agotado"
-                    txvCant.setText("--")
-                    btnL.isEnabled = false
-                    btnM.isEnabled = false
-                }
-            } catch (ex: SQLException) {
-                Log.e("Error: ", ex.message!!)
-                Toast.makeText(context, "Error al cargar", Toast.LENGTH_SHORT).show()
-            }
-            conx.dbConn()!!.close()
+        } catch (ex: SQLException) {
+            Log.e("Error: ", ex.message!!)
+            Toast.makeText(context, "Error al cargar", Toast.LENGTH_SHORT).show()
         }
-    fun insertE() {
+        conx.dbConn()!!.close()
+    }
+
+    fun dispE() {
+        try {
+            var st: ResultSet
+            val cadena =
+                "select * from tbEjemplares where estado='Disponible' and  idProducto=?;"
+            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
+            ps.setInt(1, idProd)
+            st = ps.executeQuery()
+            var rowCount = 0
+            while (st.next()) {
+                rowCount++
+                lista.add(st.getInt("idEjemplar"))
+            }
+            Log.i("filas", rowCount.toString())
+            if (rowCount > 0) {
+                txvDisp.text = rowCount.toString()
+                txvCant.text = cont.toString()
+                //txvCant.setText(rowCount.toString())
+            } else {
+                txvDisp.text = "Agotado"
+                txvCant.setText("--")
+                btnL.isEnabled = false
+                btnM.isEnabled = false
+            }
+        } catch (ex: SQLException) {
+            Log.e("Error: ", ex.message!!)
+            Toast.makeText(context, "Error al cargar", Toast.LENGTH_SHORT).show()
+        }
+        conx.dbConn()!!.close()
+    }
+
+    fun insertR(id: Int) {
         try {
             val cadena: String =
-                "insert into tbEjemplares values(?,'Disponible',getdate())"
-
+                "insert into tbReservaProductos values(?,?,GETDATE());"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
-
-            ps.setInt(1, idProd)
+            ps.setInt(1, id)
+            ps.setInt(2, idCl)
             ps.executeUpdate()
 
-            val bundle = Bundle().apply {
-                putInt("idUs", idUs)
-                putInt("idCl", idCl)
-                //putInt("idAni", idAni)
-            }
-            Toast.makeText(context, "Cita agendada correctamente", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_agendarCIta_to_infoMascota, bundle)
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
             Toast.makeText(
                 context,
-                "No se pudo agendar",
+                "No se pudo reservar",
                 Toast.LENGTH_SHORT
             ).show()
         }
         conx.dbConn()!!.close()
     }
 
-    }
+}
