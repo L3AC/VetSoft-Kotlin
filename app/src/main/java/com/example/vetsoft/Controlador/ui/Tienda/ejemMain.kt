@@ -15,6 +15,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.vetsoft.Controlador.Main.txvCont2
 import com.example.vetsoft.Controlador.ui.Home.btnVolverCP
 import com.example.vetsoft.Controlador.ui.Home.rcMainCP
 import com.example.vetsoft.Controlador.ui.Home.spBusqCP
@@ -86,10 +87,19 @@ class ejemMain : Fragment() {
         dispE()
 
         btnL.setOnClickListener(){
+            val disp= Integer.parseInt(txvDisp.text.toString())
+            if(disp>2){
+                cont -= Integer.parseInt(txvCant.text.toString())
+                txvCant.text=cont.toString()
+            }
 
         }
         btnM.setOnClickListener(){
-
+            val disp= Integer.parseInt(txvDisp.text.toString())
+            if(disp<11){
+                cont += Integer.parseInt(txvCant.text.toString())
+                txvCant.text=cont.toString()
+            }
         }
     }
     fun cargarData() {
@@ -128,7 +138,7 @@ class ejemMain : Fragment() {
             Log.i("filas",rowCount.toString())
             if(rowCount>0){
                 txvDisp.text=rowCount.toString()
-                txvCant.text="1"
+                txvCant.text=cont.toString()
                 //txvCant.setText(rowCount.toString())
             }
             else{
