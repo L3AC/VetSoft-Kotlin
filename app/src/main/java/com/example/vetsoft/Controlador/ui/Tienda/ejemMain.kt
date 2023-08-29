@@ -98,11 +98,11 @@ class ejemMain : Fragment() {
         btnConfirmE.setOnClickListener() {
             lista.toString()
             val sublista = lista.take(Integer.parseInt(txvCant.text.toString()))
-            lista.forEach { id ->
+            sublista.forEach { id ->
                 insertR(id)
                 stateE(id)
-                cargarData()
             }
+            cargarData()
         }
     }
 
