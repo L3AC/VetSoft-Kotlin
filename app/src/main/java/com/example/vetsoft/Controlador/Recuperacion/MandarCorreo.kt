@@ -1,16 +1,19 @@
 package com.example.vetsoft.Controlador.Recuperacion
 
 import android.os.AsyncTask
-import android.os.Message
+
 import java.util.Properties
 import javax.mail.Authenticator
-import javax.mail.PasswordAuthentication
-import javax.mail.Session
-import javax.mail.internet.InternetAddress
-import javax.mail.internet.MimeMessage
+import javax.mail.Message
 import javax.mail.Message.RecipientType
 import javax.mail.MessagingException
+import javax.mail.PasswordAuthentication
+import javax.mail.Session
 import javax.mail.Transport
+import javax.mail.internet.InternetAddress
+import javax.mail.internet.MimeBodyPart
+import javax.mail.internet.MimeMessage
+import javax.mail.internet.MimeMultipart
 
 
 class MandarCorreo(private val destinatario:String,
@@ -35,7 +38,27 @@ AsyncTask<Void?, Void?, Void?>(){
         try {
             val message = MimeMessage(session)
 
+
             message.setFrom(InternetAddress("vetsoftsoporte@gmail.com"))
+
+            message.addRecipient(Message.RecipientType.TO, InternetAddress(destinatario))
+            message.subject = asunto
+
+            // Crear MimeMultipart
+            val multipart = MimeMultipart()
+
+            // Crear parte MimeBodyPart para el contenido HTML
+            val htmlPart = MimeBodyPart()
+            htmlPart.setContent(mensaje, "text/html")
+
+            // Agregar parte del contenido HTML al MimeMultipart
+            multipart.addBodyPart(htmlPart)
+
+            // Establecer el MimeMultipart como el contenido del MimeMessage
+            message.setContent(multipart)
+
+            // Enviar el mensaje
+            Transport.send(message)
             message.addRecipient(RecipientType.TO, InternetAddress(destinatario))
             message.subject = asunto
             message.setText(this.mensaje)
