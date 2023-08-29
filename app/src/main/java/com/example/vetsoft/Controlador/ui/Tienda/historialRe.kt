@@ -41,8 +41,7 @@ class historialRe : Fragment() {
         btnVolverCat2 = requireView().findViewById(R.id.btnVolverCat2)
         txtNProd2 = requireView().findViewById(R.id.txtNProd2)
         rcHistProd = requireView().findViewById(R.id.rcHistProd)
-        rcHistProd
-            .layoutManager = LinearLayoutManager(context)
+        rcHistProd.layoutManager = LinearLayoutManager(context)
 
     }
 }
