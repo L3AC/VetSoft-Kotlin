@@ -10,19 +10,18 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
-lateinit var btnVolver5: ImageButton
-lateinit var spinServ5: Spinner
-lateinit var spinArea5: Spinner
-lateinit var spinDoc5: Spinner
-lateinit var btnFecha5: ImageButton
-lateinit var txtFecha5: EditText
-lateinit var spinEnt5: Spinner
-lateinit var txtHora5: EditText
-lateinit var txvDispo5: TextView
-lateinit var txtNota5: EditText
-lateinit var btnConfirm5: Button
 class historialRe : Fragment() {
+    lateinit var btnVolverCat2: ImageButton
+    lateinit var txtNProd2: EditText
+    lateinit var rcHistProd: RecyclerView
+    private var idUs: Int = 0
+    private var idCl: Int = 0
+    private var idTipoP: Int = 0
+    private var conx = conx()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,7 +38,11 @@ class historialRe : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        btnVolverCat2 = requireView().findViewById(R.id.btnVolverCat2)
+        txtNProd2 = requireView().findViewById(R.id.txtNProd2)
+        rcHistProd = requireView().findViewById(R.id.rcHistProd)
+        rcHistProd
+            .layoutManager = LinearLayoutManager(context)
 
     }
 }
