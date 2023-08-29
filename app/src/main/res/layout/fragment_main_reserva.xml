@@ -95,7 +95,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.675"
-                    app:srcCompat="@drawable/reserva" />
+                    app:srcCompat="@drawable/his" />
 
                 <TextView
                     android:id="@+id/txvCitasP22"
@@ -125,7 +125,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.305"
-                    app:srcCompat="@drawable/img_prod" />
+                    app:srcCompat="@drawable/reserv" />
 
                 <TextView
                     android:id="@+id/txvCitasP18"

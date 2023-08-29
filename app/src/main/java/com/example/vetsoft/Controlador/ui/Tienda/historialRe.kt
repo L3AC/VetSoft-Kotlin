@@ -5,8 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.Spinner
+import android.widget.TextView
 import com.example.vetsoft.R
-
+lateinit var btnVolver5: ImageButton
+lateinit var spinServ5: Spinner
+lateinit var spinArea5: Spinner
+lateinit var spinDoc5: Spinner
+lateinit var btnFecha5: ImageButton
+lateinit var txtFecha5: EditText
+lateinit var spinEnt5: Spinner
+lateinit var txtHora5: EditText
+lateinit var txvDispo5: TextView
+lateinit var txtNota5: EditText
+lateinit var btnConfirm5: Button
 class historialRe : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
