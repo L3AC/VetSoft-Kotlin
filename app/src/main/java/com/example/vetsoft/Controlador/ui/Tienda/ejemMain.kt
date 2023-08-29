@@ -74,7 +74,10 @@ class ejemMain : Fragment() {
         cargarData()
         dispE()
 
+
         btnL.setOnClickListener() {
+            cargarData()
+            dispE()
             val disp = Integer.parseInt(txvDisp.text.toString())
             val cant = Integer.parseInt(txvCant.text.toString())
             if (cant > 1) {
@@ -85,6 +88,8 @@ class ejemMain : Fragment() {
 
         }
         btnM.setOnClickListener() {
+            cargarData()
+            dispE()
             val disp = Integer.parseInt(txvDisp.text.toString())
             val cant = Integer.parseInt(txvCant.text.toString())
             if (cant < 10) {
@@ -103,6 +108,7 @@ class ejemMain : Fragment() {
                 stateE(id)
             }
             cargarData()
+            dispE()
         }
     }
 
