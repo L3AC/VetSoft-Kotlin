@@ -61,29 +61,29 @@
                     android:layout_height="434dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.47"
+                    app:layout_constraintHorizontal_bias="0.529"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.756" />
+                    app:layout_constraintVertical_bias="0.686" />
 
                 <ImageButton
                     android:id="@+id/btnVolverCat2"
-                    android:layout_width="42dp"
+                    android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@android:color/transparent"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.042"
+                    app:layout_constraintHorizontal_bias="0.081"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.062"
+                    app:layout_constraintVertical_bias="0.059"
                     app:srcCompat="@drawable/flecha" />
 
                 <TextView
                     android:id="@+id/txvProducP2"
-                    android:layout_width="294dp"
+                    android:layout_width="230dp"
                     android:layout_height="52dp"
                     android:fontFamily="sans-serif"
                     android:text="Historial"

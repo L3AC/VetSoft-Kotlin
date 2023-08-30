@@ -26,7 +26,12 @@ import java.sql.ResultSet
 import java.sql.SQLException
 
 class filaRe(
-    val idR: Int,val idE: Int, val nProd: String, val prov: String, val precio: Float, val img: ByteArray
+    val idR: Int,
+    val idE: Int,
+    val nProd: String,
+    val prov: String,
+    val precio: Float,
+    val img: ByteArray
 )
 
 val regRe = mutableListOf<filaRe>()
@@ -102,21 +107,37 @@ class prodReserv : Fragment() {
             ps.setString(2, '%' + txtNProdR.text.toString() + '%')
             st = ps.executeQuery()
 
-            while (st?.next() == true) {
-                val col1 = st.getInt("idReservaProducto")
-                val col2 = st.getInt("idEjemplar")
-                val col3 = st.getString("Nombre")
-                val col4 = st.getString("Proveedor")
-                val col5 = st.getFloat("Precio")
-                val col6 = st.getBytes("img")
+            var rowCount = 0
 
-                regRe.add(filaRe(col1, col2, col3, col4, col5,col6))
-                val newElement = "$col3"
-                myDataRe.add(newElement)
 
-                val miAdapter = reCard(this,myDataRe)
-                rcReservProdR.adapter = miAdapter
-            }
+                while (st?.next() == true) {
+                    val col1 = st.getInt("idReservaProducto")
+                    val col2 = st.getInt("idEjemplar")
+                    val col3 = st.getString("Nombre")
+                    val col4 = st.getString("Proveedor")
+                    val col5 = st.getFloat("Precio")
+                    val col6 = st.getBytes("img")
+                    rowCount++
+
+                    regRe.add(filaRe(col1, col2, col3, col4, col5, col6))
+                    val newElement = "$col3"
+                    myDataRe.add(newElement)
+
+                    val miAdapter = reCard(this, myDataRe)
+                    rcReservProdR.adapter = miAdapter
+                    miAdapter.notifyDataSetChanged()
+
+                    Log.i("tago",rowCount.toString())
+                    if (rowCount == 0) {
+                        Log.i("tago","entro")
+                        myDataRe.clear()
+                        regRe.clear()
+                        val miAdapter = reCard(this, myDataRe)
+                        rcReservProdR.adapter = miAdapter
+                        miAdapter.notifyDataSetChanged()
+                    }
+                }
+
 
         } catch (ex: SQLException) {
             Log.i("ol", ex.message.toString())
@@ -124,7 +145,7 @@ class prodReserv : Fragment() {
         }
     }
 
-    fun delRe(idRP:Int,idEj:Int) {
+    fun delRe(idRP: Int, idEj: Int) {
         try {
             var cadena: String =
                 "delete tbReservaProductos where idReservaProducto=?;" +
@@ -174,7 +195,10 @@ class prodReserv : Fragment() {
                 holder.imgP.setImageBitmap(bitmap)
             }
             holder.btnElim.setOnClickListener() {
-                fragment.delRe(itm.idR,itm.idE)
+                fragment.delRe(itm.idR, itm.idE)
+                fragment.CargarByN()
+                regRe.removeAt(position)
+                notifyItemRemoved(position)
             }
             //Reemplazamos la imagen
             //  holder.imageView.setImageResource(Imagenes[position])
