@@ -211,6 +211,9 @@
         <action
             android:id="@+id/action_mainReserva_to_prodReserv"
             app:destination="@id/prodReserv" />
+        <action
+            android:id="@+id/action_mainReserva_to_historialRe"
+            app:destination="@id/historialRe" />
     </fragment>
     <fragment
         android:id="@+id/productos"
@@ -241,5 +244,14 @@
         <action
             android:id="@+id/action_ejemMain_to_productos"
             app:destination="@id/productos" />
+    </fragment>
+    <fragment
+        android:id="@+id/historialRe"
+        android:name="com.example.vetsoft.Controlador.ui.Tienda.historialRe"
+        android:label="fragment_historial_re"
+        tools:layout="@layout/fragment_historial_re" >
+        <action
+            android:id="@+id/action_historialRe_to_mainReserva"
+            app:destination="@id/mainReserva" />
     </fragment>
 </navigation>

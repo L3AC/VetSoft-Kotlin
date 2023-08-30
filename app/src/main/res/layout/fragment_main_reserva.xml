@@ -39,7 +39,7 @@
                     app:layout_constraintVertical_bias="1.0" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/btnBackM"
                     android:layout_width="61dp"
                     android:layout_height="59dp"
                     android:src="@drawable/clinic"
@@ -84,7 +84,7 @@
                     app:layout_constraintVertical_bias="0.769" />
 
                 <ImageButton
-                    android:id="@+id/btnReserv"
+                    android:id="@+id/btnHistM"
                     android:layout_width="144dp"
                     android:layout_height="139dp"
                     android:background="@android:color/transparent"
@@ -114,7 +114,7 @@
                     app:layout_constraintVertical_bias="0.308" />
 
                 <ImageButton
-                    android:id="@+id/btnProd"
+                    android:id="@+id/btnReM"
                     android:layout_width="146dp"
                     android:layout_height="145dp"
                     android:background="@android:color/transparent"
