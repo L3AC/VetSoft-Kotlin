@@ -21,32 +21,21 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="734dp"
+                android:layout_height="820dp"
                 android:background="#1B4965">
 
 
                 <ImageView
                     android:id="@+id/imageView6"
-                    android:layout_width="421dp"
-                    android:layout_height="561dp"
+                    android:layout_width="411dp"
+                    android:layout_height="660dp"
                     android:src="@drawable/aaaaa"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txvProducP"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="111dp"
-                    android:layout_height="109dp"
-                    android:src="@drawable/clinic"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.086"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.056" />
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/txvCitasP19"
@@ -59,10 +48,40 @@
                     android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.466"
+                    app:layout_constraintHorizontal_bias="0.484"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.914" />
+                    app:layout_constraintVertical_bias="0.764" />
+
+                <ImageButton
+                    android:id="@+id/btnReserv"
+                    android:layout_width="144dp"
+                    android:layout_height="139dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.701"
+                    app:srcCompat="@drawable/reserva" />
+
+                <TextView
+                    android:id="@+id/txvCitasP21"
+                    android:layout_width="184dp"
+                    android:layout_height="41dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Reservas"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="34sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.802" />
 
                 <TextView
                     android:id="@+id/txvCitasP22"
@@ -75,24 +94,26 @@
                     android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.466"
+                    app:layout_constraintHorizontal_bias="0.515"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.4" />
+                    app:layout_constraintVertical_bias="0.322" />
 
-                <ImageButton
-                    android:id="@+id/btnReserv"
-                    android:layout_width="144dp"
-                    android:layout_height="139dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="fitXY"
+                <TextView
+                    android:id="@+id/txvCitasP18"
+                    android:layout_width="184dp"
+                    android:layout_height="41dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Productos"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.461"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.818"
-                    app:srcCompat="@drawable/reserva" />
+                    app:layout_constraintVertical_bias="0.455" />
 
                 <ImageButton
                     android:id="@+id/btnProd"
@@ -102,43 +123,23 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.465"
+                    app:layout_constraintHorizontal_bias="0.505"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.387"
+                    app:layout_constraintVertical_bias="0.311"
                     app:srcCompat="@drawable/img_prod" />
 
-                <TextView
-                    android:id="@+id/txvCitasP18"
-                    android:layout_width="184dp"
-                    android:layout_height="41dp"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Productos"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/black"
-                    android:textSize="34sp"
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="111dp"
+                    android:layout_height="109dp"
+                    android:src="@drawable/clinic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintHorizontal_bias="0.143"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.538" />
-
-                <TextView
-                    android:id="@+id/txvCitasP21"
-                    android:layout_width="184dp"
-                    android:layout_height="41dp"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Reservas"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/black"
-                    android:textSize="34sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.55"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.903" />
+                    app:layout_constraintVertical_bias="0.042" />
 
                 <TextView
                     android:id="@+id/txvProducP"
@@ -151,10 +152,10 @@
                     android:textSize="34sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.645"
+                    app:layout_constraintHorizontal_bias="0.722"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.105" />
+                    app:layout_constraintVertical_bias="0.092" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

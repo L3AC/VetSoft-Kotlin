@@ -38,9 +38,6 @@ class prodReserv : Fragment() {
     lateinit var rcReservProdR: RecyclerView
     private var idUs: Int = 0
     private var idCl: Int = 0
-    private var idRP: Int = 0
-    private var idEj: Int = 0
-    private var idTipoP: Int = 0
     private var conx = conx()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -127,7 +124,7 @@ class prodReserv : Fragment() {
         }
     }
 
-    fun delRe() {
+    fun delRe(idRP:Int,idEj:Int) {
         try {
             var cadena: String =
                 "delete tbReservaProductos where idReservaProducto=?;" +
@@ -136,7 +133,7 @@ class prodReserv : Fragment() {
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             Log.i("elim", idRP.toString())
             ps.setInt(1, idRP)
-            ps.setInt(1, idEj)
+            ps.setInt(2, idEj)
             ps.executeUpdate()
             Toast.makeText(context, "Campos actualizados", Toast.LENGTH_SHORT).show()
         } catch (ex: SQLException) {
@@ -177,7 +174,7 @@ class prodReserv : Fragment() {
                 holder.imgP.setImageBitmap(bitmap)
             }
             holder.btnElim.setOnClickListener() {
-                fragment.delRe()
+                fragment.delRe(itm.idR,itm.idE)
             }
             //Reemplazamos la imagen
             //  holder.imageView.setImageResource(Imagenes[position])
