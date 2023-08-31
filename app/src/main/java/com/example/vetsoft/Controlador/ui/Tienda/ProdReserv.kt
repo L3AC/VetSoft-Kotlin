@@ -100,7 +100,7 @@ class prodReserv : Fragment() {
             var st: ResultSet
             var cadena: String =
                 "select rp.idEjemplar,idReservaProducto,Nombre,Proveedor,Precio,img from tbReservaProductos rp,tbProductos p,tbEjemplares e\n" +
-                        "where rp.idEjemplar=e.idEjemplar and p.idProducto=e.idProducto and  rp.idCliente=? and Nombre like ?;"
+                        "where rp.idEjemplar=e.idEjemplar and p.idProducto=e.idProducto and e.Estado='Reservado' and rp.idCliente=? and Nombre like ?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)

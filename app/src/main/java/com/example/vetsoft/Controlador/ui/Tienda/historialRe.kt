@@ -98,7 +98,7 @@ class historialRe : Fragment() {
             var st: ResultSet
             var cadena: String =
                 "select rp.idEjemplar,idReservaProducto,Nombre,Proveedor,Precio,img from tbReservaProductos rp,tbProductos p,tbEjemplares e\n" +
-                        "where rp.idEjemplar=e.idEjemplar and p.idProducto=e.idProducto and  rp.idCliente=? and Nombre like ?;"
+                        "where rp.idEjemplar=e.idEjemplar and p.idProducto=e.idProducto and e.Estado='Inactivo' and  rp.idCliente=? and Nombre like ?;"
 
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
             ps.setInt(1, idCl)
@@ -148,16 +148,16 @@ class historialRe : Fragment() {
         RecyclerView.Adapter<hisCard.MyViewHolder>() {
 
         class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val txvNomb: TextView = view.findViewById(R.id.txvNomb2)
-            val txvMarca: TextView = view.findViewById(R.id.txvMarca2)
-            val txvPrecio: TextView = view.findViewById(R.id.txvPrecio2)
-            val imgP: ImageView = view.findViewById(R.id.imgP2)
+            val txvNomb: TextView = view.findViewById(R.id.txvNombH)
+            val txvMarca: TextView = view.findViewById(R.id.txvMarcaH)
+            val txvPrecio: TextView = view.findViewById(R.id.txvPrecioH)
+            val imgP: ImageView = view.findViewById(R.id.imgPH)
         }
 
         @SuppressLint("MissingInflatedId")
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val vista =
-                LayoutInflater.from(parent.context).inflate(R.layout.hisCard, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.hiscard, parent, false)
             return MyViewHolder(vista)
         }
 
