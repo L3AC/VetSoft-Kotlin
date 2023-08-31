@@ -44,7 +44,6 @@ class historialRe : Fragment() {
     lateinit var rcHistProd: RecyclerView
     private var idUs: Int = 0
     private var idCl: Int = 0
-    private var idTipoP: Int = 0
     private var conx = conx()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,6 +75,7 @@ class historialRe : Fragment() {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
         }
+        CargarByN()
         btnVolverCat2.setOnClickListener() {
             findNavController().navigate(R.id.action_historialRe_to_mainReserva, bundle)
         }
@@ -92,8 +92,8 @@ class historialRe : Fragment() {
         })
     }
     fun CargarByN() {
-        myDataRe.clear()
-        regRe.clear()
+        myDataHis.clear()
+        regHis.clear()
         try {
             var st: ResultSet
             var cadena: String =
