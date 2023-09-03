@@ -21,26 +21,41 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:background="#1B4965"
                 android:layout_height="734dp">
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="412dp"
+                    android:layout_height="533dp"
+                    android:src="@drawable/aaaaa"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombHC"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <EditText
                     android:id="@+id/txtNombHC"
-                    android:layout_width="237dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/rect"
+                    android:layout_width="286dp"
+                    android:layout_height="51dp"
+                    android:background="@drawable/buscadorbkg"
                     android:elevation="5dp"
                     android:ems="10"
+                    android:fontFamily="@font/montserrat"
                     android:hint="Nombre de su mascota"
                     android:inputType="text|textPersonName"
                     android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.192" />
+                    app:layout_constraintVertical_bias="0.161" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcMainHC"
@@ -56,18 +71,19 @@
 
                 <TextView
                     android:id="@+id/txvCitasHC"
-                    android:layout_width="184dp"
-                    android:layout_height="41dp"
+                    android:layout_width="256dp"
+                    android:layout_height="52dp"
                     android:fontFamily="sans-serif"
                     android:text="Historial de citas"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.537"
+                    app:layout_constraintHorizontal_bias="0.635"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.063" />
+                    app:layout_constraintVertical_bias="0.06" />
 
                 <ImageButton
                     android:id="@+id/btnVolverHC"

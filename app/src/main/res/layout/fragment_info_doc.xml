@@ -23,6 +23,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="850dp"
+                android:background="#1B4965"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="14dp">
 
@@ -278,8 +279,8 @@
                     android:fontFamily="@font/montserrat"
                     android:gravity="center"
                     android:text="Doctor"
-                    android:textColor="#050505"
-                    android:textSize="24sp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"

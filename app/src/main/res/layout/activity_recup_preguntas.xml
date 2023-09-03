@@ -22,7 +22,20 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:background="#1B4965"
                 android:layout_height="1000dp">
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="402dp"
+                    android:layout_height="865dp"
+                    android:src="@drawable/aaaaa"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <Button
                     android:id="@+id/btnConfirmRP"
@@ -58,7 +71,7 @@
                     android:id="@+id/txtUsuarioRP"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/editext"
+                    android:background="@drawable/edt_background"
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Ingrese su usuario"
@@ -77,7 +90,7 @@
                     android:id="@+id/txtResp1RP"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/editext"
+                    android:background="@drawable/edt_background"
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Respuesta"
@@ -96,7 +109,7 @@
                     android:id="@+id/txtResp2RP"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/editext"
+                    android:background="@drawable/edt_background"
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Respuesta"
@@ -131,7 +144,7 @@
                     android:id="@+id/txtResp3RP"
                     android:layout_width="290dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/editext"
+                    android:background="@drawable/edt_background"
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Respuesta"
@@ -164,10 +177,10 @@
                     android:id="@+id/txvCitasP15"
                     android:layout_width="220dp"
                     android:layout_height="78dp"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="@font/montserrat"
                     android:text="Preguntas de seguridad"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
