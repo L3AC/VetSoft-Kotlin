@@ -15,6 +15,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
+import com.example.vetsoft.Controlador.Main.txtContraD2
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
@@ -85,7 +86,8 @@ class AgregarMascota : Fragment() {
         }
         btnConfirmAM.setOnClickListener() {
             val editTextList = listOf(txtNombreAM)
-            val areFieldsValid = vali.areFieldsNotEmpty(editTextList)
+            val areFieldsValid = vali.areFieldsNotEmpty(editTextList) &&
+                    txtNombreAM.text.length >= 3
             if (areFieldsValid) {
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("Registrar mascota")
@@ -99,7 +101,7 @@ class AgregarMascota : Fragment() {
                 dialog.show()
             }
             else{
-                Toast.makeText(requireContext(), "Campos vacíos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Minimo de 3 caracteres", Toast.LENGTH_SHORT).show()
             }
         }
     }
