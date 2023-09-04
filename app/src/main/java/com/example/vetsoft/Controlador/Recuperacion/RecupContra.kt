@@ -234,7 +234,7 @@ class RecupContra : AppCompatActivity() {
                         "                <label>A continuación ingresa en el programa de Vetsoft y digita el código antes mencionado en el área de código de verificación.</label>\n" +
                         "\n" +
                         "                <p style=\"text-align: center; \">\n" +
-                        "                        <img class=\"img\" src=\"https://media.giphy.com/media/utKiQGDUK2MN8gy6A2/giphy.gif\" width=\"300px\">\n" +
+                        "                        <img class=\"img\" src=\"https://i.gifer.com/origin/4f/4f5d1807ba2d22d9de3f1abb925cab9c_w200.gif\" width=\"300px\">\n" +
                         "                    </a>\n" +
                         "                </p>\n" +
                         "            </fieldset>\n" +
