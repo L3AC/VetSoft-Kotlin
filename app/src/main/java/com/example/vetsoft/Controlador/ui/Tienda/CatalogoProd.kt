@@ -38,7 +38,7 @@ class CatalogoProd : Fragment() {
     lateinit var rcCataProd: RecyclerView
     private var idUs: Int = 0
     private var idCl: Int = 0
-    private var idTipoP: Int = 0
+    private var idProd: Int = 0
     private var conx = conx()
 
 
@@ -71,18 +71,18 @@ class CatalogoProd : Fragment() {
         CargarByN()
 
         rcCataProd.addOnItemTouchListener(
-            CatalogoProd.citasPRecycler(requireContext(), rcCataProd,
+            citasPRecycler(requireContext(), rcCataProd,
                 object : citasPRecycler.OnItemClickListener {
                     override fun onItemClick(view: View, position: Int) {
                         // Acciones a realizar cuando se hace clic en un elemento del RecyclerView
                         val itm = regProd[position]
-                        idTipoP = itm.id
+                        idProd = itm.id
                         val bundle = Bundle().apply {
                             putInt("idUs", idUs)
                             putInt("idCl", idCl)
-                            putInt("idTipoP", idTipoP)
+                            putInt("idProd", idProd)
                         }
-                        Log.i("IDTIPO: ", idTipoP.toString())
+                        Log.i("IDTIPO: ", idProd.toString())
                         findNavController().navigate(
                             R.id.action_catalogoProd_to_productos,
                             bundle

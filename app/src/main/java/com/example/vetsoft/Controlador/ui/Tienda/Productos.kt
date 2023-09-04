@@ -52,7 +52,7 @@ class Productos : Fragment() {
         arguments?.let {
             idUs = arguments?.getInt("idUs")!!
             idCl = arguments?.getInt("idCl")!!
-            idTipoP = arguments?.getInt("idTipoP")!!
+            idProd = arguments?.getInt("idProd")!!
         }
     }
 

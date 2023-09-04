@@ -113,8 +113,10 @@ class ejemMain : Fragment() {
         val bundle = Bundle().apply {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
+            putInt("idProd",idProd)
         }
         btnVolverE.setOnClickListener(){
+
             findNavController().navigate(R.id.action_ejemMain_to_productos, bundle)
         }
     }
