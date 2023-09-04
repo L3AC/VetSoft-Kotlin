@@ -1,5 +1,4 @@
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,9 +11,11 @@
     android:layout_marginRight="8dp"
     android:layout_marginBottom="8dp"
 
+    android:background="#CAE9FF"
+    android:backgroundTint="#CAE9FF"
+
     app:cardCornerRadius="13dp"
     app:cardElevation="8dp"
-
     app:contentPadding="10dp">
 
     <LinearLayout

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CAE9FF"
+    android:foregroundTint="#FFFFFF"
     tools:context=".Controlador.ui.Home.infoCita">
 
     <ScrollView
@@ -24,13 +25,14 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="1100dp"
+                android:background="#1B4965"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="14dp">
 
                 <TextView
                     android:id="@+id/textView22"
-                    android:layout_width="380dp"
-                    android:layout_height="950dp"
+                    android:layout_width="379dp"
+                    android:layout_height="949dp"
                     android:background="@drawable/fondoblanc"
                     android:fontFamily="sans-serif"
                     android:textAlignment="viewStart"
@@ -99,8 +101,11 @@
                     android:id="@+id/btnEliminarFC"
                     android:layout_width="150dp"
                     android:layout_height="71dp"
+                    android:backgroundTint="#CAE9FF"
+                    android:fontFamily="@font/montserrat"
                     android:text="Eliminar"
-                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -262,8 +267,8 @@
                     android:fontFamily="@font/montserrat"
                     android:gravity="center"
                     android:text="Información"
-                    android:textColor="#050505"
-                    android:textSize="24sp"
+                    android:textColor="#ffffff"
+                    android:textSize="30sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"
@@ -289,8 +294,11 @@
                     android:id="@+id/btnInfoDocFC"
                     android:layout_width="153dp"
                     android:layout_height="68dp"
+                    android:backgroundTint="#CAE9FF"
+                    android:fontFamily="@font/montserrat"
                     android:text="Info. Doctor"
-                    android:textSize="16sp"
+                    android:textColor="#070707"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
