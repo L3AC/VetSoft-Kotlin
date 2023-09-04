@@ -90,6 +90,7 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
         txvCont2.isVisible=false//Advertencias
         txtNaci2.isEnabled=false
 
+        //VALIDACION DE CAMPOS
         vali.configEditText(txtUsuario2,15,"^[a-zA-Z0-9]+$")
         vali.configEditText(txtContraN2,20,"^[a-zA-Z0-9]+$")
         vali.configEditText(txtContraD2,20,"^[a-zA-Z0-9]+$")
@@ -108,6 +109,7 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
 
 
         btnConfirm2.setOnClickListener(){
+            //VERIFICAR MINIMO DE CARACTERES PERMITIDOS
             val allFieldsValid = txtUsuario2.text.length >= 6 &&
                     txtContraN2.text.length >= 4 &&
                     txtContraD2.text.length >= 4 &&
@@ -134,10 +136,8 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
         }
 
         btnNaci2.setOnClickListener(){
+            //MOSTRAR CALENDARIO
             showDatePickerDialog()
-            /*val Calendario =
-                DatePickerFragment { year, month, day -> verResultado(year, month, day) }
-            Calendario.show(supportFragmentManager, "DatePicker")*/
         }
 
 //CADA VEZ QUE ESCRIBA SE MANDA A LLAMAR LA FUNCION
@@ -178,6 +178,7 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
             }
         })
         btnMirar2.setOnClickListener{
+            //MOSTRAR Y OCULTAR LAS CONTRASEÑAS
             contraVisible = !contraVisible
             if (contraVisible) {
                 txtContraN2.inputType = InputType.TYPE_CLASS_TEXT
@@ -195,7 +196,7 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
         }
 
     }
-    fun verifUs() {
+    fun verifUs() {//VERIFICAR SI EL USUARIO YA EXISTE
         try {
             val cadena: String = "SELECT *FROM tbUsuarios WHERE usuario = ?;"
             val st: ResultSet
@@ -223,7 +224,7 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
     }
 //CAMBIAR
 @RequiresApi(Build.VERSION_CODES.O)
-fun createUs() {
+fun createUs() {//REGISTRAR EL USUARIO
     val txtNaci0 = txtNaci2.text.toString()
     val formatter = DateTimeFormatter.ofPattern("d-M-yyyy")
     val fechaNacimiento = LocalDate.parse(txtNaci0, formatter)
@@ -285,7 +286,7 @@ fun createUs() {
         return fechaNacimiento
     }*/
 
-    fun selectUs(){
+    fun selectUs(){//AGARRAR EL IDusuario POR MEDIO DEL NOMBRE Y REGISTRAR EL CLIENTE
         try {
             val cadena: String = "SELECT *FROM tbUsuarios " +
                     "    WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS;"

@@ -27,6 +27,7 @@ class MainRecup : AppCompatActivity() {
         btnPregR =findViewById(R.id.btnPregR)
         btnWhaR =findViewById(R.id.btnWhaR)
 
+        //MENU
         btnVolverR.setOnClickListener(){
             val scndAct1 = Intent(this, MainActivity::class.java)
             startActivity(scndAct1)

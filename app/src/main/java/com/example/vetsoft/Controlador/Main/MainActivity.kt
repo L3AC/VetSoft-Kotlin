@@ -88,6 +88,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
+    //VERIFICAR QUE LAS CREDENCIALES SEAN CORRECTAS
     fun VerifUs() {
         try {
             val cadena: String = "SELECT *FROM tbUsuarios " +
@@ -116,6 +117,7 @@ class MainActivity : AppCompatActivity() {
         conx.dbConn()!!.close()
     }
 
+    //VERIFICAR SI EXISTE CLIENTE Y USUARIO PARA EL INICIO DE SESION
     fun verifCliente() {
         try {
             val cadena: String = "select idCliente from tbClientes inner join " +

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.vetsoft.R
 
 class Pcarga : AppCompatActivity() {
+    //SPLASHSCREEN
     override fun onCreate(savedInstanceState: Bundle?) {
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,

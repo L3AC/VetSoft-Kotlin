@@ -135,6 +135,7 @@ class DataPerfil : Fragment(){
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                //VERIFICAR QUE EL USUARIO QUE ESTA CARGADO NO HAYA PROBLEMA SI ENCUENTRA EL MISMO EN LA CONSULTA
                 if(user==txtUsDP.text.toString()){
                     txvUsDP.isVisible = false
                     btnGuardarDP.isEnabled = true
@@ -167,6 +168,7 @@ class DataPerfil : Fragment(){
 
     }
 
+    //CARGAR INFORMACION DE LA TABLA DE USUARIOS Y CLIENTES DEPENDIENDO DEL INICIO DE SESION
     fun cargarData() {
         try {
             val adpt = LLenarSpin()
@@ -196,6 +198,7 @@ class DataPerfil : Fragment(){
         }
         conx.dbConn()!!.close()
     }
+        //VERIFICAR SI EXISTA YA EL USUARIO
     fun verifUs() {
         try {
             val cadena: String = " SELECT *FROM tbUsuarios " +
@@ -221,6 +224,7 @@ class DataPerfil : Fragment(){
         }
         conx.dbConn()!!.close()
     }
+    //ACTUALIZAR LA INFO
     fun updateData() {
         try {
             val cadena =
@@ -252,6 +256,7 @@ class DataPerfil : Fragment(){
         conx.dbConn()!!.close()
     }
 
+        //CARGAR LA LISTA
     fun LLenarSpin(): ArrayAdapter<String> {
         val adaptadorSpinner =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, sexo)
@@ -260,6 +265,7 @@ class DataPerfil : Fragment(){
         spinner.adapter = adaptadorSpinner
         return adaptadorSpinner
     }
+    //CREAR LA PANTALLA DEL CALENDARIO
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)

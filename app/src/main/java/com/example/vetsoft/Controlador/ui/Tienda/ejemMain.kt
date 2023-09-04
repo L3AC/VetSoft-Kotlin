@@ -110,6 +110,13 @@ class ejemMain : Fragment() {
             cargarData()
             dispE()
         }
+        val bundle = Bundle().apply {
+            putInt("idUs", idUs)
+            putInt("idCl", idCl)
+        }
+        btnVolverE.setOnClickListener(){
+            findNavController().navigate(R.id.action_ejemMain_to_productos, bundle)
+        }
     }
 
     fun cargarData() {

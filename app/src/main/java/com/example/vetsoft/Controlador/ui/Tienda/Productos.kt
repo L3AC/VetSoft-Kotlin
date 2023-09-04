@@ -81,7 +81,7 @@ class Productos : Fragment() {
         CargarByN()
 
         btnVolver.setOnClickListener() {
-            findNavController().navigate(R.id.action_catalogoProd_to_mainTienda, bundle)
+            findNavController().navigate(R.id.action_productos_to_catalogoProd, bundle)
         }
         txtNProd.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

@@ -21,20 +21,21 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="734dp">
+                android:layout_height="734dp"
+                android:background="#1B4965">
 
                 <EditText
                     android:id="@+id/txtProdP"
                     android:layout_width="342dp"
                     android:layout_height="63dp"
-                    android:background="@drawable/rect"
+                    android:background="@drawable/buscadorbkg"
                     android:elevation="5dp"
                     android:ems="10"
                     android:hint="Nombre del producto"
                     android:inputType="text|textPersonName"
                     android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
+                    android:textColor="@color/white"
+                    android:textColorHint="#FFFFFF"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -47,10 +48,11 @@
                     android:id="@+id/rcProduct"
                     android:layout_width="408dp"
                     android:layout_height="435dp"
+                    android:background="#FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.333"
 
+                    app:layout_constraintHorizontal_bias="0.333"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.755" />
@@ -76,7 +78,7 @@
                     android:fontFamily="sans-serif"
                     android:text="Productos"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
