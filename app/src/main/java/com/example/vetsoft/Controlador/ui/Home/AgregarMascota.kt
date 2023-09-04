@@ -106,6 +106,7 @@ class AgregarMascota : Fragment() {
         }
     }
 
+    //CARGA EL COMBO DE TIPO DE ANIMALES
     fun SpinAni(cb: Spinner) {
         try {
             aniL.clear()
@@ -199,6 +200,7 @@ class AgregarMascota : Fragment() {
         }
     }
 
+    //INSERTA UNA NUEVA MASCOTA
     fun Confirmar() {
         try {
             val cadena: String =

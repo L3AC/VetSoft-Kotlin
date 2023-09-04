@@ -180,7 +180,7 @@ class CitasPendientes : Fragment() {
             }
         }
     }
-
+//BUSCA LAS CITAS EN BASE AL NOMBRE DEL PACIENTE
     fun CargarByN() {
         myDataCP.clear()
         regCP.clear()
@@ -214,7 +214,7 @@ class CitasPendientes : Fragment() {
             Toast.makeText(context, "Error al cargar cita N", Toast.LENGTH_SHORT).show()
         }
     }
-
+//BUSCA LAS CITAS EN BASE A LOS DIAS
     fun CargarByF(Dias: Int) {
         myDataCP.clear()
         regCP.clear()

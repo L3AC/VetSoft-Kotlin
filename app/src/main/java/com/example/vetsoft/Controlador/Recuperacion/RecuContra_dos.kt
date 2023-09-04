@@ -66,6 +66,7 @@ class RecuContra_dos : AppCompatActivity() {
                 Toast.makeText(this, "error${ex.toString()}", Toast.LENGTH_SHORT).show()
             }
 
+            //SE VERIFICA QUE EL CODIGO A INGRESAR ES EL CORRECTO
             if (txtCodigo.text.toString() == codigoDB){
                 val builder = AlertDialog.Builder(this)
                 Log.i("k",pasw)

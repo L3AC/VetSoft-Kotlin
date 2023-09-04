@@ -46,6 +46,7 @@ class houseCliente : Fragment() {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
         }
+        //MENU
         btnMasc4.setOnClickListener(){
             findNavController().navigate(R.id.action_houseCliente_to_mainMascota, bundle)
         }

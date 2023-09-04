@@ -160,6 +160,7 @@ class AgendarCIta : Fragment() {
         spinner.adapter = adaptadorSpinner
     }
 
+    //CARGA EL COMBO DE SERVICIO
     fun SpinServ(cb: Spinner) {
         try {
             servL.clear()
@@ -182,6 +183,7 @@ class AgendarCIta : Fragment() {
 
             conx.dbConn()!!.close()
 
+            //CADA VEZ QUE SELECCIONE UN ELEMENTO SE BUSCA EL ID
             cb.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(

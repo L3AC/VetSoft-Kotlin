@@ -101,6 +101,7 @@ class infoCita : Fragment() {
             findNavController().navigate(R.id.action_infoCita_to_citasPendientes, bundle)
         }
     }
+    //SE CARGA LOS DATOS DE LA CITA
     fun CargarDatos() {
         try {
             var cadena: String =
@@ -128,6 +129,7 @@ class infoCita : Fragment() {
             Log.i("sd",ex.toString())
         }
     }
+    //CANCELAR CITA
     fun EliminarCit() {
         try {
             var cadena: String =
