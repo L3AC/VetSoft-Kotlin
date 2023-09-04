@@ -38,6 +38,7 @@ class ejemMain : Fragment() {
     private var cont: Int = 1
     private var lista: MutableList<Int> = mutableListOf()
     private var idProd: Int = 0
+    private var idTipoP: Int = 0
     private var idUs: Int = 0
     private var idCl: Int = 0
     private var conx = conx()
@@ -47,6 +48,7 @@ class ejemMain : Fragment() {
             idUs = arguments?.getInt("idUs")!!
             idCl = arguments?.getInt("idCl")!!
             idProd = arguments?.getInt("idProd")!!
+            idTipoP = arguments?.getInt("idTipoP")!!
         }
     }
 
@@ -114,6 +116,7 @@ class ejemMain : Fragment() {
             putInt("idUs", idUs)
             putInt("idCl", idCl)
             putInt("idProd",idProd)
+            putInt("idTipoP",idTipoP)
         }
         btnVolverE.setOnClickListener(){
 

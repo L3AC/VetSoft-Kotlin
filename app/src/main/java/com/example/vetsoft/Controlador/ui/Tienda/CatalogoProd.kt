@@ -38,7 +38,7 @@ class CatalogoProd : Fragment() {
     lateinit var rcCataProd: RecyclerView
     private var idUs: Int = 0
     private var idCl: Int = 0
-    private var idProd: Int = 0
+    private var idTipoP: Int = 0
     private var conx = conx()
 
 
@@ -76,13 +76,13 @@ class CatalogoProd : Fragment() {
                     override fun onItemClick(view: View, position: Int) {
                         // Acciones a realizar cuando se hace clic en un elemento del RecyclerView
                         val itm = regProd[position]
-                        idProd = itm.id
+                        idTipoP = itm.id
                         val bundle = Bundle().apply {
                             putInt("idUs", idUs)
                             putInt("idCl", idCl)
-                            putInt("idProd", idProd)
+                            putInt("idTipoP", idTipoP)
                         }
-                        Log.i("IDTIPO: ", idProd.toString())
+                        Log.i("IDTIPO: ", idTipoP.toString())
                         findNavController().navigate(
                             R.id.action_catalogoProd_to_productos,
                             bundle

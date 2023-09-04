@@ -52,7 +52,7 @@ class Productos : Fragment() {
         arguments?.let {
             idUs = arguments?.getInt("idUs")!!
             idCl = arguments?.getInt("idCl")!!
-            idProd = arguments?.getInt("idProd")!!
+            idTipoP = arguments?.getInt("idTipoP")!!
         }
     }
 
@@ -105,6 +105,7 @@ class Productos : Fragment() {
                             putInt("idUs", idUs)
                             putInt("idCl", idCl)
                             putInt("idProd", idProd)
+                            putInt("idTipoP", idTipoP)
                         }
                         Log.i("IDE: ", idProd.toString())
                         findNavController().navigate(
