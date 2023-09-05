@@ -197,7 +197,7 @@ class prodReserv : Fragment() {
             holder.btnElim.setOnClickListener() {
                 fragment.delRe(itm.idR, itm.idE)
                 fragment.CargarByN()
-                regRe.removeAt(position)
+                //regRe.removeAt(position)
                 notifyItemRemoved(position)
             }
             //Reemplazamos la imagen
