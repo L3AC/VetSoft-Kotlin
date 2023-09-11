@@ -39,7 +39,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.551"
-                app:srcCompat="@drawable/annimal" />
+                app:srcCompat="@drawable/masco" />
 
             <TextView
                 android:id="@+id/txvMascota"

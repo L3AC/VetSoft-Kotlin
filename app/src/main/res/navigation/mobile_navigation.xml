@@ -21,11 +21,6 @@
             app:destination="@id/mainMascota" />
     </fragment>
     <fragment
-        android:id="@+id/doctMain"
-        android:name="com.example.vetsoft.ui.doctores.doctMain"
-        android:label="fragment_doct_main"
-        tools:layout="@layout/fragment_doct_main" />
-    <fragment
         android:id="@+id/perfilMain"
         android:name="com.example.vetsoft.Controlador.ui.Perfil.perfilMain"
         android:label="fragment_perfil_main"
