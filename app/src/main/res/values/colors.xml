@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="celesteVet">#CAE9FF</color>
+    <color name="azulVet">#1B4965</color>
 </resources>

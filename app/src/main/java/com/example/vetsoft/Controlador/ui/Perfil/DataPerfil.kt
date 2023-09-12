@@ -33,6 +33,11 @@ import java.util.Calendar
 import java.util.Locale
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 
 lateinit var txtUsDP: EditText
@@ -51,6 +56,7 @@ lateinit var btnActDP: Button
 lateinit var btnGuardarDP: Button
 lateinit var btnCerrarSesion: Button
 lateinit var selectedDate: Calendar
+lateinit var swDarkmode: SwitchMaterial
 class DataPerfil : Fragment(){
     private var idUs: Int = 0
     private var idCl: Int = 0
@@ -63,6 +69,15 @@ class DataPerfil : Fragment(){
         arguments?.let {
             idUs = arguments?.getInt("idUs")!!
             idCl = arguments?.getInt("idCl")!!
+
+            /*swDarkMode.setOnCheckedChangeListener {_, isSelected ->
+                if (isSelected){
+                    enableDarkMode()
+                }
+                else{
+                    disableDarkMode()
+                }
+            }*/
         }
     }
 
@@ -89,7 +104,7 @@ class DataPerfil : Fragment(){
         txtDirDP =requireView().findViewById(R.id.txtDirDP)
         btnActDP =requireView().findViewById(R.id.btnActDP)
         btnGuardarDP =requireView().findViewById(R.id.btnGuardarDP)
-
+        swDarkmode = requireView().findViewById(R.id.swDarkMode)
         txvUsDP.isVisible=false
         btnGuardarDP.isVisible=false
 
@@ -104,6 +119,15 @@ class DataPerfil : Fragment(){
         vali.configEditText(txtTelDP,8,"[0-9]+")
         vali.configEditText(txtDuiDP,10,"[0-9]+")
         vali.configEditText(txtDirDP,300,"[a-zA-Z\\s]+")
+
+        swDarkmode.setOnCheckedChangeListener {_, isSelected ->
+            if (isSelected){
+                enableDarkMode()
+            }
+            else{
+                disableDarkMode()
+            }
+        }
 
         btnActDP.setOnClickListener(){
             if (btnGuardarDP.isVisible) {
@@ -166,6 +190,23 @@ class DataPerfil : Fragment(){
         }
 
 
+    }
+
+    fun enableDarkMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        val activity = requireActivity() as? AppCompatActivity
+        activity?.let {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            it.delegate.applyDayNight()
+        }
+    }
+
+    fun disableDarkMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        val activity = requireActivity() as? AppCompatActivity
+        activity?.let {
+            it.delegate.applyDayNight()
+        }
     }
 
     //CARGAR INFORMACION DE LA TABLA DE USUARIOS Y CLIENTES DEPENDIENDO DEL INICIO DE SESION
