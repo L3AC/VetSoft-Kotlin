@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
 
         btnIngresar1.setOnClickListener() {
-            val editTextList = listOf(txtUsuario1, txtContra1)
+        val editTextList = listOf(txtUsuario1, txtContra1)
             val areFieldsValid = vali.areFieldsNotEmpty(editTextList)
             if (areFieldsValid) {
                 VerifUs()

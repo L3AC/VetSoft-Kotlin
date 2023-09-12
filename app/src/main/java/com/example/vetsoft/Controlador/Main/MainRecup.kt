@@ -10,12 +10,12 @@ import android.widget.ImageButton
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.Recuperacion.RecupContra
 import com.example.vetsoft.Controlador.Recuperacion.RecupPreguntas
-import com.example.vetsoft.Controlador.Recuperacion.RecupWha
+import com.example.vetsoft.recusms
 
 lateinit var btnVolverR:ImageButton
 lateinit var btnMailR:ImageButton
 lateinit var btnPregR:ImageButton
-lateinit var btnWhaR:ImageButton
+lateinit var btnSmsR:ImageButton
 
 @Suppress("UNREACHABLE_CODE")
 class MainRecup : AppCompatActivity() {
@@ -25,7 +25,7 @@ class MainRecup : AppCompatActivity() {
         btnVolverR =findViewById(R.id.btnVolverR)
         btnMailR =findViewById(R.id.btnMailR)
         btnPregR =findViewById(R.id.btnPregR)
-        btnWhaR =findViewById(R.id.btnWhaR)
+        btnSmsR =findViewById(R.id.btnSmsR)
 
         //MENU
         btnVolverR.setOnClickListener(){
@@ -40,8 +40,8 @@ class MainRecup : AppCompatActivity() {
             val scndAct3 = Intent(this, RecupPreguntas::class.java)
             startActivity(scndAct3)
         }
-        btnWhaR.setOnClickListener(){
-            val scndAct4 = Intent(this, RecupWha::class.java)
+        btnSmsR.setOnClickListener(){
+            val scndAct4 = Intent(this, recusms::class.java)
             startActivity(scndAct4)
         }
     }
