@@ -17,6 +17,8 @@ import com.example.vetsoft.Controlador.Main.MainRecup
 import com.example.vetsoft.Controlador.validation.Validat
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
+import com.twilio.Twilio
+import com.twilio.rest.api.v2010.account.Message
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -64,6 +66,7 @@ class RecupContra : AppCompatActivity() {
             if (VerifUs()) {
                 //codigo aleatorio
                 val codigoAleatorio = vali.GenerC(8)
+
                 if (metodo == 1) {//METODO DE CORREO
                 //se manda el correo con numero aleatorio
                     var mandarCorreo = MandarCorreo(
@@ -258,7 +261,15 @@ class RecupContra : AppCompatActivity() {
                     mandarCorreo.execute()
                 }
                 if (metodo == 2) {//metodo de sms
-
+                    Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
+                    Log.i("telef",tel)
+                    val message: Message = Message.creator(
+                        com.twilio.type.PhoneNumber("+503"+tel),
+                        com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
+                        "Tu codigo de recuperación es "+codigoAleatorio
+                    )
+                        .create()
+                    System.out.println(message.getSid())
                 }
 
 
