@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.example.vetsoft.Controlador.Main.MainActivity
@@ -13,7 +14,11 @@ import com.twilio.rest.lookups.v1.PhoneNumber
 
 class recusms : AppCompatActivity() {
     lateinit var btnSms:Button
+    lateinit var btnUs:Button
+    lateinit var txtUs:EditText
+    lateinit var txtCod:EditText
     lateinit var btnBack:ImageButton
+
     private val ACCOUNT_SID = "ACfb0b56fe70356e0a7d5445a49cbb233b"
     private val AUTH_TOKEN = "120668d9764bde64c286bdae580930c9"
 
@@ -23,8 +28,12 @@ class recusms : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recusms)
 
-        btnSms=findViewById(R.id.btnSMS)
+        btnSms=findViewById(R.id.btnSms)
         btnBack=findViewById(R.id.btnBacksms)
+        btnUs=findViewById(R.id.btnVerifUs)
+        txtCod=findViewById(R.id.txtCod)
+        txtUs=findViewById(R.id.txtUs)
+
 
         btnBack.setOnClickListener(){
             val scndAct = Intent(this, MainActivity::class.java)
@@ -41,8 +50,8 @@ class recusms : AppCompatActivity() {
                 .create()
             System.out.println(message.getSid())
         }
-
     }
+
 
 
 }
