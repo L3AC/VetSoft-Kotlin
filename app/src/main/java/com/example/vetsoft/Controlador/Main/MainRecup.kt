@@ -32,17 +32,20 @@ class MainRecup : AppCompatActivity() {
             val scndAct1 = Intent(this, MainActivity::class.java)
             startActivity(scndAct1)
         }
+        btnPregR.setOnClickListener(){
+            val scndAct1 = Intent(this, RecupPreguntas::class.java)
+            scndAct1.putExtra("forma", 1)
+            startActivity(scndAct1)
+        }
         btnMailR.setOnClickListener(){
             val scndAct2 = Intent(this, RecupContra::class.java)
+            scndAct2.putExtra("forma", 2)
             startActivity(scndAct2)
         }
-        btnPregR.setOnClickListener(){
-            val scndAct3 = Intent(this, RecupPreguntas::class.java)
-            startActivity(scndAct3)
-        }
         btnSmsR.setOnClickListener(){
-            val scndAct4 = Intent(this, recusms::class.java)
-            startActivity(scndAct4)
+            val scndAct3 = Intent(this, RecupContra::class.java)
+            scndAct3.putExtra("forma", 3)
+            startActivity(scndAct3)
         }
     }
 

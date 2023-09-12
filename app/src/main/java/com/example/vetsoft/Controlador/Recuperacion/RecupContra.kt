@@ -37,7 +37,7 @@ class RecupContra : AppCompatActivity() {
     private var correo: String = ""
     private var tel: String = ""
     private var crypt = Crypto()
-    private var metodo: Int = 0
+    private var forma: Int = 0
 
     private val ACCOUNT_SID = "ACfb0b56fe70356e0a7d5445a49cbb233b"
     private val AUTH_TOKEN = "120668d9764bde64c286bdae580930c9"
@@ -51,7 +51,7 @@ class RecupContra : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recup_contra)
         val extras = intent.extras
-        metodo = extras?.getInt("metodo")!!
+        forma = extras?.getInt("forma")!!
         btnEnviarRecu = findViewById(R.id.btnEnviarRecu)
         txtUsuarioRecu = findViewById(R.id.txtUsuarioPs)
         btnVolver = findViewById(R.id.btnVolverDPe)
@@ -67,7 +67,7 @@ class RecupContra : AppCompatActivity() {
                 //codigo aleatorio
                 val codigoAleatorio = vali.GenerC(8)
 
-                if (metodo == 1) {//METODO DE CORREO
+                if (forma == 2) {//METODO DE CORREO
                 //se manda el correo con numero aleatorio
                     var mandarCorreo = MandarCorreo(
                         correo, "Codigo de recuperacion", "<!DOCTYPE html>\n" +
@@ -260,7 +260,7 @@ class RecupContra : AppCompatActivity() {
                     )
                     mandarCorreo.execute()
                 }
-                if (metodo == 2) {//metodo de sms
+                if (forma == 3) {//metodo de sms
                     Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
                     Log.i("telef",tel)
                     val message: Message = Message.creator(
@@ -288,7 +288,7 @@ class RecupContra : AppCompatActivity() {
                 intent.putExtra("usuarioIngresado", txtUsuarioRecu.text.toString())
                 intent.putExtra("pasw", pasw)
                 intent.putExtra("idUs", idUs)
-                intent.putExtra("metodo", metodo)
+                intent.putExtra("forma", forma)
                 startActivity(intent)
             }
 

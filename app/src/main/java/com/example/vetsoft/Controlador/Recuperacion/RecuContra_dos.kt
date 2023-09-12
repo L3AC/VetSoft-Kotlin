@@ -31,7 +31,7 @@ class RecuContra_dos : AppCompatActivity() {
     private var crypt= Crypto()
     private lateinit var codigoDB: String
     private var idUs: Int = 0
-    private var metodo: Int = 0
+    private var forma: Int = 0
     private var pasw:String=""
     private var usuarioIngresado:String=""
 
@@ -48,10 +48,12 @@ class RecuContra_dos : AppCompatActivity() {
         usuarioIngresado = extras?.getString("usuarioIngresado")!!
         pasw= extras?.getString("pasw")!!
         idUs= extras?.getInt("idUs")!!
-        metodo= extras?.getInt("metodo")!!
+        forma= extras?.getInt("forma")!!
 
         btnVolverr.setOnClickListener{
+
             val scndAct = Intent(this, RecupContra::class.java)
+            scndAct.putExtra("met", forma)
             startActivity(scndAct)
         }
 
@@ -79,7 +81,7 @@ class RecuContra_dos : AppCompatActivity() {
                     val scndAct = Intent(this, CambioContra::class.java)
                     scndAct.putExtra("idUs", idUs)
                     scndAct.putExtra("pasw", pasw)
-                    scndAct.putExtra("met", 2)
+                    scndAct.putExtra("forma", forma)
                     startActivity(scndAct)
                 }
                 builder.setNegativeButton("No", null)
