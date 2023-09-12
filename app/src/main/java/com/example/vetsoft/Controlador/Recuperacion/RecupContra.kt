@@ -288,6 +288,7 @@ class RecupContra : AppCompatActivity() {
                 intent.putExtra("usuarioIngresado", txtUsuarioRecu.text.toString())
                 intent.putExtra("pasw", pasw)
                 intent.putExtra("idUs", idUs)
+                intent.putExtra("metodo", metodo)
                 startActivity(intent)
             }
 
