@@ -1,4 +1,4 @@
-package com.example.vetsoft
+package com.example.vetsoft.Controlador.Recuperacion
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import androidx.lifecycle.ReportFragment.Companion.reportFragment
-import com.example.vetsoft.Controlador.Main.MainActivity
+import com.example.vetsoft.Controlador.Main.MainRecup
+import com.example.vetsoft.R
 import com.twilio.*
 import com.twilio.rest.api.v2010.account.Message
-import com.twilio.rest.lookups.v1.PhoneNumber
 
 class recusms : AppCompatActivity() {
     lateinit var btnSms:Button
@@ -36,7 +35,7 @@ class recusms : AppCompatActivity() {
 
 
         btnBack.setOnClickListener(){
-            val scndAct = Intent(this, MainActivity::class.java)
+            val scndAct = Intent(this, MainRecup::class.java)
             startActivity(scndAct)
         }
 
@@ -51,7 +50,8 @@ class recusms : AppCompatActivity() {
             System.out.println(message.getSid())
         }
     }
+    fun Verif(){
 
-
+    }
 
 }

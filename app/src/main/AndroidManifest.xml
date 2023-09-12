@@ -15,7 +15,7 @@
         android:theme="@style/Theme.VetSoft"
         tools:targetApi="31">
         <activity
-            android:name=".recusms"
+            android:name=".Controlador.Recuperacion.recusms"
             android:exported="false" />
         <activity
             android:name=".Controlador.Recuperacion.RecuContra_dos"

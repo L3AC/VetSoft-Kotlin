@@ -31,6 +31,7 @@ class RecuContra_dos : AppCompatActivity() {
     private var crypt= Crypto()
     private lateinit var codigoDB: String
     private var idUs: Int = 0
+    private var metodo: Int = 0
     private var pasw:String=""
     private var usuarioIngresado:String=""
 
@@ -47,6 +48,7 @@ class RecuContra_dos : AppCompatActivity() {
         usuarioIngresado = extras?.getString("usuarioIngresado")!!
         pasw= extras?.getString("pasw")!!
         idUs= extras?.getInt("idUs")!!
+        metodo= extras?.getInt("metodo")!!
 
         btnVolverr.setOnClickListener{
             val scndAct = Intent(this, RecupContra::class.java)

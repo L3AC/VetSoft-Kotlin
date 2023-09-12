@@ -24,7 +24,7 @@ import kotlin.random.Random
 
 lateinit var btnEnviarRecu: Button
 lateinit var txtUsuarioRecu: EditText
-lateinit var  btnVolver: ImageButton
+lateinit var btnVolver: ImageButton
 
 class RecupContra : AppCompatActivity() {
 
@@ -33,19 +33,28 @@ class RecupContra : AppCompatActivity() {
     private var idUs: Int = 0
     private var pasw: String = ""
     private var correo: String = ""
+    private var tel: String = ""
     private var crypt = Crypto()
+    private var metodo: Int = 0
+
+    private val ACCOUNT_SID = "ACfb0b56fe70356e0a7d5445a49cbb233b"
+    private val AUTH_TOKEN = "120668d9764bde64c286bdae580930c9"
+
+    // El número de teléfono de Twilio que se te proporcionó
+    private val TWILIO_PHONE_NUMBER = "+16067140725"
 
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recup_contra)
-
+        val extras = intent.extras
+        metodo = extras?.getInt("metodo")!!
         btnEnviarRecu = findViewById(R.id.btnEnviarRecu)
         txtUsuarioRecu = findViewById(R.id.txtUsuarioPs)
         btnVolver = findViewById(R.id.btnVolverDPe)
 
-        btnVolver.setOnClickListener{
+        btnVolver.setOnClickListener {
             val scndAct = Intent(this, MainRecup::class.java)
             startActivity(scndAct)
         }
@@ -55,195 +64,203 @@ class RecupContra : AppCompatActivity() {
             if (VerifUs()) {
                 //codigo aleatorio
                 val codigoAleatorio = vali.GenerC(8)
+                if (metodo == 1) {//METODO DE CORREO
                 //se manda el correo con numero aleatorio
-                var mandarCorreo = MandarCorreo(correo, "Codigo de recuperacion","<!DOCTYPE html>\n" +
-                        "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
-                        "\n" +
-                        "<head>\n" +
-                        "    <meta charset=\"utf-8\">\n" +
-                        "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-                        "    <title>Correo</title>\n" +
-                        "\n" +
-                        "    <style>\n" +
-                        "        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Montserrat:wght@300&family=Poppins:wght@300&family=Roboto+Mono:ital@0;1&display=swap');\n" +
-                        "\n" +
-                        "        *, *:before, *:after {\n" +
-                        "            -moz-box-sizing: border-box;\n" +
-                        "            -webkit-box-sizing: border-box;\n" +
-                        "            box-sizing: border-box;\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        body {\n" +
-                        "            background-color: #1B4965;\n" +
-                        "            margin-top: 55px;\n" +
-                        "            margin-bottom: 55px;\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        form {\n" +
-                        "            max-width: 300px;\n" +
-                        "            margin: 10px auto;\n" +
-                        "            padding: 10px 20px;\n" +
-                        "            background: #CAE9FF;\n" +
-                        "            border-radius: 5px;\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        h1 {\n" +
-                        "            text-align: center;\n" +
-                        "            font-family: Brush Script MT;\n" +
-                        "            font-family: 'Roboto Mono', monospace;\n" +
-                        "            font-family: 'Montserrat', sans-serif;\n" +
-                        "            font-size: 35px;\n" +
-                        "            color: black;\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        h3 {\n" +
-                        "            text-align: center;\n" +
-                        "            font-family: 'Karla', sans-serif;\n" +
-                        "            color: black;\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        select {\n" +
-                        "            padding: 6px;\n" +
-                        "            height: 32px;\n" +
-                        "            border-radius: 2px;\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        fieldset {\n" +
-                        "            margin-bottom: 30px;\n" +
-                        "            border: none;\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        legend {\n" +
-                        "            font-family: Candara;\n" +
-                        "            font-size: 1.5em;\n" +
-                        "            margin-bottom: 10px;\n" +
-                        "            font-family: 'Poppins', sans-serif;\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        label {\n" +
-                        "            display: block;\n" +
-                        "            margin-bottom: 8px;\n" +
-                        "            font-family: Times New Roman;\n" +
-                        "            font-family: 'Karla', sans-serif;\n" +
-                        "        }\n" +
-                        "\n" +
-                        "            label.light {\n" +
-                        "                font-weight: 300;\n" +
-                        "                display: inline;\n" +
-                        "            }\n" +
-                        "\n" +
-                        "        .img {\n" +
-                        "            padding-top: 10px;\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        @media screen and (min-width: 480px) {\n" +
-                        "\n" +
-                        "            form {\n" +
-                        "                max-width: 480px;\n" +
-                        "            }\n" +
-                        "        }\n" +
-                        "\n" +
-                        "        @media screen and (max-width: 480px) {\n" +
-                        "\n" +
-                        "            form {\n" +
-                        "                max-width: 480px;\n" +
-                        "            }\n" +
-                        "\n" +
-                        "            .img {\n" +
-                        "                width: 300px;\n" +
-                        "                padding-top: 10px;\n" +
-                        "            }\n" +
-                        "\n" +
-                        "            .logo {\n" +
-                        "                width: 40px;\n" +
-                        "            }\n" +
-                        "\n" +
-                        "            @media screen and (max-width: 388px) {\n" +
-                        "\n" +
-                        "                form {\n" +
-                        "                    max-width: 388px;\n" +
-                        "                }\n" +
-                        "\n" +
-                        "                .img {\n" +
-                        "                    width: 280px;\n" +
-                        "                    padding-top: 10px;\n" +
-                        "                }\n" +
-                        "\n" +
-                        "                .logo {\n" +
-                        "                    width: 30px;\n" +
-                        "                }\n" +
-                        "            }\n" +
-                        "\n" +
-                        "            @media screen and (max-width: 374px) {\n" +
-                        "\n" +
-                        "                form {\n" +
-                        "                    max-width: 374px;\n" +
-                        "                }\n" +
-                        "\n" +
-                        "                .img {\n" +
-                        "                    width: 250px;\n" +
-                        "                    padding-top: 10px;\n" +
-                        "                }\n" +
-                        "\n" +
-                        "                .logo {\n" +
-                        "                    width: 20px;\n" +
-                        "                }\n" +
-                        "            }\n" +
-                        "\n" +
-                        "            @media screen and (max-width: 330px) {\n" +
-                        "\n" +
-                        "                form {\n" +
-                        "                    max-width: 330px;\n" +
-                        "                }\n" +
-                        "\n" +
-                        "                .img {\n" +
-                        "                    width: 210px;\n" +
-                        "                    padding-top: 10px;\n" +
-                        "                }\n" +
-                        "\n" +
-                        "                .logo {\n" +
-                        "                    width: 20px;\n" +
-                        "                }\n" +
-                        "            }\n" +
-                        "        }\n" +
-                        "    </style>\n" +
-                        "</head>\n" +
-                        "\n" +
-                        "<body>\n" +
-                        "    <div>\n" +
-                        "        <form action=\"index.html\" method=\"post\">\n" +
-                        "          <p style=\"text-align: center; \">\n" +
-                        "            <img class=\"img\" src=\"https://cdn-icons-png.flaticon.com/512/6363/6363425.png\" width=\"100px\">\n" +
-                        "        </a>\n" +
-                        "    </p>\n" +
-                        "            <h1> Vetsoft </h1>\n" +
-                        "            <hr style: width=\"50%\" color=\"black\">\n" +
-                        "            <br>\n" +
-                        "            <fieldset>\n" +
-                        "\n" +
-                        "                <legend>Hola: "+ txtUsuarioRecu.text.toString()+" <b> </b></legend>\n" +
-                        "\n" +
-                        "                <label>\n" +
-                        "                   Antes de completar el proceso de recuperación de contraseña debes de verificar tu código de verificación dento del programa Vetsoft\n" +
-                        "                </label>\n" +
-                        "            </fieldset>\n" +
-                        "            <fieldset>\n" +
-                        "\n" +
-                        "                <legend>Tu código de verificación es: "+codigoAleatorio+"<br> <b></b></legend>\n" +
-                        "\n" +
-                        "                <label>A continuación ingresa en el programa de Vetsoft y digita el código antes mencionado en el área de código de verificación.</label>\n" +
-                        "\n" +
-                        "                <p style=\"text-align: center; \">\n" +
-                        "                        <img class=\"img\" src=\"https://i.gifer.com/origin/4f/4f5d1807ba2d22d9de3f1abb925cab9c_w200.gif\" width=\"300px\">\n" +
-                        "                    </a>\n" +
-                        "                </p>\n" +
-                        "            </fieldset>\n" +
-                        "        </form>\n" +
-                        "    </div>\n" +
-                        "</body>\n" +
-                        "\n" +
-                        "</html>"!!)
-                mandarCorreo.execute()
+                    var mandarCorreo = MandarCorreo(
+                        correo, "Codigo de recuperacion", "<!DOCTYPE html>\n" +
+                                "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
+                                "\n" +
+                                "<head>\n" +
+                                "    <meta charset=\"utf-8\">\n" +
+                                "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                                "    <title>Correo</title>\n" +
+                                "\n" +
+                                "    <style>\n" +
+                                "        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Montserrat:wght@300&family=Poppins:wght@300&family=Roboto+Mono:ital@0;1&display=swap');\n" +
+                                "\n" +
+                                "        *, *:before, *:after {\n" +
+                                "            -moz-box-sizing: border-box;\n" +
+                                "            -webkit-box-sizing: border-box;\n" +
+                                "            box-sizing: border-box;\n" +
+                                "        }\n" +
+                                "\n" +
+                                "        body {\n" +
+                                "            background-color: #1B4965;\n" +
+                                "            margin-top: 55px;\n" +
+                                "            margin-bottom: 55px;\n" +
+                                "        }\n" +
+                                "\n" +
+                                "        form {\n" +
+                                "            max-width: 300px;\n" +
+                                "            margin: 10px auto;\n" +
+                                "            padding: 10px 20px;\n" +
+                                "            background: #CAE9FF;\n" +
+                                "            border-radius: 5px;\n" +
+                                "        }\n" +
+                                "\n" +
+                                "        h1 {\n" +
+                                "            text-align: center;\n" +
+                                "            font-family: Brush Script MT;\n" +
+                                "            font-family: 'Roboto Mono', monospace;\n" +
+                                "            font-family: 'Montserrat', sans-serif;\n" +
+                                "            font-size: 35px;\n" +
+                                "            color: black;\n" +
+                                "        }\n" +
+                                "\n" +
+                                "        h3 {\n" +
+                                "            text-align: center;\n" +
+                                "            font-family: 'Karla', sans-serif;\n" +
+                                "            color: black;\n" +
+                                "        }\n" +
+                                "\n" +
+                                "        select {\n" +
+                                "            padding: 6px;\n" +
+                                "            height: 32px;\n" +
+                                "            border-radius: 2px;\n" +
+                                "        }\n" +
+                                "\n" +
+                                "        fieldset {\n" +
+                                "            margin-bottom: 30px;\n" +
+                                "            border: none;\n" +
+                                "        }\n" +
+                                "\n" +
+                                "        legend {\n" +
+                                "            font-family: Candara;\n" +
+                                "            font-size: 1.5em;\n" +
+                                "            margin-bottom: 10px;\n" +
+                                "            font-family: 'Poppins', sans-serif;\n" +
+                                "        }\n" +
+                                "\n" +
+                                "        label {\n" +
+                                "            display: block;\n" +
+                                "            margin-bottom: 8px;\n" +
+                                "            font-family: Times New Roman;\n" +
+                                "            font-family: 'Karla', sans-serif;\n" +
+                                "        }\n" +
+                                "\n" +
+                                "            label.light {\n" +
+                                "                font-weight: 300;\n" +
+                                "                display: inline;\n" +
+                                "            }\n" +
+                                "\n" +
+                                "        .img {\n" +
+                                "            padding-top: 10px;\n" +
+                                "        }\n" +
+                                "\n" +
+                                "        @media screen and (min-width: 480px) {\n" +
+                                "\n" +
+                                "            form {\n" +
+                                "                max-width: 480px;\n" +
+                                "            }\n" +
+                                "        }\n" +
+                                "\n" +
+                                "        @media screen and (max-width: 480px) {\n" +
+                                "\n" +
+                                "            form {\n" +
+                                "                max-width: 480px;\n" +
+                                "            }\n" +
+                                "\n" +
+                                "            .img {\n" +
+                                "                width: 300px;\n" +
+                                "                padding-top: 10px;\n" +
+                                "            }\n" +
+                                "\n" +
+                                "            .logo {\n" +
+                                "                width: 40px;\n" +
+                                "            }\n" +
+                                "\n" +
+                                "            @media screen and (max-width: 388px) {\n" +
+                                "\n" +
+                                "                form {\n" +
+                                "                    max-width: 388px;\n" +
+                                "                }\n" +
+                                "\n" +
+                                "                .img {\n" +
+                                "                    width: 280px;\n" +
+                                "                    padding-top: 10px;\n" +
+                                "                }\n" +
+                                "\n" +
+                                "                .logo {\n" +
+                                "                    width: 30px;\n" +
+                                "                }\n" +
+                                "            }\n" +
+                                "\n" +
+                                "            @media screen and (max-width: 374px) {\n" +
+                                "\n" +
+                                "                form {\n" +
+                                "                    max-width: 374px;\n" +
+                                "                }\n" +
+                                "\n" +
+                                "                .img {\n" +
+                                "                    width: 250px;\n" +
+                                "                    padding-top: 10px;\n" +
+                                "                }\n" +
+                                "\n" +
+                                "                .logo {\n" +
+                                "                    width: 20px;\n" +
+                                "                }\n" +
+                                "            }\n" +
+                                "\n" +
+                                "            @media screen and (max-width: 330px) {\n" +
+                                "\n" +
+                                "                form {\n" +
+                                "                    max-width: 330px;\n" +
+                                "                }\n" +
+                                "\n" +
+                                "                .img {\n" +
+                                "                    width: 210px;\n" +
+                                "                    padding-top: 10px;\n" +
+                                "                }\n" +
+                                "\n" +
+                                "                .logo {\n" +
+                                "                    width: 20px;\n" +
+                                "                }\n" +
+                                "            }\n" +
+                                "        }\n" +
+                                "    </style>\n" +
+                                "</head>\n" +
+                                "\n" +
+                                "<body>\n" +
+                                "    <div>\n" +
+                                "        <form action=\"index.html\" method=\"post\">\n" +
+                                "          <p style=\"text-align: center; \">\n" +
+                                "            <img class=\"img\" src=\"https://cdn-icons-png.flaticon.com/512/6363/6363425.png\" width=\"100px\">\n" +
+                                "        </a>\n" +
+                                "    </p>\n" +
+                                "            <h1> Vetsoft </h1>\n" +
+                                "            <hr style: width=\"50%\" color=\"black\">\n" +
+                                "            <br>\n" +
+                                "            <fieldset>\n" +
+                                "\n" +
+                                "                <legend>Hola: " + txtUsuarioRecu.text.toString() + " <b> </b></legend>\n" +
+                                "\n" +
+                                "                <label>\n" +
+                                "                   Antes de completar el proceso de recuperación de contraseña debes de verificar tu código de verificación dento del programa Vetsoft\n" +
+                                "                </label>\n" +
+                                "            </fieldset>\n" +
+                                "            <fieldset>\n" +
+                                "\n" +
+                                "                <legend>Tu código de verificación es: " + codigoAleatorio + "<br> <b></b></legend>\n" +
+                                "\n" +
+                                "                <label>A continuación ingresa en el programa de Vetsoft y digita el código antes mencionado en el área de código de verificación.</label>\n" +
+                                "\n" +
+                                "                <p style=\"text-align: center; \">\n" +
+                                "                        <img class=\"img\" src=\"https://i.gifer.com/origin/4f/4f5d1807ba2d22d9de3f1abb925cab9c_w200.gif\" width=\"300px\">\n" +
+                                "                    </a>\n" +
+                                "                </p>\n" +
+                                "            </fieldset>\n" +
+                                "        </form>\n" +
+                                "    </div>\n" +
+                                "</body>\n" +
+                                "\n" +
+                                "</html>"!!
+                    )
+                    mandarCorreo.execute()
+                }
+                if (metodo == 2) {//metodo de sms
+
+                }
+
 
                 try {
                     //ingresa el numero aletorio a la tabla
@@ -287,7 +304,8 @@ class RecupContra : AppCompatActivity() {
                 idUs = st.getInt("idUsuario")
                 pasw = crypt.decrypt(st.getString("contraseña"), "key")
                 correo = st.getString("correo")
-                Log.i("contra", pasw)
+                tel = st.getString("telefono")
+                Log.i("contra", pasw + " "+tel)
                 return true
             } else {
                 Toast.makeText(applicationContext, "Usuario incorrecto", Toast.LENGTH_SHORT).show()
