@@ -4,6 +4,9 @@ plugins {
 }
 
 android {
+    packagingOptions {
+        exclude "META-INF/DEPENDENCIES"
+    }
     namespace 'com.example.vetsoft'
     compileSdk 33
 
