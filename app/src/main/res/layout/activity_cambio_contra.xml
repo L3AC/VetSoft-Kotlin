@@ -24,6 +24,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="735dp">
 
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="378dp"
+                    android:layout_height="595dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.484"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.778"
+                    app:srcCompat="@drawable/recblanco" />
+
                 <ImageButton
                     android:id="@+id/btnMirarCC"
                     android:layout_width="41dp"

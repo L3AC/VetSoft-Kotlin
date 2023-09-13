@@ -261,6 +261,7 @@ class RecupContra : AppCompatActivity() {
                     mandarCorreo.execute()
                 }
                 if (forma == 3) {//metodo de sms
+                    try{
                     Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
                     Log.i("telef",tel)
                     val message: Message = Message.creator(
@@ -270,6 +271,10 @@ class RecupContra : AppCompatActivity() {
                     )
                         .create()
                     System.out.println(message.getSid())
+                }
+                    catch (e:Exception){
+                        Log.i( "ERROR ",e.toString())
+                    }
                 }
 
 

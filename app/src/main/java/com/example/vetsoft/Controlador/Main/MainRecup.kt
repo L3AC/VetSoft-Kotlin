@@ -10,7 +10,6 @@ import android.widget.ImageButton
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.Recuperacion.RecupContra
 import com.example.vetsoft.Controlador.Recuperacion.RecupPreguntas
-import com.example.vetsoft.Controlador.Recuperacion.recusms
 
 lateinit var btnVolverR:ImageButton
 lateinit var btnMailR:ImageButton

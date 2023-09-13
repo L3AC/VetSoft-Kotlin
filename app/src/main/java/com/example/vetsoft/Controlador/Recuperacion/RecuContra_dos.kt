@@ -51,9 +51,8 @@ class RecuContra_dos : AppCompatActivity() {
         forma= extras?.getInt("forma")!!
 
         btnVolverr.setOnClickListener{
-
             val scndAct = Intent(this, RecupContra::class.java)
-            scndAct.putExtra("met", forma)
+            scndAct.putExtra("forma", forma)
             startActivity(scndAct)
         }
 
