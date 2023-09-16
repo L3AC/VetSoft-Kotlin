@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+
     packagingOptions {
         exclude "META-INF/DEPENDENCIES"
     }
@@ -12,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.vetsoft"
-        minSdk 24
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -37,6 +38,7 @@ android {
         viewBinding true
     }
 }
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -54,16 +56,21 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
     implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
 
-
 //AGREGADO
-
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     implementation 'androidx.navigation:navigation-runtime-ktx:2.4.1'
     implementation 'com.google.android.gms:play-services-cast-framework:21.0.1'
-
     implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
-    implementation("com.twilio.sdk:twilio:9.2.1")
+
+    implementation("com.twilio.sdk:twilio:10.0.0-rc.4")
+    //implementation 'org.apache.httpcomponents:httpclient:2.14'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.3'
+    //implementation 'com.vonage:client:6.0.0'
+    //implementation("net.sourceforge.htmlunit:htmlunit:2.36.0")
+
+    //implementation("com.google.http-client:google-http-client:1.23.0")
+    //implementation("net.sourceforge.htmlunit:htmlunit-android:2.36.0")
     //implementation 'com.squareup.picasso:picasso:2.8'
 
 

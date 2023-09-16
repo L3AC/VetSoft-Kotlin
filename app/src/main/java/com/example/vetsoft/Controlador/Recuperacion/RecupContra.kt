@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telephony.SmsManager
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -38,6 +39,7 @@ class RecupContra : AppCompatActivity() {
     private var tel: String = ""
     private var crypt = Crypto()
     private var sends=sendSms()
+
     private var forma: Int = 0
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -257,21 +259,15 @@ class RecupContra : AppCompatActivity() {
                 }
                 if (forma == 3) {//metodo de sms
                     try {
-                        sends.send(tel,codigoAleatorio.toString())
-                        /*val ACCOUNT_SID = "ACfb0b56fe70356e0a7d5445a49cbb233b"
-                        val AUTH_TOKEN = "4ee0491d6bf83efac273f2ca724ba2a9"
 
-                        // El número de teléfono de Twilio que se te proporcionó
-                        val TWILIO_PHONE_NUMBER = "+16067140725"
-                        Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
-                        Log.i("telef", tel)
-                        val message: Message = Message.creator(
-                            com.twilio.type.PhoneNumber("+503" + tel),
-                            com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
-                            "Tu codigo de recuperación es " + codigoAleatorio
-                        )
-                            .create()
-                        System.out.println(message.getSid())*/
+                        sends.send(tel,codigoAleatorio.toString())
+
+                        /*val phoneNumber = tel
+                        val message = "Este es tu código de verificación $codigoAleatorio"
+
+                        val smsManager = SmsManager.getDefault()
+                        smsManager.sendTextMessage(phoneNumber, null, message, null, null)
+*/
                     } catch (e: Exception) {
                         Log.i("ERROR ", e.toString())
                     }
