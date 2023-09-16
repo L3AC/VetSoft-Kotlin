@@ -1,8 +1,10 @@
 package com.example.vetsoft.Controlador.Recuperacion
 
+import android.telephony.SmsManager
 import com.twilio.Twilio
 import com.twilio.exception.TwilioException
 import com.twilio.rest.api.v2010.account.Message
+import com.twilio.rest.api.v2010.account.MessageCreator
 import com.twilio.type.PhoneNumber
 
 /*import com.vonage.client.VonageClient
@@ -25,15 +27,14 @@ class sendSms {
     fun send(tel: String, code: String) {
         try {
             //val hostnameVerifier = NoopHostnameVerifier.INSTANCE
-
             // Crea un CloseableHttpClient con el verificador de nombre de host personalizado
-            val hostnameVerifier: NoopHostnameVerifier? = NoopHostnameVerifier.INSTANCE
+            /*val hostnameVerifier: NoopHostnameVerifier? = NoopHostnameVerifier.INSTANCE
             var httpClient: CloseableHttpClient = HttpClients.custom()
                 .setSSLHostnameVerifier(hostnameVerifier)
                 .build()
 
             httpClient.close()
-
+*/
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
             val message: Message = Message.creator(
                 PhoneNumber("+503$tel"),
@@ -41,10 +42,22 @@ class sendSms {
                 "Tu código de recuperación es $code"
             ).create()
             System.out.println(message.getSid())
+
         } catch (e: TwilioException) {
             System.err.println(e.toString())
         }
     }
+    /*fun send(tel: String, code: String){
+        try {
+            val smsManager = SmsManager.getDefault()
+
+            smsManager.sendTextMessage(tel, null,
+                "Tu código de recuperación es $code", null, null)
+        } catch (e: Exception) {
+            System.err.println(e.toString())
+        }
+
+    }*/
     /*fun send(tel: String, code: String) {
         val client = VonageClient.builder().apiKey("0533ce94").apiSecret("IKrfRfxYclO4S10z").build()
         val message = TextMessage(
