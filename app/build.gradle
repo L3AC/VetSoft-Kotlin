@@ -4,7 +4,6 @@ plugins {
 }
 
 android {
-
     packagingOptions {
         exclude "META-INF/DEPENDENCIES"
 
@@ -14,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.vetsoft"
-        minSdk 24
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -65,6 +64,7 @@ dependencies {
     implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
 
     implementation("com.twilio.sdk:twilio:10.0.0-rc.4")
+    implementation("com.squareup.okhttp:okhttp:2.7.5")
 
    //implementation 'org.apache.httpcomponents:httpclient:2.14'
 
