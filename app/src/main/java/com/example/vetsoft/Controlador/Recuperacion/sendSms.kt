@@ -8,7 +8,7 @@ import com.twilio.type.PhoneNumber
 
 class sendSms {
     val ACCOUNT_SID = "ACfb0b56fe70356e0a7d5445a49cbb233b"
-    val AUTH_TOKEN = "cbfab1e29c4c104213f8ebdd6cd915b4"
+    val AUTH_TOKEN = "4ee0491d6bf83efac273f2ca724ba2a9"
     val TWILIO_PHONE_NUMBER = "+16067140725"
 
     fun send(tel: String, code: String) {
