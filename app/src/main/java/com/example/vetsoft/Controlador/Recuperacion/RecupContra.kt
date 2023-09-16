@@ -37,13 +37,8 @@ class RecupContra : AppCompatActivity() {
     private var correo: String = ""
     private var tel: String = ""
     private var crypt = Crypto()
+    private var sends=sendSms()
     private var forma: Int = 0
-
-    private val ACCOUNT_SID = "ACfb0b56fe70356e0a7d5445a49cbb233b"
-    private val AUTH_TOKEN = "120668d9764bde64c286bdae580930c9"
-
-    // El número de teléfono de Twilio que se te proporcionó
-    private val TWILIO_PHONE_NUMBER = "+16067140725"
 
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
@@ -68,7 +63,7 @@ class RecupContra : AppCompatActivity() {
                 val codigoAleatorio = vali.GenerC(8)
 
                 if (forma == 2) {//METODO DE CORREO
-                //se manda el correo con numero aleatorio
+                    //se manda el correo con numero aleatorio
                     var mandarCorreo = MandarCorreo(
                         correo, "Codigo de recuperacion", "<!DOCTYPE html>\n" +
                                 "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
@@ -261,19 +256,24 @@ class RecupContra : AppCompatActivity() {
                     mandarCorreo.execute()
                 }
                 if (forma == 3) {//metodo de sms
-                    try{
-                    Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
-                    Log.i("telef",tel)
-                    val message: Message = Message.creator(
-                        com.twilio.type.PhoneNumber("+503"+tel),
-                        com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
-                        "Tu codigo de recuperación es "+codigoAleatorio
-                    )
-                        .create()
-                    System.out.println(message.getSid())
-                }
-                    catch (e:Exception){
-                        Log.i( "ERROR ",e.toString())
+                    try {
+                        sends.send(tel,codigoAleatorio.toString())
+                        /*val ACCOUNT_SID = "ACfb0b56fe70356e0a7d5445a49cbb233b"
+                        val AUTH_TOKEN = "4ee0491d6bf83efac273f2ca724ba2a9"
+
+                        // El número de teléfono de Twilio que se te proporcionó
+                        val TWILIO_PHONE_NUMBER = "+16067140725"
+                        Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
+                        Log.i("telef", tel)
+                        val message: Message = Message.creator(
+                            com.twilio.type.PhoneNumber("+503" + tel),
+                            com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
+                            "Tu codigo de recuperación es " + codigoAleatorio
+                        )
+                            .create()
+                        System.out.println(message.getSid())*/
+                    } catch (e: Exception) {
+                        Log.i("ERROR ", e.toString())
                     }
                 }
 
@@ -322,7 +322,7 @@ class RecupContra : AppCompatActivity() {
                 pasw = crypt.decrypt(st.getString("contraseña"), "key")
                 correo = st.getString("correo")
                 tel = st.getString("telefono")
-                Log.i("contra", pasw + " "+tel)
+                Log.i("contra", pasw + " " + tel)
                 return true
             } else {
                 Toast.makeText(applicationContext, "Usuario incorrecto", Toast.LENGTH_SHORT).show()
