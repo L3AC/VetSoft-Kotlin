@@ -260,14 +260,8 @@ class RecupContra : AppCompatActivity() {
                 if (forma == 3) {//metodo de sms
                     try {
 
+                        //sends.send(tel,codigoAleatorio.toString())
                         sends.send(tel,codigoAleatorio.toString())
-
-                        /*val phoneNumber = tel
-                        val message = "Este es tu código de verificación $codigoAleatorio"
-
-                        val smsManager = SmsManager.getDefault()
-                        smsManager.sendTextMessage(phoneNumber, null, message, null, null)
-*/
                     } catch (e: Exception) {
                         Log.i("ERROR ", e.toString())
                     }
