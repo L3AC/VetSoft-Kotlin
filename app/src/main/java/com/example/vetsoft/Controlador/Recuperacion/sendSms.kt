@@ -4,6 +4,8 @@ import com.twilio.Twilio
 import com.twilio.exception.TwilioException
 import com.twilio.rest.api.v2010.account.Message
 import com.twilio.type.PhoneNumber
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import org.apache.http.conn.ssl.NoopHostnameVerifier
 import org.apache.http.impl.client.HttpClients
 
@@ -16,34 +18,22 @@ class sendSms {
 
     fun send(tel: String, code: String) {
         try {
-            /*Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
             val message: Message = Message.creator(
                 PhoneNumber("+503$tel"),
                 PhoneNumber(TWILIO_PHONE_NUMBER),
                 "Tu código de recuperación es $code"
             ).create()
-            System.out.println(message.getSid())*/
-            val httpClient = HttpClients.custom()
+            System.out.println(message.getSid())
+            val token="EAAJNW4h90m8BO9lm1CbSOCy9DNqrEZCsfLSAEp5sXcwRjd9gzQWI5BcxOsicZAa7n5oBmREFBNBXky79KMixL8EmYgzrtxDXDBJXWUkDrAQmXs5ZALm5w53q6n4EBfEMyljAt4VrJTJrASZCBqUwWqmJ3g6zuCR4FERrRu1ZBcOo2IZB5S8rZBvL6M6co6ZBrmtuPPEpcMnHOlwsZB04ZD"
+            /*val httpClient = HttpClients.custom()
                 .setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE)
-                .build()
-            Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
+                .build()*/
 
-            // Número de teléfono de WhatsApp de Twilio (debes tenerlo configurado en Twilio)
-            val fromPhoneNumber = PhoneNumber("whatsapp:$TWILIO_PHONE_NUMBER")
 
-            // Número de teléfono de destino
-            val toPhoneNumber = PhoneNumber("whatsapp:+503$tel")
-
-            // Mensaje que deseas enviar
-            val messageBody = "Este es tu codigo de verificación $code"
-
-            // Envía el mensaje de WhatsApp
-            val message = Message.creator(toPhoneNumber, fromPhoneNumber, messageBody).create()
-
-            println("Mensaje enviado con SID: ${message.sid}")
-
-            httpClient.close();
-        } catch (e: TwilioException) {
+/*
+            httpClient.close();*/
+        } catch (e: Exception) {
             System.err.println(e.toString())
         }
     }
