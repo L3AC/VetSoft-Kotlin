@@ -66,6 +66,7 @@ dependencies {
 
     implementation("com.twilio.sdk:twilio:10.0.0-rc.4")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
+
     implementation 'org.apache.httpcomponents:httpclient:4.5.3'
     api 'org.apache.httpcomponents:httpcore:4.4.6'
     api 'org.apache.httpcomponents:httpmime:4.3.6'
