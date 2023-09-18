@@ -1,13 +1,18 @@
 package com.example.vetsoft.Controlador.Recuperacion
 
+/*import okhttp3.OkHttpClient
+import okhttp3.Request*/
 import com.twilio.Twilio
-import com.twilio.exception.TwilioException
 import com.twilio.rest.api.v2010.account.Message
 import com.twilio.type.PhoneNumber
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import org.apache.http.conn.ssl.NoopHostnameVerifier
+import org.apache.http.client.HttpClient
+import org.apache.http.client.methods.HttpPost
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory
 import org.apache.http.impl.client.HttpClients
+import org.htmlunit.org.apache.http.ssl.SSLContextBuilder
+import org.htmlunit.org.apache.http.ssl.TrustStrategy
+import java.security.cert.CertificateException
+import java.security.cert.X509Certificate
 
 
 class sendSms {
@@ -18,9 +23,7 @@ class sendSms {
 
     fun send(tel: String, code: String) {
         try {
-            val httpClient = HttpClients.custom()
-                .setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE)
-                .build()
+
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
             val message: Message = Message.creator(
                 PhoneNumber("+503$tel"),
@@ -28,7 +31,7 @@ class sendSms {
                 "Tu código de recuperación es $code"
             ).create()
             System.out.println(message.getSid())
-            httpClient.close()
+
         } catch (e: Exception) {
             System.err.println(e.toString())
         }
