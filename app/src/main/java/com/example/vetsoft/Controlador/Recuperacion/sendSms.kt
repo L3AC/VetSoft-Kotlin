@@ -18,6 +18,9 @@ class sendSms {
 
     fun send(tel: String, code: String) {
         try {
+            val httpClient = HttpClients.custom()
+                .setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE)
+                .build()
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
             val message: Message = Message.creator(
                 PhoneNumber("+503$tel"),
@@ -25,14 +28,7 @@ class sendSms {
                 "Tu código de recuperación es $code"
             ).create()
             System.out.println(message.getSid())
-            val token="EAAJNW4h90m8BO9lm1CbSOCy9DNqrEZCsfLSAEp5sXcwRjd9gzQWI5BcxOsicZAa7n5oBmREFBNBXky79KMixL8EmYgzrtxDXDBJXWUkDrAQmXs5ZALm5w53q6n4EBfEMyljAt4VrJTJrASZCBqUwWqmJ3g6zuCR4FERrRu1ZBcOo2IZB5S8rZBvL6M6co6ZBrmtuPPEpcMnHOlwsZB04ZD"
-            /*val httpClient = HttpClients.custom()
-                .setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE)
-                .build()*/
-
-
-/*
-            httpClient.close();*/
+            httpClient.close()
         } catch (e: Exception) {
             System.err.println(e.toString())
         }
