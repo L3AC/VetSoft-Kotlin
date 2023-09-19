@@ -126,7 +126,7 @@
                     android:layout_width="349dp"
                     android:layout_height="32dp"
                     android:fontFamily="sans-serif"
-                    android:text="La contraseña debe ser igual"
+                    android:text="PIN  ********"
                     android:textAlignment="center"
                     android:textColor="#FF0000"
                     android:textSize="20sp"

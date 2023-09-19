@@ -18,8 +18,6 @@ import com.example.vetsoft.Controlador.Main.MainRecup
 import com.example.vetsoft.Controlador.validation.Validat
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
-import com.twilio.Twilio
-import com.twilio.rest.api.v2010.account.Message
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -269,11 +267,7 @@ class RecupContra : AppCompatActivity() {
                     }
                 }
                 if (forma == 3) {//metodo de pin
-                    try {
 
-                    } catch (e: Exception) {
-                        Log.i("ERROR ", e.toString())
-                    }
                 }
 
                 val intent = Intent(this, RecuContra_dos::class.java)

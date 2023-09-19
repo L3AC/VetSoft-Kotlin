@@ -50,6 +50,7 @@ class ChangePassw : Fragment() {
     private var idUs: Int = 0
     private var idCl: Int = 0
     private var pasw=""
+    private var pin=""
     private var conx = conx()
     private var crypt= Crypto()
     private var vali = Validat()
@@ -91,9 +92,11 @@ class ChangePassw : Fragment() {
             verifUsc()
             if(txtContraCP2.text.toString()==pasw){
                 vali.Visib(lista,true)
+                txvPIN.text="PIN  $pin"
             }
             else{
                 vali.Visib(lista,false)
+                txvPIN.text="PIN  ********"
                 Toast.makeText(requireContext(), "Contraseña incorrecta",Toast.LENGTH_SHORT).show()
             }
         }
@@ -155,7 +158,7 @@ class ChangePassw : Fragment() {
 
             if (found == 1) {
                 pasw=crypt.decrypt(st.getString("contraseña"),"key")
-                txvPIN.text="PIN "+st.getString("codigoVerif")
+                pin=st.getString("codigoVerif")
                 Log.i("contra",pasw)
             } else {
                 Toast.makeText(requireContext(), "Error al cargar", Toast.LENGTH_SHORT).show()

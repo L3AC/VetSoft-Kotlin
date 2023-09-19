@@ -1,18 +1,6 @@
 package com.example.vetsoft.Controlador.Recuperacion
 
-/*import okhttp3.OkHttpClient
-import okhttp3.Request*/
-import com.twilio.Twilio
-import com.twilio.rest.api.v2010.account.Message
-import com.twilio.type.PhoneNumber
-import org.apache.http.client.HttpClient
-import org.apache.http.client.methods.HttpPost
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory
-import org.apache.http.impl.client.HttpClients
-import org.htmlunit.org.apache.http.ssl.SSLContextBuilder
-import org.htmlunit.org.apache.http.ssl.TrustStrategy
-import java.security.cert.CertificateException
-import java.security.cert.X509Certificate
+
 
 
 class sendSms {
@@ -21,7 +9,7 @@ class sendSms {
     val AUTH_TOKEN = "4ee0491d6bf83efac273f2ca724ba2a9"
     val TWILIO_PHONE_NUMBER = "+16067140725"
 
-    fun send(tel: String, code: String) {
+    /*fun send(tel: String, code: String) {
         try {
 
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN)
@@ -65,5 +53,5 @@ class sendSms {
         } else {
             println("Message failed with error: " + response.messages[0].errorText)
         }
-    }*/
+    }*/*/
 }
