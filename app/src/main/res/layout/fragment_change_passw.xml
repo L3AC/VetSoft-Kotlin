@@ -65,7 +65,7 @@
                     app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.37" />
+                    app:layout_constraintVertical_bias="0.422" />
 
                 <EditText
                     android:id="@+id/txtContraCP2"
@@ -81,10 +81,10 @@
                     android:textColorHint="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.485"
+                    app:layout_constraintHorizontal_bias="0.487"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.262" />
+                    app:layout_constraintVertical_bias="0.314" />
 
                 <EditText
                     android:id="@+id/txtContra2CP2"
@@ -120,6 +120,21 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.624" />
+
+                <TextView
+                    android:id="@+id/txvPIN"
+                    android:layout_width="349dp"
+                    android:layout_height="32dp"
+                    android:fontFamily="sans-serif"
+                    android:text="La contraseña debe ser igual"
+                    android:textAlignment="center"
+                    android:textColor="#FF0000"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.206" />
 
                 <EditText
                     android:id="@+id/txtContra1CP2"

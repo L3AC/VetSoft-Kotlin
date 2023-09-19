@@ -37,6 +37,7 @@ class RecupContra : AppCompatActivity() {
     private var pasw: String = ""
     private var correo: String = ""
     private var tel: String = ""
+    private var codigo: String = ""
     private var crypt = Crypto()
     private var sends=sendSms()
 
@@ -256,27 +257,23 @@ class RecupContra : AppCompatActivity() {
                                 "</html>"!!
                     )
                     mandarCorreo.execute()
+                    try {
+                        //ingresa el numero aletorio a la tabla
+                        val addCodigo: PreparedStatement = conx.dbConn()
+                            ?.prepareStatement("update tbUsuarios set codigoVerif = ? where usuario = ?")!!
+                        addCodigo.setString(1, codigoAleatorio)
+                        addCodigo.setString(2, txtUsuarioRecu.text.toString())
+                        addCodigo.executeUpdate()
+                    } catch (ex: SQLException) {
+                        Toast.makeText(this, "Error ${ex.toString()}", Toast.LENGTH_SHORT).show()
+                    }
                 }
-                if (forma == 3) {//metodo de sms
+                if (forma == 3) {//metodo de pin
                     try {
 
-                        //sends.send(tel,codigoAleatorio.toString())
-                        sends.send(tel,codigoAleatorio.toString())
                     } catch (e: Exception) {
                         Log.i("ERROR ", e.toString())
                     }
-                }
-
-
-                try {
-                    //ingresa el numero aletorio a la tabla
-                    val addCodigo: PreparedStatement = conx.dbConn()
-                        ?.prepareStatement("update tbUsuarios set codigoVerif = ? where usuario = ?")!!
-                    addCodigo.setString(1, codigoAleatorio)
-                    addCodigo.setString(2, txtUsuarioRecu.text.toString())
-                    addCodigo.executeUpdate()
-                } catch (ex: SQLException) {
-                    Toast.makeText(this, "Error ${ex.toString()}", Toast.LENGTH_SHORT).show()
                 }
 
                 val intent = Intent(this, RecuContra_dos::class.java)

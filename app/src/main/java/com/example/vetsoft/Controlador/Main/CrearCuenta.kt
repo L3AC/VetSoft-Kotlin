@@ -19,10 +19,12 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.Controlador.Cryptation.Crypto
+import com.example.vetsoft.Controlador.Recuperacion.CambioContra
 import com.example.vetsoft.Controlador.ui.Perfil.txtNaciDP
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
@@ -61,6 +63,7 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
     private var idUs: Int = 0
     private var idCl: Int = 0
     private var fechaSql: String = ""
+    private var codigoAleatorio = vali.GenerC(8)
     var contraVisible = false
     val sexo = listOf("Femenino", "Masculino")
     @RequiresApi(Build.VERSION_CODES.O)
@@ -127,8 +130,14 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
                 selectUs()
                 createCl()
                 Toast.makeText(applicationContext, "Cuenta creada exitosamente", Toast.LENGTH_SHORT).show()
-                val scndAct = Intent(this, MainActivity::class.java)
-                startActivity(scndAct)
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("PIN DE SEGURIDAD")
+                builder.setMessage("Su PIN de seguridad es $codigoAleatorio este PIN " +
+                        "lo puede encontrar en la pantalla para cambiar su contraseña")
+                builder.setPositiveButton("OK") { dialog, which ->
+                    val scndAct = Intent(this, MainActivity::class.java)
+                    startActivity(scndAct)
+                }
             }
             else{
                 Toast.makeText(applicationContext, "Campos invalidos", Toast.LENGTH_SHORT).show()
@@ -232,7 +241,7 @@ fun createUs() {//REGISTRAR EL USUARIO
     if (fechaNacimiento < fechaActual) {
         try {
             val cadena: String = "INSERT INTO tbUsuarios " +
-                    "values(?,?,?,?,?,null,getdate());"
+                    "values(?,?,?,?,?,?,getdate());"
             val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
             ps.setInt(1, 3)
@@ -240,6 +249,7 @@ fun createUs() {//REGISTRAR EL USUARIO
             ps.setString(3, crypt.encrypt(txtContraN2.text.toString(), "key"))
             ps.setString(4, txtCorreo2.text.toString())
             ps.setString(5, txtTel2.text.toString())
+            ps.setString(6, codigoAleatorio)
 
 
             /*if (txtNaci2 == fechaActual()){

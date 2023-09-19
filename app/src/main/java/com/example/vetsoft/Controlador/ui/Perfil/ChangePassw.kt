@@ -44,6 +44,7 @@ lateinit var txtContra2CP2: EditText
 lateinit var btnVerifCP2: Button
 lateinit var btnConfirmCP2: Button
 lateinit var txvAdvCP2: TextView
+lateinit var txvPIN: TextView
 lateinit var btnMirarCP2: ImageButton
 class ChangePassw : Fragment() {
     private var idUs: Int = 0
@@ -79,6 +80,7 @@ class ChangePassw : Fragment() {
         txtContra1CP2 =requireView().findViewById(R.id.txtContra1CP2)
         txtContra2CP2 =requireView().findViewById(R.id.txtContra2CP2)
         txvAdvCP2 =requireView().findViewById(R.id.txvAdvCP2)
+        txvPIN =requireView().findViewById(R.id.txvPIN)
         btnMirarCP2 =requireView().findViewById(R.id.btnMirarCP2)
 
         txvAdvCP2.isVisible=false
@@ -153,6 +155,7 @@ class ChangePassw : Fragment() {
 
             if (found == 1) {
                 pasw=crypt.decrypt(st.getString("contraseña"),"key")
+                txvPIN.text="PIN "+st.getString("codigoVerif")
                 Log.i("contra",pasw)
             } else {
                 Toast.makeText(requireContext(), "Error al cargar", Toast.LENGTH_SHORT).show()
