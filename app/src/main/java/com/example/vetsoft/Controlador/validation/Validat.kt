@@ -29,6 +29,7 @@ class Validat {
         }
     }
 
+
         fun validateEmail(editText: EditText, btn: Button): Boolean {
             val email = editText.text.toString().trim()
             val isValid = isEmailValid(email)

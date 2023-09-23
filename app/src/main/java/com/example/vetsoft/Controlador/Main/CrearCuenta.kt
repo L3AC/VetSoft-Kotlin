@@ -150,6 +150,20 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
         }
 
 //CADA VEZ QUE ESCRIBA SE MANDA A LLAMAR LA FUNCION
+        txtNomb2.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if(txtNomb2.text.length>=8){
+
+                }
+                else{
+                    txtNomb2.error="8 caracteres minimo"
+                }
+            }
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
         txtUsuario2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
