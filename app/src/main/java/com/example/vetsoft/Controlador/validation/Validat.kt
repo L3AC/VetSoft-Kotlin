@@ -39,7 +39,7 @@ class Validat {
 
             } else {
                 editText.error = null
-                btn.isEnabled = true
+                //btn.isEnabled = true
             }
             return isValid
         }

@@ -115,12 +115,11 @@ class CrearCuenta : AppCompatActivity(),
                 txtContraN2.text.length >= 4 &&
                 txtContraD2.text.length >= 4 &&
                 txtNomb2.text.length >= 5 &&
-                txtDir2.text.length >= 8 &&
+                txtDir2.text.length >= 5 &&
                 txtApellidos2.text.length >= 5 &&
                 txtDui2.text.length >= 10 &&
-                txtTel2.text.length >= 8
-                &&
-                txtCorreo2.text.length >= 8
+                txtTel2.text.length >= 8 &&
+                txtCorreo2.text.length >= 10
 
 
         btnConfirm2.setOnClickListener() {
@@ -191,12 +190,50 @@ class CrearCuenta : AppCompatActivity(),
             override fun afterTextChanged(s: Editable?) {
             }
         })
+        txtDui2.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtDui2.text.length >= 10) {
+                    btnConfirm2.isEnabled = allFieldsValid
+                } else {
+                    btnConfirm2.isEnabled = false
+                    txtDui2.error = "10 caracteres minimo"
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        txtTel2.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtTel2.text.length >= 8) {
+                    btnConfirm2.isEnabled = allFieldsValid
+                } else {
+                    btnConfirm2.isEnabled = false
+                    txtTel2.error = "8 caracteres minimo"
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
         txtUsuario2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 verifUs()
+                if (txtUsuario2.text.length >= 4) {
+                    btnConfirm2.isEnabled = allFieldsValid
+                } else {
+                    btnConfirm2.isEnabled = false
+                    txtUsuario2.error = "4 caracteres minimo"
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -208,6 +245,12 @@ class CrearCuenta : AppCompatActivity(),
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 vali.validateEmail(txtCorreo2, btnConfirm2)
+                if (txtCorreo2.text.length >= 10) {
+                    btnConfirm2.isEnabled = allFieldsValid
+                } else {
+                    btnConfirm2.isEnabled = false
+                    txtCorreo2.error = "10 caracteres minimo"
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -219,6 +262,12 @@ class CrearCuenta : AppCompatActivity(),
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 verifContra()
+                if (txtContraN2.text.length >= 4) {
+                    btnConfirm2.isEnabled = allFieldsValid
+                } else {
+                    btnConfirm2.isEnabled = false
+                    txtContraN2.error = "4 caracteres minimo"
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -230,6 +279,12 @@ class CrearCuenta : AppCompatActivity(),
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 verifContra()
+                if (txtContraD2.text.length >= 4) {
+                    btnConfirm2.isEnabled = allFieldsValid
+                } else {
+                    btnConfirm2.isEnabled = false
+                    txtContraD2.error = "4 caracteres minimo"
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -271,11 +326,12 @@ class CrearCuenta : AppCompatActivity(),
             if (found == 1) {
                 txvUs2.isVisible = true
                 btnConfirm2.isEnabled = false
+
             } else {
                 txvUs2.isVisible = false
-                if (txtUsuario2.text.length >= 4) {
-                    btnConfirm2.isEnabled = false
-                }
+                /*if (txtUsuario2.text.length >= 4) {
+                    btnConfirm2.isEnabled = true
+                }*/
 
             }
         } catch (ex: SQLException) {
@@ -442,7 +498,7 @@ class CrearCuenta : AppCompatActivity(),
             btnConfirm2.isEnabled = false
         } else {
             txvCont2.isVisible = false
-            btnConfirm2.isEnabled = true
+            //btnConfirm2.isEnabled = true
         }
     }
 
