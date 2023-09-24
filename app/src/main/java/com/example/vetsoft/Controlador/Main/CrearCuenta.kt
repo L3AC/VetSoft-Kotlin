@@ -116,7 +116,12 @@ class CrearCuenta : AppCompatActivity(),
                 txtContraD2.text.length >= 4 &&
                 txtNomb2.text.length >= 5 &&
                 txtDir2.text.length >= 8 &&
-                txtApellidos2.text.length >= 5
+                txtApellidos2.text.length >= 5 &&
+                txtDui2.text.length >= 10 &&
+                txtTel2.text.length >= 8
+                &&
+                txtCorreo2.text.length >= 8
+
 
         btnConfirm2.setOnClickListener() {
             //VERIFICAR MINIMO DE CARACTERES PERMITIDOS
@@ -268,7 +273,7 @@ class CrearCuenta : AppCompatActivity(),
                 btnConfirm2.isEnabled = false
             } else {
                 txvUs2.isVisible = false
-                if(txtUsuario2.text.length>=4){
+                if (txtUsuario2.text.length >= 4) {
                     btnConfirm2.isEnabled = false
                 }
 
