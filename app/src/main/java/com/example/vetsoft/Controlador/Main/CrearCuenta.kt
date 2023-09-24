@@ -37,71 +37,73 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-lateinit var txtUsuario2:EditText
-lateinit var txtContraN2:EditText
-lateinit var txtContraD2:EditText
-lateinit var txtCorreo2:EditText
-lateinit var txtNomb2:EditText
-lateinit var txtApellidos2:EditText
-lateinit var txtTel2:EditText
-lateinit var txtDui2:EditText
-lateinit var spinSexo2:Spinner
-lateinit var txtNaci2:EditText
-lateinit var txtDir2:EditText
-lateinit var btnNaci2:ImageButton
-lateinit var btnVolver2:ImageButton
-lateinit var txvCont2:TextView
-lateinit var txvUs2:TextView
-lateinit var btnConfirm2:Button
-lateinit var btnMirar2:ImageButton
+lateinit var txtUsuario2: EditText
+lateinit var txtContraN2: EditText
+lateinit var txtContraD2: EditText
+lateinit var txtCorreo2: EditText
+lateinit var txtNomb2: EditText
+lateinit var txtApellidos2: EditText
+lateinit var txtTel2: EditText
+lateinit var txtDui2: EditText
+lateinit var spinSexo2: Spinner
+lateinit var txtNaci2: EditText
+lateinit var txtDir2: EditText
+lateinit var btnNaci2: ImageButton
+lateinit var btnVolver2: ImageButton
+lateinit var txvCont2: TextView
+lateinit var txvUs2: TextView
+lateinit var btnConfirm2: Button
+lateinit var btnMirar2: ImageButton
 
-class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.date.DatePickerDialog.OnDateSetListener {
+class CrearCuenta : AppCompatActivity(),
+    com.wdullaer.materialdatetimepicker.date.DatePickerDialog.OnDateSetListener {
 
     private var conx = conx()
-    private var vali= Validat()
-    private var crypt= Crypto()
+    private var vali = Validat()
+    private var crypt = Crypto()
     private var idUs: Int = 0
     private var idCl: Int = 0
     private var fechaSql: String = ""
     private var codigoAleatorio = vali.GenerC(8)
     var contraVisible = false
     val sexo = listOf("Femenino", "Masculino")
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_cuenta)
-        txtUsuario2 =findViewById(R.id.txtUsuario2)
-        txtContraN2 =findViewById(R.id.txtContraN2)
-        txtContraD2 =findViewById(R.id.txtContraD2)
-        txtCorreo2 =findViewById(R.id.txtCorreo2)
-        txtNomb2 =findViewById(R.id.txtNomb2)
-        txtApellidos2 =findViewById(R.id.txtApellidos2)
-        txtTel2 =findViewById(R.id.txtTel2)
-        txtDui2 =findViewById(R.id.txtDui2)
-        spinSexo2 =findViewById(R.id.spinSexo2)
-        txtNaci2 =findViewById(R.id.txtNaci2)
-        txtDir2 =findViewById(R.id.txtDir2)
-        btnNaci2 =findViewById(R.id.btnNaci2)
-        btnVolver2 =findViewById(R.id.btnVolver2)
-        txvCont2 =findViewById(R.id.txvCont2)
-        txvUs2 =findViewById(R.id.txvUs2)
-        btnConfirm2 =findViewById(R.id.btnConfirm2)
-        btnMirar2 =findViewById(R.id.btnMirar2)
+        txtUsuario2 = findViewById(R.id.txtUsuario2)
+        txtContraN2 = findViewById(R.id.txtContraN2)
+        txtContraD2 = findViewById(R.id.txtContraD2)
+        txtCorreo2 = findViewById(R.id.txtCorreo2)
+        txtNomb2 = findViewById(R.id.txtNomb2)
+        txtApellidos2 = findViewById(R.id.txtApellidos2)
+        txtTel2 = findViewById(R.id.txtTel2)
+        txtDui2 = findViewById(R.id.txtDui2)
+        spinSexo2 = findViewById(R.id.spinSexo2)
+        txtNaci2 = findViewById(R.id.txtNaci2)
+        txtDir2 = findViewById(R.id.txtDir2)
+        btnNaci2 = findViewById(R.id.btnNaci2)
+        btnVolver2 = findViewById(R.id.btnVolver2)
+        txvCont2 = findViewById(R.id.txvCont2)
+        txvUs2 = findViewById(R.id.txvUs2)
+        btnConfirm2 = findViewById(R.id.btnConfirm2)
+        btnMirar2 = findViewById(R.id.btnMirar2)
 
         LLenarSpin()
-        txvUs2.isVisible=false
-        txvCont2.isVisible=false//Advertencias
-        txtNaci2.isEnabled=false
+        txvUs2.isVisible = false
+        txvCont2.isVisible = false//Advertencias
+        txtNaci2.isEnabled = false
 
         //VALIDACION DE CAMPOS
-        vali.configEditText(txtUsuario2,15,"^[a-zA-Z0-9]+$")
-        vali.configEditText(txtContraN2,20,"^[a-zA-Z0-9]+$")
-        vali.configEditText(txtContraD2,20,"^[a-zA-Z0-9]+$")
-        vali.configEditText(txtNomb2,30,"[a-zA-Z\\s]+")
-        vali.configEditText(txtApellidos2,30,"[a-zA-Z\\s]+")
-        vali.configEditText(txtTel2,8,"[0-9]+")
-        vali.configEditText(txtDui2,10,"[0-9]+")
-        vali.configEditText(txtDir2,300,"[a-zA-Z\\s]+")
+        vali.configEditText(txtUsuario2, 15, "^[a-zA-Z0-9]+$")
+        vali.configEditText(txtContraN2, 20, "^[a-zA-Z0-9]+$")
+        vali.configEditText(txtContraD2, 20, "^[a-zA-Z0-9]+$")
+        vali.configEditText(txtNomb2, 30, "[a-zA-Z\\s]+")
+        vali.configEditText(txtApellidos2, 30, "[a-zA-Z\\s]+")
+        vali.configEditText(txtTel2, 8, "[0-9]+")
+        vali.configEditText(txtDui2, 10, "[0-9]+")
+        vali.configEditText(txtDir2, 300, "[a-zA-Z\\s]+")
 
         /*vali.setMinLength(txtUsuario2, 6)
         vali.setMinLength(txtContraN2, 4)
@@ -109,42 +111,44 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
         vali.setMinLength(txtNomb2, 3)
         vali.setMinLength(txtDir2, 10)
         vali.setMinLength(txtApellidos2, 5)*/
+        val allFieldsValid = txtUsuario2.text.length >= 4 &&
+                txtContraN2.text.length >= 4 &&
+                txtContraD2.text.length >= 4 &&
+                txtNomb2.text.length >= 5 &&
+                txtDir2.text.length >= 8 &&
+                txtApellidos2.text.length >= 5
 
-
-        btnConfirm2.setOnClickListener(){
+        btnConfirm2.setOnClickListener() {
             //VERIFICAR MINIMO DE CARACTERES PERMITIDOS
-            val allFieldsValid = txtUsuario2.text.length >= 6 &&
-                    txtContraN2.text.length >= 4 &&
-                    txtContraD2.text.length >= 4 &&
-                    txtNomb2.text.length >= 3 &&
-                    txtDir2.text.length >= 8 &&
-                    txtApellidos2.text.length >= 5
+
 
             val editTextList = listOf(
                 txtUsuario2, txtContraN2,
                 txtContraD2, txtCorreo2, txtNomb2, txtApellidos2, txtTel2, txtDui2
             )
-            val areFieldsValid  = vali.areFieldsNotEmpty(editTextList)
-            if(areFieldsValid && allFieldsValid){
+            val areFieldsValid = vali.areFieldsNotEmpty(editTextList)
+            if (areFieldsValid && allFieldsValid) {
                 createUs()
                 selectUs()
                 createCl()
-                Toast.makeText(applicationContext, "Cuenta creada exitosamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Cuenta creada exitosamente", Toast.LENGTH_SHORT)
+                    .show()
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("PIN DE SEGURIDAD")
-                builder.setMessage("Su PIN de seguridad es $codigoAleatorio este PIN " +
-                        "lo puede encontrar en la pantalla para cambiar su contraseña")
+                builder.setMessage(
+                    "Su PIN de seguridad es $codigoAleatorio este PIN " +
+                            "lo puede encontrar en la pantalla para cambiar su contraseña"
+                )
                 builder.setPositiveButton("OK") { dialog, which ->
                     val scndAct = Intent(this, MainActivity::class.java)
                     startActivity(scndAct)
                 }
-            }
-            else{
+            } else {
                 Toast.makeText(applicationContext, "Campos invalidos", Toast.LENGTH_SHORT).show()
             }
         }
 
-        btnNaci2.setOnClickListener(){
+        btnNaci2.setOnClickListener() {
             //MOSTRAR CALENDARIO
             showDatePickerDialog()
         }
@@ -153,72 +157,101 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
         txtNomb2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(txtNomb2.text.length>=3){
 
-                }
-                else{
-                    txtNomb2.error="3 caracteres minimo"
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtNomb2.text.length >= 5) {
+                    btnConfirm2.isEnabled = allFieldsValid
+                } else {
+                    btnConfirm2.isEnabled = false
+                    txtNomb2.error = "5 caracteres minimo"
                 }
             }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        txtApellidos2.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtApellidos2.text.length >= 5) {
+                    btnConfirm2.isEnabled = allFieldsValid
+                } else {
+                    btnConfirm2.isEnabled = false
+                    txtApellidos2.error = "5 caracteres minimo"
+                }
+            }
+
             override fun afterTextChanged(s: Editable?) {
             }
         })
         txtUsuario2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 verifUs()
             }
+
             override fun afterTextChanged(s: Editable?) {
             }
         })
         txtCorreo2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 vali.validateEmail(txtCorreo2, btnConfirm2)
             }
+
             override fun afterTextChanged(s: Editable?) {
             }
         })
         txtContraN2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 verifContra()
             }
+
             override fun afterTextChanged(s: Editable?) {
             }
         })
         txtContraD2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 verifContra()
             }
+
             override fun afterTextChanged(s: Editable?) {
             }
         })
-        btnMirar2.setOnClickListener{
+        btnMirar2.setOnClickListener {
             //MOSTRAR Y OCULTAR LAS CONTRASEÑAS
             contraVisible = !contraVisible
             if (contraVisible) {
                 txtContraN2.inputType = InputType.TYPE_CLASS_TEXT
                 txtContraD2.inputType = InputType.TYPE_CLASS_TEXT
             } else {
-                txtContraN2.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                txtContraD2.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                txtContraN2.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                txtContraD2.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
             }
             txtContraN2.setSelection(txtContraN2.text.length)
             txtContraD2.setSelection(txtContraD2.text.length)
         }
-        btnVolver2.setOnClickListener(){
+        btnVolver2.setOnClickListener() {
             val scndAct = Intent(this, MainActivity::class.java)
             startActivity(scndAct)
         }
 
     }
+
     fun verifUs() {//VERIFICAR SI EL USUARIO YA EXISTE
         try {
             val cadena: String = "SELECT *FROM tbUsuarios WHERE usuario = ?;"
@@ -233,11 +266,12 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
             if (found == 1) {
                 txvUs2.isVisible = true
                 btnConfirm2.isEnabled = false
-                Toast.makeText(applicationContext, "Ya existe usuario", Toast.LENGTH_SHORT).show()
-
             } else {
                 txvUs2.isVisible = false
-                btnConfirm2.isEnabled = true
+                if(txtUsuario2.text.length>=4){
+                    btnConfirm2.isEnabled = false
+                }
+
             }
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
@@ -245,52 +279,57 @@ class CrearCuenta : AppCompatActivity(), com.wdullaer.materialdatetimepicker.dat
         }
         conx.dbConn()!!.close()
     }
-//CAMBIAR
-@RequiresApi(Build.VERSION_CODES.O)
-fun createUs() {//REGISTRAR EL USUARIO
-    val txtNaci0 = txtNaci2.text.toString()
-    val formatter = DateTimeFormatter.ofPattern("d-M-yyyy")
-    val fechaNacimiento = LocalDate.parse(txtNaci0, formatter)
-    val fechaActual = LocalDate.now()
-    if (fechaNacimiento < fechaActual) {
-        try {
-            val cadena: String = "INSERT INTO tbUsuarios " +
-                    "values(?,?,?,?,?,?,getdate());"
-            val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
 
-            ps.setInt(1, 3)
-            ps.setString(2, txtUsuario2.text.toString())
-            ps.setString(3, crypt.encrypt(txtContraN2.text.toString(), "key"))
-            ps.setString(4, txtCorreo2.text.toString())
-            ps.setString(5, txtTel2.text.toString())
-            ps.setString(6, codigoAleatorio)
+    //CAMBIAR
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun createUs() {//REGISTRAR EL USUARIO
+        val txtNaci0 = txtNaci2.text.toString()
+        val formatter = DateTimeFormatter.ofPattern("d-M-yyyy")
+        val fechaNacimiento = LocalDate.parse(txtNaci0, formatter)
+        val fechaActual = LocalDate.now()
+        if (fechaNacimiento < fechaActual) {
+            try {
+                val cadena: String = "INSERT INTO tbUsuarios " +
+                        "values(?,?,?,?,?,?,getdate());"
+                val ps: PreparedStatement = conx.dbConn()?.prepareStatement(cadena)!!
+
+                ps.setInt(1, 3)
+                ps.setString(2, txtUsuario2.text.toString())
+                ps.setString(3, crypt.encrypt(txtContraN2.text.toString(), "key"))
+                ps.setString(4, txtCorreo2.text.toString())
+                ps.setString(5, txtTel2.text.toString())
+                ps.setString(6, codigoAleatorio)
 
 
-            /*if (txtNaci2 == fechaActual()){
-                createUs()
-            }else{
-                Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual", Toast.LENGTH_SHORT).show()
-                return  // Detener el proceso de guardado en la base de datos
-            }*/
+                /*if (txtNaci2 == fechaActual()){
+                    createUs()
+                }else{
+                    Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual", Toast.LENGTH_SHORT).show()
+                    return  // Detener el proceso de guardado en la base de datos
+                }*/
 
-            /*val fechaActual = LocalDate.now()
-            val fechaNacimiento: LocalDate = obtenerFechaNacimiento()
-            if (fechaNacimiento.isAfter(fechaActual)) {
-                Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual", Toast.LENGTH_SHORT).show()
-                return  // Detener el proceso de guardado en la base de datos
-            }*/
+                /*val fechaActual = LocalDate.now()
+                val fechaNacimiento: LocalDate = obtenerFechaNacimiento()
+                if (fechaNacimiento.isAfter(fechaActual)) {
+                    Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual", Toast.LENGTH_SHORT).show()
+                    return  // Detener el proceso de guardado en la base de datos
+                }*/
 
-            ps.executeUpdate()
+                ps.executeUpdate()
 
-        } catch (ex: SQLException) {
-            Log.e("Error: ", ex.message!!)
-            Toast.makeText(applicationContext, "Errorsito", Toast.LENGTH_SHORT).show()
+            } catch (ex: SQLException) {
+                Log.e("Error: ", ex.message!!)
+                Toast.makeText(applicationContext, "Errorsito", Toast.LENGTH_SHORT).show()
+            }
+            conx.dbConn()!!.close()
+        } else {
+            Toast.makeText(
+                this,
+                "La fecha de nacimiento no puede ser mayor a la fecha actual",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
         }
-        conx.dbConn()!!.close()
-    }else{
-        Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual", Toast.LENGTH_SHORT).show()
-        return
-    }
 
     }
 
@@ -310,7 +349,7 @@ fun createUs() {//REGISTRAR EL USUARIO
         return fechaNacimiento
     }*/
 
-    fun selectUs(){//AGARRAR EL IDusuario POR MEDIO DEL NOMBRE Y REGISTRAR EL CLIENTE
+    fun selectUs() {//AGARRAR EL IDusuario POR MEDIO DEL NOMBRE Y REGISTRAR EL CLIENTE
         try {
             val cadena: String = "SELECT *FROM tbUsuarios " +
                     "    WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS;"
@@ -360,18 +399,21 @@ fun createUs() {//REGISTRAR EL USUARIO
         conx.dbConn()!!.close()
 
     }
+
     fun LLenarSpin() {
         val adaptadorSpinner = ArrayAdapter(this, android.R.layout.simple_spinner_item, sexo)
         adaptadorSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         val spinner = findViewById<Spinner>(R.id.spinSexo2)
         spinner.adapter = adaptadorSpinner
     }
+
     private fun verResultado(year: Int, month: Int, day: Int) {
         val mes = month + 1
         fechaSql = "$year-$mes-$day"
         txtNaci2?.setText("$day-$mes-$year")
 
     }
+
     class DatePickerFragment(val listener: (year: Int, month: Int, day: Int) -> Unit) :
         DialogFragment(),
         DatePickerDialog.OnDateSetListener {
@@ -388,19 +430,24 @@ fun createUs() {//REGISTRAR EL USUARIO
             listener(year, month, day)
         }
     }
+
     fun verifContra() {
         if (txtContraN2.text.toString() != txtContraD2.text.toString()) {
-            txvCont2.isVisible=true
-            btnConfirm2.isEnabled=false
-        }
-        else {
-            txvCont2.isVisible=false
-            btnConfirm2.isEnabled=true
+            txvCont2.isVisible = true
+            btnConfirm2.isEnabled = false
+        } else {
+            txvCont2.isVisible = false
+            btnConfirm2.isEnabled = true
         }
     }
 
 
-    override fun onDateSet(view: com.wdullaer.materialdatetimepicker.date.DatePickerDialog?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
+    override fun onDateSet(
+        view: com.wdullaer.materialdatetimepicker.date.DatePickerDialog?,
+        year: Int,
+        monthOfYear: Int,
+        dayOfMonth: Int
+    ) {
         val selectedDate = Calendar.getInstance()
         selectedDate.set(year, monthOfYear, dayOfMonth)
 
@@ -419,7 +466,7 @@ fun createUs() {//REGISTRAR EL USUARIO
         // Crear un DatePickerDialog con la fecha actual y la fecha mínima permitida
         val datePickerDialog = DatePickerDialog(
             this,
-            DatePickerDialog.OnDateSetListener { _, year,month, day ->
+            DatePickerDialog.OnDateSetListener { _, year, month, day ->
                 // Aquí puedes hacer algo con la fecha seleccionada, como guardarla en una variable
                 val mes = month + 1
                 fechaSql = "$year-$mes-$day"
@@ -431,7 +478,7 @@ fun createUs() {//REGISTRAR EL USUARIO
         )
 
         // 18 años=6570 dias
-        calendar.add(Calendar.DAY_OF_MONTH,-6570)
+        calendar.add(Calendar.DAY_OF_MONTH, -6570)
         datePickerDialog.datePicker.maxDate = calendar.timeInMillis
 
         datePickerDialog.show()
