@@ -164,9 +164,7 @@ class CrearCuenta : AppCompatActivity(),
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (txtNomb2.text.length >= 5) {
-                    btnConfirm2.isEnabled = allFieldsValid
                 } else {
-                    btnConfirm2.isEnabled = false
                     txtNomb2.error = "5 caracteres minimo"
                 }
             }
@@ -180,9 +178,7 @@ class CrearCuenta : AppCompatActivity(),
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (txtApellidos2.text.length >= 5) {
-                    btnConfirm2.isEnabled = allFieldsValid
                 } else {
-                    btnConfirm2.isEnabled = false
                     txtApellidos2.error = "5 caracteres minimo"
                 }
             }
@@ -196,9 +192,7 @@ class CrearCuenta : AppCompatActivity(),
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (txtDui2.text.length >= 10) {
-                    btnConfirm2.isEnabled = allFieldsValid
                 } else {
-                    btnConfirm2.isEnabled = false
                     txtDui2.error = "10 caracteres minimo"
                 }
             }
@@ -212,9 +206,7 @@ class CrearCuenta : AppCompatActivity(),
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (txtTel2.text.length >= 8) {
-                    btnConfirm2.isEnabled = allFieldsValid
                 } else {
-                    btnConfirm2.isEnabled = false
                     txtTel2.error = "8 caracteres minimo"
                 }
             }
@@ -229,9 +221,7 @@ class CrearCuenta : AppCompatActivity(),
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 verifUs()
                 if (txtUsuario2.text.length >= 4) {
-                    btnConfirm2.isEnabled = allFieldsValid
                 } else {
-                    btnConfirm2.isEnabled = false
                     txtUsuario2.error = "4 caracteres minimo"
                 }
             }
@@ -246,9 +236,7 @@ class CrearCuenta : AppCompatActivity(),
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 vali.validateEmail(txtCorreo2, btnConfirm2)
                 if (txtCorreo2.text.length >= 10) {
-                    btnConfirm2.isEnabled = allFieldsValid
                 } else {
-                    btnConfirm2.isEnabled = false
                     txtCorreo2.error = "10 caracteres minimo"
                 }
             }
@@ -263,9 +251,7 @@ class CrearCuenta : AppCompatActivity(),
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 verifContra()
                 if (txtContraN2.text.length >= 4) {
-                    btnConfirm2.isEnabled = allFieldsValid
                 } else {
-                    btnConfirm2.isEnabled = false
                     txtContraN2.error = "4 caracteres minimo"
                 }
             }
@@ -280,9 +266,7 @@ class CrearCuenta : AppCompatActivity(),
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 verifContra()
                 if (txtContraD2.text.length >= 4) {
-                    btnConfirm2.isEnabled = allFieldsValid
                 } else {
-                    btnConfirm2.isEnabled = false
                     txtContraD2.error = "4 caracteres minimo"
                 }
             }
@@ -498,7 +482,7 @@ class CrearCuenta : AppCompatActivity(),
             btnConfirm2.isEnabled = false
         } else {
             txvCont2.isVisible = false
-            //btnConfirm2.isEnabled = true
+            btnConfirm2.isEnabled = true
         }
     }
 
