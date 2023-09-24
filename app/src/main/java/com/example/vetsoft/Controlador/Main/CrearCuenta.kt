@@ -112,16 +112,6 @@ class CrearCuenta : AppCompatActivity(),
         vali.setMinLength(txtNomb2, 3)
         vali.setMinLength(txtDir2, 10)
         vali.setMinLength(txtApellidos2, 5)*/
-        val allFieldsValid:Boolean = txtUsuario2.text.length >= 4 &&
-                txtContraN2.text.length >= 4 &&
-                txtContraD2.text.length >= 4 &&
-                txtNomb2.text.length >= 5 &&
-                txtDir2.text.length >= 5 &&
-                txtApellidos2.text.length >= 5 &&
-                txtDui2.text.length >= 10 &&
-                txtTel2.text.length >= 8 &&
-                txtCorreo2.text.length >= 10
-
 
         btnConfirm2.setOnClickListener() {
             //VERIFICAR MINIMO DE CARACTERES PERMITIDOS
@@ -134,31 +124,35 @@ class CrearCuenta : AppCompatActivity(),
                     txtApellidos2.text.length >= 5 &&
                     txtDui2.text.length >= 10 &&
                     txtTel2.text.length >= 8 &&
-                    txtCorreo2.text.length >= 10
+                    txtCorreo2.text.length >= 10 &&
+                    txtDir2.text.length >= 5
             val editTextList = listOf(
                 txtUsuario2, txtContraN2,
-                txtContraD2, txtCorreo2, txtNomb2, txtApellidos2, txtTel2, txtDui2
+                txtContraD2, txtCorreo2, txtNomb2, txtApellidos2, txtTel2, txtDui2, txtDir2
             )
             val areFieldsValid = vali.areFieldsNotEmpty(editTextList)
             if (areFieldsValid && allFieldsValid2) {
                 createUs()
                 selectUs()
                 createCl()
+
+
                 Toast.makeText(applicationContext, "Cuenta creada exitosamente", Toast.LENGTH_SHORT)
                     .show()
-
                 val builder = AlertDialog.Builder(this)
-
                 builder.setTitle("PIN DE SEGURIDAD")
                 builder.setMessage(
                     "Su PIN de seguridad es $codigoAleatorio este PIN " +
                             "lo puede encontrar en la pantalla para cambiar su contraseña"
                 )
-                Log.i("builde dialog", "123")
-                builder.setPositiveButton("OK") { dialog, which ->
+                builder.setPositiveButton("OK") { _, _ ->
                     val scndAct = Intent(this, MainActivity::class.java)
                     startActivity(scndAct)
                 }
+                val alertDialog = builder.create()
+                alertDialog.show()
+
+
             } else {
                 Toast.makeText(applicationContext, "Campos vacíos o invalidos", Toast.LENGTH_SHORT).show()
             }
@@ -170,6 +164,20 @@ class CrearCuenta : AppCompatActivity(),
         }
 
 //CADA VEZ QUE ESCRIBA SE MANDA A LLAMAR LA FUNCION
+        txtDir2.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtDir2.text.length >= 5) {
+                } else {
+                    txtDir2.error = "5 caracteres minimo"
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
         txtNomb2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -449,6 +457,7 @@ class CrearCuenta : AppCompatActivity(),
             ps.setString(6, spinSexo2.selectedItem.toString())
             ps.setString(7, txtDir2.text.toString())
             ps.executeUpdate()
+
 
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
