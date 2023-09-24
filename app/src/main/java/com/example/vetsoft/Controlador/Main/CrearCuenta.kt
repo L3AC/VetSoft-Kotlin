@@ -126,7 +126,7 @@ class CrearCuenta : AppCompatActivity(),
         btnConfirm2.setOnClickListener() {
             //VERIFICAR MINIMO DE CARACTERES PERMITIDOS
 
-            val allFieldsValid:Boolean = txtUsuario2.text.length >= 4 &&
+            val allFieldsValid2 = txtUsuario2.text.length >= 4 &&
                     txtContraN2.text.length >= 4 &&
                     txtContraD2.text.length >= 4 &&
                     txtNomb2.text.length >= 5 &&
@@ -140,7 +140,7 @@ class CrearCuenta : AppCompatActivity(),
                 txtContraD2, txtCorreo2, txtNomb2, txtApellidos2, txtTel2, txtDui2
             )
             val areFieldsValid = vali.areFieldsNotEmpty(editTextList)
-            if (areFieldsValid && allFieldsValid) {
+            if (areFieldsValid && allFieldsValid2) {
                 createUs()
                 selectUs()
                 createCl()
@@ -154,6 +154,7 @@ class CrearCuenta : AppCompatActivity(),
                     "Su PIN de seguridad es $codigoAleatorio este PIN " +
                             "lo puede encontrar en la pantalla para cambiar su contraseña"
                 )
+                Log.i("builde dialog", "123")
                 builder.setPositiveButton("OK") { dialog, which ->
                     val scndAct = Intent(this, MainActivity::class.java)
                     startActivity(scndAct)
