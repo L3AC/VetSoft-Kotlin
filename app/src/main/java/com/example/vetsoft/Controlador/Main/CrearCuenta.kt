@@ -128,7 +128,8 @@ class CrearCuenta : AppCompatActivity(),
                     txtDir2.text.length >= 5
             val editTextList = listOf(
                 txtUsuario2, txtContraN2,
-                txtContraD2, txtCorreo2, txtNomb2, txtApellidos2, txtTel2, txtDui2, txtDir2
+                txtContraD2, txtCorreo2, txtNomb2, txtApellidos2, txtTel2, txtDui2, txtDir2,
+                txtNaci2
             )
             val areFieldsValid = vali.areFieldsNotEmpty(editTextList)
             if (areFieldsValid && allFieldsValid2) {
