@@ -36,6 +36,7 @@ import java.util.Calendar
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+import kotlin.math.log
 
 lateinit var txtUsuario2: EditText
 lateinit var txtContraN2: EditText
@@ -111,7 +112,7 @@ class CrearCuenta : AppCompatActivity(),
         vali.setMinLength(txtNomb2, 3)
         vali.setMinLength(txtDir2, 10)
         vali.setMinLength(txtApellidos2, 5)*/
-        val allFieldsValid = txtUsuario2.text.length >= 4 &&
+        val allFieldsValid:Boolean = txtUsuario2.text.length >= 4 &&
                 txtContraN2.text.length >= 4 &&
                 txtContraD2.text.length >= 4 &&
                 txtNomb2.text.length >= 5 &&
@@ -125,7 +126,15 @@ class CrearCuenta : AppCompatActivity(),
         btnConfirm2.setOnClickListener() {
             //VERIFICAR MINIMO DE CARACTERES PERMITIDOS
 
-
+            val allFieldsValid:Boolean = txtUsuario2.text.length >= 4 &&
+                    txtContraN2.text.length >= 4 &&
+                    txtContraD2.text.length >= 4 &&
+                    txtNomb2.text.length >= 5 &&
+                    txtDir2.text.length >= 5 &&
+                    txtApellidos2.text.length >= 5 &&
+                    txtDui2.text.length >= 10 &&
+                    txtTel2.text.length >= 8 &&
+                    txtCorreo2.text.length >= 10
             val editTextList = listOf(
                 txtUsuario2, txtContraN2,
                 txtContraD2, txtCorreo2, txtNomb2, txtApellidos2, txtTel2, txtDui2
@@ -137,7 +146,9 @@ class CrearCuenta : AppCompatActivity(),
                 createCl()
                 Toast.makeText(applicationContext, "Cuenta creada exitosamente", Toast.LENGTH_SHORT)
                     .show()
+
                 val builder = AlertDialog.Builder(this)
+
                 builder.setTitle("PIN DE SEGURIDAD")
                 builder.setMessage(
                     "Su PIN de seguridad es $codigoAleatorio este PIN " +
@@ -148,7 +159,7 @@ class CrearCuenta : AppCompatActivity(),
                     startActivity(scndAct)
                 }
             } else {
-                Toast.makeText(applicationContext, "Campos invalidos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Campos vacíos o invalidos", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -313,9 +324,10 @@ class CrearCuenta : AppCompatActivity(),
 
             } else {
                 txvUs2.isVisible = false
-                /*if (txtUsuario2.text.length >= 4) {
+
+                if (txtUsuario2.text.length >= 4) {
                     btnConfirm2.isEnabled = true
-                }*/
+                }
 
             }
         } catch (ex: SQLException) {
