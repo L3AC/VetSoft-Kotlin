@@ -26,10 +26,10 @@ class conx {
         try{
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance()
             connString="jdbc:jtds:sqlserver://" +
-                    "$ip;" +
-                    "databaseName=$db;" +
-                    "user=$username;" +
-                    "password=$password"
+                    "$ipAlva;" +
+                    "databaseName=$dbAlva;" +
+                    "user=$usernameAlva;" +
+                    "password=$passwordAlva"
 
             conn= DriverManager.getConnection(connString)
         }

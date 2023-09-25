@@ -275,6 +275,7 @@ class RecupContra : AppCompatActivity() {
                 intent.putExtra("pasw", pasw)
                 intent.putExtra("idUs", idUs)
                 intent.putExtra("forma", forma)
+                Log.i("pantal",forma.toString())
                 startActivity(intent)
             }
 

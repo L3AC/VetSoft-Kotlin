@@ -33,7 +33,7 @@ lateinit var txvAdvCC:TextView
 lateinit var btnMirarCC:ImageButton
 class CambioContra : AppCompatActivity() {
     private var idUs: Int = 0
-    private var met: Int = 0
+    private var forma: Int = 0
     private var pasw=""
     private var conx = conx()
     private var crypt= Crypto()
@@ -44,9 +44,10 @@ class CambioContra : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val extras = intent.extras
         idUs= extras?.getInt("idUs")!!
-        Log.i("jojo", idUs.toString())
+
         pasw = extras?.getString("pasw")!!
-        met= extras?.getInt("met")!!
+        forma= extras?.getInt("forma")!!
+        Log.i("jojo", forma.toString())
 
         setContentView(R.layout.activity_cambio_contra)
         btnVolverCC =findViewById(R.id.btnVolverCC)
@@ -63,14 +64,8 @@ class CambioContra : AppCompatActivity() {
         vali.Visib(lista,false)
 
         btnVolverCC.setOnClickListener(){
-            if(met==1){
                 val scndAct = Intent(this, MainActivity::class.java)
                 startActivity(scndAct)
-            }
-            if(met==2){
-                val scndAct = Intent(this, RecupPreguntas::class.java)
-                startActivity(scndAct)
-            }
         }
         btnVerifCC.setOnClickListener(){
             if (txtContraCC.text.toString()==pasw){
