@@ -15,6 +15,8 @@ lateinit var btnMasc4:ImageButton
 lateinit var btnPnd4:ImageButton
 lateinit var btnHist4:ImageButton
 lateinit var btnMasP: TextView
+lateinit var btnHisto: TextView
+lateinit var btnReser: TextView
 class houseCliente : Fragment() {
     private var idUs: Int = 0
     private var idCl:Int=0
@@ -41,6 +43,8 @@ class houseCliente : Fragment() {
         btnPnd4 =requireView().findViewById(R.id.btnPnd2)
         btnHist4 =requireView().findViewById(R.id.btnHist2)
         btnMasP=requireView().findViewById(R.id.textView32)
+        btnHisto= requireView().findViewById(R.id.textView31)
+        btnReser= requireView().findViewById(R.id.textView39)
 
         val bundle = Bundle().apply {
             putInt("idUs", idUs)
@@ -53,7 +57,13 @@ class houseCliente : Fragment() {
         btnPnd4.setOnClickListener(){
             findNavController().navigate(R.id.action_houseCliente_to_citasPendientes, bundle)
         }
+        btnReser.setOnClickListener(){
+            findNavController().navigate(R.id.action_houseCliente_to_citasPendientes, bundle)
+        }
         btnHist4.setOnClickListener(){
+            findNavController().navigate(R.id.action_houseCliente_to_historialCitas, bundle)
+        }
+        btnHisto.setOnClickListener(){
             findNavController().navigate(R.id.action_houseCliente_to_historialCitas, bundle)
         }
         btnMasP.setOnClickListener {

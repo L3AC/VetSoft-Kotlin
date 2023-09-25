@@ -26,7 +26,7 @@
 
                 <ImageView
                     android:id="@+id/imageView18"
-                    android:layout_width="401dp"
+                    android:layout_width="410dp"
                     android:layout_height="613dp"
                     android:src="@drawable/aaaaa"
                     app:layout_constraintBottom_toBottomOf="parent"

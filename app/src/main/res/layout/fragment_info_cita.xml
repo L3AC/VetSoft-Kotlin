@@ -31,8 +31,8 @@
 
                 <TextView
                     android:id="@+id/textView22"
-                    android:layout_width="379dp"
-                    android:layout_height="949dp"
+                    android:layout_width="415dp"
+                    android:layout_height="955dp"
                     android:background="@drawable/fondoblanc"
                     android:fontFamily="sans-serif"
                     android:textAlignment="viewStart"
