@@ -8,7 +8,7 @@ import java.sql.SQLException
 
 class conx {
     private val ip="10.0.2.2:1433"
-   //private val ip2="10.20.0.55:1433"
+    private val ip2="192.168.141.196:1433"
     private val db="VetSoft"
     private val username="userSQL"
     private val password="pasf2"
@@ -26,10 +26,10 @@ class conx {
         try{
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance()
             connString="jdbc:jtds:sqlserver://" +
-                    "$ipAlva;" +
-                    "databaseName=$dbAlva;" +
-                    "user=$usernameAlva;" +
-                    "password=$passwordAlva"
+                    "$ip2;" +
+                    "databaseName=$db;" +
+                    "user=$username;" +
+                    "password=$password"
 
             conn= DriverManager.getConnection(connString)
         }

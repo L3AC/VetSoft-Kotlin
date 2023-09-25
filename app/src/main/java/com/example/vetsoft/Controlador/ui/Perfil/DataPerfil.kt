@@ -56,7 +56,7 @@ lateinit var btnActDP: Button
 lateinit var btnGuardarDP: Button
 lateinit var btnCerrarSesion: Button
 lateinit var selectedDate: Calendar
-lateinit var swDarkmode: SwitchMaterial
+
 class DataPerfil : Fragment(){
     private var idUs: Int = 0
     private var idCl: Int = 0
@@ -104,7 +104,6 @@ class DataPerfil : Fragment(){
         txtDirDP =requireView().findViewById(R.id.txtDirDP)
         btnActDP =requireView().findViewById(R.id.btnActDP)
         btnGuardarDP =requireView().findViewById(R.id.btnGuardarDP)
-        swDarkmode = requireView().findViewById(R.id.swDarkMode)
         txvUsDP.isVisible=false
         btnGuardarDP.isVisible=false
 
@@ -120,14 +119,7 @@ class DataPerfil : Fragment(){
         vali.configEditText(txtDuiDP,10,"[0-9]+")
         vali.configEditText(txtDirDP,300,"[a-zA-Z\\s]+")
 
-        swDarkmode.setOnCheckedChangeListener {_, isSelected ->
-            if (isSelected){
-                enableDarkMode()
-            }
-            else{
-                disableDarkMode()
-            }
-        }
+
 
         btnActDP.setOnClickListener(){
             if (btnGuardarDP.isVisible) {
@@ -273,25 +265,6 @@ class DataPerfil : Fragment(){
         }
         btnVolverDP.setOnClickListener(){
             findNavController().navigate(R.id.action_dataPerfil_to_perfilMain, bundle)
-        }
-
-
-    }
-
-    fun enableDarkMode() {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        val activity = requireActivity() as? AppCompatActivity
-        activity?.let {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            it.delegate.applyDayNight()
-        }
-    }
-
-    fun disableDarkMode() {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        val activity = requireActivity() as? AppCompatActivity
-        activity?.let {
-            it.delegate.applyDayNight()
         }
     }
 
