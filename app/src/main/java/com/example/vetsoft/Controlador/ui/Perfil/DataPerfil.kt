@@ -144,17 +144,84 @@ class DataPerfil : Fragment(){
             showDatePickerDialog()
         }
         btnGuardarDP.setOnClickListener(){
+            val allFieldsValid2 = txtUsuario2.text.length >= 4 &&
+                    txtContraN2.text.length >= 4 &&
+                    txtContraD2.text.length >= 4 &&
+                    txtNomb2.text.length >= 5 &&
+                    txtDir2.text.length >= 5 &&
+                    txtApellidos2.text.length >= 5 &&
+                    txtDui2.text.length >= 10 &&
+                    txtTel2.text.length >= 8 &&
+                    txtCorreo2.text.length >= 10 &&
+                    txtDir2.text.length >= 5
+
             val editTextList = listOf(
                 txtUsDP, txtCorreoDP, txtNombDP, txtApellDP, txtTelDP, txtDuiDP
             )
             val areFieldsValid  = vali.areFieldsNotEmpty(editTextList)
-            if(areFieldsValid){
+            if(areFieldsValid && allFieldsValid2){
                 updateData()
             }
             else{
                 Toast.makeText(requireContext(), "Campos vacios", Toast.LENGTH_SHORT).show()
             }
         }
+        txtDirDP.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtDirDP.text.length >= 5) {
+                } else {
+                    txtDirDP.error = "5 caracteres minimo"
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        txtTelDP.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtTelDP.text.length >= 8) {
+                } else {
+                    txtTelDP.error = "8 caracteres minimo"
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        txtNombDP.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtNombDP.text.length >= 5) {
+                } else {
+                    txtNombDP.error = "5 caracteres minimo"
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        txtApellDP.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtApellDP.text.length >= 5) {
+                } else {
+                    txtApellDP.error = "5 caracteres minimo"
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
         txtUsDP.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -167,6 +234,10 @@ class DataPerfil : Fragment(){
                 else{
                     verifUs()
                 }
+                if (txtUsDP.text.length >= 4) {
+                } else {
+                    txtUsDP.error = "4 caracteres minimo"
+                }
 
             }
             override fun afterTextChanged(s: Editable?) {
@@ -177,6 +248,10 @@ class DataPerfil : Fragment(){
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 vali.validateEmail(txtCorreoDP, btnGuardarDP)
+                if (txtCorreoDP.text.length >= 10) {
+                } else {
+                    txtCorreoDP.error = "10 caracteres minimo"
+                }
             }
             override fun afterTextChanged(s: Editable?) {
             }

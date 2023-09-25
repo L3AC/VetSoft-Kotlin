@@ -1,6 +1,8 @@
 package com.example.vetsoft.Controlador.ui.Home
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +18,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.example.vetsoft.Controlador.Main.txtContraD2
+import com.example.vetsoft.Controlador.Main.txtDir2
 import com.example.vetsoft.Modelo.conx
 import com.example.vetsoft.R
 import com.example.vetsoft.Controlador.validation.Validat
@@ -51,6 +54,7 @@ class AgregarMascota : Fragment() {
         arguments?.let {
             idUs = arguments?.getInt("idUs")!!
             idCl = arguments?.getInt("idCl")!!
+            Log.i("idCliente",idCl.toString())
         }
     }
 
@@ -77,6 +81,7 @@ class AgregarMascota : Fragment() {
             putInt("idCl", idCl)
         }
         //VALIDACION
+       // val allFieldsValid = txtNombreAM.text.length >= 4
         vali.setMax(txtNombreAM, 25);
         val editTextList1 = listOf(txtNombreAM)
         vali.setupET(editTextList1);
@@ -87,8 +92,8 @@ class AgregarMascota : Fragment() {
         btnConfirmAM.setOnClickListener() {
             val editTextList = listOf(txtNombreAM)
             val areFieldsValid = vali.areFieldsNotEmpty(editTextList) &&
-                    txtNombreAM.text.length >= 3
-            if (areFieldsValid) {
+                    txtNombreAM.text.length >= 4
+            if (areFieldsValid ) {
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("Registrar mascota")
                 builder.setMessage("¿Está seguro de la información de su mascota?")
@@ -101,9 +106,23 @@ class AgregarMascota : Fragment() {
                 dialog.show()
             }
             else{
-                Toast.makeText(requireContext(), "Minimo de 3 caracteres", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Campos vacíos o invalidos", Toast.LENGTH_SHORT).show()
             }
         }
+        txtNombreAM.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtNombreAM.text.length >=4) {
+                } else {
+                    txtNombreAM.error = "4 caracteres minimo"
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
     }
 
     //CARGA EL COMBO DE TIPO DE ANIMALES
