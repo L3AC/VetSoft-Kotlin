@@ -150,8 +150,7 @@ class DataPerfil : Fragment(){
                     txtApellDP.text.length >= 5 &&
                     txtDuiDP.text.length >= 10 &&
                     txtTelDP.text.length >= 8 &&
-                    txtCorreoDP.text.length >= 10 &&
-                    txtDirDP.text.length >= 5
+                    txtCorreoDP.text.length >= 10
 
             val editTextList = listOf(
                 txtUsDP, txtCorreoDP, txtNombDP, txtApellDP, txtTelDP, txtDuiDP
@@ -164,6 +163,20 @@ class DataPerfil : Fragment(){
                 Toast.makeText(requireContext(), "Campos vacios", Toast.LENGTH_SHORT).show()
             }
         }
+        txtDuiDP.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtDuiDP.text.length >= 10) {
+                } else {
+                    txtDuiDP.error = "10 caracteres minimo"
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
         txtDirDP.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
