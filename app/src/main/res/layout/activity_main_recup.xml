@@ -76,7 +76,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.764"
-        app:srcCompat="@drawable/sms" />
+        app:srcCompat="@drawable/pins" />
 
     <ImageButton
         android:id="@+id/btnPregR"
@@ -143,7 +143,7 @@
         android:layout_width="138dp"
         android:layout_height="36dp"
         android:fontFamily="@font/montserrat"
-        android:text="Sms"
+        android:text="PIN"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
