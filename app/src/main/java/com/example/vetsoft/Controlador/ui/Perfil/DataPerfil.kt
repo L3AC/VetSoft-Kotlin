@@ -144,16 +144,14 @@ class DataPerfil : Fragment(){
             showDatePickerDialog()
         }
         btnGuardarDP.setOnClickListener(){
-            val allFieldsValid2 = txtUsuario2.text.length >= 4 &&
-                    txtContraN2.text.length >= 4 &&
-                    txtContraD2.text.length >= 4 &&
-                    txtNomb2.text.length >= 5 &&
-                    txtDir2.text.length >= 5 &&
-                    txtApellidos2.text.length >= 5 &&
-                    txtDui2.text.length >= 10 &&
-                    txtTel2.text.length >= 8 &&
-                    txtCorreo2.text.length >= 10 &&
-                    txtDir2.text.length >= 5
+            val allFieldsValid2 = txtUsDP.text.length >= 4 &&
+                    txtNombDP.text.length >= 5 &&
+                    txtDirDP.text.length >= 5 &&
+                    txtApellDP.text.length >= 5 &&
+                    txtDuiDP.text.length >= 10 &&
+                    txtTelDP.text.length >= 8 &&
+                    txtCorreoDP.text.length >= 10 &&
+                    txtDirDP.text.length >= 5
 
             val editTextList = listOf(
                 txtUsDP, txtCorreoDP, txtNombDP, txtApellDP, txtTelDP, txtDuiDP
