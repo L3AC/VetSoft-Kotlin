@@ -116,7 +116,7 @@ class DataPerfil : Fragment(){
         vali.configEditText(txtNombDP,30,"[a-zA-Z\\s]+")
         vali.configEditText(txtApellDP,30,"[a-zA-Z\\s]+")
         vali.configEditText(txtTelDP,8,"[0-9]+")
-        vali.configEditText(txtDuiDP,10,"[0-9]+")
+        vali.configEditText(txtDuiDP,10,"[0-9-]+")
         vali.configEditText(txtDirDP,300,"[a-zA-Z\\s]+")
 
 

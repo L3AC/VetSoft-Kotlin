@@ -103,7 +103,7 @@ class CrearCuenta : AppCompatActivity(),
         vali.configEditText(txtNomb2, 30, "[a-zA-Z\\s]+")
         vali.configEditText(txtApellidos2, 30, "[a-zA-Z\\s]+")
         vali.configEditText(txtTel2, 8, "[0-9]+")
-        vali.configEditText(txtDui2, 10, "[0-9]+")
+        vali.configEditText(txtDui2, 10, "[0-9-]+")
         vali.configEditText(txtDir2, 300, "[a-zA-Z\\s]+")
 
         /*vali.setMinLength(txtUsuario2, 6)
@@ -374,7 +374,6 @@ class CrearCuenta : AppCompatActivity(),
                     Toast.makeText(this, "La fecha de nacimiento no puede ser mayor a la fecha actual", Toast.LENGTH_SHORT).show()
                     return  // Detener el proceso de guardado en la base de datos
                 }*/
-
                 /*val fechaActual = LocalDate.now()
                 val fechaNacimiento: LocalDate = obtenerFechaNacimiento()
                 if (fechaNacimiento.isAfter(fechaActual)) {
@@ -498,7 +497,7 @@ class CrearCuenta : AppCompatActivity(),
             listener(year, month, day)
         }
     }
-
+    //QUE LA CONTRASEÑA SEA IGUAL EN LOS DOS CAMPOS
     fun verifContra() {
         if (txtContraN2.text.toString() != txtContraD2.text.toString()) {
             txvCont2.isVisible = true
