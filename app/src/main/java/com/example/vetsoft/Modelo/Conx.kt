@@ -26,7 +26,7 @@ class conx {
         try{
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance()
             connString="jdbc:jtds:sqlserver://" +
-                    "$ip2;" +
+                    "$ip;" +
                     "databaseName=$db;" +
                     "user=$username;" +
                     "password=$password"

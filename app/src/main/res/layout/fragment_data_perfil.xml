@@ -347,7 +347,7 @@
                     android:ems="10"
                     android:fontFamily="@font/montserrat"
                     android:gravity="fill_vertical|fill_horizontal"
-                    android:inputType="number"
+                    android:inputType="phone"
                     android:textAlignment="viewEnd"
                     android:textColor="#1B4965"
                     app:layout_constraintBottom_toBottomOf="parent"
