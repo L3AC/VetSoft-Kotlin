@@ -152,7 +152,7 @@ class DataPerfil : Fragment(){
                 updateData()
             }
             else{
-                Toast.makeText(requireContext(), "Campos vacios", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Campos vacios o incompletos", Toast.LENGTH_SHORT).show()
             }
         }
         txtDuiDP.addTextChangedListener(object : TextWatcher {
