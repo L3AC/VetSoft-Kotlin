@@ -112,12 +112,12 @@ class DataPerfil : Fragment(){
         val lista= listOf(txtUsDP,txtNombDP,txtApellDP,txtCorreoDP,txtNaciDP,spSexoDP,txtTelDP,txtDuiDP,btnNaciDP)
         vali.Habilit(lista,false)
 
-        vali.configEditText(txtUsDP,15,"^[a-zA-Z0-9]+$")
-        vali.configEditText(txtNombDP,30,"[a-zA-Z\\s]+")
-        vali.configEditText(txtApellDP,30,"[a-zA-Z\\s]+")
+        vali.configEditText(txtUsDP,15,"^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ]+$")
+        vali.configEditText(txtNombDP,30,"[a-zA-Z\\sáéíóúÁÉÍÓÚñÑüÜ]+")
+        vali.configEditText(txtApellDP,30,"[a-zA-Z\\sáéíóúÁÉÍÓÚñÑüÜ]+")
         vali.configEditText(txtTelDP,8,"[0-9]+")
         vali.configEditText(txtDuiDP,10,"[0-9-]+")
-        vali.configEditText(txtDirDP,300,"[a-zA-Z\\s]+")
+        vali.configEditText(txtDirDP,300,"[a-zA-Z\\sáéíóúÁÉÍÓÚñÑüÜ]+")
 
 
 

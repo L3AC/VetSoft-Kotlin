@@ -53,8 +53,8 @@ class MainActivity : AppCompatActivity() {
 
         //DIFERENT
 
-        vali.configEditText(txtUsuario1,15,"^[a-zA-Z0-9]+$")
-        vali.configEditText(txtContra1,20,"^[a-zA-Z0-9]+$")
+        vali.configEditText(txtUsuario1,15,"^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ]+$")
+        vali.configEditText(txtContra1,20,"^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ]+$")
 
 
         btnIngresar1.setOnClickListener() {

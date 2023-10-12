@@ -97,14 +97,14 @@ class CrearCuenta : AppCompatActivity(),
         txtNaci2.isEnabled = false
 
         //VALIDACION DE CAMPOS
-        vali.configEditText(txtUsuario2, 15, "^[a-zA-Z0-9]+$")
-        vali.configEditText(txtContraN2, 20, "^[a-zA-Z0-9]+$")
-        vali.configEditText(txtContraD2, 20, "^[a-zA-Z0-9]+$")
-        vali.configEditText(txtNomb2, 30, "[a-zA-Z\\s]+")
-        vali.configEditText(txtApellidos2, 30, "[a-zA-Z\\s]+")
+        vali.configEditText(txtUsuario2, 15, "^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ]+$")
+        vali.configEditText(txtContraN2, 20, "^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ]+$")
+        vali.configEditText(txtContraD2, 20, "^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ]+$")
+        vali.configEditText(txtNomb2, 30, "[a-zA-Z\\sáéíóúÁÉÍÓÚñÑüÜ]+")
+        vali.configEditText(txtApellidos2, 30, "[a-zA-Z\\sáéíóúÁÉÍÓÚñÑüÜ]+")
         vali.configEditText(txtTel2, 8, "[0-9]+")
         vali.configEditText(txtDui2, 10, "[0-9-]+")
-        vali.configEditText(txtDir2, 300, "[a-zA-Z\\s]+")
+        vali.configEditText(txtDir2, 300, "[a-zA-Z\\sáéíóúÁÉÍÓÚñÑüÜ]+")
 
         /*vali.setMinLength(txtUsuario2, 6)
         vali.setMinLength(txtContraN2, 4)
