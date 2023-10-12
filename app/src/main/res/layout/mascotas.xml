@@ -35,11 +35,10 @@
                 android:layout_height="76dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.02"
+                app:layout_constraintHorizontal_bias="0.01"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.551"
-                app:srcCompat="@drawable/masco" />
+                app:srcCompat="@drawable/annimal" />
 
             <TextView
                 android:id="@+id/txvMascota"

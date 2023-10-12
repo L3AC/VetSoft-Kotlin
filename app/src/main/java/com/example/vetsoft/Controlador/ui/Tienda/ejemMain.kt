@@ -12,6 +12,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.vetsoft.Controlador.ui.Home.spinEnt5
@@ -167,10 +168,12 @@ class ejemMain : Fragment() {
                 txvCant.text = cont.toString()
                 //txvCant.setText(rowCount.toString())
             } else {
+                btnConfirmE.isVisible=false
                 txvDisp.text = "Agotado"
                 txvCant.setText("--")
                 btnL.isEnabled = false
                 btnM.isEnabled = false
+
             }
         } catch (ex: SQLException) {
             Log.e("Error: ", ex.message!!)
